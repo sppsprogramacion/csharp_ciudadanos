@@ -61,7 +61,7 @@
             this.btnRegistroDiario.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistroDiario.Image = global::CapaPresentacion.Properties.Resources.reportes1;
             this.btnRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistroDiario.Location = new System.Drawing.Point(281, 109);
+            this.btnRegistroDiario.Location = new System.Drawing.Point(403, 109);
             this.btnRegistroDiario.Name = "btnRegistroDiario";
             this.btnRegistroDiario.Size = new System.Drawing.Size(178, 65);
             this.btnRegistroDiario.TabIndex = 5;
