@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BF09FF2-BECF-46DB-8695-B22CCBF5E100}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapaNegocio</RootNamespace>
+    <AssemblyName>CapaNegocio</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="NAbogadoInterno.cs" />
+    <Compile Include="NAuth.cs" />
+    <Compile Include="NCategoriasCiudadano.cs" />
+    <Compile Include="NCiudadano.cs" />
+    <Compile Include="NCiuddanosCategorias.cs" />
+    <Compile Include="NDepartamento.cs" />
+    <Compile Include="NEstadoCivil.cs" />
+    <Compile Include="NInterno.cs" />
+    <Compile Include="NMotivoAtencion.cs" />
+    <Compile Include="NMunicipio.cs" />
+    <Compile Include="NNacionalidad.cs" />
+    <Compile Include="NOrganismoDestino.cs" />
+    <Compile Include="NPais.cs" />
+    <Compile Include="NParentesco.cs" />
+    <Compile Include="NProvincia.cs" />
+    <Compile Include="NRegistroDiario.cs" />
+    <Compile Include="NSectoresDestino.cs" />
+    <Compile Include="NSexo.cs" />
+    <Compile Include="NTipoAcceso.cs" />
+    <Compile Include="NTipoAtencion.cs" />
+    <Compile Include="NTipoDefensor.cs" />
+    <Compile Include="NVisitaInterno.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{BB1A7351-3E16-4B6E-971C-F629BFCBEE34}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAOImplement\DAOImplement.csproj">
+      <Project>{61044b41-e330-4bbd-8a13-7c3f8a4e959d}</Project>
+      <Name>DAOImplement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{0a238269-d2f6-45a7-af79-bb8d94f2e8a5}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
