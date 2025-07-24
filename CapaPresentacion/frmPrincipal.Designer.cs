@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRegistroDiario = new System.Windows.Forms.Button();
             this.btnAdministrar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,7 +42,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(799, 72);
+            this.panel1.Size = new System.Drawing.Size(905, 72);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -84,11 +85,29 @@
             this.btnAdministrar.UseVisualStyleBackColor = false;
             this.btnAdministrar.Click += new System.EventHandler(this.btnAdministrar_Click);
             // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.Red;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Location = new System.Drawing.Point(778, 485);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(117, 45);
+            this.btnCerrar.TabIndex = 12;
+            this.btnCerrar.Text = "CERRAR SISTEMA";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(907, 542);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnRegistroDiario);
             this.Controls.Add(this.btnAdministrar);
             this.Controls.Add(this.panel1);
@@ -107,5 +126,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAdministrar;
         private System.Windows.Forms.Button btnRegistroDiario;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

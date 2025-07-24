@@ -50,13 +50,18 @@ namespace CapaPresentacion
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
-
+            this.ControlBox = false;
         }
 
         private void btnRegistroDiario_Click(object sender, EventArgs e)
         {
             frmRegistroDiario registroDiario = new frmRegistroDiario();
             registroDiario.Show();
+        }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

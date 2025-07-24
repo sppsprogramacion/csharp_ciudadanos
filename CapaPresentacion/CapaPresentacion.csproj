@@ -146,6 +146,11 @@
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EditarDDomicilioCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EditarDPersonalesCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\NuevoCiudadanoValidator.cs" />
+    <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarDniValidator.cs" />
+    <Compile Include="Validaciones\Login\Datos\LoginDatos.cs" />
+    <Compile Include="Validaciones\Login\ValidacionLogin\LoginValidator.cs" />
+    <Compile Include="Validaciones\CiudadanoNuevo\Datos\CiudadanoNuevoDatos.cs" />
+    <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarApellidoValidator.cs" />
     <EmbeddedResource Include="AgregarInternos.resx">
       <DependentUpon>AgregarInternos.cs</DependentUpon>
     </EmbeddedResource>

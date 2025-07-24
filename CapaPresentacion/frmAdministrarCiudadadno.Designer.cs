@@ -86,6 +86,7 @@
             this.btnEditarDomicilio = new System.Windows.Forms.Button();
             this.btnGuardarDomicilio = new System.Windows.Forms.Button();
             this.tabVincularCiudadno = new System.Windows.Forms.TabPage();
+            this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.txtIdInterno = new System.Windows.Forms.TextBox();
             this.lblSexo = new System.Windows.Forms.Label();
@@ -109,13 +110,18 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscarInterno = new System.Windows.Forms.Button();
             this.tabHistorialIngresos = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label27 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabAsignarVisitas = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtEstablecerDiscapacidad = new System.Windows.Forms.TextBox();
             this.btnEstablecerDiscapacidad = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label28 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.txtNovedadDetalle = new System.Windows.Forms.TextBox();
             this.txtIdCiuadanoVincularvisita = new System.Windows.Forms.TextBox();
@@ -124,6 +130,7 @@
             this.txtDniVisita = new System.Windows.Forms.TextBox();
             this.txtNombreVisita = new System.Windows.Forms.TextBox();
             this.tabEstablecerCategorias = new System.Windows.Forms.TabPage();
+            this.btnActualizarDatos = new System.Windows.Forms.Button();
             this.dgvCategoriaAbogado = new System.Windows.Forms.DataGridView();
             this.btnCrearCiudadanosCategorias = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
@@ -137,13 +144,6 @@
             this.txtIdCioudadanoCategoria = new System.Windows.Forms.TextBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.btnActualizarDatos = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,6 +155,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabHistorialIngresos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabAsignarVisitas.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -162,7 +163,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabEstablecerCategorias.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoriaAbogado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -718,7 +718,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(68, 280);
+            this.label39.Location = new System.Drawing.Point(68, 341);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(57, 13);
             this.label39.TabIndex = 43;
@@ -726,7 +726,7 @@
             // 
             // txtCategoriasCiudadano
             // 
-            this.txtCategoriasCiudadano.Location = new System.Drawing.Point(199, 277);
+            this.txtCategoriasCiudadano.Location = new System.Drawing.Point(199, 338);
             this.txtCategoriasCiudadano.Name = "txtCategoriasCiudadano";
             this.txtCategoriasCiudadano.Size = new System.Drawing.Size(259, 20);
             this.txtCategoriasCiudadano.TabIndex = 42;
@@ -806,6 +806,16 @@
             this.tabVincularCiudadno.TabIndex = 1;
             this.tabVincularCiudadno.Text = "Vincular Ciudadano";
             this.tabVincularCiudadno.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarPestañaVinculacion
+            // 
+            this.btnActualizarPestañaVinculacion.Location = new System.Drawing.Point(998, 47);
+            this.btnActualizarPestañaVinculacion.Name = "btnActualizarPestañaVinculacion";
+            this.btnActualizarPestañaVinculacion.Size = new System.Drawing.Size(158, 46);
+            this.btnActualizarPestañaVinculacion.TabIndex = 26;
+            this.btnActualizarPestañaVinculacion.Text = "Actualizar";
+            this.btnActualizarPestañaVinculacion.UseVisualStyleBackColor = true;
+            this.btnActualizarPestañaVinculacion.Click += new System.EventHandler(this.btnActualizarPestañaVinculacion_Click);
             // 
             // label18
             // 
@@ -1009,6 +1019,30 @@
             this.tabHistorialIngresos.Text = "Historial de Ingresos";
             this.tabHistorialIngresos.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(45, 136);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(1114, 219);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(258, 51);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(101, 13);
+            this.label27.TabIndex = 1;
+            this.label27.Text = "Buscar por Apellido:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(413, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(190, 20);
+            this.textBox1.TabIndex = 0;
+            // 
             // tabAsignarVisitas
             // 
             this.tabAsignarVisitas.Controls.Add(this.panel2);
@@ -1033,6 +1067,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(479, 445);
             this.panel2.TabIndex = 11;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(30, 301);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(99, 16);
+            this.label29.TabIndex = 10;
+            this.label29.Text = "Observación:";
             // 
             // label41
             // 
@@ -1088,6 +1132,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(512, 445);
             this.panel1.TabIndex = 10;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(34, 305);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(99, 16);
+            this.label28.TabIndex = 7;
+            this.label28.Text = "Observación:";
             // 
             // label40
             // 
@@ -1171,6 +1225,16 @@
             this.tabEstablecerCategorias.TabIndex = 4;
             this.tabEstablecerCategorias.Text = "Asignar Categorias";
             this.tabEstablecerCategorias.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarDatos
+            // 
+            this.btnActualizarDatos.Location = new System.Drawing.Point(416, 30);
+            this.btnActualizarDatos.Name = "btnActualizarDatos";
+            this.btnActualizarDatos.Size = new System.Drawing.Size(286, 49);
+            this.btnActualizarDatos.TabIndex = 13;
+            this.btnActualizarDatos.Text = "Actualizar";
+            this.btnActualizarDatos.UseVisualStyleBackColor = true;
+            this.btnActualizarDatos.Click += new System.EventHandler(this.btnActualizarDatos_Click);
             // 
             // dgvCategoriaAbogado
             // 
@@ -1283,70 +1347,6 @@
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
-            // btnActualizarPestañaVinculacion
-            // 
-            this.btnActualizarPestañaVinculacion.Location = new System.Drawing.Point(998, 47);
-            this.btnActualizarPestañaVinculacion.Name = "btnActualizarPestañaVinculacion";
-            this.btnActualizarPestañaVinculacion.Size = new System.Drawing.Size(158, 46);
-            this.btnActualizarPestañaVinculacion.TabIndex = 26;
-            this.btnActualizarPestañaVinculacion.Text = "Actualizar";
-            this.btnActualizarPestañaVinculacion.UseVisualStyleBackColor = true;
-            this.btnActualizarPestañaVinculacion.Click += new System.EventHandler(this.btnActualizarPestañaVinculacion_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(413, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(258, 51);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(101, 13);
-            this.label27.TabIndex = 1;
-            this.label27.Text = "Buscar por Apellido:";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(45, 136);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1114, 219);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(34, 305);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(99, 16);
-            this.label28.TabIndex = 7;
-            this.label28.Text = "Observación:";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(30, 301);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(99, 16);
-            this.label29.TabIndex = 10;
-            this.label29.Text = "Observación:";
-            // 
-            // btnActualizarDatos
-            // 
-            this.btnActualizarDatos.Location = new System.Drawing.Point(416, 30);
-            this.btnActualizarDatos.Name = "btnActualizarDatos";
-            this.btnActualizarDatos.Size = new System.Drawing.Size(286, 49);
-            this.btnActualizarDatos.TabIndex = 13;
-            this.btnActualizarDatos.Text = "Actualizar";
-            this.btnActualizarDatos.UseVisualStyleBackColor = true;
-            this.btnActualizarDatos.Click += new System.EventHandler(this.btnActualizarDatos_Click);
-            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1373,6 +1373,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabHistorialIngresos.ResumeLayout(false);
             this.tabHistorialIngresos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabAsignarVisitas.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1383,7 +1384,6 @@
             this.tabEstablecerCategorias.ResumeLayout(false);
             this.tabEstablecerCategorias.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoriaAbogado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

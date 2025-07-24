@@ -3,6 +3,7 @@ using CommonCache;
 using Conexion;
 using DAO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace DAOImplement
 
         //    private string url_base = MiConexion.getConexion();
 
-        public async Task<HttpResponseMessage> LoginUsuario(string loginUsuario)
+        public async Task<(bool, string)> LoginUsuario(string loginUsuario)
         {
             DUsuario dataUsuario = new DUsuario();
             DLoginResponse dataLoginResponse = new DLoginResponse();
@@ -32,13 +33,11 @@ namespace DAOImplement
             {
                 using (HttpClient httpClient = new HttpClient())
                 {
-
                     // Crear el contenido de la solicitud HTTP
                     StringContent content = new StringContent(loginUsuario, Encoding.UTF8, "application/json");
 
                     // Enviar la solicitud HTTP POST
                     HttpResponseMessage httpResponse = await httpClient.PostAsync(url_base + "/auth/login-restriccion", content);
-
 
                     if (httpResponse.IsSuccessStatusCode)
                     {
@@ -49,23 +48,29 @@ namespace DAOImplement
                         // Establecer el usuario actual
                         CurrentUser.Instance.SetUser(dataUsuario.id_usuario, dataUsuario.nombre, dataUsuario.apellido, dataUsuario.activo, dataUsuario.roles);
                         SessionManager.Token = dataLoginResponse.token;
+                        return (true, null);
+                    }
+                    else
+                    {
+                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                        return (false, $"Error de autenticación: {mensaje}");
                     }
 
-                    return httpResponse;
+
                 }
             }
             catch (HttpRequestException httpRequestException)
             {
                 // Capturar errores de la solicitud HTTP
-                throw new Exception($"Error al realizar la solicitud: {httpRequestException.Message}");
-
+                return (false, $"Error de conexión: {httpRequestException.Message}");
             }
             catch (Exception ex)
             {
                 // Manejo de errores (log, mensaje al usuario, etc.)
                 Console.WriteLine($"Error: {ex.Message}");
+                return (false, $"Error inesperado: {ex.Message}");
             }
-            return null;
         }
 
 

@@ -7,6 +7,6 @@ namespace DAO
 {
     public interface IAuthDao
     {
-        Task<HttpResponseMessage> LoginUsuario(string prohibicionVisita);
+        Task<(bool, string)> LoginUsuario(string prohibicionVisita);
     }
 }

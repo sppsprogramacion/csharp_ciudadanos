@@ -13,13 +13,13 @@ namespace CapaNegocio
   public class NAuth
     {
         //LOGIN
-        public async Task<HttpResponseMessage> LoginUsuario(string dataLogin)
+        public async Task<(bool, string)> LoginUsuario(string dataLogin)
         {
             IAuthDao authDao = new AuthDaoImpl();
 
-            HttpResponseMessage usuarioResponse = await authDao.LoginUsuario(dataLogin);
+            (bool acceso, string errorResponse) = await authDao.LoginUsuario(dataLogin);
 
-            return usuarioResponse;
+            return (acceso, errorResponse); 
         }
         //FIN LOGIN..................................
     }

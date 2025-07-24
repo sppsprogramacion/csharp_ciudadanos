@@ -155,6 +155,7 @@ namespace CapaPresentacion
                 }
                 return;
             }
+            //FIN VALIDAR
 
             var data = new
             {
@@ -182,8 +183,19 @@ namespace CapaPresentacion
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
                     MessageBox.Show("La edición de datos del ciudadano se realizó corectamente");
-                    //this.Limpiar();
 
+                    HabilitarControlesDatosPersonales(false);
+
+                    //buscar y actualizar el ciudadano this.dCiudadano
+                    (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
+
+                    this.dCiudadano = dCiudadano2;
+
+                    if (this.dCiudadano == null)
+                    {
+                        MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                 }
                 else
                 {
@@ -210,7 +222,7 @@ namespace CapaPresentacion
             CiudadanoNuevo FCiudadanoNuevoDatos = Application.OpenForms["CiudadanoNuevo"] as CiudadanoNuevo;
             CiudadanoNuevo ciudadanoNuevos = new CiudadanoNuevo();
             idCiudadano = Convert.ToInt32(FCiudadanoNuevoDatos.idCiudadanoGlobal);
-            MessageBox.Show(idCiudadano.ToString());
+            
             NCiudadano nCiudadano = new NCiudadano();
             (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
             
@@ -221,9 +233,6 @@ namespace CapaPresentacion
                 MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-
-
 
             //Carga de combo sexo 
             NSexo nSexo = new NSexo();
@@ -640,6 +649,16 @@ namespace CapaPresentacion
                     MessageBox.Show("La edición de datos del ciudadano se realizó corectamente");
                     //this.Limpiar();
 
+                    (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
+
+                    this.dCiudadano = dCiudadano2;
+
+                    if (this.dCiudadano == null)
+                    {
+                        MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
                 }
                 else
                 {
@@ -947,15 +966,53 @@ namespace CapaPresentacion
 
         }
 
+        //Cancelar Edicion Datos Personales
         private void button2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Realizar el codigo para este boton");
-        }
+            txtIdCiudadano.Text = Convert.ToString(this.dCiudadano.id_ciudadano);
+            txtApellido.Text = this.dCiudadano.apellido;
+            txtNombre.Text = this.dCiudadano.nombre;
+            txtDni.Text = this.dCiudadano.dni.ToString();
+            cmbSexo.Text = this.dCiudadano.sexo.sexo;
+            dtpFechaNacimiento.Text = this.dCiudadano.fecha_nac.ToShortDateString();
+            cmbEstadoCivil.Text = this.dCiudadano.estado_civil.estado_civil;
+            txtTelefono.Text = this.dCiudadano.telefono;
+            cmbNacionalidad.Text = this.dCiudadano.nacionalidad.nacionalidad;
+            cmbPais.Text = this.dCiudadano.pais.pais;
+            cmbProvincia.Text = this.dCiudadano.provincia.provincia;
+            cmbDepartamento.Text = this.dCiudadano.departamento.departamento;
+            cmbMunicipio.Text = this.dCiudadano.municipio.municipio;
+            txtCiudad.Text = this.dCiudadano.ciudad;
+            txtBarrio.Text = this.dCiudadano.barrio;
+            txtDireccion.Text = this.dCiudadano.direccion;
+            txtDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
 
+            HabilitarControlesDatosPersonales(false);
+        }
+        //Fin Cancelar Edicion Datos Personales........................................
+
+        //Cancelar Edicion Domicilio
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Realizar el codigo fuente para este boton");
+            txtIdCiudadano.Text = Convert.ToString(this.dCiudadano.id_ciudadano);
+            txtApellido.Text = this.dCiudadano.apellido;
+            txtNombre.Text = this.dCiudadano.nombre;
+            txtDni.Text = this.dCiudadano.dni.ToString();
+            cmbSexo.Text = this.dCiudadano.sexo.sexo;
+            dtpFechaNacimiento.Text = this.dCiudadano.fecha_nac.ToShortDateString();
+            cmbEstadoCivil.Text = this.dCiudadano.estado_civil.estado_civil;
+            txtTelefono.Text = this.dCiudadano.telefono;
+            cmbNacionalidad.Text = this.dCiudadano.nacionalidad.nacionalidad;
+            cmbPais.Text = this.dCiudadano.pais.pais;
+            cmbProvincia.Text = this.dCiudadano.provincia.provincia;
+            cmbDepartamento.Text = this.dCiudadano.departamento.departamento;
+            cmbMunicipio.Text = this.dCiudadano.municipio.municipio;
+            txtCiudad.Text = this.dCiudadano.ciudad;
+            txtBarrio.Text = this.dCiudadano.barrio;
+            txtDireccion.Text = this.dCiudadano.direccion;
+            txtDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
         }
+        //Fin Cancelar Edicion Domicilio...........................
 
         private async void btnActualizarPestañaVinculacion_Click(object sender, EventArgs e)
         {

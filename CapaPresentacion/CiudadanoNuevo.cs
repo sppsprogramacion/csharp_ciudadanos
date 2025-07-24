@@ -1,5 +1,9 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Validaciones.Login.Datos;
+using CapaPresentacion.Validaciones.Login.ValidacionLogin;
+using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
+using CapaPresentacion.Validaciones.NuevoCiudadano.ValidacionNuevoCiudadano;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -17,6 +21,9 @@ namespace CapaPresentacion
 {
     public partial class CiudadanoNuevo : Form
     {
+        //VARIABLES GLOBALES
+        private ErrorProvider errorProvider = new ErrorProvider();
+
 
         //this.dataListadoCiudadanos.DataSource = NProducto.Buscar(this.txtBuscar.Text);
         //variable global id_ciudadano
@@ -116,8 +123,34 @@ namespace CapaPresentacion
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
-                      
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validar
+            var data = new CiudadanoNuevoDatos
+            {
+                txtBuscarDni = txtBuscarDni.Text
+            };
+
+            var validator = new BuscarDniValidator();
+            var result = validator.Validate(data);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validar
+
+
             NCiudadano nCiudadanos = new NCiudadano();
+
             int dni_ciudadanos = Convert.ToInt32(this.txtBuscarDni.Text);
             (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosXdni(dni_ciudadanos);
             if (listaCiudadanos == null)
@@ -138,13 +171,6 @@ namespace CapaPresentacion
 
 
             dataListadoCiudadanos.DataSource = datosFiltrados;
-
-
-
-
-
-
-
 
         }
 
@@ -174,7 +200,33 @@ namespace CapaPresentacion
 
         private async void button1_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validar
+            var data = new CiudadanoNuevoDatos
+            {
+                txtBuscarApellido = txtBuscarApellido.Text
+            };
+
+            var validator = new BuscarApellidoValidator();
+            var result = validator.Validate(data);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validar
+
             NCiudadano nCiudadanos = new NCiudadano();
+
             string apellido_ciudadanos = Convert.ToString(this.txtBuscarApellido.Text);
             (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosXapellido(apellido_ciudadanos);
             if (listaCiudadanos == null)
