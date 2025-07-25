@@ -41,10 +41,11 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("La direccion es obligatoria.")
                 .Length(1, 100).WithMessage("La direccion debe tener maximo 100 caracteres.");
-            RuleFor(x => x.txtNumeroDominio)
+            RuleFor(x => x.txtNumDomicilio)
                 .Cascade(CascadeMode.Stop)
-                .NotEmpty().WithMessage("Debe ingresar un valor para el dominio.")
-                .Must(BeAnInteger).WithMessage("El dominio debe ser un numero entero.");
+                .NotNull().WithMessage("Debe ingresar un valor para numero de domicilio.")
+                .NotEmpty().WithMessage("Debe ingresar un valor para el numero de domicilio.")
+                .Must(BeAnInteger).WithMessage("El numero de domicilio debe ser un numero entero.");
             RuleFor(x => x.txtDetalleDomicilio)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("El motivo edicion del domicilio es obligatorio..")

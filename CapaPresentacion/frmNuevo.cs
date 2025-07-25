@@ -47,7 +47,7 @@ namespace CapaPresentacion
             this.txtCiudad.Text = string.Empty;
             this.txtBarrio.Text = string.Empty;
             this.txtDireccion.Text = string.Empty;
-            this.txtNumeroDominio.Text = string.Empty;
+            this.txtNumDomicilio.Text = string.Empty;
            
 
         }
@@ -81,7 +81,7 @@ namespace CapaPresentacion
                 txtCiudad = txtCiudad.Text,
                 txtBarrio = txtBarrio.Text,
                 txtDireccion = txtDireccion.Text,
-                txtNumeroDominio = txtNumeroDominio.Text,
+                txtNumDomicilio = txtNumDomicilio.Text,
             };
 
             var validator = new NuevoCiudadanoValidator();
@@ -115,7 +115,7 @@ namespace CapaPresentacion
                 ciudad = txtCiudad.Text,
                 barrio = txtBarrio.Text,
                 direccion = txtDireccion.Text,
-                numero_dom = Convert.ToInt32(txtNumeroDominio.Text)
+                numero_dom = Convert.ToInt32(txtNumDomicilio.Text)
 
             };
 

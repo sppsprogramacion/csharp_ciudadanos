@@ -25,7 +25,7 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
         public string txtCiudad { get; set; }
         public string txtBarrio { get; set; }
         public string txtDireccion { get; set; }
-        public string txtNumeroDominio { get; set; }
+        public string txtNumDomicilio { get; set; }
 
         //edicion datos personales
         public string txtDetalleMotivo { get; set; }

@@ -35,7 +35,7 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtBarrio = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtNumeroDominio = new System.Windows.Forms.TextBox();
+            this.txtNumDomicilio = new System.Windows.Forms.TextBox();
             this.cmbPais = new System.Windows.Forms.ComboBox();
             this.cmbProvincia = new System.Windows.Forms.ComboBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
@@ -111,13 +111,13 @@
             this.txtDireccion.Size = new System.Drawing.Size(215, 20);
             this.txtDireccion.TabIndex = 6;
             // 
-            // txtNumeroDominio
+            // txtNumDomicilio
             // 
-            this.txtNumeroDominio.Location = new System.Drawing.Point(704, 302);
-            this.txtNumeroDominio.Name = "txtNumeroDominio";
-            this.txtNumeroDominio.Size = new System.Drawing.Size(215, 20);
-            this.txtNumeroDominio.TabIndex = 7;
-            this.txtNumeroDominio.Text = "1";
+            this.txtNumDomicilio.Location = new System.Drawing.Point(704, 302);
+            this.txtNumDomicilio.Name = "txtNumDomicilio";
+            this.txtNumDomicilio.Size = new System.Drawing.Size(215, 20);
+            this.txtNumDomicilio.TabIndex = 7;
+            this.txtNumDomicilio.Text = "1";
             // 
             // cmbPais
             // 
@@ -350,9 +350,9 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(521, 303);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(152, 16);
+            this.label16.Size = new System.Drawing.Size(158, 16);
             this.label16.TabIndex = 35;
-            this.label16.Text = "NUMERO DE DOMINIO:";
+            this.label16.Text = "NUMERO DE DOMICILIO";
             // 
             // btnGuardar
             // 
@@ -447,7 +447,7 @@
             this.Controls.Add(this.cmbDepartamento);
             this.Controls.Add(this.cmbProvincia);
             this.Controls.Add(this.cmbPais);
-            this.Controls.Add(this.txtNumeroDominio);
+            this.Controls.Add(this.txtNumDomicilio);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.txtBarrio);
             this.Controls.Add(this.txtTelefono);
@@ -471,7 +471,7 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtBarrio;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.TextBox txtNumeroDominio;
+        private System.Windows.Forms.TextBox txtNumDomicilio;
         private System.Windows.Forms.ComboBox cmbPais;
         private System.Windows.Forms.ComboBox cmbProvincia;
         private System.Windows.Forms.ComboBox cmbDepartamento;

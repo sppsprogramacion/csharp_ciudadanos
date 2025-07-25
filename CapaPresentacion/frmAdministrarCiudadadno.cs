@@ -100,6 +100,10 @@ namespace CapaPresentacion
             this.cmbNacionalidad.Enabled = valor;
             this.txtDetalleMotivo.Enabled = valor;
 
+            this.txtDetalleMotivo.Text = "";
+
+            this.btnGuardar.Enabled = valor;
+
         }
 
         private void HabilitarControlesDatosDomicilio(bool valor)
@@ -111,17 +115,18 @@ namespace CapaPresentacion
             this.txtCiudad.Enabled = valor;
             this.txtBarrio.Enabled = valor;
             this.txtDireccion.Enabled = valor;
-            this.txtDomicilio.Enabled = valor;
+            this.txtNumDomicilio.Enabled = valor;
             this.txtDetalleDomicilio.Enabled = valor;
+
+            this.txtDetalleDomicilio.Text = "";
             
+            btnGuardarDomicilio.Enabled = valor;
         }
 
 
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {//incio boton edicion
-
-            MessageBox.Show("boton guardar cambios en editar");
 
             NCiudadano nCiudadano = new NCiudadano();
 
@@ -182,20 +187,21 @@ namespace CapaPresentacion
                 if (httpResponse.IsSuccessStatusCode)
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                    MessageBox.Show("La edición de datos del ciudadano se realizó corectamente");
-
-                    HabilitarControlesDatosPersonales(false);
+                    MessageBox.Show("La edición de datos del ciudadano se realizó corectamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
 
                     //buscar y actualizar el ciudadano this.dCiudadano
                     (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
 
-                    this.dCiudadano = dCiudadano2;
 
                     if (this.dCiudadano == null)
                     {
                         MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+
+                    this.dCiudadano = dCiudadano2;
+                    HabilitarControlesDatosPersonales(false);
                 }
                 else
                 {
@@ -296,7 +302,7 @@ namespace CapaPresentacion
             txtCiudad.Text = this.dCiudadano.ciudad;
             txtBarrio.Text = this.dCiudadano.barrio;
             txtDireccion.Text = this.dCiudadano.direccion;
-            txtDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
+            txtNumDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
             //txtCategoriaCiudadano.Text = Convert.ToString(this.dCiudadano.categoria_ciudadano);
             //MessageBox.Show(Convert.ToString("numero de categoria es: " + this.dCiudadano.categoria_ciudadano));
             pictureFoto.Load(this.dCiudadano.foto);
@@ -376,47 +382,47 @@ namespace CapaPresentacion
             }
             else
             {
-                NVisitaInterno nVisitaInterno = new NVisitaInterno();
-                (List <DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+                //NVisitaInterno nVisitaInterno = new NVisitaInterno();
+                //(List <DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
 
-                if (listaVisitasInternos == null)
-                {
-                    MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                //if (listaVisitasInternos == null)
+                //{
+                //    MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
 
-                NParentesco nInterno = new NParentesco();
-                //List<DParentesco> listaParentescos = new List<DParentesco>();
-                (List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
+                //NParentesco nInterno = new NParentesco();
+                ////List<DParentesco> listaParentescos = new List<DParentesco>();
+                //(List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
 
-                var datosFiltrados = listaVisitasInternos
-                .Select(c => new
-                {
-                    //ciudadano_id = c.ciudadano_id,
-                    apellido_visita = this.txtApellido.Text,
-                    nombre_visita = this.txtNombre.Text,
-                    interno_id = c.interno_id,
-                    apellido_interno = c.interno.apellido,
-                    nombre_interno = c.interno.nombre,
-                    prontuario = c.interno.prontuario,
-                    parentesco = c.parentesco.parentesco
+                //var datosFiltrados = listaVisitasInternos
+                //.Select(c => new
+                //{
+                //    //ciudadano_id = c.ciudadano_id,
+                //    apellido_visita = this.txtApellido.Text,
+                //    nombre_visita = this.txtNombre.Text,
+                //    interno_id = c.interno_id,
+                //    apellido_interno = c.interno.apellido,
+                //    nombre_interno = c.interno.nombre,
+                //    prontuario = c.interno.prontuario,
+                //    parentesco = c.parentesco.parentesco
 
-                })
-                .ToList();
+                //})
+                //.ToList();
 
 
-                dgvVisitasVinculadas.DataSource = datosFiltrados;
+                //dgvVisitasVinculadas.DataSource = datosFiltrados;
 
-                //Carga de combo parentesco
-                NParentesco nParentesco = new NParentesco();
+                ////Carga de combo parentesco
+                //NParentesco nParentesco = new NParentesco();
                
-                cmbParentesco.ValueMember = "id_parentesco";
-                cmbParentesco.DisplayMember = "parentesco";
-                (List<DParentesco> listaParentesco, string errorResponseParentescos) = await nParentesco.retornarListaParentesco();
-                cmbParentesco.DataSource = listaParentesco;
+                //cmbParentesco.ValueMember = "id_parentesco";
+                //cmbParentesco.DisplayMember = "parentesco";
+                //(List<DParentesco> listaParentesco, string errorResponseParentescos) = await nParentesco.retornarListaParentesco();
+                //cmbParentesco.DataSource = listaParentesco;
 
-                this.txtDocumentoVisita.Text = txtDni.Text;
-                this.txtIdVisita.Text = txtIdCiudadano.Text;
+                
+                //this.txtIdVisita.Text = txtIdCiudadano.Text;
                 this.tabControl1.SelectedIndex = 1;
 
             }
@@ -603,7 +609,7 @@ namespace CapaPresentacion
                 txtCiudad = txtCiudad.Text,
                 txtBarrio = txtBarrio.Text,
                 txtDireccion = txtDireccion.Text,
-                txtNumeroDominio = txtDomicilio.Text,
+                txtNumDomicilio = txtNumDomicilio.Text,
                 txtDetalleDomicilio = txtDetalleDomicilio.Text,
             };
 
@@ -620,6 +626,7 @@ namespace CapaPresentacion
                 }
                 return;
             }
+            //fin validacion...........................
 
             var data = new
             {
@@ -631,7 +638,7 @@ namespace CapaPresentacion
                 ciudad = txtCiudad.Text,
                 barrio = txtBarrio.Text,
                 direccion = txtDireccion.Text,
-                numero_dom = Convert.ToInt32(txtDomicilio.Text),
+                numero_dom = Convert.ToInt32(txtNumDomicilio.Text),
                 detalle_motivo = txtDetalleDomicilio.Text,
 
 
@@ -646,18 +653,20 @@ namespace CapaPresentacion
                 if (httpResponse.IsSuccessStatusCode)
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                    MessageBox.Show("La edición de datos del ciudadano se realizó corectamente");
+                    MessageBox.Show("La edición de datos del ciudadano se realizó corectamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //this.Limpiar();
 
                     (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
 
-                    this.dCiudadano = dCiudadano2;
 
                     if (this.dCiudadano == null)
                     {
                         MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
+
+                    this.dCiudadano = dCiudadano2;
+                    this.HabilitarControlesDatosDomicilio(false);
 
                 }
                 else
@@ -705,21 +714,7 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("debe esperar que cargue los datos del ciudadano");
             }
-            else
-            {
-
-                NVisitaInterno nVisitaInterno = new NVisitaInterno();
-                //List<DVisitaInterno> listaVisitasInternos = new List<DVisitaInterno>();
-                (List<DVisitaInterno> listaVisitasInternos, string errorResponseVisitaInternos) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
-
-                NParentesco nInterno = new NParentesco();
-                //List<DParentesco> listaParentescos = new List<DParentesco>();
-                (List<DParentesco> listaParentescos, string errorResponseParentescos) = await nInterno.retornarListaParentesco();
-            }
-
-            this.txtIdCiuadanoVincularvisita.Text = txtIdCiudadano.Text;
-            this.txtDniVisita.Text = txtDni.Text;
-            this.txtNombreVisita.Text = txtIdCiudadano.Text;
+            
             this.tabControl1.SelectedIndex = 3;
             
 
@@ -931,9 +926,6 @@ namespace CapaPresentacion
 
                 string dataCiudadano = JsonConvert.SerializeObject(data);
 
-
-
-
                 try
                 {
                     //HttpResponseMessage httpResponse = await nCiudadanosCategorias.crearCiudadanosCategorias(dataCiudadano);
@@ -959,11 +951,6 @@ namespace CapaPresentacion
                 }
 
             }
-            
-
-
-
-
         }
 
         //Cancelar Edicion Datos Personales
@@ -985,9 +972,11 @@ namespace CapaPresentacion
             txtCiudad.Text = this.dCiudadano.ciudad;
             txtBarrio.Text = this.dCiudadano.barrio;
             txtDireccion.Text = this.dCiudadano.direccion;
-            txtDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
+            txtNumDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
 
             HabilitarControlesDatosPersonales(false);
+            //limpiar errores de provider
+            errorProvider.Clear();
         }
         //Fin Cancelar Edicion Datos Personales........................................
 
@@ -1010,7 +999,11 @@ namespace CapaPresentacion
             txtCiudad.Text = this.dCiudadano.ciudad;
             txtBarrio.Text = this.dCiudadano.barrio;
             txtDireccion.Text = this.dCiudadano.direccion;
-            txtDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
+            txtNumDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
+
+            this.HabilitarControlesDatosDomicilio(false);
+            //limpiar errores de provider
+            errorProvider.Clear();
         }
         //Fin Cancelar Edicion Domicilio...........................
 
@@ -1050,32 +1043,18 @@ namespace CapaPresentacion
                 })
                 .ToList();
 
-
                 dgvVisitasVinculadas.DataSource = datosFiltrados;
-
-
-
-
-
 
                 //Carga de combo parentesco
                 NParentesco nParentesco = new NParentesco();
-
 
                 cmbParentesco.ValueMember = "id_parentesco";
                 cmbParentesco.DisplayMember = "parentesco";
                 (List<DParentesco> listaParentesco, string errorResponseParentescos) = await nParentesco.retornarListaParentesco();
                 cmbParentesco.DataSource = listaParentesco;
 
-
-
-
-
-
-
-                this.txtDocumentoVisita.Text = txtDni.Text;
+                
                 this.txtIdVisita.Text = txtIdCiudadano.Text;
-                this.tabControl1.SelectedIndex = 1;
 
             }
         }
@@ -1149,6 +1128,29 @@ namespace CapaPresentacion
             this.txtNombnreCiudadanoCategoria.Text = txtApellido.Text + " " + txtNombre.Text;
             this.tabControl1.SelectedIndex = 4;
 
+        }
+
+        private async void btnActualizarAsignar_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadano.Text == string.Empty)
+            {
+                MessageBox.Show("debe esperar que cargue los datos del ciudadano");
+            }
+            else
+            {
+
+                NVisitaInterno nVisitaInterno = new NVisitaInterno();
+                //List<DVisitaInterno> listaVisitasInternos = new List<DVisitaInterno>();
+                (List<DVisitaInterno> listaVisitasInternos, string errorResponseVisitaInternos) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                NParentesco nInterno = new NParentesco();
+                //List<DParentesco> listaParentescos = new List<DParentesco>();
+                (List<DParentesco> listaParentescos, string errorResponseParentescos) = await nInterno.retornarListaParentesco();
+            }
+
+            this.txtIdCiuadanoVincularvisita.Text = txtIdCiudadano.Text;
+            this.txtDniVisita.Text = txtDni.Text;
+            this.txtNombreVisita.Text = txtApellido.Text + " " + txtNombre.Text;
         }
     }
     
