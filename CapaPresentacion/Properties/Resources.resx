@@ -121,16 +121,22 @@
   <data name="icono_exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icono_exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buscar_cliente11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\buscar_cliente11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="actualizar-icono" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualizar-icono.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reportes1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="mantenimiento" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mantenimiento.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vincular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vincular.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reportes1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportes1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="buscar_cliente11" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\buscar_cliente11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="actualiza2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actualiza2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

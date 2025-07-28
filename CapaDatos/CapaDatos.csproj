@@ -57,6 +57,7 @@
     <Compile Include="DParentesco.cs" />
     <Compile Include="DProvincia.cs" />
     <Compile Include="DRegistroDiario.cs" />
+    <Compile Include="DResponseEditar.cs" />
     <Compile Include="DSectoresDestino.cs" />
     <Compile Include="DSexo.cs" />
     <Compile Include="DEstadoCivil.cs" />

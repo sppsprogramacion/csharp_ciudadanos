@@ -29,8 +29,9 @@ namespace DAO
     
         Task<HttpResponseMessage> editarCiudadanoDni(int dni, string ciudadano);
         Task<HttpResponseMessage> editarDatosPersonales(int id, string ciudadano);
-        Task<HttpResponseMessage> establecerVisita(int id, string novedad_detalle);
-        
+        Task<(bool, string error)> establecerVisita(int id, string novedad_detalle);
+        Task<(bool, string error)> establecerDiscapacidad(int id, string novedad_detalle);
+
 
         //DataTable retornarCiudadanosTodos();
     }

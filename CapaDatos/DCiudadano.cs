@@ -39,6 +39,8 @@ namespace CapaDatos
         public string barrio { get; set; }
         public string direccion { get; set; }
         public int numero_dom { get; set; }
+        public bool tiene_discapacidad { get; set; }
+        public string discapacidad_detalle { get; set; }
         public int organismo_alta_id { get; set; }
         public string novedad_detalle { get; set; }
       

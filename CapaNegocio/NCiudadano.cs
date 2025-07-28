@@ -106,15 +106,26 @@ namespace CapaNegocio
         //FIN editar DATOS PERSONALES CIUDADANOS..................................
 
         //ASIGNAR CIUDADANOS COMO VICITAS
-        public async Task<HttpResponseMessage> establecerVisita(int id, string ciudadano)
+        public async Task<(bool, string error)> establecerVisita(int id, string ciudadano)
         {
             ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
 
-            HttpResponseMessage ciudadanoResponse = await ciudadanoDao.establecerVisita(id, ciudadano);
+            (bool ciudadanoResponse, string error) = await ciudadanoDao.establecerVisita(id, ciudadano);
 
-            return ciudadanoResponse;
+            return (ciudadanoResponse, error);
         }
         //FIN editar ASOGNAR CIUDADANOS COMO VISITAS..................................
+
+        //ESTABLECER CON DISCAPACIDAD
+        public async Task<(bool, string error)> establecerDiscapacidad(int id, string ciudadano)
+        {
+            ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
+
+            (bool ciudadanoResponse, string error) = await ciudadanoDao.establecerDiscapacidad(id, ciudadano);
+
+            return (ciudadanoResponse, error);
+        }
+        //FIN ESTABLECER CON DISCAPACIDAD..................................
 
 
     }

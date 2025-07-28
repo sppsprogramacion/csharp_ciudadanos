@@ -188,20 +188,12 @@ namespace CapaPresentacion
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
                     MessageBox.Show("La edición de datos del ciudadano se realizó corectamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+
 
                     //buscar y actualizar el ciudadano this.dCiudadano
-                    (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
+                    this.ActualizarCiudadano();
 
-
-                    if (this.dCiudadano == null)
-                    {
-                        MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    this.dCiudadano = dCiudadano2;
-                    HabilitarControlesDatosPersonales(false);
+                    this.HabilitarControlesDatosPersonales(false);
                 }
                 else
                 {
@@ -285,7 +277,7 @@ namespace CapaPresentacion
             //DCiudadano dCiudadano = new DCiudadano();
             //habilitar();
            
-
+            //CARGAR DATOS DEL CIUDADANO
             txtIdCiudadano.Text = Convert.ToString(this.dCiudadano.id_ciudadano);
             txtApellido.Text = this.dCiudadano.apellido;
             txtNombre.Text = this.dCiudadano.nombre;
@@ -307,13 +299,19 @@ namespace CapaPresentacion
             //MessageBox.Show(Convert.ToString("numero de categoria es: " + this.dCiudadano.categoria_ciudadano));
             pictureFoto.Load(this.dCiudadano.foto);
 
+            //controlar es visita y discapacidad
+            this.ControlEsVisita();
+            this.ControlTieneDiscapacidad();
+            //fin controlar es visita y discapacidad
+
+            //FIN CARGAR DATOPS DEL CIUDADANO
 
 
 
 
         }//Fin evento Load
 
-        
+
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
@@ -654,18 +652,10 @@ namespace CapaPresentacion
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
                     MessageBox.Show("La edición de datos del ciudadano se realizó corectamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //this.Limpiar();
 
-                    (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
+                    //buscar y actualizar el ciudadano this.dCiudadano
+                    this.ActualizarCiudadano();
 
-
-                    if (this.dCiudadano == null)
-                    {
-                        MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    this.dCiudadano = dCiudadano2;
                     this.HabilitarControlesDatosDomicilio(false);
 
                 }
@@ -738,37 +728,21 @@ namespace CapaPresentacion
 
                 string dataCiudadano = JsonConvert.SerializeObject(data);
 
+                (bool respuestaEditar, string errorResponse) = await nCiudadano.establecerVisita(Convert.ToInt32(txtIdCiudadano.Text), dataCiudadano);
 
-
-
-                try
+                if (respuestaEditar)
                 {
-                    HttpResponseMessage httpResponse = await nCiudadano.establecerVisita(Convert.ToInt32(txtIdCiuadanoVincularvisita.Text), dataCiudadano);
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                        MessageBox.Show("La vinculación de la visita se realizó correctamente");
-                        //this.Limpiar();
+                    MessageBox.Show("Se establecio correctamente como visita", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        MessageBox.Show("No se pudo editar el registro.");
-                        MessageBox.Show($"Error de la API: {errorMessage}", $"Error {httpResponse.StatusCode}", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
+                    this.ActualizarCiudadano();
+                    this.ControlEsVisita();
                 }
-                catch (Exception ex)
+                else
                 {
-                    // Manejo de otros tipos de errores MySQL
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                          
                 }
-
-
-
-
 
 
             }
@@ -778,39 +752,32 @@ namespace CapaPresentacion
 
         private async void btnEstablecerDiscapacidad_Click(object sender, EventArgs e)
         {
-                NCiudadano nCiudadano = new NCiudadano();
+            NCiudadano nCiudadano = new NCiudadano();
 
-                var data = new
-                {
-                    novedad_detalle = txtEstablecerDiscapacidad.Text,
-                };
+            var data = new
+            {
+                novedad_detalle = txtEstablecerDiscapacidad.Text,
+            };
 
-                string dataCiudadano = JsonConvert.SerializeObject(data);
-                try
-                {
-                    HttpResponseMessage httpResponse = await nCiudadano.establecerVisita(Convert.ToInt32(txtIdCiuadanoVincularvisita.Text), dataCiudadano);
+            string dataCiudadano = JsonConvert.SerializeObject(data);
 
-                    if (httpResponse.IsSuccessStatusCode)
-                    {
-                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                        MessageBox.Show("Se estableció la visita con discapacidad con acompañante en forma correcta");
-                        //this.Limpiar();
+            (bool respuestaEditar, string errorResponse) = await nCiudadano.establecerDiscapacidad(Convert.ToInt32(txtIdCiudadano.Text), dataCiudadano);
 
-                    }
-                    else
-                    {
-                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        MessageBox.Show("No se pudo establecer la visita con acompañante.");
-                        MessageBox.Show($"Error de la API: {errorMessage}", $"Error {httpResponse.StatusCode}", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+            if (respuestaEditar)
+            {
 
-                }
-                catch (Exception ex)
-                {
-                    // Manejo de otros tipos de errores MySQL
-                    MessageBox.Show("Error: " + ex.Message);
-                }
+                MessageBox.Show("Se establecio correctamente con discapacidad", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                this.ActualizarCiudadano();
+                this.ControlTieneDiscapacidad();
+            }
+            else
+            {
+                MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+           
         }
 
         private async void btnIngreso_Click(object sender, EventArgs e)
@@ -1148,10 +1115,79 @@ namespace CapaPresentacion
                 (List<DParentesco> listaParentescos, string errorResponseParentescos) = await nInterno.retornarListaParentesco();
             }
 
+
+            //controlar es visita y discapacidad
+            this.ControlEsVisita();
+            this.ControlTieneDiscapacidad();
+            //fin controlar es visita y discapacidad
+
             this.txtIdCiuadanoVincularvisita.Text = txtIdCiudadano.Text;
             this.txtDniVisita.Text = txtDni.Text;
             this.txtNombreVisita.Text = txtApellido.Text + " " + txtNombre.Text;
         }
+
+        //ACTUALIZAR CIUDADANO
+        private async void ActualizarCiudadano()
+        {
+            NCiudadano nCiudadano = new NCiudadano();
+
+            //buscar y actualizar el ciudadano this.dCiudadano
+            (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(Convert.ToInt32(txtIdCiudadano.Text));
+
+
+            if (this.dCiudadano == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            this.dCiudadano = dCiudadano2;
+        }
+        //FIN ACTUALIZAR CIUDADANO
+
+        //CONTROL ES VISITA
+        private void ControlEsVisita()
+        {
+            if (this.dCiudadano.es_visita)
+            {
+                lblEsVisitaPrincipal.Text = "Ciudadano registrado como visita";
+                lblEsVisitaPrincipal.ForeColor = Color.SteelBlue;
+                lblEsVisita.Text = "Ciudadano registrado como visita";
+                lblEsVisita.ForeColor = Color.SteelBlue;
+                btnAsignarVisita.Enabled = false;
+            }
+            else
+            {
+                lblEsVisitaPrincipal.Text = "Ciudadano no registrado como visita";
+                lblEsVisitaPrincipal.ForeColor = Color.Red;
+                lblEsVisita.Text = "Ciudadano no registrado como visita";
+                lblEsVisita.ForeColor = Color.Red;
+            }
+        }
+        //FIN CONTROL ES VISITA
+
+        //CONTROL ES VISITA
+        private void ControlTieneDiscapacidad()
+        {
+            if (this.dCiudadano.tiene_discapacidad)
+            {                
+                lblTieneDiscapacidad.Text = "Ciudadano registrado con discapacidad";
+                lblTieneDiscapacidad.ForeColor = Color.SteelBlue;
+                lblDetalleTieneDiscapacidad.Text = dCiudadano.discapacidad_detalle;
+                lblDetalleTieneDiscapacidad.ForeColor = Color.SteelBlue;
+                btnEstablecerDiscapacidad.Enabled = false;
+            }
+            else
+            {
+                lblTieneDiscapacidad.Text = "Ciudadano no registrado con discapacidad";
+                lblTieneDiscapacidad.ForeColor = Color.Red;
+
+                lblDetalleTieneDiscapacidad.Text = "";
+            }
+        }
+        //FIN CONTROL ES VISITA
+
+
     }
-    
+
 }

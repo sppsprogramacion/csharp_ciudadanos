@@ -244,6 +244,11 @@
   <ItemGroup>
     <None Include="Resources\buscar_cliente11.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\actualizar-icono.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualiza2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
