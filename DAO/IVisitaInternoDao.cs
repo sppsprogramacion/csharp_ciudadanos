@@ -12,7 +12,7 @@ namespace DAO
     public interface IVisitaInternoDao
     {
         Task<(DVisitaInterno, string error)> crearVisitaInterno(string visitainterno);
-        Task<(List<DVisitaInterno>, string error)> retornarListaVisitaInternoXCiudadano(int dni);
+        Task<(List<DVisitaInterno>, string error)> retornarListaVisitaInternoXCiudadano(int id);
        
     }
 }

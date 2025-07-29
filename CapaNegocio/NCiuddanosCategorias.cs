@@ -28,6 +28,20 @@ namespace CapaNegocio
         //FIN CREAR CATEGORIAS..................................
 
 
+        //RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID
+        public async Task<(List<DCiudadanosCategorias>, string errprResponse)> retornarCiudadanosCategoriasXCiudadano(int id_ciudadano)
+        {
+            ICiudadanosCategoriasDao ciudadanosCategoriasDao = new CiudadanosCategoriasDaoImpl();
+
+            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await ciudadanosCategoriasDao.retornarListaCategoriasXCiudadano(id_ciudadano);
+           
+
+            return (listaCiudadanosCategorias, errorResponse);
+
+        }
+        //FIN RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID..................................
+
+
 
     }
 }

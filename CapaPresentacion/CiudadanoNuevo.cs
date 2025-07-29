@@ -109,8 +109,7 @@ namespace CapaPresentacion
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             frmNuevo FNuevo = new frmNuevo();
-            FNuevo.Show();
-            this.Close();
+            FNuevo.ShowDialog();
         }
 
         private void btnAdministrarCiudadano_Click(object sender, EventArgs e)
@@ -247,6 +246,19 @@ namespace CapaPresentacion
 
 
             dataListadoCiudadanos.DataSource = datosFiltrados;
+
+            if (listaCiudadanos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dataListadoCiudadanos.Columns[1].Width = 200;
+                dataListadoCiudadanos.Columns[1].Width = 200;
+            }
+
         }
     }
 }

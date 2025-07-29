@@ -95,28 +95,28 @@
             this.txtTelefono.Location = new System.Drawing.Point(222, 243);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(215, 20);
-            this.txtTelefono.TabIndex = 3;
+            this.txtTelefono.TabIndex = 6;
             // 
             // txtBarrio
             // 
             this.txtBarrio.Location = new System.Drawing.Point(704, 243);
             this.txtBarrio.Name = "txtBarrio";
             this.txtBarrio.Size = new System.Drawing.Size(215, 20);
-            this.txtBarrio.TabIndex = 5;
+            this.txtBarrio.TabIndex = 13;
             // 
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(704, 273);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(215, 20);
-            this.txtDireccion.TabIndex = 6;
+            this.txtDireccion.TabIndex = 14;
             // 
             // txtNumDomicilio
             // 
             this.txtNumDomicilio.Location = new System.Drawing.Point(704, 302);
             this.txtNumDomicilio.Name = "txtNumDomicilio";
             this.txtNumDomicilio.Size = new System.Drawing.Size(215, 20);
-            this.txtNumDomicilio.TabIndex = 7;
+            this.txtNumDomicilio.TabIndex = 15;
             this.txtNumDomicilio.Text = "1";
             // 
             // cmbPais
@@ -161,7 +161,7 @@
             this.cmbSexo.Location = new System.Drawing.Point(222, 163);
             this.cmbSexo.Name = "cmbSexo";
             this.cmbSexo.Size = new System.Drawing.Size(154, 21);
-            this.cmbSexo.TabIndex = 13;
+            this.cmbSexo.TabIndex = 3;
             // 
             // cmbEstadoCivil
             // 
@@ -169,7 +169,7 @@
             this.cmbEstadoCivil.Location = new System.Drawing.Point(222, 216);
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
             this.cmbEstadoCivil.Size = new System.Drawing.Size(154, 21);
-            this.cmbEstadoCivil.TabIndex = 14;
+            this.cmbEstadoCivil.TabIndex = 5;
             // 
             // cmbNacionalidad
             // 
@@ -177,7 +177,7 @@
             this.cmbNacionalidad.Location = new System.Drawing.Point(222, 274);
             this.cmbNacionalidad.Name = "cmbNacionalidad";
             this.cmbNacionalidad.Size = new System.Drawing.Size(215, 21);
-            this.cmbNacionalidad.TabIndex = 16;
+            this.cmbNacionalidad.TabIndex = 7;
             // 
             // dtpickFechaNacimiento
             // 
@@ -185,14 +185,14 @@
             this.dtpickFechaNacimiento.Location = new System.Drawing.Point(222, 190);
             this.dtpickFechaNacimiento.Name = "dtpickFechaNacimiento";
             this.dtpickFechaNacimiento.Size = new System.Drawing.Size(154, 20);
-            this.dtpickFechaNacimiento.TabIndex = 17;
+            this.dtpickFechaNacimiento.TabIndex = 4;
             // 
             // txtCiudad
             // 
             this.txtCiudad.Location = new System.Drawing.Point(704, 208);
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(215, 20);
-            this.txtCiudad.TabIndex = 18;
+            this.txtCiudad.TabIndex = 12;
             // 
             // label4
             // 
@@ -362,7 +362,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(141, 335);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(133, 37);
-            this.btnGuardar.TabIndex = 36;
+            this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -383,7 +383,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(280, 335);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(133, 37);
-            this.btnCancelar.TabIndex = 38;
+            this.btnCancelar.TabIndex = 17;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.button1_Click);
@@ -393,10 +393,10 @@
             this.btnSalir.BackColor = System.Drawing.Color.White;
             this.btnSalir.Image = global::CapaPresentacion.Properties.Resources.icono_exit;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(419, 335);
+            this.btnSalir.Location = new System.Drawing.Point(419, 337);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(133, 37);
-            this.btnSalir.TabIndex = 39;
+            this.btnSalir.TabIndex = 18;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);

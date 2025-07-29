@@ -449,14 +449,24 @@ namespace CapaPresentacion
                 .Select(c => new
                 {
                     id_interno = c.id_interno,
-                    Apellido = c.apellido,
-                    Nombre = c.nombre,
+                    Interno = c.apellido + " " + c.nombre,
                     Prontuario = c.prontuario,
                     Sexo = c.sexo.sexo
                 })
                 .ToList();
 
             dtvInternos.DataSource = datosFiltrados;
+
+            if (listaInternos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dtvInternos.Columns[2].Width = 300;
+            }
         }
 
         private async void dtvInternos_KeyDown(object sender, KeyEventArgs e)
@@ -475,15 +485,14 @@ namespace CapaPresentacion
                                                 
                         this.txtProntuario.Text = Convert.ToString(this.dtvInternos.CurrentRow.Cells["prontuario"].Value);
                         this.txtIdInterno.Text = Convert.ToString(this.dtvInternos.CurrentRow.Cells["id_interno"].Value);
-                                                 this.tabControl1.SelectedIndex = 1;
-
-
+                        this.txtInternoVincular.Text = Convert.ToString(this.dtvInternos.CurrentRow.Cells["interno"].Value);
+                        this.tabControl1.SelectedIndex = 1;
 
 
                     }//fin if
                     else
                     {
-                        MessageBox.Show("Debe seleccionar un ciudadano.");
+                        MessageBox.Show("Debe seleccionar un interno.");
                     }
                 }
             }
@@ -507,16 +516,11 @@ namespace CapaPresentacion
 
                 List<DVisitaInterno> listaVisitaInterno = new List<DVisitaInterno>();
 
-                //30diceimbre2024 dgvVisitasVinculadas.DataSource = listaVisitaInterno;
-
-
-
                 var data = new
                 {
                     ciudadano_id = Convert.ToInt32(txtIdVisita.Text),
                     interno_id = Convert.ToInt32(txtIdInterno.Text),
                     parentesco_id = Convert.ToString(cmbParentesco.SelectedValue.ToString()),
-                    
 
                 };
                 //MessageBox.Show(Convert.ToString(cmbParentesco.SelectedValue.ToString()));
@@ -529,24 +533,14 @@ namespace CapaPresentacion
                     if (visitaInterno != null)
                     {
                         MessageBox.Show("La vinculación se realizó correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        //var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                        //DVisitaInterno dataRespuesta = JsonConvert.DeserializeObject<DVisitaInterno>(contentRespuesta);
-                        //MessageBox.Show("Parentesco creado correctamente" + dataRespuesta);
-                        ////this.Limpiar();
+                                                
                         NVisitaInterno nVisitaInternoActual = new NVisitaInterno();
-                        //List<DVisitaInterno> listaVisitasInternosActual = new List<DVisitaInterno>();
+                        
                         (List < DVisitaInterno > listaVisitasInternosActual, string errorResponseVisitasInternos) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
 
                         NParentesco nInterno = new NParentesco();
                         List<DParentesco> listaParentescos = new List<DParentesco>();
                         (List<DParentesco> listaParentescoss, string errorResponse) = await nInterno.retornarListaParentesco();
-
-
-
-
-
-
 
                         var datosFiltrados = listaVisitasInternosActual
                         .Select(c => new
@@ -572,18 +566,13 @@ namespace CapaPresentacion
                         MessageBox.Show("Revisar codigo" + " " + txtIdCioudadanoCategoria.Text + " " + Convert.ToInt32(2));
                         MessageBox.Show(errorResponseVisitaInterno, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
-
-
                 }
                 catch (Exception ex)
                 {
                     // Manejo de otros tipos de errores MySQL
                     MessageBox.Show("Error: " + ex.Message);
                 }
-
             }
-
-
 
 
         }//fin boton crear parentesco
@@ -638,8 +627,6 @@ namespace CapaPresentacion
                 direccion = txtDireccion.Text,
                 numero_dom = Convert.ToInt32(txtNumDomicilio.Text),
                 detalle_motivo = txtDetalleDomicilio.Text,
-
-
             };
 
             string dataCiudadano = JsonConvert.SerializeObject(data);
@@ -714,7 +701,7 @@ namespace CapaPresentacion
         {//inicio del boton asignar visitas
             if (this.txtIdCiuadanoVincularvisita.Text == string.Empty)
             {
-                MessageBox.Show("debe seleccionar el interno, antes de vincular");
+                MessageBox.Show("Debe seleccionar el ciudadano");
             }
 
             else
@@ -743,8 +730,6 @@ namespace CapaPresentacion
                     MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                           
                 }
-
-
             }
 
 
@@ -776,8 +761,6 @@ namespace CapaPresentacion
                 MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
-           
         }
 
         private async void btnIngreso_Click(object sender, EventArgs e)
@@ -786,7 +769,6 @@ namespace CapaPresentacion
             this.tabControl1.SelectedIndex = 2;
         }
 
-       
 
         private void btnAgregarInterno_Click(object sender, EventArgs e)
         {
@@ -823,8 +805,6 @@ namespace CapaPresentacion
                 //List<DParentesco> listaParentescos = new List<DParentesco>();
                 (List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
 
-
-
             }
             
 
@@ -834,8 +814,6 @@ namespace CapaPresentacion
             cmbCategorias.DisplayMember = "categoria_ciudadano";
             (List<DCategoriasCiudadano> listaCategoriasCiudadanos, string response) = await nCategoriasCiudadano.RetornarListaCategoriasCiudadano();
             cmbCategorias.DataSource = listaCategoriasCiudadanos;
-
-
 
 
             NCategoriasCiudadano nCategoriasCiuddano = new NCategoriasCiudadano();
@@ -856,46 +834,39 @@ namespace CapaPresentacion
                 .ToList();
 
 
-            //dgvCategoriasCiudadano.DataSource = datosFiltrados;
-
-
+            dgvCategoriasCiudadano.DataSource = datosFiltrados;
 
             this.txtIdCioudadanoCategoria.Text = txtIdCiudadano.Text;
             this.txtDniCiudadanoCategoria.Text = txtDni.Text;
             this.txtNombnreCiudadanoCategoria.Text = txtApellido.Text + " " + txtNombre.Text; 
             this.tabControl1.SelectedIndex = 4;
 
-
-    }
+        }
 
         private async void btnCrearCiudadanosCategorias_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Asignar categorias Abogado");
+        {           
             
-            
-             if (this.txtIdCioudadanoCategoria.Text == string.Empty)
+            if (this.txtIdCioudadanoCategoria.Text == string.Empty)
             {
-                MessageBox.Show("debe seleccionar la visita, antes de vincular");
+                MessageBox.Show("Debe seleccionar el ciudadano");
             }
 
             else
             {
-                //NCiudadano nCiudadano = new NCiudadano();
                 NCiuddanosCategorias nCiudadanosCategorias = new NCiuddanosCategorias();
 
                 var data = new
                 {
-                    //novedad_detalle = txtNovedadDetalle.Text,
+
                     ciudadano_id = Convert.ToInt32(txtIdCioudadanoCategoria.Text),
-                    //categoria_ciudadano_id = Convert.ToInt32(2),
-                    categoria_ciudadano_id = Convert.ToString(cmbParentesco.SelectedValue.ToString()),
+                    categoria_ciudadano_id = Convert.ToInt32(cmbCategorias.SelectedValue.ToString()),
                 };
+
 
                 string dataCiudadano = JsonConvert.SerializeObject(data);
 
                 try
                 {
-                    //HttpResponseMessage httpResponse = await nCiudadanosCategorias.crearCiudadanosCategorias(dataCiudadano);
                     (DCiudadanosCategorias ciudadanosCategoria, string errorResponseCiudadanosCategorias) = await nCiudadanosCategorias.crearCiudadanosCategorias(dataCiudadano);
 
                     if (ciudadanosCategoria != null)
@@ -903,10 +874,10 @@ namespace CapaPresentacion
                         
                         MessageBox.Show("Se le asignó la categoria al ciudadano correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                        this.CargarCategoriasDelCiudadano();
                     }
                     else
                     {
-                        MessageBox.Show("Revisar codigo" + " "  + txtIdCioudadanoCategoria.Text + " " + Convert.ToInt32(2));
                         MessageBox.Show(errorResponseCiudadanosCategorias, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
 
@@ -1025,15 +996,7 @@ namespace CapaPresentacion
 
             }
         }
-
-        private async void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private async void tabControl1_MouseClick(object sender, MouseEventArgs e)
-        {
-           
-        }
+                
 
         private async void btnActualizarDatos_Click(object sender, EventArgs e)
         {
@@ -1041,23 +1004,10 @@ namespace CapaPresentacion
             if (this.txtIdCiudadano.Text == string.Empty)
             {
                 MessageBox.Show("debe esperar que cargue los datos del ciudadano");
+                
+                return;
             }
-            else
-            {
-
-                NVisitaInterno nVisitaInterno = new NVisitaInterno();
-                //List<DVisitaInterno> listaVisitasInternos = new List<DVisitaInterno>();
-                (List<DVisitaInterno> listaVisitasInternos, string errorResponseVisitaInternoss) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
-
-                NParentesco nInterno = new NParentesco();
-                //List<DParentesco> listaParentescos = new List<DParentesco>();
-                (List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
-
-
-
-            }
-
-
+            
             //Carga de combo categorias
             NCategoriasCiudadano nCategoriasCiudadano = new NCategoriasCiudadano();
             cmbCategorias.ValueMember = "id_categoria_ciudadano";
@@ -1065,30 +1015,7 @@ namespace CapaPresentacion
             (List<DCategoriasCiudadano> listaCategoriasCiudadanos, string response) = await nCategoriasCiudadano.RetornarListaCategoriasCiudadano();
             cmbCategorias.DataSource = listaCategoriasCiudadanos;
 
-
-
-
-            NCategoriasCiudadano nCategoriasCiuddano = new NCategoriasCiudadano();
-            //string apellido_ciudadanos = Convert.ToString(this.txtBuscarApellido.Text);
-            (List<DCategoriasCiudadano> listaCategorias, string errorResponse) = await nCategoriasCiuddano.RetornarListaCategoriasCiudadano();
-            if (listaCategorias == null)
-            {
-                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            var datosFiltrados = listaCategorias
-                .Select(c => new
-                {
-                    id_categorias_ciudadano = c.id_categoria_ciudadano,
-                    Catgegorias = c.categoria_ciudadano
-
-                })
-                .ToList();
-
-
-            //dgvCategoriasCiudadano.DataSource = datosFiltrados;
-
-
+            this.CargarCategoriasDelCiudadano();
 
             this.txtIdCioudadanoCategoria.Text = txtIdCiudadano.Text;
             this.txtDniCiudadanoCategoria.Text = txtDni.Text;
@@ -1186,6 +1113,50 @@ namespace CapaPresentacion
             }
         }
         //FIN CONTROL ES VISITA
+
+        //CARGAR LISTA CATEGORIAS DEL CIUDADANO
+        private async void CargarCategoriasDelCiudadano()
+        {
+
+            NCiuddanosCategorias nCiudadanosCategorias = new NCiuddanosCategorias();
+
+            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await nCiudadanosCategorias.retornarCiudadanosCategoriasXCiudadano(Convert.ToInt32(txtIdCiudadano.Text));
+            if (listaCiudadanosCategorias == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            
+            var datosFiltrados = listaCiudadanosCategorias
+                .Select(c => new
+                {
+                    id_categorias_ciudadano = c.id_ciudadano_categoria,
+                    Catgegorias = c.categoria_ciudadano.categoria_ciudadano,
+                    fecha_caraga = c.fecha_carga,
+                    organismo_carga = c.organismo.organismo,
+                    usuario_carga = c.usuario.apellido + " " + c.usuario.nombre
+
+                })
+                .ToList();
+
+            dgvCategoriasCiudadano.DataSource = datosFiltrados;
+
+            if (listaCiudadanosCategorias.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dgvCategoriasCiudadano.Columns[1].Width = 150;
+                dgvCategoriasCiudadano.Columns[3].Width = 150;
+                dgvCategoriasCiudadano.Columns[4].Width = 150;
+            }
+
+        } 
+
+        //FIN CARGAR LISTA CATEGORIAS DEL CIUDADANO..................
 
 
     }

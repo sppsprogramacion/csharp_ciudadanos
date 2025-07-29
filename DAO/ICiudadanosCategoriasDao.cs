@@ -11,6 +11,8 @@ namespace DAO
     public interface ICiudadanosCategoriasDao
     {
         Task<(DCiudadanosCategorias, string error)> crearCiudadanosCategorias(string ciudadanosCategorias);
-       
+
+        Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasXCiudadano(int dni);
+
     }
 }

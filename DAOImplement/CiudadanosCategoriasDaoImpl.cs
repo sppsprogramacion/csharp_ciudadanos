@@ -74,5 +74,55 @@ namespace DAOImplement
 
 
         }//fin crear ciudadano categoria
+
+        public async Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasXCiudadano(int id_ciudadano)
+        {
+            
+            //variable token
+            string token = SessionManager.Token;
+            List<DCiudadanosCategorias> listaCiudadanosCategorias = new List<DCiudadanosCategorias>();
+
+            try
+            {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/ciudadanos-categorias/lista-vigentes-xciudadano?id_ciudadano=" + id_ciudadano);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaCiudadanosCategorias = JsonConvert.DeserializeObject<List<DCiudadanosCategorias>>(content);
+
+                    return (listaCiudadanosCategorias, null);
+
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+            }
+
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (null, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (null, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (null, $"Error inesperado: {ex.Message}");
+            }
+
+
+        }
     }
 }
