@@ -125,7 +125,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.txtNovedadDetalle = new System.Windows.Forms.TextBox();
+            this.txtAsignarVisitaDetalle = new System.Windows.Forms.TextBox();
             this.txtIdCiuadanoVincularvisita = new System.Windows.Forms.TextBox();
             this.btnAsignarVisita = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -461,6 +461,7 @@
             // 
             // cmbMunicipio
             // 
+            this.cmbMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMunicipio.Enabled = false;
             this.cmbMunicipio.FormattingEnabled = true;
             this.cmbMunicipio.Location = new System.Drawing.Point(745, 188);
@@ -470,6 +471,7 @@
             // 
             // cmbDepartamento
             // 
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartamento.Enabled = false;
             this.cmbDepartamento.FormattingEnabled = true;
             this.cmbDepartamento.Location = new System.Drawing.Point(745, 163);
@@ -480,6 +482,7 @@
             // 
             // cmbProvincia
             // 
+            this.cmbProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProvincia.Enabled = false;
             this.cmbProvincia.FormattingEnabled = true;
             this.cmbProvincia.Location = new System.Drawing.Point(745, 136);
@@ -490,6 +493,7 @@
             // 
             // cmbPais
             // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.Enabled = false;
             this.cmbPais.FormattingEnabled = true;
             this.cmbPais.Location = new System.Drawing.Point(745, 109);
@@ -500,6 +504,7 @@
             // 
             // cmbNacionalidad
             // 
+            this.cmbNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNacionalidad.Enabled = false;
             this.cmbNacionalidad.FormattingEnabled = true;
             this.cmbNacionalidad.Location = new System.Drawing.Point(171, 320);
@@ -517,6 +522,7 @@
             // 
             // cmbEstadoCivil
             // 
+            this.cmbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoCivil.Enabled = false;
             this.cmbEstadoCivil.FormattingEnabled = true;
             this.cmbEstadoCivil.Location = new System.Drawing.Point(171, 267);
@@ -535,6 +541,7 @@
             // 
             // cmbSexo
             // 
+            this.cmbSexo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexo.Enabled = false;
             this.cmbSexo.FormattingEnabled = true;
             this.cmbSexo.Location = new System.Drawing.Point(171, 214);
@@ -811,6 +818,7 @@
             // 
             // cmbParentesco
             // 
+            this.cmbParentesco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbParentesco.FormattingEnabled = true;
             this.cmbParentesco.Location = new System.Drawing.Point(172, 456);
             this.cmbParentesco.Name = "cmbParentesco";
@@ -844,6 +852,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(431, 502);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 37);
@@ -1127,7 +1136,7 @@
             this.panel1.Controls.Add(this.label30);
             this.panel1.Controls.Add(this.label28);
             this.panel1.Controls.Add(this.label40);
-            this.panel1.Controls.Add(this.txtNovedadDetalle);
+            this.panel1.Controls.Add(this.txtAsignarVisitaDetalle);
             this.panel1.Controls.Add(this.txtIdCiuadanoVincularvisita);
             this.panel1.Controls.Add(this.btnAsignarVisita);
             this.panel1.Controls.Add(this.pictureBox2);
@@ -1196,12 +1205,12 @@
             this.label40.TabIndex = 6;
             this.label40.Text = "Asignar como Visita";
             // 
-            // txtNovedadDetalle
+            // txtAsignarVisitaDetalle
             // 
-            this.txtNovedadDetalle.Location = new System.Drawing.Point(122, 349);
-            this.txtNovedadDetalle.Name = "txtNovedadDetalle";
-            this.txtNovedadDetalle.Size = new System.Drawing.Size(372, 20);
-            this.txtNovedadDetalle.TabIndex = 5;
+            this.txtAsignarVisitaDetalle.Location = new System.Drawing.Point(122, 349);
+            this.txtAsignarVisitaDetalle.Name = "txtAsignarVisitaDetalle";
+            this.txtAsignarVisitaDetalle.Size = new System.Drawing.Size(372, 20);
+            this.txtAsignarVisitaDetalle.TabIndex = 5;
             // 
             // txtIdCiuadanoVincularvisita
             // 
@@ -1364,6 +1373,7 @@
             // 
             // cmbCategorias
             // 
+            this.cmbCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategorias.FormattingEnabled = true;
             this.cmbCategorias.Location = new System.Drawing.Point(192, 171);
             this.cmbCategorias.Name = "cmbCategorias";
@@ -1503,7 +1513,7 @@
         private System.Windows.Forms.TextBox txtDniVisita;
         private System.Windows.Forms.Button btnAsignarVisita;
         private System.Windows.Forms.Button btnVincularVisitas;
-        private System.Windows.Forms.TextBox txtNovedadDetalle;
+        private System.Windows.Forms.TextBox txtAsignarVisitaDetalle;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox txtEstablecerDiscapacidad;
         private System.Windows.Forms.Button btnEstablecerDiscapacidad;

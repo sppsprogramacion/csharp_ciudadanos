@@ -140,8 +140,8 @@ namespace CapaPresentacion
                 txtApellido = txtApellido.Text,
                 txtNombre = txtNombre.Text,
                 dtpickFechaNacimiento = dtpFechaNacimiento.Value,
-                cmbSexo = Convert.ToInt32(cmbSexo.SelectedValue.ToString()),
-                cmbEstadoCivil = Convert.ToInt32(cmbEstadoCivil.SelectedValue.ToString()),
+                cmbSexo = cmbSexo.SelectedValue.ToString(),
+                cmbEstadoCivil = cmbEstadoCivil.SelectedValue.ToString(),
                 txtTelefono = txtTelefono.Text,
                 cmbNacionalidad = cmbNacionalidad.SelectedValue.ToString(),                
                 txtDetalleMotivo = txtDetalleMotivo.Text,
@@ -372,7 +372,7 @@ namespace CapaPresentacion
             MessageBox.Show("Presiono el boton combobox pais 2");
         }
 
-        async private void btnVincular_Click(object sender, EventArgs e)
+        private void btnVincular_Click(object sender, EventArgs e)
         {
             if (this.txtIdCiudadano.Text == string.Empty)
             {
@@ -380,59 +380,16 @@ namespace CapaPresentacion
             }
             else
             {
-                //NVisitaInterno nVisitaInterno = new NVisitaInterno();
-                //(List <DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
-
-                //if (listaVisitasInternos == null)
-                //{
-                //    MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    return;
-                //}
-
-                //NParentesco nInterno = new NParentesco();
-                ////List<DParentesco> listaParentescos = new List<DParentesco>();
-                //(List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
-
-                //var datosFiltrados = listaVisitasInternos
-                //.Select(c => new
-                //{
-                //    //ciudadano_id = c.ciudadano_id,
-                //    apellido_visita = this.txtApellido.Text,
-                //    nombre_visita = this.txtNombre.Text,
-                //    interno_id = c.interno_id,
-                //    apellido_interno = c.interno.apellido,
-                //    nombre_interno = c.interno.nombre,
-                //    prontuario = c.interno.prontuario,
-                //    parentesco = c.parentesco.parentesco
-
-                //})
-                //.ToList();
-
-
-                //dgvVisitasVinculadas.DataSource = datosFiltrados;
-
-                ////Carga de combo parentesco
-                //NParentesco nParentesco = new NParentesco();
-               
-                //cmbParentesco.ValueMember = "id_parentesco";
-                //cmbParentesco.DisplayMember = "parentesco";
-                //(List<DParentesco> listaParentesco, string errorResponseParentescos) = await nParentesco.retornarListaParentesco();
-                //cmbParentesco.DataSource = listaParentesco;
-
                 
-                //this.txtIdVisita.Text = txtIdCiudadano.Text;
                 this.tabControl1.SelectedIndex = 1;
-
             }
 
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            CiudadanoNuevo FrmCiudadanoNuevo = new CiudadanoNuevo();
+
             this.Close();
-            FrmCiudadanoNuevo.ShowDialog();
-            
         }
 
         private async void btnBuscarInterno_Click(object sender, EventArgs e)
@@ -516,6 +473,30 @@ namespace CapaPresentacion
 
                 List<DVisitaInterno> listaVisitaInterno = new List<DVisitaInterno>();
 
+                //validacion de formulario
+                var datosFormulario = new CiudadanoDatos
+                {
+                    txtIdVisita = txtIdVisita.Text,
+                    txtIdInterno = txtIdInterno.Text,
+                    cmbParentesco = cmbParentesco.SelectedValue.ToString(),
+                    
+                };
+
+                var validator = new EditarDPersonalesCiudadanoValidator();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+                //FIN VALIDAR
+
                 var data = new
                 {
                     ciudadano_id = Convert.ToInt32(txtIdVisita.Text),
@@ -526,52 +507,40 @@ namespace CapaPresentacion
                 //MessageBox.Show(Convert.ToString(cmbParentesco.SelectedValue.ToString()));
                 string dataVisitaInterno = JsonConvert.SerializeObject(data);
 
-                try
-                {
-                    (DVisitaInterno visitaInterno, string errorResponseVisitaInterno) = await nVisitaInterno.crearVisitaInterno(dataVisitaInterno);
+               (DVisitaInterno visitaInterno, string errorResponseVisitaInterno) = await nVisitaInterno.crearVisitaInterno(dataVisitaInterno);
 
-                    if (visitaInterno != null)
-                    {
-                        MessageBox.Show("La vinculación se realizó correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (visitaInterno != null)
+                {
+                    MessageBox.Show("La vinculación se realizó correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                 
-                        NVisitaInterno nVisitaInternoActual = new NVisitaInterno();
+                    NVisitaInterno nVisitaInternoActual = new NVisitaInterno();
                         
-                        (List < DVisitaInterno > listaVisitasInternosActual, string errorResponseVisitasInternos) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+                    (List < DVisitaInterno > listaVisitasInternosActual, string errorResponseVisitasInternos) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
 
-                        NParentesco nInterno = new NParentesco();
-                        List<DParentesco> listaParentescos = new List<DParentesco>();
-                        (List<DParentesco> listaParentescoss, string errorResponse) = await nInterno.retornarListaParentesco();
+                    NParentesco nInterno = new NParentesco();
+                    List<DParentesco> listaParentescos = new List<DParentesco>();
+                    (List<DParentesco> listaParentescoss, string errorResponse) = await nInterno.retornarListaParentesco();
 
-                        var datosFiltrados = listaVisitasInternosActual
-                        .Select(c => new
-                        {
-                            //ciudadano_id = c.ciudadano_id,
-                            apellido_visita = this.txtApellido.Text,
-                            nombre_visita = this.txtNombre.Text,
-                            interno_id = c.interno_id,
-                            apellido_interno = c.interno.apellido,
-                            nombre_interno = c.interno.nombre,
-                            prontuario = c.interno.prontuario,
-                            parentesco = c.parentesco.parentesco
-
-                        })
-                        .ToList();
-
-
-                        dgvVisitasVinculadas.DataSource = datosFiltrados;
-
-                    }
-                    else
+                    var datosFiltrados = listaVisitasInternosActual
+                    .Select(c => new
                     {
-                        MessageBox.Show("Revisar codigo" + " " + txtIdCioudadanoCategoria.Text + " " + Convert.ToInt32(2));
-                        MessageBox.Show(errorResponseVisitaInterno, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
+                        VISITA =c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                        INTERNO = c.interno.apellido + " " + c.interno.nombre,
+                        prontuario = c.interno.prontuario,
+                        parentesco = c.parentesco.parentesco
+
+                    })
+                    .ToList();
+
+
+                    dgvVisitasVinculadas.DataSource = datosFiltrados;
+
                 }
-                catch (Exception ex)
+                else
                 {
-                    // Manejo de otros tipos de errores MySQL
-                    MessageBox.Show("Error: " + ex.Message);
+                    MessageBox.Show(errorResponseVisitaInterno, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+               
             }
 
 
@@ -685,7 +654,7 @@ namespace CapaPresentacion
             HabilitarControlesDatosDomicilio(true);
         }
 
-        private async void btnVincularVisitas_Click(object sender, EventArgs e)
+        private void btnVincularVisitas_Click(object sender, EventArgs e)
         {
             if (this.txtIdCiudadano.Text == string.Empty)
             {
@@ -708,9 +677,33 @@ namespace CapaPresentacion
             {
                 NCiudadano nCiudadano = new NCiudadano();
 
+                //limpiar errores de provider
+                errorProvider.Clear();
+
+                //validacion de formulario
+                var datosFormulario = new CiudadanoDatos
+                {
+                    txtAsignarVisitaDetalle = txtAsignarVisitaDetalle.Text,
+                };
+
+                var validator = new AsignarComoVisitaValidator();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+                //fin validacion...........................
+
                 var data = new
                 {
-                    novedad_detalle = txtNovedadDetalle.Text,
+                    novedad_detalle = txtAsignarVisitaDetalle.Text,
                 };
 
                 string dataCiudadano = JsonConvert.SerializeObject(data);
@@ -739,6 +732,30 @@ namespace CapaPresentacion
         {
             NCiudadano nCiudadano = new NCiudadano();
 
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new CiudadanoDatos
+            {
+                txtEstablecerDiscapacidad = txtEstablecerDiscapacidad.Text,
+            };
+
+            var validator = new EstablecerDiscapacidadValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion...........................
+
             var data = new
             {
                 novedad_detalle = txtEstablecerDiscapacidad.Text,
@@ -763,7 +780,7 @@ namespace CapaPresentacion
             }
         }
 
-        private async void btnIngreso_Click(object sender, EventArgs e)
+        private void btnIngreso_Click(object sender, EventArgs e)
         {
             
             this.tabControl1.SelectedIndex = 2;
@@ -778,67 +795,16 @@ namespace CapaPresentacion
 
         private void cmbOrganismoDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Carga de combo provincia
-            //NProvincia nProvincia = new NProvincia();
-            //string id_paiss = Convert.ToString(this.cmbPais.SelectedValue);
-            //cmbProvincia.ValueMember = "id_provincia";
-            //cmbProvincia.DisplayMember = "provincia";
-            //List<DProvincia> listaProvincia = await nProvincia.RetornarListaProvinciasXPais(id_paiss);
-            //cmbProvincia.DataSource = listaProvincia;
         }
 
-        private async void btnAsignarCategorias_Click(object sender, EventArgs e)
+        private void btnAsignarCategorias_Click(object sender, EventArgs e)
         {
              
             if (this.txtIdCiudadano.Text == string.Empty)
             {
                 MessageBox.Show("debe esperar que cargue los datos del ciudadano");
             }
-            else
-            {
-
-                NVisitaInterno nVisitaInterno = new NVisitaInterno();
-                //List<DVisitaInterno> listaVisitasInternos = new List<DVisitaInterno>();
-                (List<DVisitaInterno> listaVisitasInternos, string errorResponseVisitaInternoss) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
-
-                NParentesco nInterno = new NParentesco();
-                //List<DParentesco> listaParentescos = new List<DParentesco>();
-                (List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
-
-            }
             
-
-            //Carga de combo categorias
-            NCategoriasCiudadano nCategoriasCiudadano = new NCategoriasCiudadano();
-            cmbCategorias.ValueMember = "id_categoria_ciudadano";
-            cmbCategorias.DisplayMember = "categoria_ciudadano";
-            (List<DCategoriasCiudadano> listaCategoriasCiudadanos, string response) = await nCategoriasCiudadano.RetornarListaCategoriasCiudadano();
-            cmbCategorias.DataSource = listaCategoriasCiudadanos;
-
-
-            NCategoriasCiudadano nCategoriasCiuddano = new NCategoriasCiudadano();
-            //string apellido_ciudadanos = Convert.ToString(this.txtBuscarApellido.Text);
-            (List<DCategoriasCiudadano> listaCategorias, string errorResponse) = await nCategoriasCiuddano.RetornarListaCategoriasCiudadano();
-            if (listaCategorias == null)
-            {
-                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            var datosFiltrados = listaCategorias
-                .Select(c => new
-                {
-                    id_categorias_ciudadano = c.id_categoria_ciudadano,
-                    Catgegorias = c.categoria_ciudadano
-                    
-                })
-                .ToList();
-
-
-            dgvCategoriasCiudadano.DataSource = datosFiltrados;
-
-            this.txtIdCioudadanoCategoria.Text = txtIdCiudadano.Text;
-            this.txtDniCiudadanoCategoria.Text = txtDni.Text;
-            this.txtNombnreCiudadanoCategoria.Text = txtApellido.Text + " " + txtNombre.Text; 
             this.tabControl1.SelectedIndex = 4;
 
         }
@@ -969,12 +935,8 @@ namespace CapaPresentacion
                 var datosFiltrados = listaVisitasInternos
                 .Select(c => new
                 {
-                    //ciudadano_id = c.ciudadano_id,
-                    apellido_visita = this.txtApellido.Text,
-                    nombre_visita = this.txtNombre.Text,
-                    interno_id = c.interno_id,
-                    apellido_interno = c.interno.apellido,
-                    nombre_interno = c.interno.nombre,
+                    VISITA = c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                    INTERNO = c.interno.apellido + " " + c.interno.nombre,
                     prontuario = c.interno.prontuario,
                     parentesco = c.parentesco.parentesco
 

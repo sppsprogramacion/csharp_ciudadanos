@@ -56,9 +56,6 @@ namespace CapaPresentacion
         {
             NCiudadano nCiudadano = new NCiudadano();
 
-            List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
-
-            dataGridView1.DataSource = listaCiudadanos;
 
             //limpiar errores de provider
             errorProvider.Clear();
@@ -70,8 +67,8 @@ namespace CapaPresentacion
                 txtApellido = txtApellido.Text,
                 txtNombre = txtNombre.Text,
                 dtpickFechaNacimiento = dtpickFechaNacimiento.Value,
-                cmbSexo = Convert.ToInt32(cmbSexo.SelectedValue.ToString()),
-                cmbEstadoCivil = Convert.ToInt32(cmbEstadoCivil.SelectedValue.ToString()),
+                cmbSexo = cmbSexo.SelectedValue.ToString(),
+                cmbEstadoCivil = cmbEstadoCivil.SelectedValue.ToString(),
                 txtTelefono = txtTelefono.Text,
                 cmbNacionalidad = cmbNacionalidad.SelectedValue.ToString(),
                 cmbPais = cmbPais.SelectedValue.ToString(),
@@ -97,6 +94,7 @@ namespace CapaPresentacion
                 }
                 return;
             }
+            //fin validar formulario....................
 
             var data = new
             {
@@ -132,17 +130,6 @@ namespace CapaPresentacion
 
                     MessageBox.Show("Ciudadano creado correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Limpiar();
-
-
-                    NCiudadano nCiudadanos = new NCiudadano();
-                    (List<DCiudadano> listaCiudadanoss, string errorResponse) = await nCiudadanos.RetornarListaCiudadanos();
-                    if (listaCiudadanoss == null)
-                    {
-                        MessageBox.Show(errorResponse, "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-                    dataGridView1.DataSource = listaCiudadanoss;
-
 
                 }
                 else
@@ -240,18 +227,13 @@ namespace CapaPresentacion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //this.isEditar = false;
-            //this.isNuevo = false;
+            
             this.Limpiar();
-            //this.Habilitar(false);
-            //this.Botones();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-            CiudadanoNuevo FCiudadanoNuevo = new CiudadanoNuevo();
-            FCiudadanoNuevo.ShowDialog();
         }
 
         private void cmbDepartamento_TextChanged(object sender, EventArgs e)

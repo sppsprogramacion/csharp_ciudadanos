@@ -143,9 +143,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\Datos\CiudadanoDatos.cs" />
+    <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\AsignarComoVisitaValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EditarDDomicilioCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EditarDPersonalesCiudadanoValidator.cs" />
+    <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EstablecerDiscapacidadValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\NuevoCiudadanoValidator.cs" />
+    <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\VincularVisitaInternoValidator.cs" />
     <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarDniValidator.cs" />
     <Compile Include="Validaciones\Login\Datos\LoginDatos.cs" />
     <Compile Include="Validaciones\Login\ValidacionLogin\LoginValidator.cs" />

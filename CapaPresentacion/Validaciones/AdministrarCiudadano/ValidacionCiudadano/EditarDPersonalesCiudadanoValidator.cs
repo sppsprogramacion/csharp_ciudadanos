@@ -47,7 +47,7 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano
             RuleFor(x => x.txtDetalleMotivo)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("El motivo edicion es obligatorio..")
-                .Length(1, 100).WithMessage("El motivo edicion debe tener entre 1 y 2000 caracteres.");
+                .Length(1, 2000).WithMessage("El motivo edicion debe tener entre 1 y 2000 caracteres.");
             
         }
 

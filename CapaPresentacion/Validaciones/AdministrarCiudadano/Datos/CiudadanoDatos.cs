@@ -13,10 +13,10 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
         public string txtDni { get; set; }
         public string txtApellido { get; set; }
         public string txtNombre { get; set; }
-        public int cmbSexo { get; set; }
+        public string cmbSexo { get; set; }
         public DateTime dtpickFechaNacimiento { get; set; }
         public string txtTelefono { get; set; }
-        public int cmbEstadoCivil { get; set; }
+        public string cmbEstadoCivil { get; set; }
         public string cmbNacionalidad { get; set; }
         public string cmbPais { get; set; }
         public string cmbProvincia { get; set; }
@@ -32,6 +32,17 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
 
         //edicion datos domicilio
         public string txtDetalleDomicilio { get; set; }
+
+        //vincular interno con visita
+        public string txtIdVisita { get; set; }
+        public string txtIdInterno { get; set; }
+        public string cmbParentesco { get; set; }
+
+        //asignar como visita
+        public string txtAsignarVisitaDetalle { get; set; }
+
+        //establecer discapacidad
+        public string txtEstablecerDiscapacidad { get; set; }
 
     }
 }
