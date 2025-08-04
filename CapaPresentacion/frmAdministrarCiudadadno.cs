@@ -1116,7 +1116,53 @@ namespace CapaPresentacion
                 dgvCategoriasCiudadano.Columns[4].Width = 150;
             }
 
-        } 
+        }
+
+        private async void btnActualizarIngresos_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadano.Text == string.Empty)
+            {
+                MessageBox.Show("debe esperar que cargue los datos del ciudadano");
+            }
+            else
+            {
+                NRegistroDiario nRegistroDiario = new NRegistroDiario();
+                (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.RetornarListaXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                if (listaRegistroDiario == null)
+                {
+                    MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                NParentesco nInterno = new NParentesco();
+                //List<DParentesco> listaParentescos = new List<DParentesco>();
+                (List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
+
+                var datosFiltrados = listaRegistroDiario
+                .Select(c => new
+                {
+                    Ingreso = c.fecha_ingreso,
+                    HoraIngreso = c.hora_ingreso,
+                    HoraEgreso = c.hora_egreso,
+                    TipoAtencion = c.tipo_atencion.tipo_atencion,
+                    TipoAcceso = c.tipo_acceso.tipo_acceso,
+                    SectorDestino = c.sector_destino.sector_destino,
+                    MotivoAtencion = c.motivo_atencion.motivo_atencion,
+                    Interno = c.interno,
+                    Observacion = c.observaciones,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
+
+                })
+                .ToList();
+
+                dgvRegistroDiario.DataSource = datosFiltrados;
+
+            }
+
+
+        }
 
         //FIN CARGAR LISTA CATEGORIAS DEL CIUDADANO..................
 

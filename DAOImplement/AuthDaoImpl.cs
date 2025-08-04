@@ -18,12 +18,7 @@ namespace DAOImplement
 
  
         private string url_base = MiConexion.getConexion();
-        //public Task<HttpResponseMessage> LoginUsuario(string prohibicionVisita)
-        //{
-        //throw new NotImplementedException();
-
-        //    private string url_base = MiConexion.getConexion();
-
+        
         public async Task<(bool, string)> LoginUsuario(string loginUsuario)
         {
             DUsuario dataUsuario = new DUsuario();

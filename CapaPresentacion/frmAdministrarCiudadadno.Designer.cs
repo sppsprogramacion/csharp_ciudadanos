@@ -105,9 +105,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtBuscarApellidoInternos = new System.Windows.Forms.TextBox();
             this.tabHistorialIngresos = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label27 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
             this.tabAsignarVisitas = new System.Windows.Forms.TabPage();
             this.btnActualizarAsignar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -144,6 +142,7 @@
             this.txtIdCioudadanoCategoria = new System.Windows.Forms.TextBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnActualizarIngresos = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -155,7 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).BeginInit();
             this.tabHistorialIngresos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).BeginInit();
             this.tabAsignarVisitas.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -981,9 +980,8 @@
             // tabHistorialIngresos
             // 
             this.tabHistorialIngresos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabHistorialIngresos.Controls.Add(this.dataGridView1);
-            this.tabHistorialIngresos.Controls.Add(this.label27);
-            this.tabHistorialIngresos.Controls.Add(this.textBox1);
+            this.tabHistorialIngresos.Controls.Add(this.btnActualizarIngresos);
+            this.tabHistorialIngresos.Controls.Add(this.dgvRegistroDiario);
             this.tabHistorialIngresos.Location = new System.Drawing.Point(4, 22);
             this.tabHistorialIngresos.Name = "tabHistorialIngresos";
             this.tabHistorialIngresos.Padding = new System.Windows.Forms.Padding(3);
@@ -992,29 +990,13 @@
             this.tabHistorialIngresos.Text = "Historial de Ingresos";
             this.tabHistorialIngresos.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvRegistroDiario
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(45, 136);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1114, 219);
-            this.dataGridView1.TabIndex = 2;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(258, 51);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(101, 13);
-            this.label27.TabIndex = 1;
-            this.label27.Text = "Buscar por Apellido:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(413, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 20);
-            this.textBox1.TabIndex = 0;
+            this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRegistroDiario.Location = new System.Drawing.Point(45, 95);
+            this.dgvRegistroDiario.Name = "dgvRegistroDiario";
+            this.dgvRegistroDiario.Size = new System.Drawing.Size(1114, 219);
+            this.dgvRegistroDiario.TabIndex = 2;
             // 
             // tabAsignarVisitas
             // 
@@ -1392,6 +1374,20 @@
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
+            // btnActualizarIngresos
+            // 
+            this.btnActualizarIngresos.BackColor = System.Drawing.Color.White;
+            this.btnActualizarIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarIngresos.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
+            this.btnActualizarIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizarIngresos.Location = new System.Drawing.Point(45, 27);
+            this.btnActualizarIngresos.Name = "btnActualizarIngresos";
+            this.btnActualizarIngresos.Size = new System.Drawing.Size(117, 37);
+            this.btnActualizarIngresos.TabIndex = 14;
+            this.btnActualizarIngresos.Text = "     Actualizar";
+            this.btnActualizarIngresos.UseVisualStyleBackColor = false;
+            this.btnActualizarIngresos.Click += new System.EventHandler(this.btnActualizarIngresos_Click);
+            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1418,8 +1414,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).EndInit();
             this.tabHistorialIngresos.ResumeLayout(false);
-            this.tabHistorialIngresos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).EndInit();
             this.tabAsignarVisitas.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1538,9 +1533,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnActualizarPestañaVinculacion;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dgvRegistroDiario;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btnActualizarDatos;
@@ -1552,6 +1545,7 @@
         private System.Windows.Forms.Label lblEsVisitaPrincipal;
         private System.Windows.Forms.Label lblDetalleTieneDiscapacidad;
         private System.Windows.Forms.Label lblTieneDiscapacidad;
+        private System.Windows.Forms.Button btnActualizarIngresos;
     }
 }
 

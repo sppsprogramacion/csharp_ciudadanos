@@ -12,5 +12,8 @@ namespace DAO
     public interface IRegistroDiarioDao
     {
         Task<(DRegistroDiario, string error)> crearRegistroDiario(string registroDiario);
+
+        Task<(List<DRegistroDiario>, string error)> ListaXCiudadano(int idCiudadano);
+
     }
 }
