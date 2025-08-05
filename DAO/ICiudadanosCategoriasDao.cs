@@ -14,5 +14,7 @@ namespace DAO
 
         Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasXCiudadano(int dni);
 
+        Task<(bool, string error)> QuitarCategoria(int id, string dataQuitar);
+
     }
 }

@@ -73,8 +73,11 @@ namespace DAOImplement
             }
 
 
-        }//fin crear ciudadano categoria
+        }//FIN CREAR CIUDADANOS CATEGORIAS
 
+        
+
+        //LISTA DE CATEGORIAS DEL CIUDADANO
         public async Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasXCiudadano(int id_ciudadano)
         {
             
@@ -124,5 +127,67 @@ namespace DAOImplement
 
 
         }
+        //FIN LISTA DE CATEGORIAS DEL CIUDADANO........................................................
+
+
+        //QUITAR CATEGORIA
+        public async Task<(bool, string error)> QuitarCategoria(int id, string dataQuitar)
+        {
+            //variable token
+            string token = SessionManager.Token;
+
+            try
+            {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                // Crear el contenido de la solicitud HTTP
+                StringContent content = new StringContent(dataQuitar, Encoding.UTF8, "application/json");
+
+                // Enviar la solicitud HTTP POST
+                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos-categorias/quitar-vigente?id_ciudadano_categoria=" + id, content);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
+
+                    var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
+
+                    if (dataRespuesta.Affected > 0)
+                    {
+                        return (true, null);
+                    }
+                    else
+                    {
+                        return (false, "No se pudo quitar la categoria");
+                    }
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (false, $"Error al quitar la categoria: {mensaje}");
+                }
+
+
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (false, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (false, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (false, $"Error inesperado: {ex.Message}");
+            }
+        }
+        //FIN QUITAR CATEGORIA......................................................
     }
 }

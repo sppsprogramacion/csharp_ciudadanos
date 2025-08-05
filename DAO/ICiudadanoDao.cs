@@ -32,7 +32,6 @@ namespace DAO
         Task<(bool, string error)> establecerVisita(int id, string novedad_detalle);
         Task<(bool, string error)> establecerDiscapacidad(int id, string novedad_detalle);
 
-
-        //DataTable retornarCiudadanosTodos();
+        Task<(bool, string error)> subirImagen(int id, string rutaImagen);
     }
 }

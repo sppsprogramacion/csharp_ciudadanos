@@ -25,6 +25,9 @@ namespace CapaPresentacion
         private bool valor = false;
         public int idInternoGlobal { get; set; }
 
+        //PARA SUBIR IMAGEN
+        string imagePath;
+
 
         DCiudadano dCiudadano = new DCiudadano();
         DInterno dInterno = new DInterno();
@@ -214,6 +217,8 @@ namespace CapaPresentacion
 
         private async void frmAdministrarCiudadadno_Load(object sender, EventArgs e)
         {//Inicio evento Load
+                     
+
 
             int idCiudadano;
             //acceder a la instancia de FormTramites abierta.
@@ -1092,11 +1097,11 @@ namespace CapaPresentacion
             var datosFiltrados = listaCiudadanosCategorias
                 .Select(c => new
                 {
-                    id_categorias_ciudadano = c.id_ciudadano_categoria,
-                    Catgegorias = c.categoria_ciudadano.categoria_ciudadano,
-                    fecha_caraga = c.fecha_carga,
-                    organismo_carga = c.organismo.organismo,
-                    usuario_carga = c.usuario.apellido + " " + c.usuario.nombre
+                    IdCategoriaCiudadano = c.id_ciudadano_categoria,
+                    Categoria = c.categoria_ciudadano.categoria_ciudadano,
+                    FechaCarga = c.fecha_carga,
+                    OrganismoCarga = c.organismo.organismo,
+                    UsuarioCarga = c.usuario.apellido + " " + c.usuario.nombre
 
                 })
                 .ToList();
@@ -1115,8 +1120,9 @@ namespace CapaPresentacion
                 dgvCategoriasCiudadano.Columns[3].Width = 150;
                 dgvCategoriasCiudadano.Columns[4].Width = 150;
             }
+        
+        }//FIN CARGAR LISTA CATEGORIAS DEL CIUDADANO..................
 
-        }
 
         private async void btnActualizarIngresos_Click(object sender, EventArgs e)
         {
@@ -1164,9 +1170,132 @@ namespace CapaPresentacion
 
         }
 
-        //FIN CARGAR LISTA CATEGORIAS DEL CIUDADANO..................
+        private void dgvCategoriasCiudadano_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
 
+                if (dgvCategoriasCiudadano.SelectedRows.Count > 0)
+                {
 
+                    this.txtIdCategoriaQuitar.Text = Convert.ToString(this.dgvCategoriasCiudadano.CurrentRow.Cells["IdCategoriaCiudadano"].Value);
+                    this.txtCategoriaQuitar.Text = Convert.ToString(this.dgvCategoriasCiudadano.CurrentRow.Cells["Categoria"].Value);
+                    this.txtFechaCargaCategoriaQuitar.Text = Convert.ToString(this.dgvCategoriasCiudadano.CurrentRow.Cells["FechaCarga"].Value);
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar una categoria del ciudadano.");
+                }                
+            }
+        }
+
+        private async void btnQuitarCategoria_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCategoriaQuitar.Text == string.Empty)
+            {
+                MessageBox.Show("Debe seleccionar la categoria del ciudadano");
+            }
+
+            else
+            {
+                NCiuddanosCategorias nCiuddanosCategorias = new NCiuddanosCategorias();
+
+                //limpiar errores de provider
+                errorProvider.Clear();
+
+                //validacion de formulario
+                var datosFormulario = new CiudadanoDatos
+                {
+                    txtDetalleCategoriaQuitar = txtDetalleCategoriaQuitar.Text,
+                };
+
+                var validator = new QuitarCategoriaDelCiudadano();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+                //fin validacion...........................
+
+                var data = new
+                {
+                    detalle_quitar_categoria = txtDetalleCategoriaQuitar.Text,
+                };
+
+                string dataCategoria = JsonConvert.SerializeObject(data);
+
+                (bool respuestaEditar, string errorResponse) = await nCiuddanosCategorias.QuitarCategoria(Convert.ToInt32(txtIdCategoriaQuitar.Text), dataCategoria);
+
+                if (respuestaEditar)
+                {
+
+                    MessageBox.Show("Se quitó correctamente la categoria", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    this.CargarCategoriasDelCiudadano();
+
+                    this.txtIdCategoriaQuitar.Text = string.Empty;
+                    this.txtCategoriaQuitar.Text = string.Empty;
+                    this.txtFechaCargaCategoriaQuitar.Text = string.Empty;
+                    this.txtDetalleCategoriaQuitar.Text = string.Empty;
+
+                }
+                else
+                {
+                    MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+
+        private void btnLimpiarQuitarCategoria_Click(object sender, EventArgs e)
+        {
+            this.txtIdCategoriaQuitar.Text = string.Empty;
+            this.txtCategoriaQuitar.Text = string.Empty;
+            this.txtFechaCargaCategoriaQuitar.Text = string.Empty;
+            this.txtDetalleCategoriaQuitar.Text = string.Empty;
+        }
+
+        private void btnBuscarImagen_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    this.imagePath = ofd.FileName;
+                    pictureImagenCargar.Image = System.Drawing.Image.FromFile(imagePath);
+                }
+            }
+        }
+
+        private async void btnSubir_Click(object sender, EventArgs e)
+        {
+            NCiudadano nCiudadano = new NCiudadano();
+
+            int idCiudadano = Convert.ToInt32(txtIdCiudadano.Text);
+            string rutaImagen = this.imagePath; // o lo que hayas guardado al seleccionar la imagen
+
+            var (exito, error) = await nCiudadano.subirImagen(idCiudadano, rutaImagen);
+
+            if (exito)
+            {
+                MessageBox.Show("Imagen subida correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("Error al subir imagen: " + error);
+            }
+        }
     }
 
 }

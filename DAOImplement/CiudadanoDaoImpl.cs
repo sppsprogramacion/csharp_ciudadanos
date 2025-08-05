@@ -13,6 +13,8 @@ using System.Net;
 using Newtonsoft.Json.Linq;
 using CommonCache;
 using System.Net.Http.Headers;
+using System.IO;
+using System.Security.Cryptography;
 
 namespace DAOImplement
 {
@@ -132,19 +134,19 @@ namespace DAOImplement
 
         public int editarCiudadano(DCiudadano ciudadano)
         {
-         throw new NotImplementedException();
+            throw new NotImplementedException();
         }
 
-        public async  Task<HttpResponseMessage> editarCiudadanoDni(int id, string ciudadano)
-            
+        public async Task<HttpResponseMessage> editarCiudadanoDni(int id, string ciudadano)
+
         {//inicio metodo editar objeto
-            
+
             try
             {
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/update-domicilio?id_ciudadano=" + id, content);
-                
+
 
                 return httpResponse;
 
@@ -177,7 +179,7 @@ namespace DAOImplement
             throw new NotImplementedException();
         }
 
-        
+
         public async Task<(List<DCiudadano>, string error)> retornarListaCiudadanoXApellido(string apellido)
         {
             //variable token
@@ -226,13 +228,13 @@ namespace DAOImplement
 
         }
 
-       
+
 
         public async Task<(List<DCiudadano>, string error)> retornarListaCiudadano()
         {//inicio funcion Retornoar Lista de Ciudadanos
-            
+
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
-            
+
             try
             {
                 using (HttpClient httpClient = new HttpClient())
@@ -245,7 +247,7 @@ namespace DAOImplement
                         listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
                         return (listaCiudadanos, null);
 
-                        
+
                     }
                     else
                     {
@@ -288,14 +290,14 @@ namespace DAOImplement
             {
                 //agregar tpken a la cabecera
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(Convert.ToString(dni), Encoding.UTF8, "application/json");
 
                 //HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/" + dni);
                 HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-xdni?dni=" + dni);
                 {
-                    
+
                     if (httpResponse.IsSuccessStatusCode)
                     {
                         var contentt = await httpResponse.Content.ReadAsStringAsync();
@@ -311,7 +313,7 @@ namespace DAOImplement
 
 
 
-                    }
+                }
 
             }
             catch (HttpRequestException httpRequestException)
@@ -339,13 +341,13 @@ namespace DAOImplement
 
         public async Task<HttpResponseMessage> editarDatosPersonales(int id, string ciudadano)
         {
-            
+
             try
             {
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/update-datos-personales?id_ciudadano=" + id, content);
-               
+
                 return httpResponse;
 
             }
@@ -426,7 +428,7 @@ namespace DAOImplement
             }
 
         }
-        
+
         //FIN ESTABLECER VISITA
 
         //ESTABLECER DISCAACIDAD
@@ -486,7 +488,48 @@ namespace DAOImplement
 
         }
 
+        public async Task<(bool, string error)> subirImagen(int id, string rutaImagen)
+        {
+            string token = SessionManager.Token;
 
+            if (!File.Exists(rutaImagen))
+                return (false, "No se encontró el archivo de imagen.");
 
+            try
+            {
+                using (var form = new MultipartFormDataContent())
+                using (var imageContent = new ByteArrayContent(File.ReadAllBytes(rutaImagen)))
+                {
+                    imageContent.Headers.ContentType = new MediaTypeHeaderValue("image/jpeg");
+                    form.Add(imageContent, "file", Path.GetFileName(rutaImagen));
+
+                    // Agregar token a la cabecera
+                    this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                    string url = $"{url_base}/ciudadanos/upload-img-ciudadano?id_ciudadano={id}";
+                    var response = await this.httpClient.PostAsync(url, form);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return (true, null);
+                    }
+                    else
+                    {
+                        string responseContent = await response.Content.ReadAsStringAsync();
+                        var mensaje = JObject.Parse(responseContent)["message"]?.ToString();
+                        return (false, $"Error al subir la imagen: {mensaje}");
+                    }
+                }
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                return (false, $"Error en la solicitud: {httpRequestException.Message}");
+            }
+            catch (Exception ex)
+            {
+                return (false, $"Error inesperado: {ex.Message}");
+            }
+        }
     }
+
 }

@@ -128,5 +128,16 @@ namespace CapaNegocio
         //FIN ESTABLECER CON DISCAPACIDAD..................................
 
 
+        //SUBIR IMAGEN
+        public async Task<(bool, string error)> subirImagen(int id, string rutaImagen)
+        {
+            ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
+
+            (bool ciudadanoResponse, string error) = await ciudadanoDao.subirImagen(id, rutaImagen);
+
+            return (ciudadanoResponse, error);
+        }
+        //FIN SUBIR IMAGEN..................................
+
     }
 }

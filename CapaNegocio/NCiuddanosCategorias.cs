@@ -42,6 +42,17 @@ namespace CapaNegocio
         //FIN RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID..................................
 
 
+        //QUITAR CATEGORIA
+        public async Task<(bool, string error)> QuitarCategoria(int id, string dataQutar)
+        {
+            ICiudadanosCategoriasDao ciudadanosCategoriasDao = new CiudadanosCategoriasDaoImpl();
+
+            (bool ciudadanoCategoriaResponse, string error) = await ciudadanosCategoriasDao.QuitarCategoria(id, dataQutar);
+
+            return (ciudadanoCategoriaResponse, error);
+        }
+        //FIN QUITAR CATEGORIA..................................
+
 
     }
 }

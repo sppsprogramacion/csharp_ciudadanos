@@ -44,5 +44,8 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
         //establecer discapacidad
         public string txtEstablecerDiscapacidad { get; set; }
 
+        //Quitar categoria
+        public string txtDetalleCategoriaQuitar { get; set; }
+
     }
 }
