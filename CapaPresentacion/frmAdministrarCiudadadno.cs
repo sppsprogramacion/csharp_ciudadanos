@@ -1289,11 +1289,13 @@ namespace CapaPresentacion
 
             if (exito)
             {
-                MessageBox.Show("Imagen subida correctamente.");
+                MessageBox.Show("Imagen subida correctamente.", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //buscar y actualizar el ciudadano this.dCiudadano
+                this.ActualizarCiudadano();
             }
             else
             {
-                MessageBox.Show("Error al subir imagen: " + error);
+                MessageBox.Show("Error al subir imagen: " + error, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
