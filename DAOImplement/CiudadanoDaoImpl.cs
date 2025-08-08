@@ -32,6 +32,7 @@ namespace DAOImplement
         {
             //variable token
             string token = SessionManager.Token;
+
             DCiudadano dCiudadano = new DCiudadano();
             //throw new NotImplementedException();
             try
@@ -83,6 +84,7 @@ namespace DAOImplement
         {
             //variable token
             string token = SessionManager.Token;
+
             DCiudadano dCiudadano = new DCiudadano();
             try
             {
@@ -137,11 +139,16 @@ namespace DAOImplement
             throw new NotImplementedException();
         }
 
-        public async Task<HttpResponseMessage> editarCiudadanoDni(int id, string ciudadano)
+        public async Task<HttpResponseMessage> editarCiudadanoDomicilio(int id, string ciudadano)
         {//inicio metodo editar objeto
+            //variable token
+            string token = SessionManager.Token;
 
             try
             {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/update-domicilio?id_ciudadano=" + id, content);
@@ -182,7 +189,9 @@ namespace DAOImplement
 
             try
             { //agregar tpken a la cabecera
-                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); using (HttpClient httpClient = new HttpClient())
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); 
+                
+                using (HttpClient httpClient = new HttpClient())
                 {
                     HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-xapellido?apellido=" + apellido);
 
@@ -224,10 +233,16 @@ namespace DAOImplement
 
         public async Task<(List<DCiudadano>, string error)> retornarListaCiudadano()
         {//inicio funcion Retornoar Lista de Ciudadanos
+
+            //variable token
+            string token = SessionManager.Token;
+
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
 
             try
             {
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 using (HttpClient httpClient = new HttpClient())
                 {
                     HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/todos");
@@ -270,6 +285,7 @@ namespace DAOImplement
         {//inicio funvion retornar listrado x dni
             //variable token
             string token = SessionManager.Token;
+
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
 
             try
@@ -318,8 +334,14 @@ namespace DAOImplement
 
         public async Task<HttpResponseMessage> editarDatosPersonales(int id, string ciudadano)
         {
+            //variable token
+            string token = SessionManager.Token;
+
             try
             {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/update-datos-personales?id_ciudadano=" + id, content);
@@ -354,6 +376,7 @@ namespace DAOImplement
             {
                 //agregar tpken a la cabecera
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/establecer-visita?id_ciudadano=" + id, content);
@@ -408,10 +431,12 @@ namespace DAOImplement
         {
             //variable token
             string token = SessionManager.Token;
+
             try
             {
                 //agregar tpken a la cabecera
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/establecer-discapacidad?id_ciudadano=" + id, content);

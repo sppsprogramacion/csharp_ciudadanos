@@ -607,7 +607,7 @@ namespace CapaPresentacion
 
             try
             {
-                HttpResponseMessage httpResponse = await nCiudadano.editarCiudadanoDni(Convert.ToInt32(txtIdCiudadano.Text), dataCiudadano);
+                HttpResponseMessage httpResponse = await nCiudadano.editarCiudadanoDomicilio(Convert.ToInt32(txtIdCiudadano.Text), dataCiudadano);
                 
                 if (httpResponse.IsSuccessStatusCode)
                 {

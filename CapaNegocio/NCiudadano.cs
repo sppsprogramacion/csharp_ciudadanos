@@ -71,11 +71,11 @@ namespace CapaNegocio
         //FIN CARGAR DATOS DE CIUDADANOS..................................
         
         //EDITAR DATOS DE DOMICILIO DE CIUDADANOS
-        public async Task<HttpResponseMessage> editarCiudadanoDni(int id, string ciudadano)
+        public async Task<HttpResponseMessage> editarCiudadanoDomicilio(int id, string ciudadano)
         {
             ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
 
-            HttpResponseMessage ciudadanoResponse = await ciudadanoDao.editarCiudadanoDni(id, ciudadano);
+            HttpResponseMessage ciudadanoResponse = await ciudadanoDao.editarCiudadanoDomicilio(id, ciudadano);
 
             return ciudadanoResponse;
         }
