@@ -260,5 +260,8 @@
   <ItemGroup>
     <None Include="Resources\upload.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar-basura.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

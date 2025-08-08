@@ -138,7 +138,6 @@ namespace DAOImplement
         }
 
         public async Task<HttpResponseMessage> editarCiudadanoDni(int id, string ciudadano)
-
         {//inicio metodo editar objeto
 
             try
@@ -167,11 +166,6 @@ namespace DAOImplement
                 Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
                 throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
             }
-
-
-
-
-
         }//fin metodo editar objeto
 
         public DataTable retornarCiudadanosTodos()
@@ -224,15 +218,12 @@ namespace DAOImplement
                 Console.WriteLine($"Error: {ex.Message}");
                 return (null, $"Error inesperado: {ex.Message}");
             }
-
-
         }
 
 
 
         public async Task<(List<DCiudadano>, string error)> retornarListaCiudadano()
         {//inicio funcion Retornoar Lista de Ciudadanos
-
             List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
 
             try
@@ -246,8 +237,6 @@ namespace DAOImplement
                         var content = await httpResponse.Content.ReadAsStringAsync();
                         listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
                         return (listaCiudadanos, null);
-
-
                     }
                     else
                     {
@@ -274,9 +263,6 @@ namespace DAOImplement
                 Console.WriteLine($"Error: {ex.Message}");
                 return (null, $"Error inesperado: {ex.Message}");
             }
-
-
-
 
         }//fin funcion Retornar Lista de Ciudadanos
 
@@ -310,11 +296,7 @@ namespace DAOImplement
                         var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
                         return (null, $"Error en la busqueda: {mensaje}");
                     }
-
-
-
                 }
-
             }
             catch (HttpRequestException httpRequestException)
             {
@@ -332,16 +314,10 @@ namespace DAOImplement
                 Console.WriteLine($"Error: {ex.Message}");
                 return (null, $"Error inesperado: {ex.Message}");
             }
-
-
-
-
-
         }//fin funcion retornar listado x dni
 
         public async Task<HttpResponseMessage> editarDatosPersonales(int id, string ciudadano)
         {
-
             try
             {
                 // Crear el contenido de la solicitud HTTP
@@ -349,7 +325,6 @@ namespace DAOImplement
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/update-datos-personales?id_ciudadano=" + id, content);
 
                 return httpResponse;
-
             }
             catch (HttpRequestException httpRequestException)
             {
@@ -367,9 +342,6 @@ namespace DAOImplement
                 Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
                 throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
             }
-
-
-
         }
 
         //ESTABLCER VISITA
@@ -434,7 +406,6 @@ namespace DAOImplement
         //ESTABLECER DISCAACIDAD
         public async Task<(bool, string error)> establecerDiscapacidad(int id, string ciudadano)
         {
-            //throw new NotImplementedException();
             //variable token
             string token = SessionManager.Token;
             try
@@ -485,15 +456,15 @@ namespace DAOImplement
                 Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
                 throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
             }
-
         }
 
+        //SUBIR IMAGEN
         public async Task<(bool, string error)> subirImagen(int id, string rutaImagen)
         {
             string token = SessionManager.Token;
 
             if (!File.Exists(rutaImagen))
-                return (false, "No se encontró el archivo de imagen.");
+                return (false, "No se encontró un archivo de imagen seleccionado.");
 
             try
             {
@@ -530,6 +501,51 @@ namespace DAOImplement
                 return (false, $"Error inesperado: {ex.Message}");
             }
         }
+        //FIN SUBIR IMAGEN.............................................................
+
+        //QUITAR IMAGEN
+        public async Task<(bool, string error)> quitarImagen(int id)
+        {
+            //variable token
+            string token = SessionManager.Token;
+            try
+            {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                // Crear el contenido de la solicitud HTTP
+                HttpResponseMessage httpResponse = await this.httpClient.DeleteAsync(url_base + "/ciudadanos/quitar-imagen?id_ciudadano=" + id);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    return (true, null);
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (false, $"Error en quitar imagen: {mensaje}");
+                }
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                throw new Exception($"Error al realizar la solicitud: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON
+                throw new Exception($"Error al serializar/deserializar JSON: {jsonException.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Capturar cualquier otro tipo de excepción
+                Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
+                throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
+            }
+        }
+        //FIN QUITAR IMAGEN.........................................................
+
+
     }
 
 }

@@ -33,5 +33,6 @@ namespace DAO
         Task<(bool, string error)> establecerDiscapacidad(int id, string novedad_detalle);
 
         Task<(bool, string error)> subirImagen(int id, string rutaImagen);
+        Task<(bool, string error)> quitarImagen(int id);
     }
 }

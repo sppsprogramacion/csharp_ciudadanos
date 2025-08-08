@@ -32,11 +32,24 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEditarCiudadano = new System.Windows.Forms.TabPage();
             this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
+            this.btnAsignarCategorias = new System.Windows.Forms.Button();
+            this.btnIngreso = new System.Windows.Forms.Button();
+            this.btnVincularVisitas = new System.Windows.Forms.Button();
+            this.btnVincular = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnQuitarImagen = new System.Windows.Forms.Button();
+            this.btnBuscarImagen = new System.Windows.Forms.Button();
+            this.btnSubir = new System.Windows.Forms.Button();
+            this.pictureImagenCargar = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.pictureFoto = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtDetalleMotivo = new System.Windows.Forms.TextBox();
+            this.btnEditar = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.txtIdCiudadano = new System.Windows.Forms.TextBox();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,8 +67,11 @@
             this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
             this.txtDetalleDomicilio = new System.Windows.Forms.TextBox();
+            this.btnEditarDomicilio = new System.Windows.Forms.Button();
+            this.btnGuardarDomicilio = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbPais = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -73,6 +89,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNumDomicilio = new System.Windows.Forms.TextBox();
             this.tabVincularCiudadno = new System.Windows.Forms.TabPage();
+            this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
             this.lblSexo = new System.Windows.Forms.Label();
             this.cmbParentesco = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -80,7 +97,9 @@
             this.dgvVisitasVinculadas = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.btnBuscarInterno = new System.Windows.Forms.Button();
             this.txtIdInterno = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.dtvInternos = new System.Windows.Forms.DataGridView();
@@ -90,13 +109,16 @@
             this.label17 = new System.Windows.Forms.Label();
             this.txtBuscarApellidoInternos = new System.Windows.Forms.TextBox();
             this.tabHistorialIngresos = new System.Windows.Forms.TabPage();
+            this.btnActualizarIngresos = new System.Windows.Forms.Button();
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
             this.tabAsignarVisitas = new System.Windows.Forms.TabPage();
+            this.btnActualizarAsignar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblDetalleTieneDiscapacidad = new System.Windows.Forms.Label();
             this.lblTieneDiscapacidad = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txtEstablecerDiscapacidad = new System.Windows.Forms.TextBox();
             this.btnEstablecerDiscapacidad = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -109,6 +131,7 @@
             this.txtAsignarVisitaDetalle = new System.Windows.Forms.TextBox();
             this.txtIdCiuadanoVincularvisita = new System.Windows.Forms.TextBox();
             this.btnAsignarVisita = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtDniVisita = new System.Windows.Forms.TextBox();
             this.txtNombreVisita = new System.Windows.Forms.TextBox();
             this.tabEstablecerCategorias = new System.Windows.Forms.TabPage();
@@ -133,51 +156,30 @@
             this.txtDniCiudadanoCategoria = new System.Windows.Forms.TextBox();
             this.txtIdCioudadanoCategoria = new System.Windows.Forms.TextBox();
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btnAsignarCategorias = new System.Windows.Forms.Button();
-            this.btnIngreso = new System.Windows.Forms.Button();
-            this.btnVincularVisitas = new System.Windows.Forms.Button();
-            this.btnVincular = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnBuscarImagen = new System.Windows.Forms.Button();
-            this.btnSubir = new System.Windows.Forms.Button();
-            this.pictureImagenCargar = new System.Windows.Forms.PictureBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.pictureFoto = new System.Windows.Forms.PictureBox();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btnEditarDomicilio = new System.Windows.Forms.Button();
-            this.btnGuardarDomicilio = new System.Windows.Forms.Button();
-            this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnBuscarInterno = new System.Windows.Forms.Button();
-            this.btnActualizarIngresos = new System.Windows.Forms.Button();
-            this.btnActualizarAsignar = new System.Windows.Forms.Button();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnActualizarDatos = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnCancelarSubirImagen = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tabVincularCiudadno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasVinculadas)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).BeginInit();
             this.tabHistorialIngresos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).BeginInit();
             this.tabAsignarVisitas.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabEstablecerCategorias.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoriasCiudadano)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -222,8 +224,76 @@
             this.lblEsVisitaPrincipal.TabIndex = 45;
             this.lblEsVisitaPrincipal.Text = "Es visita";
             // 
+            // btnAsignarCategorias
+            // 
+            this.btnAsignarCategorias.BackColor = System.Drawing.Color.White;
+            this.btnAsignarCategorias.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarCategorias.Image")));
+            this.btnAsignarCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAsignarCategorias.Location = new System.Drawing.Point(433, 3);
+            this.btnAsignarCategorias.Name = "btnAsignarCategorias";
+            this.btnAsignarCategorias.Size = new System.Drawing.Size(164, 37);
+            this.btnAsignarCategorias.TabIndex = 3;
+            this.btnAsignarCategorias.Text = "Asignar Categorias";
+            this.btnAsignarCategorias.UseVisualStyleBackColor = false;
+            this.btnAsignarCategorias.Click += new System.EventHandler(this.btnAsignarCategorias_Click);
+            // 
+            // btnIngreso
+            // 
+            this.btnIngreso.BackColor = System.Drawing.Color.White;
+            this.btnIngreso.Image = ((System.Drawing.Image)(resources.GetObject("btnIngreso.Image")));
+            this.btnIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIngreso.Location = new System.Drawing.Point(130, 3);
+            this.btnIngreso.Name = "btnIngreso";
+            this.btnIngreso.Size = new System.Drawing.Size(134, 37);
+            this.btnIngreso.TabIndex = 1;
+            this.btnIngreso.Text = "Ingresos";
+            this.btnIngreso.UseVisualStyleBackColor = false;
+            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
+            // 
+            // btnVincularVisitas
+            // 
+            this.btnVincularVisitas.BackColor = System.Drawing.Color.White;
+            this.btnVincularVisitas.Image = ((System.Drawing.Image)(resources.GetObject("btnVincularVisitas.Image")));
+            this.btnVincularVisitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVincularVisitas.Location = new System.Drawing.Point(264, 3);
+            this.btnVincularVisitas.Name = "btnVincularVisitas";
+            this.btnVincularVisitas.Size = new System.Drawing.Size(169, 37);
+            this.btnVincularVisitas.TabIndex = 2;
+            this.btnVincularVisitas.Text = "Asignar Visitas";
+            this.btnVincularVisitas.UseVisualStyleBackColor = false;
+            this.btnVincularVisitas.Click += new System.EventHandler(this.btnVincularVisitas_Click);
+            // 
+            // btnVincular
+            // 
+            this.btnVincular.BackColor = System.Drawing.Color.White;
+            this.btnVincular.Image = global::CapaPresentacion.Properties.Resources.vincular;
+            this.btnVincular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVincular.Location = new System.Drawing.Point(14, 3);
+            this.btnVincular.Name = "btnVincular";
+            this.btnVincular.Size = new System.Drawing.Size(117, 37);
+            this.btnVincular.TabIndex = 0;
+            this.btnVincular.Text = "Vincular";
+            this.btnVincular.UseVisualStyleBackColor = false;
+            this.btnVincular.Click += new System.EventHandler(this.btnVincular_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(598, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(144, 37);
+            this.btnCancelar.TabIndex = 4;
+            this.btnCancelar.Tag = " ";
+            this.btnCancelar.Text = "Salir";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnCancelarSubirImagen);
+            this.groupBox2.Controls.Add(this.btnQuitarImagen);
             this.groupBox2.Controls.Add(this.btnBuscarImagen);
             this.groupBox2.Controls.Add(this.btnSubir);
             this.groupBox2.Controls.Add(this.pictureImagenCargar);
@@ -260,6 +330,77 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Personales";
             // 
+            // btnQuitarImagen
+            // 
+            this.btnQuitarImagen.BackColor = System.Drawing.Color.White;
+            this.btnQuitarImagen.Image = global::CapaPresentacion.Properties.Resources.eliminar_basura;
+            this.btnQuitarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitarImagen.Location = new System.Drawing.Point(191, 305);
+            this.btnQuitarImagen.Name = "btnQuitarImagen";
+            this.btnQuitarImagen.Size = new System.Drawing.Size(134, 37);
+            this.btnQuitarImagen.TabIndex = 48;
+            this.btnQuitarImagen.Text = "     Quitar imagen";
+            this.btnQuitarImagen.UseVisualStyleBackColor = false;
+            this.btnQuitarImagen.Click += new System.EventHandler(this.btnQuitarImagen_Click);
+            // 
+            // btnBuscarImagen
+            // 
+            this.btnBuscarImagen.BackColor = System.Drawing.Color.White;
+            this.btnBuscarImagen.Image = global::CapaPresentacion.Properties.Resources.buscar;
+            this.btnBuscarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarImagen.Location = new System.Drawing.Point(191, 424);
+            this.btnBuscarImagen.Name = "btnBuscarImagen";
+            this.btnBuscarImagen.Size = new System.Drawing.Size(54, 37);
+            this.btnBuscarImagen.TabIndex = 47;
+            this.btnBuscarImagen.UseVisualStyleBackColor = false;
+            this.btnBuscarImagen.Click += new System.EventHandler(this.btnBuscarImagen_Click);
+            // 
+            // btnSubir
+            // 
+            this.btnSubir.BackColor = System.Drawing.Color.White;
+            this.btnSubir.Image = global::CapaPresentacion.Properties.Resources.upload;
+            this.btnSubir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubir.Location = new System.Drawing.Point(248, 424);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(77, 37);
+            this.btnSubir.TabIndex = 46;
+            this.btnSubir.Text = "        Subir";
+            this.btnSubir.UseVisualStyleBackColor = false;
+            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
+            // 
+            // pictureImagenCargar
+            // 
+            this.pictureImagenCargar.Location = new System.Drawing.Point(409, 424);
+            this.pictureImagenCargar.Name = "pictureImagenCargar";
+            this.pictureImagenCargar.Size = new System.Drawing.Size(45, 37);
+            this.pictureImagenCargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureImagenCargar.TabIndex = 37;
+            this.pictureImagenCargar.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(382, 467);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(140, 37);
+            this.button2.TabIndex = 12;
+            this.button2.Tag = " ";
+            this.button2.Text = "Cancelar";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureFoto
+            // 
+            this.pictureFoto.Image = ((System.Drawing.Image)(resources.GetObject("pictureFoto.Image")));
+            this.pictureFoto.Location = new System.Drawing.Point(27, 305);
+            this.pictureFoto.Name = "pictureFoto";
+            this.pictureFoto.Size = new System.Drawing.Size(156, 156);
+            this.pictureFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureFoto.TabIndex = 27;
+            this.pictureFoto.TabStop = false;
+            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -277,6 +418,19 @@
             this.txtDetalleMotivo.Name = "txtDetalleMotivo";
             this.txtDetalleMotivo.Size = new System.Drawing.Size(375, 20);
             this.txtDetalleMotivo.TabIndex = 9;
+            // 
+            // btnEditar
+            // 
+            this.btnEditar.BackColor = System.Drawing.Color.White;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
+            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditar.Location = new System.Drawing.Point(215, 467);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(167, 37);
+            this.btnEditar.TabIndex = 11;
+            this.btnEditar.Text = "Edirtar Datos ";
+            this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // label22
             // 
@@ -296,6 +450,21 @@
             this.txtIdCiudadano.Name = "txtIdCiudadano";
             this.txtIdCiudadano.Size = new System.Drawing.Size(261, 20);
             this.txtIdCiudadano.TabIndex = 0;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.White;
+            this.btnGuardar.Enabled = false;
+            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
+            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardar.Location = new System.Drawing.Point(5, 467);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(210, 37);
+            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.Text = "Guardar Datos Personales";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // label8
             // 
@@ -487,6 +656,20 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos de Domicilio";
             // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(407, 467);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 37);
+            this.button3.TabIndex = 11;
+            this.button3.Tag = " ";
+            this.button3.Text = "Cancelar";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // label26
             // 
             this.label26.AutoSize = true;
@@ -504,6 +687,34 @@
             this.txtDetalleDomicilio.Name = "txtDetalleDomicilio";
             this.txtDetalleDomicilio.Size = new System.Drawing.Size(381, 20);
             this.txtDetalleDomicilio.TabIndex = 8;
+            // 
+            // btnEditarDomicilio
+            // 
+            this.btnEditarDomicilio.BackColor = System.Drawing.Color.White;
+            this.btnEditarDomicilio.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarDomicilio.Image")));
+            this.btnEditarDomicilio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditarDomicilio.Location = new System.Drawing.Point(212, 467);
+            this.btnEditarDomicilio.Name = "btnEditarDomicilio";
+            this.btnEditarDomicilio.Size = new System.Drawing.Size(196, 37);
+            this.btnEditarDomicilio.TabIndex = 10;
+            this.btnEditarDomicilio.Text = "Editar Domicilio";
+            this.btnEditarDomicilio.UseVisualStyleBackColor = false;
+            this.btnEditarDomicilio.Click += new System.EventHandler(this.btnEditarDomicilio_Click);
+            // 
+            // btnGuardarDomicilio
+            // 
+            this.btnGuardarDomicilio.BackColor = System.Drawing.Color.White;
+            this.btnGuardarDomicilio.Enabled = false;
+            this.btnGuardarDomicilio.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarDomicilio.Image")));
+            this.btnGuardarDomicilio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarDomicilio.Location = new System.Drawing.Point(22, 467);
+            this.btnGuardarDomicilio.Name = "btnGuardarDomicilio";
+            this.btnGuardarDomicilio.Size = new System.Drawing.Size(189, 37);
+            this.btnGuardarDomicilio.TabIndex = 9;
+            this.btnGuardarDomicilio.Text = "Guardar Datos Domicilio";
+            this.btnGuardarDomicilio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardarDomicilio.UseVisualStyleBackColor = false;
+            this.btnGuardarDomicilio.Click += new System.EventHandler(this.btnGuardarDomicilio_Click);
             // 
             // label4
             // 
@@ -686,6 +897,19 @@
             this.tabVincularCiudadno.Text = "Vincular Ciudadano";
             this.tabVincularCiudadno.UseVisualStyleBackColor = true;
             // 
+            // btnActualizarPestañaVinculacion
+            // 
+            this.btnActualizarPestañaVinculacion.BackColor = System.Drawing.Color.White;
+            this.btnActualizarPestañaVinculacion.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
+            this.btnActualizarPestañaVinculacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizarPestañaVinculacion.Location = new System.Drawing.Point(199, 15);
+            this.btnActualizarPestañaVinculacion.Name = "btnActualizarPestañaVinculacion";
+            this.btnActualizarPestañaVinculacion.Size = new System.Drawing.Size(117, 37);
+            this.btnActualizarPestañaVinculacion.TabIndex = 1;
+            this.btnActualizarPestañaVinculacion.Text = "     Actualizar";
+            this.btnActualizarPestañaVinculacion.UseVisualStyleBackColor = false;
+            this.btnActualizarPestañaVinculacion.Click += new System.EventHandler(this.btnActualizarPestañaVinculacion_Click);
+            // 
             // lblSexo
             // 
             this.lblSexo.AutoSize = true;
@@ -761,6 +985,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de Internos:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(662, 54);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(169, 142);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
             // label18
             // 
             this.label18.AutoSize = true;
@@ -769,6 +1002,17 @@
             this.label18.Size = new System.Drawing.Size(72, 15);
             this.label18.TabIndex = 24;
             this.label18.Text = "Id Interno:";
+            // 
+            // btnBuscarInterno
+            // 
+            this.btnBuscarInterno.BackColor = System.Drawing.Color.White;
+            this.btnBuscarInterno.Image = global::CapaPresentacion.Properties.Resources.buscar_cliente11;
+            this.btnBuscarInterno.Location = new System.Drawing.Point(433, 17);
+            this.btnBuscarInterno.Name = "btnBuscarInterno";
+            this.btnBuscarInterno.Size = new System.Drawing.Size(34, 33);
+            this.btnBuscarInterno.TabIndex = 5;
+            this.btnBuscarInterno.UseVisualStyleBackColor = false;
+            this.btnBuscarInterno.Click += new System.EventHandler(this.btnBuscarInterno_Click);
             // 
             // txtIdInterno
             // 
@@ -850,6 +1094,20 @@
             this.tabHistorialIngresos.Text = "Historial de Ingresos";
             this.tabHistorialIngresos.UseVisualStyleBackColor = true;
             // 
+            // btnActualizarIngresos
+            // 
+            this.btnActualizarIngresos.BackColor = System.Drawing.Color.White;
+            this.btnActualizarIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizarIngresos.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
+            this.btnActualizarIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizarIngresos.Location = new System.Drawing.Point(36, 13);
+            this.btnActualizarIngresos.Name = "btnActualizarIngresos";
+            this.btnActualizarIngresos.Size = new System.Drawing.Size(117, 37);
+            this.btnActualizarIngresos.TabIndex = 0;
+            this.btnActualizarIngresos.Text = "     Actualizar";
+            this.btnActualizarIngresos.UseVisualStyleBackColor = false;
+            this.btnActualizarIngresos.Click += new System.EventHandler(this.btnActualizarIngresos_Click);
+            // 
             // dgvRegistroDiario
             // 
             this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -870,6 +1128,19 @@
             this.tabAsignarVisitas.TabIndex = 3;
             this.tabAsignarVisitas.Text = "Asignar Visitas";
             this.tabAsignarVisitas.UseVisualStyleBackColor = true;
+            // 
+            // btnActualizarAsignar
+            // 
+            this.btnActualizarAsignar.BackColor = System.Drawing.Color.White;
+            this.btnActualizarAsignar.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
+            this.btnActualizarAsignar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizarAsignar.Location = new System.Drawing.Point(34, 14);
+            this.btnActualizarAsignar.Name = "btnActualizarAsignar";
+            this.btnActualizarAsignar.Size = new System.Drawing.Size(117, 37);
+            this.btnActualizarAsignar.TabIndex = 0;
+            this.btnActualizarAsignar.Text = "    Actualizar";
+            this.btnActualizarAsignar.UseVisualStyleBackColor = false;
+            this.btnActualizarAsignar.Click += new System.EventHandler(this.btnActualizarAsignar_Click);
             // 
             // panel2
             // 
@@ -927,6 +1198,15 @@
             this.label41.Size = new System.Drawing.Size(240, 24);
             this.label41.TabIndex = 9;
             this.label41.Text = "Establecer Discapacidad";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(22, 136);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(441, 108);
+            this.pictureBox3.TabIndex = 6;
+            this.pictureBox3.TabStop = false;
             // 
             // txtEstablecerDiscapacidad
             // 
@@ -1050,6 +1330,16 @@
             this.btnAsignarVisita.Text = "Asignar como visita";
             this.btnAsignarVisita.UseVisualStyleBackColor = true;
             this.btnAsignarVisita.Click += new System.EventHandler(this.btnAsignarVisita_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(256, 121);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(217, 206);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // txtDniVisita
             // 
@@ -1289,291 +1579,6 @@
             this.cmbCategorias.Size = new System.Drawing.Size(256, 21);
             this.cmbCategorias.TabIndex = 4;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(22, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(454, 25);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
-            // 
-            // btnAsignarCategorias
-            // 
-            this.btnAsignarCategorias.BackColor = System.Drawing.Color.White;
-            this.btnAsignarCategorias.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarCategorias.Image")));
-            this.btnAsignarCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAsignarCategorias.Location = new System.Drawing.Point(433, 3);
-            this.btnAsignarCategorias.Name = "btnAsignarCategorias";
-            this.btnAsignarCategorias.Size = new System.Drawing.Size(164, 37);
-            this.btnAsignarCategorias.TabIndex = 3;
-            this.btnAsignarCategorias.Text = "Asignar Categorias";
-            this.btnAsignarCategorias.UseVisualStyleBackColor = false;
-            this.btnAsignarCategorias.Click += new System.EventHandler(this.btnAsignarCategorias_Click);
-            // 
-            // btnIngreso
-            // 
-            this.btnIngreso.BackColor = System.Drawing.Color.White;
-            this.btnIngreso.Image = ((System.Drawing.Image)(resources.GetObject("btnIngreso.Image")));
-            this.btnIngreso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngreso.Location = new System.Drawing.Point(130, 3);
-            this.btnIngreso.Name = "btnIngreso";
-            this.btnIngreso.Size = new System.Drawing.Size(134, 37);
-            this.btnIngreso.TabIndex = 1;
-            this.btnIngreso.Text = "Ingresos";
-            this.btnIngreso.UseVisualStyleBackColor = false;
-            this.btnIngreso.Click += new System.EventHandler(this.btnIngreso_Click);
-            // 
-            // btnVincularVisitas
-            // 
-            this.btnVincularVisitas.BackColor = System.Drawing.Color.White;
-            this.btnVincularVisitas.Image = ((System.Drawing.Image)(resources.GetObject("btnVincularVisitas.Image")));
-            this.btnVincularVisitas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVincularVisitas.Location = new System.Drawing.Point(264, 3);
-            this.btnVincularVisitas.Name = "btnVincularVisitas";
-            this.btnVincularVisitas.Size = new System.Drawing.Size(169, 37);
-            this.btnVincularVisitas.TabIndex = 2;
-            this.btnVincularVisitas.Text = "Asignar Visitas";
-            this.btnVincularVisitas.UseVisualStyleBackColor = false;
-            this.btnVincularVisitas.Click += new System.EventHandler(this.btnVincularVisitas_Click);
-            // 
-            // btnVincular
-            // 
-            this.btnVincular.BackColor = System.Drawing.Color.White;
-            this.btnVincular.Image = global::CapaPresentacion.Properties.Resources.vincular;
-            this.btnVincular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVincular.Location = new System.Drawing.Point(14, 3);
-            this.btnVincular.Name = "btnVincular";
-            this.btnVincular.Size = new System.Drawing.Size(117, 37);
-            this.btnVincular.TabIndex = 0;
-            this.btnVincular.Text = "Vincular";
-            this.btnVincular.UseVisualStyleBackColor = false;
-            this.btnVincular.Click += new System.EventHandler(this.btnVincular_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(598, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(144, 37);
-            this.btnCancelar.TabIndex = 4;
-            this.btnCancelar.Tag = " ";
-            this.btnCancelar.Text = "Salir";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnBuscarImagen
-            // 
-            this.btnBuscarImagen.BackColor = System.Drawing.Color.White;
-            this.btnBuscarImagen.Image = global::CapaPresentacion.Properties.Resources.buscar;
-            this.btnBuscarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarImagen.Location = new System.Drawing.Point(388, 407);
-            this.btnBuscarImagen.Name = "btnBuscarImagen";
-            this.btnBuscarImagen.Size = new System.Drawing.Size(54, 37);
-            this.btnBuscarImagen.TabIndex = 47;
-            this.btnBuscarImagen.UseVisualStyleBackColor = false;
-            this.btnBuscarImagen.Click += new System.EventHandler(this.btnBuscarImagen_Click);
-            // 
-            // btnSubir
-            // 
-            this.btnSubir.BackColor = System.Drawing.Color.White;
-            this.btnSubir.Image = global::CapaPresentacion.Properties.Resources.upload;
-            this.btnSubir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubir.Location = new System.Drawing.Point(445, 407);
-            this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(77, 37);
-            this.btnSubir.TabIndex = 46;
-            this.btnSubir.Text = "        Subir";
-            this.btnSubir.UseVisualStyleBackColor = false;
-            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
-            // 
-            // pictureImagenCargar
-            // 
-            this.pictureImagenCargar.Location = new System.Drawing.Point(412, 310);
-            this.pictureImagenCargar.Name = "pictureImagenCargar";
-            this.pictureImagenCargar.Size = new System.Drawing.Size(81, 85);
-            this.pictureImagenCargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureImagenCargar.TabIndex = 37;
-            this.pictureImagenCargar.TabStop = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(382, 459);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(140, 37);
-            this.button2.TabIndex = 12;
-            this.button2.Tag = " ";
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pictureFoto
-            // 
-            this.pictureFoto.Image = ((System.Drawing.Image)(resources.GetObject("pictureFoto.Image")));
-            this.pictureFoto.Location = new System.Drawing.Point(27, 305);
-            this.pictureFoto.Name = "pictureFoto";
-            this.pictureFoto.Size = new System.Drawing.Size(134, 148);
-            this.pictureFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureFoto.TabIndex = 27;
-            this.pictureFoto.TabStop = false;
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.BackColor = System.Drawing.Color.White;
-            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
-            this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(215, 459);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(167, 37);
-            this.btnEditar.TabIndex = 11;
-            this.btnEditar.Text = "Edirtar Datos ";
-            this.btnEditar.UseVisualStyleBackColor = false;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.White;
-            this.btnGuardar.Enabled = false;
-            this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(5, 459);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(210, 37);
-            this.btnGuardar.TabIndex = 10;
-            this.btnGuardar.Text = "Guardar Datos Personales";
-            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(407, 459);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 37);
-            this.button3.TabIndex = 11;
-            this.button3.Tag = " ";
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // btnEditarDomicilio
-            // 
-            this.btnEditarDomicilio.BackColor = System.Drawing.Color.White;
-            this.btnEditarDomicilio.Image = ((System.Drawing.Image)(resources.GetObject("btnEditarDomicilio.Image")));
-            this.btnEditarDomicilio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditarDomicilio.Location = new System.Drawing.Point(212, 459);
-            this.btnEditarDomicilio.Name = "btnEditarDomicilio";
-            this.btnEditarDomicilio.Size = new System.Drawing.Size(196, 37);
-            this.btnEditarDomicilio.TabIndex = 10;
-            this.btnEditarDomicilio.Text = "Editar Domicilio";
-            this.btnEditarDomicilio.UseVisualStyleBackColor = false;
-            this.btnEditarDomicilio.Click += new System.EventHandler(this.btnEditarDomicilio_Click);
-            // 
-            // btnGuardarDomicilio
-            // 
-            this.btnGuardarDomicilio.BackColor = System.Drawing.Color.White;
-            this.btnGuardarDomicilio.Enabled = false;
-            this.btnGuardarDomicilio.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarDomicilio.Image")));
-            this.btnGuardarDomicilio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarDomicilio.Location = new System.Drawing.Point(22, 459);
-            this.btnGuardarDomicilio.Name = "btnGuardarDomicilio";
-            this.btnGuardarDomicilio.Size = new System.Drawing.Size(189, 37);
-            this.btnGuardarDomicilio.TabIndex = 9;
-            this.btnGuardarDomicilio.Text = "Guardar Datos Domicilio";
-            this.btnGuardarDomicilio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardarDomicilio.UseVisualStyleBackColor = false;
-            this.btnGuardarDomicilio.Click += new System.EventHandler(this.btnGuardarDomicilio_Click);
-            // 
-            // btnActualizarPestañaVinculacion
-            // 
-            this.btnActualizarPestañaVinculacion.BackColor = System.Drawing.Color.White;
-            this.btnActualizarPestañaVinculacion.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
-            this.btnActualizarPestañaVinculacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizarPestañaVinculacion.Location = new System.Drawing.Point(199, 15);
-            this.btnActualizarPestañaVinculacion.Name = "btnActualizarPestañaVinculacion";
-            this.btnActualizarPestañaVinculacion.Size = new System.Drawing.Size(117, 37);
-            this.btnActualizarPestañaVinculacion.TabIndex = 1;
-            this.btnActualizarPestañaVinculacion.Text = "     Actualizar";
-            this.btnActualizarPestañaVinculacion.UseVisualStyleBackColor = false;
-            this.btnActualizarPestañaVinculacion.Click += new System.EventHandler(this.btnActualizarPestañaVinculacion_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(662, 54);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 142);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnBuscarInterno
-            // 
-            this.btnBuscarInterno.BackColor = System.Drawing.Color.White;
-            this.btnBuscarInterno.Image = global::CapaPresentacion.Properties.Resources.buscar_cliente11;
-            this.btnBuscarInterno.Location = new System.Drawing.Point(433, 17);
-            this.btnBuscarInterno.Name = "btnBuscarInterno";
-            this.btnBuscarInterno.Size = new System.Drawing.Size(34, 33);
-            this.btnBuscarInterno.TabIndex = 5;
-            this.btnBuscarInterno.UseVisualStyleBackColor = false;
-            this.btnBuscarInterno.Click += new System.EventHandler(this.btnBuscarInterno_Click);
-            // 
-            // btnActualizarIngresos
-            // 
-            this.btnActualizarIngresos.BackColor = System.Drawing.Color.White;
-            this.btnActualizarIngresos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizarIngresos.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
-            this.btnActualizarIngresos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizarIngresos.Location = new System.Drawing.Point(36, 13);
-            this.btnActualizarIngresos.Name = "btnActualizarIngresos";
-            this.btnActualizarIngresos.Size = new System.Drawing.Size(117, 37);
-            this.btnActualizarIngresos.TabIndex = 0;
-            this.btnActualizarIngresos.Text = "     Actualizar";
-            this.btnActualizarIngresos.UseVisualStyleBackColor = false;
-            this.btnActualizarIngresos.Click += new System.EventHandler(this.btnActualizarIngresos_Click);
-            // 
-            // btnActualizarAsignar
-            // 
-            this.btnActualizarAsignar.BackColor = System.Drawing.Color.White;
-            this.btnActualizarAsignar.Image = global::CapaPresentacion.Properties.Resources.actualiza2;
-            this.btnActualizarAsignar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnActualizarAsignar.Location = new System.Drawing.Point(34, 14);
-            this.btnActualizarAsignar.Name = "btnActualizarAsignar";
-            this.btnActualizarAsignar.Size = new System.Drawing.Size(117, 37);
-            this.btnActualizarAsignar.TabIndex = 0;
-            this.btnActualizarAsignar.Text = "    Actualizar";
-            this.btnActualizarAsignar.UseVisualStyleBackColor = false;
-            this.btnActualizarAsignar.Click += new System.EventHandler(this.btnActualizarAsignar_Click);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(22, 136);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(441, 108);
-            this.pictureBox3.TabIndex = 6;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(256, 121);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(217, 206);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // btnActualizarDatos
             // 
             this.btnActualizarDatos.BackColor = System.Drawing.Color.White;
@@ -1587,6 +1592,30 @@
             this.btnActualizarDatos.Text = "     Actualizar";
             this.btnActualizarDatos.UseVisualStyleBackColor = false;
             this.btnActualizarDatos.Click += new System.EventHandler(this.btnActualizarDatos_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Maroon;
+            this.label23.Location = new System.Drawing.Point(22, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(454, 25);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
+            // 
+            // btnCancelarSubirImagen
+            // 
+            this.btnCancelarSubirImagen.BackColor = System.Drawing.Color.White;
+            this.btnCancelarSubirImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarSubirImagen.Location = new System.Drawing.Point(329, 424);
+            this.btnCancelarSubirImagen.Name = "btnCancelarSubirImagen";
+            this.btnCancelarSubirImagen.Size = new System.Drawing.Size(77, 37);
+            this.btnCancelarSubirImagen.TabIndex = 49;
+            this.btnCancelarSubirImagen.Text = "Cancelar imagen";
+            this.btnCancelarSubirImagen.UseVisualStyleBackColor = false;
+            this.btnCancelarSubirImagen.Click += new System.EventHandler(this.btnCancelarSubirImagen_Click);
             // 
             // frmAdministrarCiudadadno
             // 
@@ -1603,6 +1632,8 @@
             this.tabEditarCiudadano.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tabVincularCiudadno.ResumeLayout(false);
@@ -1610,24 +1641,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasVinculadas)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).EndInit();
             this.tabHistorialIngresos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).EndInit();
             this.tabAsignarVisitas.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabEstablecerCategorias.ResumeLayout(false);
             this.tabEstablecerCategorias.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoriasCiudadano)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1763,6 +1792,8 @@
         private System.Windows.Forms.Button btnSubir;
         private System.Windows.Forms.PictureBox pictureImagenCargar;
         private System.Windows.Forms.Button btnBuscarImagen;
+        private System.Windows.Forms.Button btnQuitarImagen;
+        private System.Windows.Forms.Button btnCancelarSubirImagen;
     }
 }
 

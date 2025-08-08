@@ -1036,6 +1036,7 @@ namespace CapaPresentacion
             }
 
             this.dCiudadano = dCiudadano2;
+            pictureFoto.Load(this.dCiudadano.foto);
         }
         //FIN ACTUALIZAR CIUDADANO
 
@@ -1285,18 +1286,61 @@ namespace CapaPresentacion
             int idCiudadano = Convert.ToInt32(txtIdCiudadano.Text);
             string rutaImagen = this.imagePath; // o lo que hayas guardado al seleccionar la imagen
 
-            var (exito, error) = await nCiudadano.subirImagen(idCiudadano, rutaImagen);
+            var (exito, errorResponse) = await nCiudadano.subirImagen(idCiudadano, rutaImagen);
 
             if (exito)
             {
                 MessageBox.Show("Imagen subida correctamente.", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 //buscar y actualizar el ciudadano this.dCiudadano
                 this.ActualizarCiudadano();
+                pictureImagenCargar.Image = null;
+                this.imagePath = "";
             }
             else
             {
-                MessageBox.Show("Error al subir imagen: " + error, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show( errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private async void btnQuitarImagen_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show(
+                "¿Esta seguro  que desea quitar la imagen?",
+                "Confirmación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.No)
+            {
+                MessageBox.Show("Ha cancelado la operacion.", "Atencion ciudadanos", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
+
+            NCiudadano nCiudadano = new NCiudadano();
+
+            int idCiudadano = Convert.ToInt32(txtIdCiudadano.Text);
+            
+            var (exito, errorResponse) = await nCiudadano.quitarImagen(idCiudadano);
+
+            if (exito)
+            {
+                MessageBox.Show("Imagen quitada correctamente.", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //buscar y actualizar el ciudadano this.dCiudadano
+                this.ActualizarCiudadano();
+                pictureImagenCargar.Image = null;
+                
+            }
+            else
+            {
+                MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnCancelarSubirImagen_Click(object sender, EventArgs e)
+        {
+            pictureImagenCargar.Image = null;
+            this.imagePath = "";
         }
     }
 

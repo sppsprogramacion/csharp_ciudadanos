@@ -43,10 +43,7 @@ namespace CapaNegocio
 
             (List<DCiudadano> listaCiudadanos, string errorResponse) = await ciudadanoDao.retornarListaCiudadanoXDni(dni);
 
-
             return (listaCiudadanos, errorResponse);
-
-
         }
         //FIN RETORNAR CIUDADANOS POR DNI..................................
 
@@ -59,12 +56,8 @@ namespace CapaNegocio
 
             (DCiudadano ciudadano, string errorResponse) = await ciudadanoDao.buscarCiudadanoXId(id);
 
-
             return (ciudadano, errorResponse);
         }
-
-
-
 
         //CARGAR DATOS DE CIUDADANOS
         public async Task<(DCiudadano, string error)> crearCiudadano(string ciudadano)
@@ -76,13 +69,7 @@ namespace CapaNegocio
             return (prohibicionResponse, errorResponse);
         }
         //FIN CARGAR DATOS DE CIUDADANOS..................................
-
-
-
-       
-
-
-
+        
         //EDITAR DATOS DE DOMICILIO DE CIUDADANOS
         public async Task<HttpResponseMessage> editarCiudadanoDni(int id, string ciudadano)
         {
@@ -139,5 +126,15 @@ namespace CapaNegocio
         }
         //FIN SUBIR IMAGEN..................................
 
+        //QUITAR IMAGEN
+        public async Task<(bool, string error)> quitarImagen(int id)
+        {
+            ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
+
+            (bool ciudadanoResponse, string error) = await ciudadanoDao.quitarImagen(id);
+
+            return (ciudadanoResponse, error);
+        }
+        //FIN QUITAR IMAGEN..................................
     }
 }
