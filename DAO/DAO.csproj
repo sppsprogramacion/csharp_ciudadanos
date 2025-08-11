@@ -50,6 +50,7 @@
     <Compile Include="IEstadoCivilDao.cs" />
     <Compile Include="IInterno.cs" />
     <Compile Include="IInternoDao.cs" />
+    <Compile Include="IMenorACargo.cs" />
     <Compile Include="IMotivoAtencionDao.cs" />
     <Compile Include="IMunicipioDao.cs" />
     <Compile Include="INacionalidadDao.cs" />

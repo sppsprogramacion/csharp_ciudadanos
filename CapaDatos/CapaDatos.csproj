@@ -48,6 +48,7 @@
     <Compile Include="Departamento.cs" />
     <Compile Include="DInterno.cs" />
     <Compile Include="DLoginResponse.cs" />
+    <Compile Include="DMenorACargo.cs" />
     <Compile Include="DMotivoAtencion.cs" />
     <Compile Include="DMunicipio.cs" />
     <Compile Include="DNacionalidad.cs" />

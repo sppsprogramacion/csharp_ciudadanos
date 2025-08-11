@@ -1,34 +1,30 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-using CapaDatos;
+﻿using CapaDatos;
+using CommonCache;
 using Conexion;
 using DAO;
-using System.Text;
-using System.Net;
-using CommonCache;
-using System.Net.Http.Headers;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace DAOImplement
 {
-    public class VisitaInternoDaoImpl : IVisitaInternoDao
+    public class MenorACargoDaoImplement : IMenorACargo
     {
         private string url_base = MiConexion.getConexion();
         HttpClient httpClient = new HttpClient();
 
-        public async Task<(DVisitaInterno, string error)> crearVisitaInterno(string visitainterno)
-           
+        //CREAR NUEVO
+        public async Task<(DMenorACargo, string error)> CrearMenorACargo(string menorACargo)
         {
-            //throw new NotImplementedException();
-
             //variable token
             string token = SessionManager.Token;
-            DVisitaInterno dataVisitaInterno = new DVisitaInterno();
+            DMenorACargo dataMenorACargo = new DMenorACargo();
 
             try
             {
@@ -36,19 +32,19 @@ namespace DAOImplement
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 // Crear el contenido de la solicitud HTTP
-                StringContent content = new StringContent(visitainterno, Encoding.UTF8, "application/json");
+                StringContent content = new StringContent(menorACargo, Encoding.UTF8, "application/json");
 
                 // Enviar la solicitud HTTP POST
-                HttpResponseMessage httpResponse = await this.httpClient.PostAsync(url_base + "/visitas-internos", content);
+                HttpResponseMessage httpResponse = await this.httpClient.PostAsync(url_base + "/menores-a-cargo", content);
 
                 if (httpResponse.IsSuccessStatusCode)
                 {
                     var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                    dataVisitaInterno = JsonConvert.DeserializeObject<DVisitaInterno>(contentRespuesta);
+                    dataMenorACargo = JsonConvert.DeserializeObject<DMenorACargo>(contentRespuesta);
 
                     // Puedes procesar el token o el resultado adicional aquí.
                     // Establecer el usuario actual
-                    return (dataVisitaInterno, null);
+                    return (dataMenorACargo, null);
                 }
                 else
                 {
@@ -75,40 +71,38 @@ namespace DAOImplement
                 return (null, $"Error inesperado: {ex.Message}");
             }
 
-
         }
+        //FIN CREAR NUEVO.....................................................
 
-        public async Task<(List<DVisitaInterno>, string error)> retornarListaVisitaInternoXCiudadano(int id_ciudadano)
+        //LISTA MENORES A CARGO POR CIUDADANO ADULTO
+        public async Task<(List<DMenorACargo>, string error)> RetornarListaMenorACargoXCiudadano(int id_ciudadano)
         {
-        //throw new NotImplementedException();
-        //variable token
-        string token = SessionManager.Token;
-        List<DVisitaInterno> listaVisitasInternos = new List<DVisitaInterno>();
+            
+            //variable token
+            string token = SessionManager.Token;
+            List<DMenorACargo> listaMenoresACargo = new List<DMenorACargo>();
 
-        try
-        {
-            //agregar tpken a la cabecera
-            this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                
-            HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/visitas-internos/buscarlista-xciudadano?id_ciudadano=" + id_ciudadano);
-
-            if (httpResponse.IsSuccessStatusCode)
+            try
             {
-                var content = await httpResponse.Content.ReadAsStringAsync();
-                listaVisitasInternos = JsonConvert.DeserializeObject<List<DVisitaInterno>>(content);
-                return (listaVisitasInternos, null);
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/menores-a-cargo/buscarlista-xciudadano?id_ciudadano=" + id_ciudadano);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaMenoresACargo = JsonConvert.DeserializeObject<List<DMenorACargo>>(content);
+                    return (listaMenoresACargo, null);
 
 
-            }
-            else
-            {
-                string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                return (null, $"Error en la busqueda: {mensaje}");
-            }
-                
-
-
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
 
             }
 
@@ -128,8 +122,7 @@ namespace DAOImplement
                 Console.WriteLine($"Error: {ex.Message}");
                 return (null, $"Error inesperado: {ex.Message}");
             }
-
-
         }
+        //FIN LISTA MENORES A CARGO POR CIUDADANO ADULTO..................................................
     }
 }

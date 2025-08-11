@@ -53,6 +53,7 @@
     <Compile Include="EstadoCivilDaoImpl.cs" />
     <Compile Include="InternoDaolmpl.cs" />
     <Compile Include="InternoDaolmpl1.cs" />
+    <Compile Include="MenorACargoDaoImplement.cs" />
     <Compile Include="MotivoAtencionDaoImpl.cs" />
     <Compile Include="MunicipioDaolmpl.cs" />
     <Compile Include="NacionalidadDaolmpl.cs" />
