@@ -394,7 +394,7 @@
             // 
             this.ptbFotoProfesion.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ptbFotoProfesion.Image = ((System.Drawing.Image)(resources.GetObject("ptbFotoProfesion.Image")));
-            this.ptbFotoProfesion.Location = new System.Drawing.Point(920, 92);
+            this.ptbFotoProfesion.Location = new System.Drawing.Point(826, 92);
             this.ptbFotoProfesion.Name = "ptbFotoProfesion";
             this.ptbFotoProfesion.Size = new System.Drawing.Size(231, 213);
             this.ptbFotoProfesion.TabIndex = 32;
@@ -429,7 +429,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1472, 834);
+            this.ClientSize = new System.Drawing.Size(1284, 834);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMotivoAtencion);

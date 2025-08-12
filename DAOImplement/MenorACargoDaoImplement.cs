@@ -87,7 +87,7 @@ namespace DAOImplement
                 //agregar tpken a la cabecera
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/menores-a-cargo/buscarlista-xciudadano?id_ciudadano=" + id_ciudadano);
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/menores-a-cargo/buscarlista-xadulto?id_ciudadano=" + id_ciudadano);
 
                 if (httpResponse.IsSuccessStatusCode)
                 {
