@@ -49,6 +49,7 @@
     <Compile Include="NDepartamento.cs" />
     <Compile Include="NEstadoCivil.cs" />
     <Compile Include="NInterno.cs" />
+    <Compile Include="NMenorACargo.cs" />
     <Compile Include="NMotivoAtencion.cs" />
     <Compile Include="NMunicipio.cs" />
     <Compile Include="NNacionalidad.cs" />

@@ -21,5 +21,17 @@ namespace CapaNegocio
             return (listaParentesco, errorResponse);
         }
         //FIN RETORNAR PARENTESCO TODOS..................................
+
+
+        //RETORNAR PARENTESCOS MENOR TODOS
+        public async Task<(List<DParentescoMenor>, string error)> retornarListaParentescosMenor()
+        {
+            IParentescoDao parentescoDao = new ParentescoDaoImpl();
+
+            (List<DParentescoMenor> listaParentescosMEnor, string errorResponse) = await parentescoDao.retornarListaParentescosMenor();
+
+            return (listaParentescosMEnor, errorResponse);
+        }
+        //FIN RETORNAR PARENTESCOS MENOR TODOS..................................
     }
 }

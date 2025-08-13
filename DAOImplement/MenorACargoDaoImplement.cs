@@ -75,7 +75,7 @@ namespace DAOImplement
         //FIN CREAR NUEVO.....................................................
 
         //LISTA MENORES A CARGO POR CIUDADANO ADULTO
-        public async Task<(List<DMenorACargo>, string error)> RetornarListaMenorACargoXCiudadano(int id_ciudadano)
+        public async Task<(List<DMenorACargo>, string error)> RetornarListaVigentesXAdulto(int id_ciudadano)
         {
             
             //variable token

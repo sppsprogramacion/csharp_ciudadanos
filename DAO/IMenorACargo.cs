@@ -10,6 +10,6 @@ namespace DAO
     public interface IMenorACargo
     {
         Task<(DMenorACargo, string error)> CrearMenorACargo(string menorACargo);
-        Task<(List<DMenorACargo>, string error)> RetornarListaMenorACargoXCiudadano(int id);
+        Task<(List<DMenorACargo>, string error)> RetornarListaVigentesXAdulto(int id);
     }
 }

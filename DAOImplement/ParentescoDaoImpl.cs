@@ -19,6 +19,8 @@ namespace DAOImplement
     {
         private string url_base = MiConexion.getConexion();
         HttpClient httpClient = new HttpClient();
+
+       
         public DParentesco buscarParentescoXId(int id)
         {
             throw new NotImplementedException();
@@ -71,5 +73,55 @@ namespace DAOImplement
 
         }
 
+        //PARA VINCULOS ADULTOS CON MENORES
+        public DParentescoMenor buscarParentescoMenorXId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<(List<DParentescoMenor>, string error)> retornarListaParentescosMenor()
+        {
+            //variable token
+            string token = SessionManager.Token;
+            List<DParentescoMenor> listaParentescosMenor = new List<DParentescoMenor>();
+            try
+            {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                {
+                    HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/parentescos-menores/todos");
+
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
+                        listaParentescosMenor = JsonConvert.DeserializeObject<List<DParentescoMenor>>(contentRespuesta);
+                        return (listaParentescosMenor, null);
+                    }
+                    else
+                    {
+                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                        return (null, $"Error en la busqueda: {mensaje}");
+                    }
+                }
+
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (null, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (null, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (null, $"Error inesperado: {ex.Message}");
+            }
+        }
     }
 }

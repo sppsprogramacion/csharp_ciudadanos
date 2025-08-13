@@ -13,8 +13,8 @@ namespace CapaDatos
         public DCiudadano ciudadanoTutor { get; set; }
         public int ciudadano_menor_id { get; set; }
         public DCiudadano ciudadanoMenor { get; set; }
-        public string parentesco_id { get; set; }
-        public DParentesco parentesco { get; set; }
+        public string parentesco_menor_id { get; set; }
+        public DParentescoMenor parentesco_menor { get; set; }
         public DateTime fecha_carga { get; set; }
         public bool anulado { get; set; }
         public string detalle_anular { get; set; }

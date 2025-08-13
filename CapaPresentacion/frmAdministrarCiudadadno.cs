@@ -2,6 +2,8 @@
 using CapaNegocio;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
+using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
+using CapaPresentacion.Validaciones.NuevoCiudadano.ValidacionNuevoCiudadano;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -932,11 +934,7 @@ namespace CapaPresentacion
                     MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
-
-                NParentesco nInterno = new NParentesco();
-                //List<DParentesco> listaParentescos = new List<DParentesco>();
-                (List<DParentesco> listaParentescos, string errorResponseParentesco) = await nInterno.retornarListaParentesco();
-
+                                
                 var datosFiltrados = listaVisitasInternos
                 .Select(c => new
                 {
@@ -962,6 +960,7 @@ namespace CapaPresentacion
                 this.txtIdVisita.Text = txtIdCiudadano.Text;
 
             }
+        
         }
                 
 
@@ -1341,6 +1340,212 @@ namespace CapaPresentacion
         {
             pictureImagenCargar.Image = null;
             this.imagePath = "";
+        }
+
+        private async void btnActualizarMenores_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadano.Text == string.Empty)
+            {
+                MessageBox.Show("debe esperar que cargue los datos del ciudadano");
+            }
+            else
+            {
+                NMenorACargo nMenorACargo = new NMenorACargo();
+                (List<DMenorACargo> listaMenoresACargo, string errorResponse) = await nMenorACargo.retornarListaVigentesXAdulto(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                if (listaMenoresACargo == null)
+                {
+                    MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                
+                var datosFiltrados = listaMenoresACargo
+                .Select(c => new
+                {
+                    Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
+                    Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
+                    DniMenor = c.ciudadanoMenor.dni,
+                    Parentesco = c.parentesco_menor.parentesco_menor
+
+                })
+                .ToList();
+
+                dgvMenores.DataSource = datosFiltrados;
+
+                //Carga de combo parentesco
+                NParentesco nParentesco = new NParentesco();
+
+                cmbParentescosMenor.ValueMember = "id_parentesco_menor";
+                cmbParentescosMenor.DisplayMember = "parentesco_menor";
+                (List<DParentescoMenor> listaParentescoMenor, string errorResponseParentescos) = await nParentesco.retornarListaParentescosMenor();
+                cmbParentescosMenor.DataSource = listaParentescoMenor;
+
+            }
+
+        }
+
+        private async void btnBuscarMenor_Click(object sender, EventArgs e)
+        {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validar
+            //var data = new CiudadanoNuevoDatos
+            //{
+            //    txtBuscarApellido = txtBuscarApellido.Text
+            //};
+
+            //var validator = new BuscarApellidoValidator();
+            //var result = validator.Validate(data);
+
+            //if (!result.IsValid)
+            //{
+            //    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    foreach (var failure in result.Errors)
+            //    {
+
+            //        Control control = Controls.Find(failure.PropertyName, true)[0];
+            //        errorProvider.SetError(control, failure.ErrorMessage);
+            //    }
+            //    return;
+            //}
+            //fin validar
+
+            NCiudadano nCiudadanos = new NCiudadano();
+
+            string apellido_ciudadanos = Convert.ToString(this.txtBuscarMenor.Text);
+            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosXapellido(apellido_ciudadanos);
+            if (listaCiudadanos == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var datosFiltrados = listaCiudadanos
+                .Select(c => new
+                {
+                    Id_ciudadano = c.id_ciudadano,
+                    ApellidoNombre = c.apellido + " " + c.nombre,
+                    Dni = c.dni,
+                    Sexo = c.sexo.sexo
+                })
+                .ToList();
+
+
+            dgvCiudadanosMenores.DataSource = datosFiltrados;
+
+            if (listaCiudadanos.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dgvCiudadanosMenores.Columns[1].Width = 200;
+            }
+
+        }
+
+        private void dgvCiudadanosMenores_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                
+                if (dgvCiudadanosMenores.SelectedRows.Count > 0)
+                {
+
+                        this.txtIdCiudadanoMenor.Text = Convert.ToString(this.dgvCiudadanosMenores.CurrentRow.Cells["Id_ciudadano"].Value);
+                        this.txtDniMenor.Text = Convert.ToString(this.dgvCiudadanosMenores.CurrentRow.Cells["Dni"].Value);
+                        this.txtNombreMenor.Text = Convert.ToString(this.dgvCiudadanosMenores.CurrentRow.Cells["ApellidoNombre"].Value);
+                 
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un menor.");
+                }
+                
+            }
+        }
+
+        private async void btnVincularTutorConMenor_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadanoMenor.Text == string.Empty)
+            {
+                MessageBox.Show("debe seleccionar el ciudadano antes de vincular ");
+            }
+            else
+            {
+                NMenorACargo nMenorACargo = new NMenorACargo();
+
+
+                //validacion de formulario
+                //var datosFormulario = new CiudadanoDatos
+                //{
+                //    txtIdVisita = txtIdVisita.Text,
+                //    txtIdInterno = txtIdInterno.Text,
+                //    cmbParentesco = cmbParentesco.SelectedValue.ToString(),
+
+                //};
+
+                //var validator = new EditarDPersonalesCiudadanoValidator();
+                //var result = validator.Validate(datosFormulario);
+
+                //if (!result.IsValid)
+                //{
+                //    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    foreach (var failure in result.Errors)
+                //    {
+                //        Control control = Controls.Find(failure.PropertyName, true)[0];
+                //        errorProvider.SetError(control, failure.ErrorMessage);
+                //    }
+                //    return;
+                //}
+                //FIN VALIDAR
+
+                var data = new
+                {
+                    ciudadano_tutor_id = Convert.ToInt32(txtIdCiudadano.Text),
+                    ciudadano_menor_id = Convert.ToInt32(txtIdCiudadanoMenor.Text),
+                    parentesco_menor_id = Convert.ToString(cmbParentescosMenor.SelectedValue.ToString()),
+
+                };
+                //MessageBox.Show(Convert.ToString(cmbParentesco.SelectedValue.ToString()));
+                string dataMenorAcargo = JsonConvert.SerializeObject(data);
+
+                (DMenorACargo menorACargo, string errorResponseListaMenores) = await nMenorACargo.crearMenorACargo(dataMenorAcargo);
+
+                if (menorACargo != null)
+                {
+                    MessageBox.Show("La vinculación del menor se realizó correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    
+                    (List<DMenorACargo> listaMenorACargo, string errorResponseMenores) = await nMenorACargo.retornarListaVigentesXAdulto(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                    var datosFiltrados = listaMenorACargo
+                    .Select(c => new
+                    {
+                        Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
+                        Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
+                        DniMenor = c.ciudadanoMenor.dni,
+                        Parentesco = c.parentesco_menor.parentesco_menor
+
+                    })
+                    .ToList();
+
+
+                    dgvMenores.DataSource = datosFiltrados;
+
+                }
+                else
+                {
+                    MessageBox.Show(errorResponseListaMenores, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+            }
         }
     }
 
