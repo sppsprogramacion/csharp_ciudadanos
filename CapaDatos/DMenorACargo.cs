@@ -15,6 +15,7 @@ namespace CapaDatos
         public DCiudadano ciudadanoMenor { get; set; }
         public string parentesco_menor_id { get; set; }
         public DParentescoMenor parentesco_menor { get; set; }
+        public int edadMenor { get; set; }
         public DateTime fecha_carga { get; set; }
         public bool anulado { get; set; }
         public string detalle_anular { get; set; }

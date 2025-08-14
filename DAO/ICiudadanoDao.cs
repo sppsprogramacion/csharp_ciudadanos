@@ -26,7 +26,8 @@ namespace DAO
         Task<(List<DCiudadano>, string error)> retornarListaCiudadanoXDni(int dni);
         
         Task<(List<DCiudadano>, string error)> retornarListaCiudadanoXApellido(string apellido);
-    
+        Task<(List<DCiudadano>, string error)> retornarListaCiudadanoConEdadXApellido(string apellido);
+
         Task<HttpResponseMessage> editarCiudadanoDomicilio(int dni, string ciudadano);
         Task<HttpResponseMessage> editarDatosPersonales(int id, string ciudadano);
         Task<(bool, string error)> establecerVisita(int id, string novedad_detalle);

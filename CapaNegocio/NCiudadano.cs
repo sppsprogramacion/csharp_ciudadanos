@@ -36,6 +36,17 @@ namespace CapaNegocio
         }
         //FIN RETORNAR CIUDADANOS POR APELLIDO..................................
 
+        //RETORNAR CIUDADANOS X APELLIDO
+        public async Task<(List<DCiudadano>, string error)> RetornarListaCiudadanosConEdadXapellido(string apellido)
+        {
+            ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
+
+            (List<DCiudadano> listaCiudadanos, string errorResponse) = await ciudadanoDao.retornarListaCiudadanoXApellido(apellido);
+
+            return (listaCiudadanos, errorResponse);
+        }
+        //FIN RETORNAR CIUDADANOS POR APELLIDO..................................
+
         //RETORNAR CIUDADANOS X DNI
         public async Task<(List<DCiudadano>, string error)> RetornarListaCiudadanosXdni(int dni)
         {

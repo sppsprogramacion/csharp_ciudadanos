@@ -219,8 +219,6 @@ namespace CapaPresentacion
 
         private async void frmAdministrarCiudadadno_Load(object sender, EventArgs e)
         {//Inicio evento Load
-                     
-
 
             int idCiudadano;
             //acceder a la instancia de FormTramites abierta.
@@ -1366,7 +1364,8 @@ namespace CapaPresentacion
                     Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
                     Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
                     DniMenor = c.ciudadanoMenor.dni,
-                    Parentesco = c.parentesco_menor.parentesco_menor
+                    Parentesco = c.parentesco_menor.parentesco_menor,
+                    EdadMenor = c.edadMenor
 
                 })
                 .ToList();
@@ -1415,7 +1414,7 @@ namespace CapaPresentacion
             NCiudadano nCiudadanos = new NCiudadano();
 
             string apellido_ciudadanos = Convert.ToString(this.txtBuscarMenor.Text);
-            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosXapellido(apellido_ciudadanos);
+            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosConEdadXapellido(apellido_ciudadanos);
             if (listaCiudadanos == null)
             {
                 MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1427,7 +1426,8 @@ namespace CapaPresentacion
                     Id_ciudadano = c.id_ciudadano,
                     ApellidoNombre = c.apellido + " " + c.nombre,
                     Dni = c.dni,
-                    Sexo = c.sexo.sexo
+                    Sexo = c.sexo.sexo,
+                    Edad = c.edad
                 })
                 .ToList();
 

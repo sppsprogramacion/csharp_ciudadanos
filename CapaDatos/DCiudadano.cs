@@ -15,6 +15,7 @@ namespace CapaDatos
         public int sexo_id { get; set; }
         public DSexo sexo { get; set; }
         public DateTime fecha_nac { get; set; }
+        public int edad { get; set; }
         public string telefono { get; set; }
         public int estado_civil_id { get; set; }
         public DEstadoCivil estado_civil { get; set; }

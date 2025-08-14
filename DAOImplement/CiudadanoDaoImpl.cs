@@ -230,6 +230,53 @@ namespace DAOImplement
         }
 
 
+        public async Task<(List<DCiudadano>, string error)> retornarListaCiudadanoConEdadXApellido(string apellido)
+        {
+            //variable token
+            string token = SessionManager.Token;
+            List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
+
+            try
+            { //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage httpResponse = await httpClient.GetAsync(url_base + "/ciudadanos/buscarlista-edad-xapellido?apellido=" + apellido);
+
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        var content = await httpResponse.Content.ReadAsStringAsync();
+                        listaCiudadanos = JsonConvert.DeserializeObject<List<DCiudadano>>(content);
+                        return (listaCiudadanos, null);
+                    }
+                    else
+                    {
+                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                        var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                        return (null, $"Error en la busqueda: {mensaje}");
+                    }
+
+                }
+
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (null, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (null, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (null, $"Error inesperado: {ex.Message}");
+            }
+        }
 
         public async Task<(List<DCiudadano>, string error)> retornarListaCiudadano()
         {//inicio funcion Retornoar Lista de Ciudadanos
@@ -568,6 +615,7 @@ namespace DAOImplement
                 throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
             }
         }
+
         //FIN QUITAR IMAGEN.........................................................
 
 
