@@ -80,7 +80,7 @@ namespace CapaPresentacion
             dgvCiudadanosRegistroDiario.DataSource = datosFiltrados;
         }
 
-        private void dgvCiudadanosRegistroDiario_KeyDown(object sender, KeyEventArgs e)
+        private async void dgvCiudadanosRegistroDiario_KeyDown(object sender, KeyEventArgs e)
         {
             //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
             if (e.KeyCode == Keys.Enter)
@@ -90,22 +90,41 @@ namespace CapaPresentacion
                 this.idInternoGlobal = 1;
                 if (dgvCiudadanosRegistroDiario.SelectedRows.Count > 0)
                 {
-                    if (this.idInternoGlobal > 0)
-                    {//inicio if
+                    int idCiudadano;
+                    
+                    idCiudadano = Convert.ToInt32(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["id_ciudadano"].Value);
 
-                        this.txtIdCiudadanoIngreso.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["id_ciudadano"].Value);
-                        this.txtDocumentoIdentidad.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["dni"].Value);
-                        this.txtNombreCiudadano.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["apellido"].Value) + " " + Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["nombre"].Value);
+                    NCiudadano nCiudadano = new NCiudadano();
+                    (DCiudadano dCiudadanoResponse, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
 
+                    
 
-
-
-                    }//fin if
-                    else
+                    if (dCiudadanoResponse == null)
                     {
-                        MessageBox.Show("Debe seleccionar un ciudadano.");
+                        MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
                     }
+
+
+                    this.txtIdCiudadanoIngreso.Text = idCiudadano.ToString();
+                    this.txtDocumentoIdentidad.Text = dCiudadanoResponse.dni.ToString();
+                    this.txtNombreCiudadano.Text = dCiudadanoResponse.apellido + " " + dCiudadanoResponse.nombre;
+                    this.ptbFotoCiudadano.Load(dCiudadanoResponse.foto);
+
+
+                    //this.txtIdCiudadanoIngreso.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["id_ciudadano"].Value);
+                    //this.txtDocumentoIdentidad.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["dni"].Value);
+                    //this.txtNombreCiudadano.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["apellido"].Value) + " " + Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["nombre"].Value);
+
+
+
+
+                }//fin if
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un ciudadano.");
                 }
+                
             }
         }
 
@@ -196,7 +215,7 @@ namespace CapaPresentacion
                 sector_destino_id = Convert.ToInt32(cmbSector.SelectedValue.ToString()),
                 interno = txtBuscarInternos.Text,
                 motivo_atencion_id = Convert.ToInt32(cmbMotivoAtencion.SelectedValue.ToString()),
-                observaciones = Convert.ToString("Aqui se ingresa los comentarios de Atencion Ciudadano")
+                observaciones = Convert.ToString(txtObservaciones.Text)
                 
             };
 
@@ -222,33 +241,6 @@ namespace CapaPresentacion
                     MessageBox.Show(errorResponseRegistroDiario, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     //dgvListadoInternos.DataSource = listaAbogadoInterno;
                 }
-
-                /*if (httpResponse.IsSuccessStatusCode)
-                {
-                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                    DRegistroDiario dataRespuesta = JsonConvert.DeserializeObject<DRegistroDiario>(contentRespuesta);
-                    MessageBox.Show("Registro Diario creado correctamente");
-                    this.Limpiar();
-
-
-
-
-                    //NRegistroDiario nRegistroDiarios = new NRegistroDiario();
-                    //(List<DCiudadano> listaCiudadanoss, string errorResponse) = await nCiudadanos.RetornarListaCiudadanos();
-                    //if (listaCiudadanoss == null)
-                    //{
-                    //    MessageBox.Show(errorResponse, "Restricion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    //    return;
-                    //}
-                    //dataGridView1.DataSource = listaCiudadanoss;
-
-                }
-                else
-                {
-                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                    MessageBox.Show("No se pudo insertar el registro.");
-                    MessageBox.Show($"Error de la API: {errorMessage}", $"Error {httpResponse.StatusCode}", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }*/
 
             }
             catch (Exception ex)

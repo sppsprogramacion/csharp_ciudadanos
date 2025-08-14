@@ -41,7 +41,7 @@ namespace CapaNegocio
         {
             ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
 
-            (List<DCiudadano> listaCiudadanos, string errorResponse) = await ciudadanoDao.retornarListaCiudadanoXApellido(apellido);
+            (List<DCiudadano> listaCiudadanos, string errorResponse) = await ciudadanoDao.retornarListaCiudadanoConEdadXApellido(apellido);
 
             return (listaCiudadanos, errorResponse);
         }

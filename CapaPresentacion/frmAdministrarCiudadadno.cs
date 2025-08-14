@@ -1420,6 +1420,10 @@ namespace CapaPresentacion
                 MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
+            //Console.WriteLine(listaCiudadanos);
+            //MessageBox.Show(listaCiudadanos[0].edad.ToString());
+
             var datosFiltrados = listaCiudadanos
                 .Select(c => new
                 {

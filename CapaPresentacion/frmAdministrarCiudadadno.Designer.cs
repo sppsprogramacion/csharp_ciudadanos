@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrarCiudadadno));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEditarCiudadano = new System.Windows.Forms.TabPage();
             this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
@@ -93,14 +91,14 @@
             this.txtNumDomicilio = new System.Windows.Forms.TextBox();
             this.tabVincularCiudadno = new System.Windows.Forms.TabPage();
             this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
-            this.lblSexo = new System.Windows.Forms.Label();
-            this.cmbParentesco = new System.Windows.Forms.ComboBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txtIdVisita = new System.Windows.Forms.TextBox();
             this.dgvVisitasVinculadas = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblSexo = new System.Windows.Forms.Label();
+            this.cmbParentesco = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.btnBuscarInterno = new System.Windows.Forms.Button();
             this.txtIdInterno = new System.Windows.Forms.TextBox();
@@ -165,6 +163,8 @@
             this.dgvMenores = new System.Windows.Forms.DataGridView();
             this.btnVincularTutorConMenor = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.cmbParentescosMenor = new System.Windows.Forms.ComboBox();
             this.label42 = new System.Windows.Forms.Label();
             this.btnBuscarMenor = new System.Windows.Forms.Button();
             this.txtIdCiudadanoMenor = new System.Windows.Forms.TextBox();
@@ -176,8 +176,6 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.cmbParentescosMenor = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -944,24 +942,6 @@
             this.btnActualizarPestañaVinculacion.UseVisualStyleBackColor = false;
             this.btnActualizarPestañaVinculacion.Click += new System.EventHandler(this.btnActualizarPestañaVinculacion_Click);
             // 
-            // lblSexo
-            // 
-            this.lblSexo.AutoSize = true;
-            this.lblSexo.Location = new System.Drawing.Point(10, 256);
-            this.lblSexo.Name = "lblSexo";
-            this.lblSexo.Size = new System.Drawing.Size(83, 15);
-            this.lblSexo.TabIndex = 22;
-            this.lblSexo.Text = "Parentesco:";
-            // 
-            // cmbParentesco
-            // 
-            this.cmbParentesco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbParentesco.FormattingEnabled = true;
-            this.cmbParentesco.Location = new System.Drawing.Point(103, 252);
-            this.cmbParentesco.Name = "cmbParentesco";
-            this.cmbParentesco.Size = new System.Drawing.Size(216, 23);
-            this.cmbParentesco.TabIndex = 10;
-            // 
             // label25
             // 
             this.label25.AutoSize = true;
@@ -1029,6 +1009,24 @@
             this.pictureBox1.Size = new System.Drawing.Size(169, 142);
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            // 
+            // lblSexo
+            // 
+            this.lblSexo.AutoSize = true;
+            this.lblSexo.Location = new System.Drawing.Point(10, 256);
+            this.lblSexo.Name = "lblSexo";
+            this.lblSexo.Size = new System.Drawing.Size(83, 15);
+            this.lblSexo.TabIndex = 22;
+            this.lblSexo.Text = "Parentesco:";
+            // 
+            // cmbParentesco
+            // 
+            this.cmbParentesco.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbParentesco.FormattingEnabled = true;
+            this.cmbParentesco.Location = new System.Drawing.Point(103, 252);
+            this.cmbParentesco.Name = "cmbParentesco";
+            this.cmbParentesco.Size = new System.Drawing.Size(216, 23);
+            this.cmbParentesco.TabIndex = 10;
             // 
             // label18
             // 
@@ -1661,7 +1659,7 @@
             this.dgvMenores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMenores.Location = new System.Drawing.Point(35, 61);
             this.dgvMenores.Name = "dgvMenores";
-            this.dgvMenores.Size = new System.Drawing.Size(864, 95);
+            this.dgvMenores.Size = new System.Drawing.Size(651, 95);
             this.dgvMenores.TabIndex = 25;
             // 
             // btnVincularTutorConMenor
@@ -1692,19 +1690,38 @@
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(35, 177);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(864, 305);
+            this.groupBox5.Size = new System.Drawing.Size(665, 305);
             this.groupBox5.TabIndex = 26;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Datos de Menor";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(11, 254);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(83, 15);
+            this.label37.TabIndex = 26;
+            this.label37.Text = "Parentesco:";
+            // 
+            // cmbParentescosMenor
+            // 
+            this.cmbParentescosMenor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbParentescosMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbParentescosMenor.FormattingEnabled = true;
+            this.cmbParentescosMenor.Location = new System.Drawing.Point(119, 251);
+            this.cmbParentescosMenor.Name = "cmbParentescosMenor";
+            this.cmbParentescosMenor.Size = new System.Drawing.Size(216, 23);
+            this.cmbParentescosMenor.TabIndex = 25;
             // 
             // label42
             // 
             this.label42.AutoSize = true;
             this.label42.Location = new System.Drawing.Point(11, 175);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(96, 15);
+            this.label42.Size = new System.Drawing.Size(68, 15);
             this.label42.TabIndex = 24;
-            this.label42.Text = "Id Ciudadano:";
+            this.label42.Text = "Id Menor:";
             // 
             // btnBuscarMenor
             // 
@@ -1720,7 +1737,7 @@
             // txtIdCiudadanoMenor
             // 
             this.txtIdCiudadanoMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdCiudadanoMenor.Location = new System.Drawing.Point(109, 172);
+            this.txtIdCiudadanoMenor.Location = new System.Drawing.Point(119, 172);
             this.txtIdCiudadanoMenor.Name = "txtIdCiudadanoMenor";
             this.txtIdCiudadanoMenor.ReadOnly = true;
             this.txtIdCiudadanoMenor.Size = new System.Drawing.Size(216, 21);
@@ -1737,25 +1754,9 @@
             // 
             // dgvCiudadanosMenores
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCiudadanosMenores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCiudadanosMenores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCiudadanosMenores.Location = new System.Drawing.Point(13, 54);
             this.dgvCiudadanosMenores.Name = "dgvCiudadanosMenores";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCiudadanosMenores.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCiudadanosMenores.Size = new System.Drawing.Size(638, 108);
             this.dgvCiudadanosMenores.TabIndex = 6;
             this.dgvCiudadanosMenores.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCiudadanosMenores_KeyDown);
@@ -1763,7 +1764,7 @@
             // txtDniMenor
             // 
             this.txtDniMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDniMenor.Location = new System.Drawing.Point(109, 198);
+            this.txtDniMenor.Location = new System.Drawing.Point(119, 198);
             this.txtDniMenor.Name = "txtDniMenor";
             this.txtDniMenor.ReadOnly = true;
             this.txtDniMenor.Size = new System.Drawing.Size(216, 21);
@@ -1772,7 +1773,7 @@
             // txtNombreMenor
             // 
             this.txtNombreMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreMenor.Location = new System.Drawing.Point(109, 224);
+            this.txtNombreMenor.Location = new System.Drawing.Point(119, 224);
             this.txtNombreMenor.Name = "txtNombreMenor";
             this.txtNombreMenor.ReadOnly = true;
             this.txtNombreMenor.Size = new System.Drawing.Size(277, 21);
@@ -1783,18 +1784,18 @@
             this.label44.AutoSize = true;
             this.label44.Location = new System.Drawing.Point(11, 201);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(35, 15);
+            this.label44.Size = new System.Drawing.Size(80, 15);
             this.label44.TabIndex = 6;
-            this.label44.Text = "DNI:";
+            this.label44.Text = "DNI Menor:";
             // 
             // label45
             // 
             this.label45.AutoSize = true;
             this.label45.Location = new System.Drawing.Point(11, 227);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(62, 15);
+            this.label45.Size = new System.Drawing.Size(107, 15);
             this.label45.TabIndex = 7;
-            this.label45.Text = "Nombre:";
+            this.label45.Text = "Nombre Menor:";
             // 
             // txtBuscarMenor
             // 
@@ -1815,25 +1816,6 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             this.label23.Click += new System.EventHandler(this.label23_Click);
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(11, 254);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(83, 15);
-            this.label37.TabIndex = 26;
-            this.label37.Text = "Parentesco:";
-            // 
-            // cmbParentescosMenor
-            // 
-            this.cmbParentescosMenor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbParentescosMenor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbParentescosMenor.FormattingEnabled = true;
-            this.cmbParentescosMenor.Location = new System.Drawing.Point(109, 251);
-            this.cmbParentescosMenor.Name = "cmbParentescosMenor";
-            this.cmbParentescosMenor.Size = new System.Drawing.Size(216, 23);
-            this.cmbParentescosMenor.TabIndex = 25;
             // 
             // frmAdministrarCiudadadno
             // 

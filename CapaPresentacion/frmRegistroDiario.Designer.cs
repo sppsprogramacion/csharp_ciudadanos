@@ -63,13 +63,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAgregarInterno = new System.Windows.Forms.Button();
             this.btnIngresoAbogados = new System.Windows.Forms.Button();
-            this.ptbFotoProfesion = new System.Windows.Forms.PictureBox();
+            this.ptbFotoCiudadano = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbFotoProfesion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,7 +111,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(393, 694);
+            this.label33.Location = new System.Drawing.Point(18, 730);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(70, 13);
             this.label33.TabIndex = 43;
@@ -125,24 +127,24 @@
             // cmbTipoAcceso
             // 
             this.cmbTipoAcceso.FormattingEnabled = true;
-            this.cmbTipoAcceso.Location = new System.Drawing.Point(278, 722);
+            this.cmbTipoAcceso.Location = new System.Drawing.Point(89, 725);
             this.cmbTipoAcceso.Name = "cmbTipoAcceso";
-            this.cmbTipoAcceso.Size = new System.Drawing.Size(274, 21);
+            this.cmbTipoAcceso.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAcceso.TabIndex = 40;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(928, 694);
+            this.label31.Location = new System.Drawing.Point(362, 730);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(111, 13);
+            this.label31.Size = new System.Drawing.Size(41, 13);
             this.label31.TabIndex = 39;
-            this.label31.Text = "Seleccionar el Sector:";
+            this.label31.Text = "Sector:";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(103, 693);
+            this.label30.Location = new System.Drawing.Point(18, 693);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(70, 13);
             this.label30.TabIndex = 38;
@@ -151,15 +153,15 @@
             // cmbSector
             // 
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(838, 722);
+            this.cmbSector.Location = new System.Drawing.Point(424, 725);
             this.cmbSector.Name = "cmbSector";
-            this.cmbSector.Size = new System.Drawing.Size(294, 21);
+            this.cmbSector.Size = new System.Drawing.Size(280, 21);
             this.cmbSector.TabIndex = 37;
             // 
             // cmbOrganismoDestino
             // 
             this.cmbOrganismoDestino.FormattingEnabled = true;
-            this.cmbOrganismoDestino.Location = new System.Drawing.Point(554, 722);
+            this.cmbOrganismoDestino.Location = new System.Drawing.Point(423, 690);
             this.cmbOrganismoDestino.Name = "cmbOrganismoDestino";
             this.cmbOrganismoDestino.Size = new System.Drawing.Size(281, 21);
             this.cmbOrganismoDestino.TabIndex = 36;
@@ -197,18 +199,18 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(640, 694);
+            this.label28.Location = new System.Drawing.Point(360, 693);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(130, 13);
+            this.label28.Size = new System.Drawing.Size(63, 13);
             this.label28.TabIndex = 29;
-            this.label28.Text = "Seleccionar el Organismo:";
+            this.label28.Text = " Organismo:";
             // 
             // cmbTipoAtencion
             // 
             this.cmbTipoAtencion.FormattingEnabled = true;
-            this.cmbTipoAtencion.Location = new System.Drawing.Point(21, 722);
+            this.cmbTipoAtencion.Location = new System.Drawing.Point(89, 690);
             this.cmbTipoAtencion.Name = "cmbTipoAtencion";
-            this.cmbTipoAtencion.Size = new System.Drawing.Size(256, 21);
+            this.cmbTipoAtencion.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAtencion.TabIndex = 28;
             // 
             // txtNombreCiudadanoIngreso
@@ -313,7 +315,7 @@
             // cmbMotivoAtencion
             // 
             this.cmbMotivoAtencion.FormattingEnabled = true;
-            this.cmbMotivoAtencion.Location = new System.Drawing.Point(1135, 722);
+            this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 690);
             this.cmbMotivoAtencion.Name = "cmbMotivoAtencion";
             this.cmbMotivoAtencion.Size = new System.Drawing.Size(307, 21);
             this.cmbMotivoAtencion.TabIndex = 52;
@@ -321,7 +323,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1251, 693);
+            this.label3.Location = new System.Drawing.Point(727, 693);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 53;
@@ -390,15 +392,16 @@
             this.btnIngresoAbogados.UseVisualStyleBackColor = false;
             this.btnIngresoAbogados.Click += new System.EventHandler(this.btnIngresoAbogados_Click);
             // 
-            // ptbFotoProfesion
+            // ptbFotoCiudadano
             // 
-            this.ptbFotoProfesion.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ptbFotoProfesion.Image = ((System.Drawing.Image)(resources.GetObject("ptbFotoProfesion.Image")));
-            this.ptbFotoProfesion.Location = new System.Drawing.Point(826, 92);
-            this.ptbFotoProfesion.Name = "ptbFotoProfesion";
-            this.ptbFotoProfesion.Size = new System.Drawing.Size(231, 213);
-            this.ptbFotoProfesion.TabIndex = 32;
-            this.ptbFotoProfesion.TabStop = false;
+            this.ptbFotoCiudadano.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ptbFotoCiudadano.Image = ((System.Drawing.Image)(resources.GetObject("ptbFotoCiudadano.Image")));
+            this.ptbFotoCiudadano.Location = new System.Drawing.Point(826, 92);
+            this.ptbFotoCiudadano.Name = "ptbFotoCiudadano";
+            this.ptbFotoCiudadano.Size = new System.Drawing.Size(225, 225);
+            this.ptbFotoCiudadano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ptbFotoCiudadano.TabIndex = 32;
+            this.ptbFotoCiudadano.TabStop = false;
             // 
             // panel1
             // 
@@ -425,11 +428,29 @@
             this.label4.TabIndex = 51;
             this.label4.Text = "Seleccionar Interno:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(727, 730);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 57;
+            this.label6.Text = "Observaciones:";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(820, 725);
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(452, 20);
+            this.txtObservaciones.TabIndex = 58;
+            // 
             // frmRegistroDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 834);
+            this.Controls.Add(this.txtObservaciones);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMotivoAtencion);
@@ -445,7 +466,7 @@
             this.Controls.Add(this.btnAgregarInterno);
             this.Controls.Add(this.btnIngresoAbogados);
             this.Controls.Add(this.lblCartel);
-            this.Controls.Add(this.ptbFotoProfesion);
+            this.Controls.Add(this.ptbFotoCiudadano);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.txtProfesion);
             this.Controls.Add(this.label28);
@@ -467,7 +488,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ptbFotoProfesion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -490,7 +511,7 @@
         private System.Windows.Forms.Button btnAgregarInterno;
         private System.Windows.Forms.Button btnIngresoAbogados;
         private System.Windows.Forms.Label lblCartel;
-        private System.Windows.Forms.PictureBox ptbFotoProfesion;
+        private System.Windows.Forms.PictureBox ptbFotoCiudadano;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txtProfesion;
         private System.Windows.Forms.Label label28;
@@ -514,5 +535,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtObservaciones;
     }
 }
