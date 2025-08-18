@@ -197,7 +197,7 @@ namespace CapaPresentacion
 
                     //buscar y actualizar el ciudadano this.dCiudadano
                     this.ActualizarCiudadano();
-
+                   
                     this.HabilitarControlesDatosPersonales(false);
                 }
                 else
@@ -300,9 +300,12 @@ namespace CapaPresentacion
             txtBarrio.Text = this.dCiudadano.barrio;
             txtDireccion.Text = this.dCiudadano.direccion;
             txtNumDomicilio.Text = Convert.ToString(this.dCiudadano.numero_dom);
-            //txtCategoriaCiudadano.Text = Convert.ToString(this.dCiudadano.categoria_ciudadano);
-            //MessageBox.Show(Convert.ToString("numero de categoria es: " + this.dCiudadano.categoria_ciudadano));
+            
             pictureFoto.Load(this.dCiudadano.foto);
+
+            //controlar edad
+            this.ControlEdad();
+            //fin controlar edad
 
             //controlar es visita y discapacidad
             this.ControlEsVisita();
@@ -310,8 +313,6 @@ namespace CapaPresentacion
             //fin controlar es visita y discapacidad
 
             //FIN CARGAR DATOPS DEL CIUDADANO
-
-
 
 
         }//Fin evento Load
@@ -388,7 +389,6 @@ namespace CapaPresentacion
                 
                 this.tabControl1.SelectedIndex = 1;
             }
-
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -458,11 +458,6 @@ namespace CapaPresentacion
                     }
                 }
             }
-        }
-
-        private void label23_Click(object sender, EventArgs e)
-        {
-
         }
 
         private async void button1_Click(object sender, EventArgs e)
@@ -537,17 +532,13 @@ namespace CapaPresentacion
                     })
                     .ToList();
 
-
                     dgvVisitasVinculadas.DataSource = datosFiltrados;
-
                 }
                 else
                 {
                     MessageBox.Show(errorResponseVisitaInterno, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-               
             }
-
 
         }//fin boton crear parentesco
 
@@ -591,7 +582,6 @@ namespace CapaPresentacion
 
             var data = new
             {
-                
                 pais_id = cmbPais.SelectedValue.ToString(),
                 provincia_id = cmbProvincia.SelectedValue.ToString(),
                 departamento_id = Convert.ToInt32(cmbDepartamento.SelectedValue.ToString()),
@@ -618,7 +608,6 @@ namespace CapaPresentacion
                     this.ActualizarCiudadano();
 
                     this.HabilitarControlesDatosDomicilio(false);
-
                 }
                 else
                 {
@@ -626,7 +615,6 @@ namespace CapaPresentacion
                     MessageBox.Show("No se pudo editar el registro.");
                     MessageBox.Show($"Error de la API: {errorMessage}", $"Error {httpResponse.StatusCode}", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             catch (Exception ex)
             {
@@ -667,8 +655,6 @@ namespace CapaPresentacion
             }
             
             this.tabControl1.SelectedIndex = 3;
-            
-
         }
 
         private async void btnAsignarVisita_Click(object sender, EventArgs e)
@@ -720,8 +706,9 @@ namespace CapaPresentacion
 
                     MessageBox.Show("Se establecio correctamente como visita", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    //actualiza datos del ciudadano y controla si esta como vivista
                     this.ActualizarCiudadano();
-                    this.ControlEsVisita();
+                    this.txtAsignarVisitaDetalle.Text = "";
                 }
                 else
                 {
@@ -775,8 +762,9 @@ namespace CapaPresentacion
 
                 MessageBox.Show("Se establecio correctamente con discapacidad", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                //actualizar datos y control discapacidad
                 this.ActualizarCiudadano();
-                this.ControlTieneDiscapacidad();
+                txtEstablecerDiscapacidad.Text = "";
             }
             else
             {
@@ -1034,6 +1022,14 @@ namespace CapaPresentacion
 
             this.dCiudadano = dCiudadano2;
             pictureFoto.Load(this.dCiudadano.foto);
+            //controlar edad
+            this.ControlEdad();
+            //fin controlar edad
+
+            //controlar es visita y discapacidad
+            this.ControlEsVisita();
+            this.ControlTieneDiscapacidad();
+            //fin controlar es visita y discapacidad
         }
         //FIN ACTUALIZAR CIUDADANO
 
@@ -1058,7 +1054,7 @@ namespace CapaPresentacion
         }
         //FIN CONTROL ES VISITA
 
-        //CONTROL ES VISITA
+        //CONTROL TIENE DISCAPACIDAD
         private void ControlTieneDiscapacidad()
         {
             if (this.dCiudadano.tiene_discapacidad)
@@ -1077,7 +1073,21 @@ namespace CapaPresentacion
                 lblDetalleTieneDiscapacidad.Text = "";
             }
         }
-        //FIN CONTROL ES VISITA
+        //FIN CONTROL TIENE DISCAPACIDAD
+
+        //CONTROL EDAD
+        private void ControlEdad()
+        {
+            if (this.dCiudadano.edad < 18)
+            {
+                lblMenorEdad.Text = "Edad: " + this.dCiudadano.edad + " años. Es MENOR.";
+            }
+            else
+            {
+                lblMenorEdad.Text = "Edad: " + this.dCiudadano.edad + " años. Es ADULTO.";
+            }
+        }
+        //FIN CONTROL EDAD
 
         //CARGAR LISTA CATEGORIAS DEL CIUDADANO
         private async void CargarCategoriasDelCiudadano()
@@ -1479,7 +1489,7 @@ namespace CapaPresentacion
         {
             if (this.txtIdCiudadanoMenor.Text == string.Empty)
             {
-                MessageBox.Show("debe seleccionar el ciudadano antes de vincular ");
+                MessageBox.Show("debe seleccionar el menor antes de vincular ");
             }
             else
             {
@@ -1535,8 +1545,8 @@ namespace CapaPresentacion
                         Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
                         Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
                         DniMenor = c.ciudadanoMenor.dni,
-                        Parentesco = c.parentesco_menor.parentesco_menor
-
+                        Parentesco = c.parentesco_menor.parentesco_menor,
+                        EdadMenor = c.edadMenor
                     })
                     .ToList();
 

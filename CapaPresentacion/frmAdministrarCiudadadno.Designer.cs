@@ -176,6 +176,7 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.lblMenorEdad = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -219,6 +220,7 @@
             // 
             // tabEditarCiudadano
             // 
+            this.tabEditarCiudadano.Controls.Add(this.lblMenorEdad);
             this.tabEditarCiudadano.Controls.Add(this.lblEsVisitaPrincipal);
             this.tabEditarCiudadano.Controls.Add(this.btnAsignarCategorias);
             this.tabEditarCiudadano.Controls.Add(this.btnIngreso);
@@ -242,9 +244,9 @@
             this.lblEsVisitaPrincipal.ForeColor = System.Drawing.Color.SteelBlue;
             this.lblEsVisitaPrincipal.Location = new System.Drawing.Point(17, 46);
             this.lblEsVisitaPrincipal.Name = "lblEsVisitaPrincipal";
-            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(76, 20);
+            this.lblEsVisitaPrincipal.Size = new System.Drawing.Size(86, 20);
             this.lblEsVisitaPrincipal.TabIndex = 45;
-            this.lblEsVisitaPrincipal.Text = "Es visita";
+            this.lblEsVisitaPrincipal.Text = "Es visita?";
             // 
             // btnAsignarCategorias
             // 
@@ -1815,7 +1817,17 @@
             this.label23.Size = new System.Drawing.Size(454, 25);
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
+            // 
+            // lblMenorEdad
+            // 
+            this.lblMenorEdad.AutoSize = true;
+            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblMenorEdad.Location = new System.Drawing.Point(554, 46);
+            this.lblMenorEdad.Name = "lblMenorEdad";
+            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
+            this.lblMenorEdad.TabIndex = 46;
+            this.lblMenorEdad.Text = "Es menor?";
             // 
             // frmAdministrarCiudadadno
             // 
@@ -2016,6 +2028,7 @@
         private System.Windows.Forms.TextBox txtBuscarMenor;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.ComboBox cmbParentescosMenor;
+        private System.Windows.Forms.Label lblMenorEdad;
     }
 }
 
