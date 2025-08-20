@@ -12,6 +12,13 @@ using System.Windows.Forms;
 using CapaPresentacion;
 using Newtonsoft.Json;
 using System.Net.Http;
+//para combo box dependientes
+using System.Data.SqlClient;
+using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;//para validacion 
+using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
+using CapaPresentacion.Validaciones.RegistroDirario.Datos;
+using CapaPresentacion.Validaciones.RegistroDirario.ValidacionRegistroDiario;//para validacion
+
 
 namespace CapaPresentacion
 {
@@ -19,6 +26,10 @@ namespace CapaPresentacion
     {
 
         public int idInternoGlobal { get; set; }
+
+        //para validaciones
+        private ErrorProvider errorProvider = new ErrorProvider();
+
         public frmRegistroDiario()
         {
             InitializeComponent();
@@ -199,12 +210,43 @@ namespace CapaPresentacion
 
         private async void btnCrearRegistroDiario_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new RegistroDiarioDatos
+            {
+
+                txtIdCiudadanoIngreso = txtIdCiudadanoIngreso.Text,
+                cmbTipoAtencion = cmbTipoAtencion.SelectedValue.ToString(),
+                cmbTipoAcceso = cmbTipoAcceso.SelectedValue.ToString(),
+                cmbSector = cmbSector.SelectedValue.ToString(),
+                cmbMotivoAtencion = cmbMotivoAtencion.SelectedValue.ToString(),
+                txtBuscarInternos = txtBuscarInternos.Text,
+                txtObservaciones = txtObservaciones.Text
+            };
+
+            var validator = new RegistroDiarioNuevoValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion...........................
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
 
             List<DRegistroDiario> listaCiudadanos = new List<DRegistroDiario>();
 
-            //dataGridView1.DataSource = listaCiudadanos;
-
+            //Codigo agregado en fecha 20 de agsto de 2025 para validar datos
+            //limpiar errores de provider
+            errorProvider.Clear();
 
 
             var data = new

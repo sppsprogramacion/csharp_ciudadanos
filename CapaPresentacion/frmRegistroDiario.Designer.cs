@@ -126,6 +126,7 @@
             // 
             // cmbTipoAcceso
             // 
+            this.cmbTipoAcceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAcceso.FormattingEnabled = true;
             this.cmbTipoAcceso.Location = new System.Drawing.Point(89, 725);
             this.cmbTipoAcceso.Name = "cmbTipoAcceso";
@@ -152,6 +153,7 @@
             // 
             // cmbSector
             // 
+            this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
             this.cmbSector.Location = new System.Drawing.Point(424, 725);
             this.cmbSector.Name = "cmbSector";
@@ -160,6 +162,7 @@
             // 
             // cmbOrganismoDestino
             // 
+            this.cmbOrganismoDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganismoDestino.FormattingEnabled = true;
             this.cmbOrganismoDestino.Location = new System.Drawing.Point(423, 690);
             this.cmbOrganismoDestino.Name = "cmbOrganismoDestino";
@@ -207,6 +210,7 @@
             // 
             // cmbTipoAtencion
             // 
+            this.cmbTipoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAtencion.FormattingEnabled = true;
             this.cmbTipoAtencion.Location = new System.Drawing.Point(89, 690);
             this.cmbTipoAtencion.Name = "cmbTipoAtencion";
@@ -314,6 +318,7 @@
             // 
             // cmbMotivoAtencion
             // 
+            this.cmbMotivoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMotivoAtencion.FormattingEnabled = true;
             this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 690);
             this.cmbMotivoAtencion.Name = "cmbMotivoAtencion";
@@ -371,12 +376,13 @@
             this.btnAgregarInterno.BackColor = System.Drawing.Color.White;
             this.btnAgregarInterno.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarInterno.Image")));
             this.btnAgregarInterno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarInterno.Location = new System.Drawing.Point(1009, 341);
+            this.btnAgregarInterno.Location = new System.Drawing.Point(992, 332);
             this.btnAgregarInterno.Name = "btnAgregarInterno";
             this.btnAgregarInterno.Size = new System.Drawing.Size(195, 43);
             this.btnAgregarInterno.TabIndex = 35;
             this.btnAgregarInterno.Text = "Agregar Interno";
             this.btnAgregarInterno.UseVisualStyleBackColor = false;
+            this.btnAgregarInterno.Visible = false;
             this.btnAgregarInterno.Click += new System.EventHandler(this.btnAgregarInterno_Click);
             // 
             // btnIngresoAbogados
@@ -384,12 +390,13 @@
             this.btnIngresoAbogados.BackColor = System.Drawing.Color.White;
             this.btnIngresoAbogados.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresoAbogados.Image")));
             this.btnIngresoAbogados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresoAbogados.Location = new System.Drawing.Point(808, 341);
+            this.btnIngresoAbogados.Location = new System.Drawing.Point(791, 332);
             this.btnIngresoAbogados.Name = "btnIngresoAbogados";
             this.btnIngresoAbogados.Size = new System.Drawing.Size(195, 43);
             this.btnIngresoAbogados.TabIndex = 34;
             this.btnIngresoAbogados.Text = "Ingreso Abogados";
             this.btnIngresoAbogados.UseVisualStyleBackColor = false;
+            this.btnIngresoAbogados.Visible = false;
             this.btnIngresoAbogados.Click += new System.EventHandler(this.btnIngresoAbogados_Click);
             // 
             // ptbFotoCiudadano

@@ -155,6 +155,8 @@
     <Compile Include="Validaciones\Login\ValidacionLogin\LoginValidator.cs" />
     <Compile Include="Validaciones\CiudadanoNuevo\Datos\CiudadanoNuevoDatos.cs" />
     <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarApellidoValidator.cs" />
+    <Compile Include="Validaciones\RegistroDirario\Datos\RegistroDiarioDatos.cs" />
+    <Compile Include="Validaciones\RegistroDirario\ValidacionRegistroDiario\RegistroDiarioNuevoValidator.cs" />
     <EmbeddedResource Include="AgregarInternos.resx">
       <DependentUpon>AgregarInternos.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,5 +265,6 @@
   <ItemGroup>
     <None Include="Resources\eliminar-basura.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
