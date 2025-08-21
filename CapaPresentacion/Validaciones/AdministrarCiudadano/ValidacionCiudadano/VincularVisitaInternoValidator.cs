@@ -21,10 +21,10 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("Debe ingresar un valor para id de interno.")
                 .Must(BeAnInteger).WithMessage("El id de interno debe ser un numero.");
-            RuleFor(x => x.cmbParentesco.ToString())
+            RuleFor(x => x.cmbParentesco)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage("Debe ingresar un valor para parentesco.")
-                .Must(BeAnInteger).WithMessage("El id de parentesco debe ser un numero.");
+                .Length(1, 20).WithMessage("El identificador de parentesco debe tener entre 1 y 20 caracteres.");
         }
 
 

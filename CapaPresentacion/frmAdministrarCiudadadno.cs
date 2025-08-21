@@ -482,7 +482,7 @@ namespace CapaPresentacion
                     
                 };
 
-                var validator = new EditarDPersonalesCiudadanoValidator();
+                var validator = new VincularVisitaInternoValidator();
                 var result = validator.Validate(datosFormulario);
 
                 if (!result.IsValid)
@@ -501,7 +501,7 @@ namespace CapaPresentacion
                 {
                     ciudadano_id = Convert.ToInt32(txtIdVisita.Text),
                     interno_id = Convert.ToInt32(txtIdInterno.Text),
-                    parentesco_id = Convert.ToString(cmbParentesco.SelectedValue.ToString()),
+                    parentesco_id = cmbParentesco.SelectedValue.ToString(),
 
                 };
                 //MessageBox.Show(Convert.ToString(cmbParentesco.SelectedValue.ToString()));
