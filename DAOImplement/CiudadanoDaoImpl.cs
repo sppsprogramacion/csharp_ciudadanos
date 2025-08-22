@@ -624,13 +624,15 @@ namespace DAOImplement
             //throw new NotImplementedException();
             //variable token
             string token = SessionManager.Token;
-            try
-            {
+
+                try
+                {
                 //agregar tpken a la cabecera
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
+                // Enviar la solicitud HTTP POST
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/api/ciudadanos/quitar-visita?id_ciudadano=" + id, content);
 
                 if (httpResponse.IsSuccessStatusCode)
@@ -643,19 +645,19 @@ namespace DAOImplement
                     {
                         return (true, null);
                     }
+                    
                     else
                     {
-                        return (false, "No se pudo quitar la visita");
+                        //string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                        //var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                        //return (false, $"Error en establecer como visita: {mensaje}");
                     }
-                }
-                else
-                {
-                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                    return (false, $"Error en establecer como visita: {mensaje}");
-                }
+
+                    
 
 
+
+                }
             }
             catch (HttpRequestException httpRequestException)
             {

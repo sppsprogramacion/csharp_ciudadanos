@@ -130,11 +130,12 @@ namespace CapaNegocio
         {
             ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
 
-            (bool ciudadanoResponse, string error) = await ciudadanoDao.establecerVisita(id, ciudadano);
+            (bool ciudadanoResponse, string error) = await ciudadanoDao.quitarVisita(id, ciudadano);
 
             return (ciudadanoResponse, error);
         }
         //FIN QUITAR CIUDADANOS COMO VISITAS..................................
+
 
         //SUBIR IMAGEN
         public async Task<(bool, string error)> subirImagen(int id, string rutaImagen)

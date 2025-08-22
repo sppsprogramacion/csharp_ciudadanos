@@ -1611,7 +1611,7 @@ namespace CapaPresentacion
 
                 string dataCiudadano = JsonConvert.SerializeObject(data);
 
-                (bool respuestaEditar, string errorResponse) = await nCiudadano.quitarVisita(Convert.ToInt32(txtIdCiudadano.Text), dataCiudadano);
+                (bool respuestaEditar, string errorResponse) = await nCiudadano.quitarVisita(Convert.ToInt32(txtIdCiuadanoVincularvisita.Text), dataCiudadano);
 
                 if (respuestaEditar)
                 {
