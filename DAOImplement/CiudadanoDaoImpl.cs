@@ -619,7 +619,7 @@ namespace DAOImplement
         //FIN QUITAR IMAGEN.........................................................
 
         //QUITAR VISITA
-        public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
+        /*public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
         {
             //throw new NotImplementedException();
             //variable token
@@ -676,7 +676,7 @@ namespace DAOImplement
                 throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
             }
 
-        }
+        }*/
 
 
     }

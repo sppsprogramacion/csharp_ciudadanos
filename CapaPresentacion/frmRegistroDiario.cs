@@ -275,6 +275,15 @@ namespace CapaPresentacion
                     MessageBox.Show("Imprimir ticket");
                     //dgvListadoInternos.DataSource = abogadoInterno;
 
+                    //MessageBox.Show("Hola Mundo");
+                    CrearTicket ticket = new CrearTicket();
+                    ticket.nombre_ciudadano = "Nombre:" + " " + txtNombreCiudadano.Text;
+                    ticket.sector = "Sector:" + " " + txtDocumentoIdentidad.Text;
+                    ticket.nombre_interno = "Interno:" + " " + txtBuscarInternos.Text;
+                    //ticket.logotipo = pictureBox1.Image;
+                    ticket.imprimir(ticket);
+
+
 
                 }
                 else
