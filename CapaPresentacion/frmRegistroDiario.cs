@@ -58,6 +58,10 @@ namespace CapaPresentacion
             cmbOrganismoDestino.DisplayMember = "organismo_destino";
             List<DOrganismoDestino> listaOrganismoDestino = await nOrganismoDestino.retornarOrganismoDestinoListaxUsuario(1);
             cmbOrganismoDestino.DataSource = listaOrganismoDestino;
+
+            dtpFechaRegistroDiario.Format = DateTimePickerFormat.Custom;
+            dtpFechaRegistroDiario.CustomFormat = "dd-MM-yyyy HH:mm";
+
         }
         private void Limpiar()
         {
@@ -273,12 +277,14 @@ namespace CapaPresentacion
 
                     MessageBox.Show("Se realizó correctamente el Registro", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MessageBox.Show("Imprimir ticket");
-                    //dgvListadoInternos.DataSource = abogadoInterno;
+
 
                     //MessageBox.Show("Hola Mundo");
                     CrearTicket ticket = new CrearTicket();
+                    ticket.fecha_registro = Convert.ToString(dtpFechaRegistroDiario.Value);
                     ticket.nombre_ciudadano = "Nombre:" + " " + txtNombreCiudadano.Text;
-                    ticket.sector = "Sector:" + " " + txtDocumentoIdentidad.Text;
+                    ticket.motivo_atencion = "Motivo Atencion:" + " " + cmbMotivoAtencion.Text;
+                    ticket.sector = "Sector:" + " " + cmbSector.Text;
                     ticket.nombre_interno = "Interno:" + " " + txtBuscarInternos.Text;
                     //ticket.logotipo = pictureBox1.Image;
                     ticket.imprimir(ticket);

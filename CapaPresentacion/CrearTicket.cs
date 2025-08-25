@@ -15,7 +15,9 @@ namespace CapaPresentacion
     {//inicio clase impresion
         public string nombre_ciudadano { get; set; }
         public string sector { get; set; }
+        public string motivo_atencion { get; set; }
         public string nombre_interno { get; set; }
+        public string fecha_registro { get; set; }
         //public Image logotipo { get; set; }
 
         private PrintDocument doc = new PrintDocument();
@@ -38,19 +40,27 @@ namespace CapaPresentacion
         {
             //declaramos variables
             int PosX, PosY;
-            Font fuente = new Font("consola", 10, FontStyle.Bold);
+            Font fuente = new Font("consola", 10, FontStyle.Regular);
+            Font fuente_fecha = new Font("consola", 8, FontStyle.Regular);
+            Font fuente_ciudadano = new Font("consola", 10, FontStyle.Bold);
+            Font fuente_interno = new Font("consola", 10, FontStyle.Regular);
+
             try
             {
 
-                PosX = 10;
-                PosY = 10;
+                PosX =0;
+                PosY = 0;
                 //e.Graphics.DrawImage(logotipo, 15, 20, 100, 100);
-                PosY += 110;
-                e.Graphics.DrawString(nombre_ciudadano, fuente, Brushes.Black, PosX, PosY);
+                //PosY += 110;
+                e.Graphics.DrawString(fecha_registro, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(sector, fuente, Brushes.Black, PosX, PosY);
+                e.Graphics.DrawString(sector, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(nombre_interno, fuente, Brushes.Black, PosX, PosY);
+                e.Graphics.DrawString(motivo_atencion, fuente, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(nombre_ciudadano, fuente_ciudadano, Brushes.Black, PosX, PosY);
+                PosY += 25;
+                e.Graphics.DrawString(nombre_interno, fuente_interno, Brushes.Black, PosX, PosY);   
                 PosY += 25;
 
             }

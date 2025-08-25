@@ -52,8 +52,6 @@
             this.txtDocumentoIdentidad = new System.Windows.Forms.TextBox();
             this.txtIdCiudadanoIngreso = new System.Windows.Forms.TextBox();
             this.dgvCiudadanosRegistroDiario = new System.Windows.Forms.DataGridView();
-            this.dtpFechaRegistroDiario = new System.Windows.Forms.DateTimePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvAgregarInternos = new System.Windows.Forms.DataGridView();
             this.txtBuscarInternoss = new System.Windows.Forms.TextBox();
             this.cmbMotivoAtencion = new System.Windows.Forms.ComboBox();
@@ -61,15 +59,13 @@
             this.btnBuscarInternos = new System.Windows.Forms.Button();
             this.btnCrearRegistroDiario = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnAgregarInterno = new System.Windows.Forms.Button();
-            this.btnIngresoAbogados = new System.Windows.Forms.Button();
             this.ptbFotoCiudadano = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.dtpFechaRegistroDiario = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).BeginInit();
             this.panel1.SuspendLayout();
@@ -95,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(703, 62);
+            this.label2.Location = new System.Drawing.Point(788, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 3;
@@ -103,7 +99,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(791, 59);
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(910, 59);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(281, 20);
             this.textBox2.TabIndex = 2;
@@ -126,9 +123,10 @@
             // 
             // cmbTipoAcceso
             // 
+            this.cmbTipoAcceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAcceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAcceso.FormattingEnabled = true;
-            this.cmbTipoAcceso.Location = new System.Drawing.Point(89, 725);
+            this.cmbTipoAcceso.Location = new System.Drawing.Point(94, 725);
             this.cmbTipoAcceso.Name = "cmbTipoAcceso";
             this.cmbTipoAcceso.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAcceso.TabIndex = 40;
@@ -153,18 +151,20 @@
             // 
             // cmbSector
             // 
+            this.cmbSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(424, 725);
+            this.cmbSector.Location = new System.Drawing.Point(430, 722);
             this.cmbSector.Name = "cmbSector";
             this.cmbSector.Size = new System.Drawing.Size(280, 21);
             this.cmbSector.TabIndex = 37;
             // 
             // cmbOrganismoDestino
             // 
+            this.cmbOrganismoDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbOrganismoDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganismoDestino.FormattingEnabled = true;
-            this.cmbOrganismoDestino.Location = new System.Drawing.Point(423, 690);
+            this.cmbOrganismoDestino.Location = new System.Drawing.Point(429, 690);
             this.cmbOrganismoDestino.Name = "cmbOrganismoDestino";
             this.cmbOrganismoDestino.Size = new System.Drawing.Size(281, 21);
             this.cmbOrganismoDestino.TabIndex = 36;
@@ -210,9 +210,10 @@
             // 
             // cmbTipoAtencion
             // 
+            this.cmbTipoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAtencion.FormattingEnabled = true;
-            this.cmbTipoAtencion.Location = new System.Drawing.Point(89, 690);
+            this.cmbTipoAtencion.Location = new System.Drawing.Point(94, 685);
             this.cmbTipoAtencion.Name = "cmbTipoAtencion";
             this.cmbTipoAtencion.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAtencion.TabIndex = 28;
@@ -279,27 +280,6 @@
             this.dgvCiudadanosRegistroDiario.TabIndex = 45;
             this.dgvCiudadanosRegistroDiario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCiudadanosRegistroDiario_KeyDown);
             // 
-            // dtpFechaRegistroDiario
-            // 
-            this.dtpFechaRegistroDiario.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaRegistroDiario.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaRegistroDiario.Location = new System.Drawing.Point(19, 22);
-            this.dtpFechaRegistroDiario.Name = "dtpFechaRegistroDiario";
-            this.dtpFechaRegistroDiario.Size = new System.Drawing.Size(102, 22);
-            this.dtpFechaRegistroDiario.TabIndex = 46;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.dtpFechaRegistroDiario);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(1287, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(141, 53);
-            this.groupBox1.TabIndex = 47;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Fecha Actual";
-            // 
             // dgvAgregarInternos
             // 
             this.dgvAgregarInternos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -318,9 +298,10 @@
             // 
             // cmbMotivoAtencion
             // 
+            this.cmbMotivoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMotivoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMotivoAtencion.FormattingEnabled = true;
-            this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 690);
+            this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 693);
             this.cmbMotivoAtencion.Name = "cmbMotivoAtencion";
             this.cmbMotivoAtencion.Size = new System.Drawing.Size(307, 21);
             this.cmbMotivoAtencion.TabIndex = 52;
@@ -347,11 +328,12 @@
             // 
             // btnCrearRegistroDiario
             // 
+            this.btnCrearRegistroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCrearRegistroDiario.BackColor = System.Drawing.Color.White;
             this.btnCrearRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRegistroDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRegistroDiario.Image")));
             this.btnCrearRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(582, 779);
+            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(440, 782);
             this.btnCrearRegistroDiario.Name = "btnCrearRegistroDiario";
             this.btnCrearRegistroDiario.Size = new System.Drawing.Size(234, 43);
             this.btnCrearRegistroDiario.TabIndex = 51;
@@ -371,39 +353,11 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnAgregarInterno
-            // 
-            this.btnAgregarInterno.BackColor = System.Drawing.Color.White;
-            this.btnAgregarInterno.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarInterno.Image")));
-            this.btnAgregarInterno.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarInterno.Location = new System.Drawing.Point(992, 332);
-            this.btnAgregarInterno.Name = "btnAgregarInterno";
-            this.btnAgregarInterno.Size = new System.Drawing.Size(195, 43);
-            this.btnAgregarInterno.TabIndex = 35;
-            this.btnAgregarInterno.Text = "Agregar Interno";
-            this.btnAgregarInterno.UseVisualStyleBackColor = false;
-            this.btnAgregarInterno.Visible = false;
-            this.btnAgregarInterno.Click += new System.EventHandler(this.btnAgregarInterno_Click);
-            // 
-            // btnIngresoAbogados
-            // 
-            this.btnIngresoAbogados.BackColor = System.Drawing.Color.White;
-            this.btnIngresoAbogados.Image = ((System.Drawing.Image)(resources.GetObject("btnIngresoAbogados.Image")));
-            this.btnIngresoAbogados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIngresoAbogados.Location = new System.Drawing.Point(791, 332);
-            this.btnIngresoAbogados.Name = "btnIngresoAbogados";
-            this.btnIngresoAbogados.Size = new System.Drawing.Size(195, 43);
-            this.btnIngresoAbogados.TabIndex = 34;
-            this.btnIngresoAbogados.Text = "Ingreso Abogados";
-            this.btnIngresoAbogados.UseVisualStyleBackColor = false;
-            this.btnIngresoAbogados.Visible = false;
-            this.btnIngresoAbogados.Click += new System.EventHandler(this.btnIngresoAbogados_Click);
-            // 
             // ptbFotoCiudadano
             // 
-            this.ptbFotoCiudadano.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ptbFotoCiudadano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbFotoCiudadano.Image = ((System.Drawing.Image)(resources.GetObject("ptbFotoCiudadano.Image")));
-            this.ptbFotoCiudadano.Location = new System.Drawing.Point(826, 92);
+            this.ptbFotoCiudadano.Location = new System.Drawing.Point(952, 110);
             this.ptbFotoCiudadano.Name = "ptbFotoCiudadano";
             this.ptbFotoCiudadano.Size = new System.Drawing.Size(225, 225);
             this.ptbFotoCiudadano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -412,6 +366,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label4);
@@ -422,7 +379,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(127, 404);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(604, 253);
+            this.panel1.Size = new System.Drawing.Size(758, 253);
             this.panel1.TabIndex = 55;
             // 
             // label4
@@ -446,16 +403,26 @@
             // 
             // txtObservaciones
             // 
+            this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtObservaciones.Location = new System.Drawing.Point(820, 725);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(452, 20);
             this.txtObservaciones.TabIndex = 58;
             // 
+            // dtpFechaRegistroDiario
+            // 
+            this.dtpFechaRegistroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dtpFechaRegistroDiario.Location = new System.Drawing.Point(952, 12);
+            this.dtpFechaRegistroDiario.Name = "dtpFechaRegistroDiario";
+            this.dtpFechaRegistroDiario.Size = new System.Drawing.Size(239, 20);
+            this.dtpFechaRegistroDiario.TabIndex = 59;
+            // 
             // frmRegistroDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 834);
+            this.ClientSize = new System.Drawing.Size(1438, 837);
+            this.Controls.Add(this.dtpFechaRegistroDiario);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
@@ -470,8 +437,6 @@
             this.Controls.Add(this.label30);
             this.Controls.Add(this.cmbSector);
             this.Controls.Add(this.cmbOrganismoDestino);
-            this.Controls.Add(this.btnAgregarInterno);
-            this.Controls.Add(this.btnIngresoAbogados);
             this.Controls.Add(this.lblCartel);
             this.Controls.Add(this.ptbFotoCiudadano);
             this.Controls.Add(this.label29);
@@ -488,12 +453,10 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBuscarApellido);
-            this.Controls.Add(this.groupBox1);
             this.Name = "frmRegistroDiario";
             this.Text = "frmRegistroDiario";
             this.Load += new System.EventHandler(this.frmRegistroDiario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -515,8 +478,6 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.ComboBox cmbSector;
         private System.Windows.Forms.ComboBox cmbOrganismoDestino;
-        private System.Windows.Forms.Button btnAgregarInterno;
-        private System.Windows.Forms.Button btnIngresoAbogados;
         private System.Windows.Forms.Label lblCartel;
         private System.Windows.Forms.PictureBox ptbFotoCiudadano;
         private System.Windows.Forms.Label label29;
@@ -531,8 +492,6 @@
         private System.Windows.Forms.TextBox txtIdCiudadanoIngreso;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvCiudadanosRegistroDiario;
-        private System.Windows.Forms.DateTimePicker dtpFechaRegistroDiario;
-        private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.TextBox txtBuscarInternos;
         private System.Windows.Forms.DataGridView dgvAgregarInternos;
         private System.Windows.Forms.TextBox txtBuscarInternoss;
@@ -544,5 +503,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtObservaciones;
+        private System.Windows.Forms.DateTimePicker dtpFechaRegistroDiario;
     }
 }
