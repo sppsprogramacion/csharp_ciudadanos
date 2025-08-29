@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaPresentacion;
+using CapaPresentacion.FuncionesGenerales;
 
 namespace CapaPresentacion
 {
@@ -88,7 +89,8 @@ namespace CapaPresentacion
 
         private void frmAgregarInternos_Load(object sender, EventArgs e)
         {
-
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
         }
     }
 }

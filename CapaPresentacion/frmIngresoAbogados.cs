@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.FuncionesGenerales;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,9 @@ namespace CapaPresentacion
 
         private async void frmIngresoAbogados_Load(object sender, EventArgs e)
         {
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
+
             //Carga de combo tipo defensor 
             NTipoDefensor nTipoDefensor = new NTipoDefensor();
             cmbTipoAbogado.ValueMember = "id_tipo_defensor";

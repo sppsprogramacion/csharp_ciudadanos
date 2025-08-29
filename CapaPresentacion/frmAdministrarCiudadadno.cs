@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
 using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
@@ -219,6 +220,9 @@ namespace CapaPresentacion
 
         private async void frmAdministrarCiudadadno_Load(object sender, EventArgs e)
         {//Inicio evento Load
+
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
 
             int idCiudadano;
             //acceder a la instancia de FormTramites abierta.

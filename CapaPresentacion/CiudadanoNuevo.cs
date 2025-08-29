@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Validaciones.Login.Datos;
 using CapaPresentacion.Validaciones.Login.ValidacionLogin;
 using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
@@ -32,36 +33,8 @@ namespace CapaPresentacion
 
         private void CiudadanoNuevo_Load(object sender, EventArgs e)
         {
-            //Carga de combo sexo
-            //NSexo nSexo = new NSexo();
-
-            //cmbSexo.ValueMember = "id_sexo";
-            //cmbSexo.DisplayMember = "sexo";
-            //List<DSexo> listaSexo = await nSexo.RetornarListaSexo();
-            //cmbSexo.DataSource = listaSexo;
-
-            //Carga de combo pais
-            //NPais nPais = new NPais();
-
-            //cmbPais.ValueMember = "id_pais";
-            //cmbPais.DisplayMember = "pais";
-            //List<DPais> listaPais = await nPais.RetornarListaPais();
-            //cmbPais.DataSource = listaPais;
-
-            //Carga de combo estado civil
-            //NCiudadano nCiudadano = new NCiudadano();
-
-            //cmbBuscarCiudadano.ValueMember = "id_ciudadano";
-            //cmbBuscarCiudadano.DisplayMember = "apellido";
-            //List<DCiudadano> listaCiudadano = await nCiudadano.RetornarListaCiudadanos();
-            //Console.WriteLine(listaCiudadano);
-
-            //cmbBuscarCiudadano.DataSource = listaCiudadano;
-
-            //NCiudadano nCiudadanos = new NCiudadano();
-            //List<DCiudadano> listaCiudadanos = new List<DCiudadano>();
-            //listaCiudadanos = await nCiudadano.RetornarListaCiudadanos();
-            //dataListadoCiudadanos.DataSource = listaCiudadanos;
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
         }
 
         public CiudadanoNuevo()

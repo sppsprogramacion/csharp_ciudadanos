@@ -1,6 +1,7 @@
 ﻿//using CapaDatos;
 //using CapaNegocio;
 //using Newtonsoft.Json;
+using CapaPresentacion.FuncionesGenerales;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,6 +51,9 @@ namespace CapaPresentacion
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
+
             this.ControlBox = false;
         }
 

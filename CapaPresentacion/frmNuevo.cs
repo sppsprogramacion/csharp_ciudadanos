@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
+using CapaPresentacion.FuncionesGenerales;
 
 namespace CapaPresentacion
 {
@@ -150,6 +151,9 @@ namespace CapaPresentacion
 
         async private void frmNuevo_Load(object sender, EventArgs e)
         {
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
+
             //Carga de combo sexo
             NSexo nSexo = new NSexo();
 
