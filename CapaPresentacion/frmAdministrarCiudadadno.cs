@@ -1569,7 +1569,7 @@ namespace CapaPresentacion
 
         private async void btnQuitarVisita_Click(object sender, EventArgs e)
         {//inicio quitar ciudadano como visita
-            /*MessageBox.Show("Quitar Visitas");
+            
 
             if (this.txtIdCiuadanoVincularvisita.Text == string.Empty)
             {
@@ -1627,7 +1627,7 @@ namespace CapaPresentacion
                     MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-            }*/
+            }
 
         }//fin quitar ciudadano como visita
     }

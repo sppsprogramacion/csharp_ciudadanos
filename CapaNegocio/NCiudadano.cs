@@ -126,14 +126,14 @@ namespace CapaNegocio
         //FIN ESTABLECER CON DISCAPACIDAD..................................
 
         //QUITAR CIUDADANOS COMO VICITAS
-        /*public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
+        public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
         {
             ICiudadanoDao ciudadanoDao = new CiudadanoDaoImpl();
 
             (bool ciudadanoResponse, string error) = await ciudadanoDao.quitarVisita(id, ciudadano);
 
             return (ciudadanoResponse, error);
-        }*/
+        }
         //FIN QUITAR CIUDADANOS COMO VISITAS..................................
 
 

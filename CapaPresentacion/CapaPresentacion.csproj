@@ -141,6 +141,7 @@
     <Compile Include="frmRegistroDiario.Designer.cs">
       <DependentUpon>frmRegistroDiario.cs</DependentUpon>
     </Compile>
+    <Compile Include="FuncionesGenerales\FormularioAyudas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\Datos\CiudadanoDatos.cs" />
