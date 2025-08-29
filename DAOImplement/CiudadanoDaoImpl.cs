@@ -618,6 +618,66 @@ namespace DAOImplement
 
         //FIN QUITAR IMAGEN.........................................................
 
+        //QUITAR VISITA
+        /*public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
+        {
+            //throw new NotImplementedException();
+            //variable token
+            string token = SessionManager.Token;
+
+                try
+                {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                // Crear el contenido de la solicitud HTTP
+                StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
+                // Enviar la solicitud HTTP POST
+                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/api/ciudadanos/quitar-visita?id_ciudadano=" + id, content);
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
+
+                    var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
+
+                    if (dataRespuesta.Affected > 0)
+                    {
+                        return (true, null);
+                    }
+                    
+                    else
+                    {
+                        //string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                        //var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                        //return (false, $"Error en establecer como visita: {mensaje}");
+                    }
+
+                    
+
+
+
+                }
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                throw new Exception($"Error al realizar la solicitud: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON
+                throw new Exception($"Error al serializar/deserializar JSON: {jsonException.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Capturar cualquier otro tipo de excepción
+                Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
+                throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
+            }
+
+        }*/
+
 
     }
 

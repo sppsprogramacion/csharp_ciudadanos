@@ -92,6 +92,7 @@
     <Compile Include="AgregarInternos.Designer.cs">
       <DependentUpon>AgregarInternos.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearTicket.cs" />
     <Compile Include="frmAdministrarCiudadadno.cs">
       <SubType>Form</SubType>
     </Compile>

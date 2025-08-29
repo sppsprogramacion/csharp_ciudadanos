@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrarCiudadadno));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEditarCiudadano = new System.Windows.Forms.TabPage();
+            this.lblMenorEdad = new System.Windows.Forms.Label();
             this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
             this.btnAsignarCategorias = new System.Windows.Forms.Button();
             this.btnIngreso = new System.Windows.Forms.Button();
@@ -176,7 +177,8 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.lblMenorEdad = new System.Windows.Forms.Label();
+            this.btnQuitarVisita = new System.Windows.Forms.Button();
+            this.btnQuitarDiscapacidad = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -236,6 +238,17 @@
             this.tabEditarCiudadano.TabIndex = 0;
             this.tabEditarCiudadano.Text = "Editar Ciudadano";
             this.tabEditarCiudadano.UseVisualStyleBackColor = true;
+            // 
+            // lblMenorEdad
+            // 
+            this.lblMenorEdad.AutoSize = true;
+            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
+            this.lblMenorEdad.Location = new System.Drawing.Point(554, 46);
+            this.lblMenorEdad.Name = "lblMenorEdad";
+            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
+            this.lblMenorEdad.TabIndex = 46;
+            this.lblMenorEdad.Text = "Es menor?";
             // 
             // lblEsVisitaPrincipal
             // 
@@ -1181,6 +1194,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnQuitarDiscapacidad);
             this.panel2.Controls.Add(this.lblDetalleTieneDiscapacidad);
             this.panel2.Controls.Add(this.lblTieneDiscapacidad);
             this.panel2.Controls.Add(this.label29);
@@ -1254,7 +1268,7 @@
             // btnEstablecerDiscapacidad
             // 
             this.btnEstablecerDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEstablecerDiscapacidad.Location = new System.Drawing.Point(171, 389);
+            this.btnEstablecerDiscapacidad.Location = new System.Drawing.Point(54, 389);
             this.btnEstablecerDiscapacidad.Name = "btnEstablecerDiscapacidad";
             this.btnEstablecerDiscapacidad.Size = new System.Drawing.Size(167, 37);
             this.btnEstablecerDiscapacidad.TabIndex = 7;
@@ -1266,15 +1280,16 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnQuitarVisita);
             this.panel1.Controls.Add(this.lblEsVisita);
             this.panel1.Controls.Add(this.label21);
+            this.panel1.Controls.Add(this.btnAsignarVisita);
             this.panel1.Controls.Add(this.label24);
             this.panel1.Controls.Add(this.label30);
             this.panel1.Controls.Add(this.label28);
             this.panel1.Controls.Add(this.label40);
             this.panel1.Controls.Add(this.txtAsignarVisitaDetalle);
             this.panel1.Controls.Add(this.txtIdCiuadanoVincularvisita);
-            this.panel1.Controls.Add(this.btnAsignarVisita);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.txtDniVisita);
             this.panel1.Controls.Add(this.txtNombreVisita);
@@ -1359,9 +1374,9 @@
             // btnAsignarVisita
             // 
             this.btnAsignarVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarVisita.Location = new System.Drawing.Point(169, 396);
+            this.btnAsignarVisita.Location = new System.Drawing.Point(49, 388);
             this.btnAsignarVisita.Name = "btnAsignarVisita";
-            this.btnAsignarVisita.Size = new System.Drawing.Size(167, 37);
+            this.btnAsignarVisita.Size = new System.Drawing.Size(173, 37);
             this.btnAsignarVisita.TabIndex = 5;
             this.btnAsignarVisita.Text = "Asignar como visita";
             this.btnAsignarVisita.UseVisualStyleBackColor = true;
@@ -1818,16 +1833,26 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
-            // lblMenorEdad
+            // btnQuitarVisita
             // 
-            this.lblMenorEdad.AutoSize = true;
-            this.lblMenorEdad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenorEdad.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblMenorEdad.Location = new System.Drawing.Point(554, 46);
-            this.lblMenorEdad.Name = "lblMenorEdad";
-            this.lblMenorEdad.Size = new System.Drawing.Size(95, 20);
-            this.lblMenorEdad.TabIndex = 46;
-            this.lblMenorEdad.Text = "Es menor?";
+            this.btnQuitarVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarVisita.Location = new System.Drawing.Point(248, 388);
+            this.btnQuitarVisita.Name = "btnQuitarVisita";
+            this.btnQuitarVisita.Size = new System.Drawing.Size(199, 37);
+            this.btnQuitarVisita.TabIndex = 41;
+            this.btnQuitarVisita.Text = "Quitar Visitas";
+            this.btnQuitarVisita.UseVisualStyleBackColor = true;
+            this.btnQuitarVisita.Click += new System.EventHandler(this.btnQuitarVisita_Click);
+            // 
+            // btnQuitarDiscapacidad
+            // 
+            this.btnQuitarDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarDiscapacidad.Location = new System.Drawing.Point(244, 389);
+            this.btnQuitarDiscapacidad.Name = "btnQuitarDiscapacidad";
+            this.btnQuitarDiscapacidad.Size = new System.Drawing.Size(196, 36);
+            this.btnQuitarDiscapacidad.TabIndex = 44;
+            this.btnQuitarDiscapacidad.Text = "Quitar Discapacidad";
+            this.btnQuitarDiscapacidad.UseVisualStyleBackColor = true;
             // 
             // frmAdministrarCiudadadno
             // 
@@ -2029,6 +2054,8 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.ComboBox cmbParentescosMenor;
         private System.Windows.Forms.Label lblMenorEdad;
+        private System.Windows.Forms.Button btnQuitarDiscapacidad;
+        private System.Windows.Forms.Button btnQuitarVisita;
     }
 }
 
