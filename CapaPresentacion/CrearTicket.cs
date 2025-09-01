@@ -13,11 +13,13 @@ namespace CapaPresentacion
 {
     public class CrearTicket
     {//inicio clase impresion
+        public string espacio1_en_blanco { get; set; }
         public string nombre_ciudadano { get; set; }
         public string sector { get; set; }
         public string motivo_atencion { get; set; }
         public string nombre_interno { get; set; }
         public string fecha_registro { get; set; }
+        public string espacio2_en_blanco { get; set; }
         //public Image logotipo { get; set; }
 
         private PrintDocument doc = new PrintDocument();
@@ -40,10 +42,10 @@ namespace CapaPresentacion
         {
             //declaramos variables
             int PosX, PosY;
-            Font fuente = new Font("consola", 10, FontStyle.Regular);
+            Font fuente = new Font("consola", 6, FontStyle.Regular);
             Font fuente_fecha = new Font("consola", 8, FontStyle.Regular);
-            Font fuente_ciudadano = new Font("consola", 10, FontStyle.Bold);
-            Font fuente_interno = new Font("consola", 10, FontStyle.Regular);
+            Font fuente_ciudadano = new Font("consola", 8, FontStyle.Bold);
+            Font fuente_interno = new Font("consola", 8, FontStyle.Regular);
 
             try
             {
@@ -52,6 +54,10 @@ namespace CapaPresentacion
                 PosY = 0;
                 //e.Graphics.DrawImage(logotipo, 15, 20, 100, 100);
                 //PosY += 110;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio2_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
                 e.Graphics.DrawString(fecha_registro, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(sector, fuente_fecha, Brushes.Black, PosX, PosY);

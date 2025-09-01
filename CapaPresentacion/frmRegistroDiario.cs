@@ -281,11 +281,13 @@ namespace CapaPresentacion
 
                     //MessageBox.Show("Hola Mundo");
                     CrearTicket ticket = new CrearTicket();
+                    ticket.espacio1_en_blanco = " ";
                     ticket.fecha_registro = Convert.ToString(dtpFechaRegistroDiario.Value);
                     ticket.nombre_ciudadano = "Nombre:" + " " + txtNombreCiudadano.Text;
-                    ticket.motivo_atencion = "Motivo Atencion:" + " " + cmbMotivoAtencion.Text;
+                    ticket.motivo_atencion = "Motivo:" + " " + cmbMotivoAtencion.Text;
                     ticket.sector = "Sector:" + " " + cmbSector.Text;
                     ticket.nombre_interno = "Interno:" + " " + txtBuscarInternos.Text;
+                    ticket.espacio2_en_blanco = " ";
                     //ticket.logotipo = pictureBox1.Image;
                     ticket.imprimir(ticket);
 

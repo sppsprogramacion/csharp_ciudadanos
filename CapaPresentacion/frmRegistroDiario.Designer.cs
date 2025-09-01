@@ -65,10 +65,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.dtpFechaRegistroDiario = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtBuscarApellido
@@ -82,6 +85,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label1.Location = new System.Drawing.Point(189, 59);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
@@ -126,7 +130,7 @@
             this.cmbTipoAcceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAcceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAcceso.FormattingEnabled = true;
-            this.cmbTipoAcceso.Location = new System.Drawing.Point(94, 725);
+            this.cmbTipoAcceso.Location = new System.Drawing.Point(94, 733);
             this.cmbTipoAcceso.Name = "cmbTipoAcceso";
             this.cmbTipoAcceso.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAcceso.TabIndex = 40;
@@ -154,7 +158,7 @@
             this.cmbSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(430, 722);
+            this.cmbSector.Location = new System.Drawing.Point(430, 730);
             this.cmbSector.Name = "cmbSector";
             this.cmbSector.Size = new System.Drawing.Size(280, 21);
             this.cmbSector.TabIndex = 37;
@@ -164,7 +168,7 @@
             this.cmbOrganismoDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbOrganismoDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganismoDestino.FormattingEnabled = true;
-            this.cmbOrganismoDestino.Location = new System.Drawing.Point(429, 690);
+            this.cmbOrganismoDestino.Location = new System.Drawing.Point(429, 698);
             this.cmbOrganismoDestino.Name = "cmbOrganismoDestino";
             this.cmbOrganismoDestino.Size = new System.Drawing.Size(281, 21);
             this.cmbOrganismoDestino.TabIndex = 36;
@@ -177,7 +181,7 @@
             this.lblCartel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCartel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCartel.ForeColor = System.Drawing.Color.Red;
-            this.lblCartel.Location = new System.Drawing.Point(175, 351);
+            this.lblCartel.Location = new System.Drawing.Point(47, 335);
             this.lblCartel.Name = "lblCartel";
             this.lblCartel.Size = new System.Drawing.Size(524, 33);
             this.lblCartel.TabIndex = 33;
@@ -186,6 +190,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
+            this.label29.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label29.Location = new System.Drawing.Point(218, 322);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(54, 13);
@@ -213,7 +218,7 @@
             this.cmbTipoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAtencion.FormattingEnabled = true;
-            this.cmbTipoAtencion.Location = new System.Drawing.Point(94, 685);
+            this.cmbTipoAtencion.Location = new System.Drawing.Point(94, 693);
             this.cmbTipoAtencion.Name = "cmbTipoAtencion";
             this.cmbTipoAtencion.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAtencion.TabIndex = 28;
@@ -221,6 +226,7 @@
             // txtNombreCiudadanoIngreso
             // 
             this.txtNombreCiudadanoIngreso.AutoSize = true;
+            this.txtNombreCiudadanoIngreso.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtNombreCiudadanoIngreso.Location = new System.Drawing.Point(218, 292);
             this.txtNombreCiudadanoIngreso.Name = "txtNombreCiudadanoIngreso";
             this.txtNombreCiudadanoIngreso.Size = new System.Drawing.Size(101, 13);
@@ -230,6 +236,7 @@
             // txtDniCiudadanoIngreso
             // 
             this.txtDniCiudadanoIngreso.AutoSize = true;
+            this.txtDniCiudadanoIngreso.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.txtDniCiudadanoIngreso.Location = new System.Drawing.Point(218, 263);
             this.txtDniCiudadanoIngreso.Name = "txtDniCiudadanoIngreso";
             this.txtDniCiudadanoIngreso.Size = new System.Drawing.Size(127, 13);
@@ -239,6 +246,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
+            this.label27.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.label27.Location = new System.Drawing.Point(218, 237);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(73, 13);
@@ -274,9 +282,9 @@
             // dgvCiudadanosRegistroDiario
             // 
             this.dgvCiudadanosRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCiudadanosRegistroDiario.Location = new System.Drawing.Point(148, 101);
+            this.dgvCiudadanosRegistroDiario.Location = new System.Drawing.Point(17, 76);
             this.dgvCiudadanosRegistroDiario.Name = "dgvCiudadanosRegistroDiario";
-            this.dgvCiudadanosRegistroDiario.Size = new System.Drawing.Size(583, 114);
+            this.dgvCiudadanosRegistroDiario.Size = new System.Drawing.Size(575, 114);
             this.dgvCiudadanosRegistroDiario.TabIndex = 45;
             this.dgvCiudadanosRegistroDiario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCiudadanosRegistroDiario_KeyDown);
             // 
@@ -301,7 +309,7 @@
             this.cmbMotivoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMotivoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMotivoAtencion.FormattingEnabled = true;
-            this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 693);
+            this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 701);
             this.cmbMotivoAtencion.Name = "cmbMotivoAtencion";
             this.cmbMotivoAtencion.Size = new System.Drawing.Size(307, 21);
             this.cmbMotivoAtencion.TabIndex = 52;
@@ -333,7 +341,7 @@
             this.btnCrearRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRegistroDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRegistroDiario.Image")));
             this.btnCrearRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(440, 782);
+            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(440, 790);
             this.btnCrearRegistroDiario.Name = "btnCrearRegistroDiario";
             this.btnCrearRegistroDiario.Size = new System.Drawing.Size(234, 43);
             this.btnCrearRegistroDiario.TabIndex = 51;
@@ -377,9 +385,9 @@
             this.panel1.Controls.Add(this.txtBuscarInternoss);
             this.panel1.Controls.Add(this.txtBuscarInternos);
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(127, 404);
+            this.panel1.Location = new System.Drawing.Point(127, 418);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 253);
+            this.panel1.Size = new System.Drawing.Size(612, 247);
             this.panel1.TabIndex = 55;
             // 
             // label4
@@ -404,7 +412,7 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservaciones.Location = new System.Drawing.Point(820, 725);
+            this.txtObservaciones.Location = new System.Drawing.Point(820, 733);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(452, 20);
             this.txtObservaciones.TabIndex = 58;
@@ -417,11 +425,33 @@
             this.dtpFechaRegistroDiario.Size = new System.Drawing.Size(239, 20);
             this.dtpFechaRegistroDiario.TabIndex = 59;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.dgvCiudadanosRegistroDiario);
+            this.panel2.Controls.Add(this.lblCartel);
+            this.panel2.Location = new System.Drawing.Point(127, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(612, 386);
+            this.panel2.TabIndex = 60;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(188, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(234, 24);
+            this.label5.TabIndex = 52;
+            this.label5.Text = "Seleccionar Ciudadano:";
+            // 
             // frmRegistroDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1438, 837);
+            this.ClientSize = new System.Drawing.Size(1438, 845);
             this.Controls.Add(this.dtpFechaRegistroDiario);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label6);
@@ -429,7 +459,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMotivoAtencion);
             this.Controls.Add(this.btnCrearRegistroDiario);
-            this.Controls.Add(this.dgvCiudadanosRegistroDiario);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.cmbTipoAcceso);
@@ -437,7 +466,6 @@
             this.Controls.Add(this.label30);
             this.Controls.Add(this.cmbSector);
             this.Controls.Add(this.cmbOrganismoDestino);
-            this.Controls.Add(this.lblCartel);
             this.Controls.Add(this.ptbFotoCiudadano);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.txtProfesion);
@@ -453,6 +481,7 @@
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtBuscarApellido);
+            this.Controls.Add(this.panel2);
             this.Name = "frmRegistroDiario";
             this.Text = "frmRegistroDiario";
             this.Load += new System.EventHandler(this.frmRegistroDiario_Load);
@@ -461,6 +490,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,5 +535,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.DateTimePicker dtpFechaRegistroDiario;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label5;
     }
 }
