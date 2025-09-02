@@ -619,21 +619,21 @@ namespace DAOImplement
         //FIN QUITAR IMAGEN.........................................................
 
         //QUITAR VISITA
-        /*public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
+        public async Task<(bool, string error)> quitarVisita(int id, string ciudadano)
         {
             //throw new NotImplementedException();
             //variable token
             string token = SessionManager.Token;
 
-                try
-                {
+            try
+            {
                 //agregar tpken a la cabecera
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 // Enviar la solicitud HTTP POST
-                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/api/ciudadanos/quitar-visita?id_ciudadano=" + id, content);
+                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/quitar-visita?id_ciudadano=" + id, content);
 
                 if (httpResponse.IsSuccessStatusCode)
                 {
@@ -645,39 +645,37 @@ namespace DAOImplement
                     {
                         return (true, null);
                     }
-                    
                     else
                     {
-                        //string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                        //var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                        //return (false, $"Error en establecer como visita: {mensaje}");
+                        return (false, "No se pudo quitar el estado como visita");
                     }
-
-                    
-
-
-
                 }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (false, $"Error en establecer la discapacidad: {mensaje}");
+                }
+            
             }
             catch (HttpRequestException httpRequestException)
             {
                 // Capturar errores de la solicitud HTTP
-                throw new Exception($"Error al realizar la solicitud: {httpRequestException.Message}");
+                return (false, $"Error de conexión: {httpRequestException.Message}");
             }
             catch (JsonException jsonException)
             {
-                // Capturar errores en la serialización/deserialización de JSON
-                throw new Exception($"Error al serializar/deserializar JSON: {jsonException.Message}");
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (false, $"Error inesperado");
             }
             catch (Exception ex)
             {
-                // Capturar cualquier otro tipo de excepción
-                Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
-                throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (false, $"Error inesperado: {ex.Message}");
             }
 
-        }*/
-
+        }
 
     }
 

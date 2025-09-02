@@ -18,7 +18,7 @@ using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;//para validacion
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
 using CapaPresentacion.Validaciones.RegistroDirario.Datos;
 using CapaPresentacion.Validaciones.RegistroDirario.ValidacionRegistroDiario;//para validacion
-
+using CapaPresentacion.FuncionesGenerales;
 
 namespace CapaPresentacion
 {
@@ -37,6 +37,9 @@ namespace CapaPresentacion
 
         private async void frmRegistroDiario_Load(object sender, EventArgs e)
         {
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
+
             //Carga de combo tipo de atención 
             NTipoAtencion nTipoAtencion = new NTipoAtencion();
             cmbTipoAtencion.ValueMember = "id_tipo_atencion";
@@ -244,6 +247,8 @@ namespace CapaPresentacion
                 return;
             }
             //fin validacion...........................
+
+
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
 
             List<DRegistroDiario> listaCiudadanos = new List<DRegistroDiario>();

@@ -1,5 +1,6 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
 using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
@@ -219,6 +220,9 @@ namespace CapaPresentacion
 
         private async void frmAdministrarCiudadadno_Load(object sender, EventArgs e)
         {//Inicio evento Load
+
+            //// Ajustar el tamaño del formulario            
+            FormularioAyudas.AjustarFormulario(this);
 
             int idCiudadano;
             //acceder a la instancia de FormTramites abierta.
@@ -1569,7 +1573,7 @@ namespace CapaPresentacion
 
         private async void btnQuitarVisita_Click(object sender, EventArgs e)
         {//inicio quitar ciudadano como visita
-            /*MessageBox.Show("Quitar Visitas");
+            
 
             if (this.txtIdCiuadanoVincularvisita.Text == string.Empty)
             {
@@ -1627,7 +1631,7 @@ namespace CapaPresentacion
                     MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 }
-            }*/
+            }
 
         }//fin quitar ciudadano como visita
     }

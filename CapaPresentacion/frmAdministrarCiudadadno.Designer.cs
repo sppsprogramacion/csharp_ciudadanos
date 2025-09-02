@@ -116,6 +116,7 @@
             this.tabAsignarVisitas = new System.Windows.Forms.TabPage();
             this.btnActualizarAsignar = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnQuitarDiscapacidad = new System.Windows.Forms.Button();
             this.lblDetalleTieneDiscapacidad = new System.Windows.Forms.Label();
             this.lblTieneDiscapacidad = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -124,15 +125,16 @@
             this.txtEstablecerDiscapacidad = new System.Windows.Forms.TextBox();
             this.btnEstablecerDiscapacidad = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnQuitarVisita = new System.Windows.Forms.Button();
             this.lblEsVisita = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.btnAsignarVisita = new System.Windows.Forms.Button();
             this.label24 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.txtAsignarVisitaDetalle = new System.Windows.Forms.TextBox();
             this.txtIdCiuadanoVincularvisita = new System.Windows.Forms.TextBox();
-            this.btnAsignarVisita = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.txtDniVisita = new System.Windows.Forms.TextBox();
             this.txtNombreVisita = new System.Windows.Forms.TextBox();
@@ -177,8 +179,6 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnQuitarVisita = new System.Windows.Forms.Button();
-            this.btnQuitarDiscapacidad = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -979,6 +979,7 @@
             this.dgvVisitasVinculadas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVisitasVinculadas.Location = new System.Drawing.Point(38, 63);
             this.dgvVisitasVinculadas.Name = "dgvVisitasVinculadas";
+            this.dgvVisitasVinculadas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvVisitasVinculadas.Size = new System.Drawing.Size(864, 95);
             this.dgvVisitasVinculadas.TabIndex = 2;
             // 
@@ -1085,6 +1086,7 @@
             this.dtvInternos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtvInternos.Location = new System.Drawing.Point(13, 54);
             this.dtvInternos.Name = "dtvInternos";
+            this.dtvInternos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvInternos.Size = new System.Drawing.Size(638, 108);
             this.dtvInternos.TabIndex = 6;
             this.dtvInternos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtvInternos_KeyDown);
@@ -1162,6 +1164,7 @@
             this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistroDiario.Location = new System.Drawing.Point(36, 75);
             this.dgvRegistroDiario.Name = "dgvRegistroDiario";
+            this.dgvRegistroDiario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRegistroDiario.Size = new System.Drawing.Size(1114, 414);
             this.dgvRegistroDiario.TabIndex = 1;
             // 
@@ -1206,6 +1209,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(479, 445);
             this.panel2.TabIndex = 11;
+            // 
+            // btnQuitarDiscapacidad
+            // 
+            this.btnQuitarDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarDiscapacidad.Location = new System.Drawing.Point(244, 389);
+            this.btnQuitarDiscapacidad.Name = "btnQuitarDiscapacidad";
+            this.btnQuitarDiscapacidad.Size = new System.Drawing.Size(196, 36);
+            this.btnQuitarDiscapacidad.TabIndex = 44;
+            this.btnQuitarDiscapacidad.Text = "Quitar Discapacidad";
+            this.btnQuitarDiscapacidad.UseVisualStyleBackColor = true;
             // 
             // lblDetalleTieneDiscapacidad
             // 
@@ -1298,6 +1311,17 @@
             this.panel1.Size = new System.Drawing.Size(512, 445);
             this.panel1.TabIndex = 10;
             // 
+            // btnQuitarVisita
+            // 
+            this.btnQuitarVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarVisita.Location = new System.Drawing.Point(248, 388);
+            this.btnQuitarVisita.Name = "btnQuitarVisita";
+            this.btnQuitarVisita.Size = new System.Drawing.Size(199, 37);
+            this.btnQuitarVisita.TabIndex = 41;
+            this.btnQuitarVisita.Text = "Quitar Visitas";
+            this.btnQuitarVisita.UseVisualStyleBackColor = true;
+            this.btnQuitarVisita.Click += new System.EventHandler(this.btnQuitarVisita_Click);
+            // 
             // lblEsVisita
             // 
             this.lblEsVisita.AutoSize = true;
@@ -1317,6 +1341,17 @@
             this.label21.Size = new System.Drawing.Size(21, 13);
             this.label21.TabIndex = 39;
             this.label21.Text = "ID:";
+            // 
+            // btnAsignarVisita
+            // 
+            this.btnAsignarVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarVisita.Location = new System.Drawing.Point(49, 388);
+            this.btnAsignarVisita.Name = "btnAsignarVisita";
+            this.btnAsignarVisita.Size = new System.Drawing.Size(173, 37);
+            this.btnAsignarVisita.TabIndex = 5;
+            this.btnAsignarVisita.Text = "Asignar como visita";
+            this.btnAsignarVisita.UseVisualStyleBackColor = true;
+            this.btnAsignarVisita.Click += new System.EventHandler(this.btnAsignarVisita_Click);
             // 
             // label24
             // 
@@ -1370,17 +1405,6 @@
             this.txtIdCiuadanoVincularvisita.ReadOnly = true;
             this.txtIdCiuadanoVincularvisita.Size = new System.Drawing.Size(198, 20);
             this.txtIdCiuadanoVincularvisita.TabIndex = 1;
-            // 
-            // btnAsignarVisita
-            // 
-            this.btnAsignarVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarVisita.Location = new System.Drawing.Point(49, 388);
-            this.btnAsignarVisita.Name = "btnAsignarVisita";
-            this.btnAsignarVisita.Size = new System.Drawing.Size(173, 37);
-            this.btnAsignarVisita.TabIndex = 5;
-            this.btnAsignarVisita.Text = "Asignar como visita";
-            this.btnAsignarVisita.UseVisualStyleBackColor = true;
-            this.btnAsignarVisita.Click += new System.EventHandler(this.btnAsignarVisita_Click);
             // 
             // pictureBox2
             // 
@@ -1832,27 +1856,6 @@
             this.label23.Size = new System.Drawing.Size(454, 25);
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            // 
-            // btnQuitarVisita
-            // 
-            this.btnQuitarVisita.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarVisita.Location = new System.Drawing.Point(248, 388);
-            this.btnQuitarVisita.Name = "btnQuitarVisita";
-            this.btnQuitarVisita.Size = new System.Drawing.Size(199, 37);
-            this.btnQuitarVisita.TabIndex = 41;
-            this.btnQuitarVisita.Text = "Quitar Visitas";
-            this.btnQuitarVisita.UseVisualStyleBackColor = true;
-            this.btnQuitarVisita.Click += new System.EventHandler(this.btnQuitarVisita_Click);
-            // 
-            // btnQuitarDiscapacidad
-            // 
-            this.btnQuitarDiscapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarDiscapacidad.Location = new System.Drawing.Point(244, 389);
-            this.btnQuitarDiscapacidad.Name = "btnQuitarDiscapacidad";
-            this.btnQuitarDiscapacidad.Size = new System.Drawing.Size(196, 36);
-            this.btnQuitarDiscapacidad.TabIndex = 44;
-            this.btnQuitarDiscapacidad.Text = "Quitar Discapacidad";
-            this.btnQuitarDiscapacidad.UseVisualStyleBackColor = true;
             // 
             // frmAdministrarCiudadadno
             // 

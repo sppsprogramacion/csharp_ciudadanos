@@ -105,7 +105,6 @@
             this.txtBarrio.Name = "txtBarrio";
             this.txtBarrio.Size = new System.Drawing.Size(215, 21);
             this.txtBarrio.TabIndex = 13;
-            this.txtBarrio.Text = "0";
             // 
             // txtDireccion
             // 
@@ -113,7 +112,6 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(215, 21);
             this.txtDireccion.TabIndex = 14;
-            this.txtDireccion.Text = "0";
             // 
             // txtNumDomicilio
             // 
@@ -121,7 +119,6 @@
             this.txtNumDomicilio.Name = "txtNumDomicilio";
             this.txtNumDomicilio.Size = new System.Drawing.Size(215, 21);
             this.txtNumDomicilio.TabIndex = 15;
-            this.txtNumDomicilio.Text = "0";
             // 
             // cmbPais
             // 
@@ -130,7 +127,6 @@
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(215, 23);
             this.cmbPais.TabIndex = 8;
-            this.cmbPais.Text = "0";
             this.cmbPais.SelectedIndexChanged += new System.EventHandler(this.cmbPais_SelectedIndexChanged);
             // 
             // cmbProvincia
@@ -140,7 +136,6 @@
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(215, 23);
             this.cmbProvincia.TabIndex = 9;
-            this.cmbProvincia.Text = "0";
             this.cmbProvincia.SelectedIndexChanged += new System.EventHandler(this.cmbProvincia_SelectedIndexChanged);
             // 
             // cmbDepartamento
@@ -150,7 +145,6 @@
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(215, 23);
             this.cmbDepartamento.TabIndex = 10;
-            this.cmbDepartamento.Text = "0";
             this.cmbDepartamento.SelectedIndexChanged += new System.EventHandler(this.cmbDepartamento_SelectedIndexChanged);
             this.cmbDepartamento.TextChanged += new System.EventHandler(this.cmbDepartamento_TextChanged);
             // 
@@ -161,7 +155,6 @@
             this.cmbMunicipio.Name = "cmbMunicipio";
             this.cmbMunicipio.Size = new System.Drawing.Size(215, 23);
             this.cmbMunicipio.TabIndex = 11;
-            this.cmbMunicipio.Text = "0";
             // 
             // cmbSexo
             // 
@@ -202,7 +195,6 @@
             this.txtCiudad.Name = "txtCiudad";
             this.txtCiudad.Size = new System.Drawing.Size(215, 21);
             this.txtCiudad.TabIndex = 12;
-            this.txtCiudad.Text = "0";
             // 
             // label4
             // 
