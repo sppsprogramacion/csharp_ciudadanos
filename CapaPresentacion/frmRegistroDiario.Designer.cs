@@ -67,6 +67,7 @@
             this.dtpFechaRegistroDiario = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).BeginInit();
@@ -112,7 +113,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(41, 728);
+            this.label33.Location = new System.Drawing.Point(18, 728);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(70, 13);
             this.label33.TabIndex = 43;
@@ -147,7 +148,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(41, 678);
+            this.label30.Location = new System.Drawing.Point(12, 693);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(70, 13);
             this.label30.TabIndex = 38;
@@ -207,7 +208,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(304, 678);
+            this.label28.Location = new System.Drawing.Point(360, 696);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(63, 13);
             this.label28.TabIndex = 29;
@@ -317,7 +318,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(602, 678);
+            this.label3.Location = new System.Drawing.Point(727, 696);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 13);
             this.label3.TabIndex = 53;
@@ -341,7 +342,7 @@
             this.btnCrearRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRegistroDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRegistroDiario.Image")));
             this.btnCrearRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(440, 782);
+            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(564, 767);
             this.btnCrearRegistroDiario.Name = "btnCrearRegistroDiario";
             this.btnCrearRegistroDiario.Size = new System.Drawing.Size(234, 43);
             this.btnCrearRegistroDiario.TabIndex = 51;
@@ -387,7 +388,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(127, 418);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(758, 253);
+            this.panel1.Size = new System.Drawing.Size(612, 253);
             this.panel1.TabIndex = 55;
             // 
             // label4
@@ -403,7 +404,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(602, 730);
+            this.label6.Location = new System.Drawing.Point(733, 728);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 57;
@@ -447,11 +448,21 @@
             this.label5.TabIndex = 52;
             this.label5.Text = "Seleccionar Ciudadano:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(361, 728);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(41, 13);
+            this.label7.TabIndex = 61;
+            this.label7.Text = "Sector:";
+            // 
             // frmRegistroDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1438, 837);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpFechaRegistroDiario);
             this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label6);
@@ -537,5 +548,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaRegistroDiario;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label7;
     }
 }
