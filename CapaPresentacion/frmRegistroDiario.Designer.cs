@@ -77,7 +77,7 @@
             // 
             // txtBuscarApellido
             // 
-            this.txtBuscarApellido.Location = new System.Drawing.Point(297, 55);
+            this.txtBuscarApellido.Location = new System.Drawing.Point(120, 46);
             this.txtBuscarApellido.Name = "txtBuscarApellido";
             this.txtBuscarApellido.Size = new System.Drawing.Size(281, 20);
             this.txtBuscarApellido.TabIndex = 0;
@@ -87,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label1.Location = new System.Drawing.Point(189, 59);
+            this.label1.Location = new System.Drawing.Point(26, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 13);
             this.label1.TabIndex = 1;
@@ -96,7 +96,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(788, 62);
+            this.label2.Location = new System.Drawing.Point(487, 46);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 3;
@@ -105,9 +105,9 @@
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(756, 59);
+            this.textBox2.Location = new System.Drawing.Point(563, 43);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(281, 20);
+            this.textBox2.Size = new System.Drawing.Size(159, 20);
             this.textBox2.TabIndex = 2;
             // 
             // label33
@@ -121,7 +121,7 @@
             // 
             // txtBuscarInternos
             // 
-            this.txtBuscarInternos.Location = new System.Drawing.Point(28, 213);
+            this.txtBuscarInternos.Location = new System.Drawing.Point(107, 202);
             this.txtBuscarInternos.Name = "txtBuscarInternos";
             this.txtBuscarInternos.Size = new System.Drawing.Size(543, 20);
             this.txtBuscarInternos.TabIndex = 42;
@@ -131,7 +131,7 @@
             this.cmbTipoAcceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAcceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAcceso.FormattingEnabled = true;
-            this.cmbTipoAcceso.Location = new System.Drawing.Point(94, 725);
+            this.cmbTipoAcceso.Location = new System.Drawing.Point(91, 725);
             this.cmbTipoAcceso.Name = "cmbTipoAcceso";
             this.cmbTipoAcceso.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAcceso.TabIndex = 40;
@@ -159,7 +159,7 @@
             this.cmbSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(430, 722);
+            this.cmbSector.Location = new System.Drawing.Point(427, 722);
             this.cmbSector.Name = "cmbSector";
             this.cmbSector.Size = new System.Drawing.Size(280, 21);
             this.cmbSector.TabIndex = 37;
@@ -169,7 +169,7 @@
             this.cmbOrganismoDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbOrganismoDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganismoDestino.FormattingEnabled = true;
-            this.cmbOrganismoDestino.Location = new System.Drawing.Point(429, 690);
+            this.cmbOrganismoDestino.Location = new System.Drawing.Point(426, 690);
             this.cmbOrganismoDestino.Name = "cmbOrganismoDestino";
             this.cmbOrganismoDestino.Size = new System.Drawing.Size(281, 21);
             this.cmbOrganismoDestino.TabIndex = 36;
@@ -182,7 +182,7 @@
             this.lblCartel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCartel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCartel.ForeColor = System.Drawing.Color.Red;
-            this.lblCartel.Location = new System.Drawing.Point(47, 335);
+            this.lblCartel.Location = new System.Drawing.Point(17, 337);
             this.lblCartel.Name = "lblCartel";
             this.lblCartel.Size = new System.Drawing.Size(524, 33);
             this.lblCartel.TabIndex = 33;
@@ -219,7 +219,7 @@
             this.cmbTipoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAtencion.FormattingEnabled = true;
-            this.cmbTipoAtencion.Location = new System.Drawing.Point(94, 685);
+            this.cmbTipoAtencion.Location = new System.Drawing.Point(91, 685);
             this.cmbTipoAtencion.Name = "cmbTipoAtencion";
             this.cmbTipoAtencion.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAtencion.TabIndex = 28;
@@ -285,7 +285,7 @@
             this.dgvCiudadanosRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCiudadanosRegistroDiario.Location = new System.Drawing.Point(17, 76);
             this.dgvCiudadanosRegistroDiario.Name = "dgvCiudadanosRegistroDiario";
-            this.dgvCiudadanosRegistroDiario.Size = new System.Drawing.Size(575, 114);
+            this.dgvCiudadanosRegistroDiario.Size = new System.Drawing.Size(769, 114);
             this.dgvCiudadanosRegistroDiario.TabIndex = 45;
             this.dgvCiudadanosRegistroDiario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCiudadanosRegistroDiario_KeyDown);
             // 
@@ -294,13 +294,13 @@
             this.dgvAgregarInternos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAgregarInternos.Location = new System.Drawing.Point(19, 88);
             this.dgvAgregarInternos.Name = "dgvAgregarInternos";
-            this.dgvAgregarInternos.Size = new System.Drawing.Size(566, 108);
+            this.dgvAgregarInternos.Size = new System.Drawing.Size(767, 108);
             this.dgvAgregarInternos.TabIndex = 48;
             this.dgvAgregarInternos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvAgregarInternos_KeyDown);
             // 
             // txtBuscarInternoss
             // 
-            this.txtBuscarInternoss.Location = new System.Drawing.Point(64, 49);
+            this.txtBuscarInternoss.Location = new System.Drawing.Point(143, 49);
             this.txtBuscarInternoss.Name = "txtBuscarInternoss";
             this.txtBuscarInternoss.Size = new System.Drawing.Size(414, 20);
             this.txtBuscarInternoss.TabIndex = 49;
@@ -310,7 +310,7 @@
             this.cmbMotivoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMotivoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMotivoAtencion.FormattingEnabled = true;
-            this.cmbMotivoAtencion.Location = new System.Drawing.Point(820, 693);
+            this.cmbMotivoAtencion.Location = new System.Drawing.Point(817, 693);
             this.cmbMotivoAtencion.Name = "cmbMotivoAtencion";
             this.cmbMotivoAtencion.Size = new System.Drawing.Size(307, 21);
             this.cmbMotivoAtencion.TabIndex = 52;
@@ -328,7 +328,7 @@
             // 
             this.btnBuscarInternos.BackColor = System.Drawing.Color.White;
             this.btnBuscarInternos.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarInternos.Image")));
-            this.btnBuscarInternos.Location = new System.Drawing.Point(515, 42);
+            this.btnBuscarInternos.Location = new System.Drawing.Point(587, 42);
             this.btnBuscarInternos.Name = "btnBuscarInternos";
             this.btnBuscarInternos.Size = new System.Drawing.Size(39, 33);
             this.btnBuscarInternos.TabIndex = 50;
@@ -342,7 +342,7 @@
             this.btnCrearRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRegistroDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRegistroDiario.Image")));
             this.btnCrearRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(564, 767);
+            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(561, 767);
             this.btnCrearRegistroDiario.Name = "btnCrearRegistroDiario";
             this.btnCrearRegistroDiario.Size = new System.Drawing.Size(234, 43);
             this.btnCrearRegistroDiario.TabIndex = 51;
@@ -355,7 +355,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.White;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(584, 48);
+            this.button1.Location = new System.Drawing.Point(407, 38);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(39, 34);
             this.button1.TabIndex = 44;
@@ -366,9 +366,9 @@
             // 
             this.ptbFotoCiudadano.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ptbFotoCiudadano.Image = ((System.Drawing.Image)(resources.GetObject("ptbFotoCiudadano.Image")));
-            this.ptbFotoCiudadano.Location = new System.Drawing.Point(798, 110);
+            this.ptbFotoCiudadano.Location = new System.Drawing.Point(577, 210);
             this.ptbFotoCiudadano.Name = "ptbFotoCiudadano";
-            this.ptbFotoCiudadano.Size = new System.Drawing.Size(225, 225);
+            this.ptbFotoCiudadano.Size = new System.Drawing.Size(162, 160);
             this.ptbFotoCiudadano.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ptbFotoCiudadano.TabIndex = 32;
             this.ptbFotoCiudadano.TabStop = false;
@@ -388,14 +388,14 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(127, 418);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(612, 253);
+            this.panel1.Size = new System.Drawing.Size(820, 253);
             this.panel1.TabIndex = 55;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(195, 11);
+            this.label4.Location = new System.Drawing.Point(312, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(198, 24);
             this.label4.TabIndex = 51;
@@ -413,15 +413,15 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservaciones.Location = new System.Drawing.Point(820, 725);
+            this.txtObservaciones.Location = new System.Drawing.Point(817, 725);
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(452, 20);
+            this.txtObservaciones.Size = new System.Drawing.Size(313, 20);
             this.txtObservaciones.TabIndex = 58;
             // 
             // dtpFechaRegistroDiario
             // 
             this.dtpFechaRegistroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpFechaRegistroDiario.Location = new System.Drawing.Point(798, 12);
+            this.dtpFechaRegistroDiario.Location = new System.Drawing.Point(1078, 12);
             this.dtpFechaRegistroDiario.Name = "dtpFechaRegistroDiario";
             this.dtpFechaRegistroDiario.Size = new System.Drawing.Size(239, 20);
             this.dtpFechaRegistroDiario.TabIndex = 59;
@@ -433,16 +433,22 @@
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.dgvCiudadanosRegistroDiario);
             this.panel2.Controls.Add(this.lblCartel);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.txtBuscarApellido);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.ptbFotoCiudadano);
             this.panel2.Location = new System.Drawing.Point(127, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(612, 386);
+            this.panel2.Size = new System.Drawing.Size(823, 386);
             this.panel2.TabIndex = 60;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(188, 7);
+            this.label5.Location = new System.Drawing.Point(298, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(234, 24);
             this.label5.TabIndex = 52;
@@ -461,7 +467,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1438, 837);
+            this.ClientSize = new System.Drawing.Size(1435, 837);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpFechaRegistroDiario);
             this.Controls.Add(this.txtObservaciones);
@@ -470,14 +476,12 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cmbMotivoAtencion);
             this.Controls.Add(this.btnCrearRegistroDiario);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.cmbTipoAcceso);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.cmbSector);
             this.Controls.Add(this.cmbOrganismoDestino);
-            this.Controls.Add(this.ptbFotoCiudadano);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.txtProfesion);
             this.Controls.Add(this.label28);
@@ -488,10 +492,6 @@
             this.Controls.Add(this.txtNombreCiudadano);
             this.Controls.Add(this.txtDocumentoIdentidad);
             this.Controls.Add(this.txtIdCiudadanoIngreso);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBuscarApellido);
             this.Controls.Add(this.panel2);
             this.Name = "frmRegistroDiario";
             this.Text = "frmRegistroDiario";
