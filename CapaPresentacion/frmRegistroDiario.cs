@@ -128,6 +128,8 @@ namespace CapaPresentacion
                     this.txtDocumentoIdentidad.Text = dCiudadanoResponse.dni.ToString();
                     this.txtNombreCiudadano.Text = dCiudadanoResponse.apellido + " " + dCiudadanoResponse.nombre;
                     this.ptbFotoCiudadano.Load(dCiudadanoResponse.foto);
+                    this.txtNacionalidad.Text = dCiudadanoResponse.nacionalidad.nacionalidad.ToString();
+                    //this.txtNacionalidad.Text = dCiudadanoResponse.categoria_ciudadano.ToString();
 
 
                     //this.txtIdCiudadanoIngreso.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["id_ciudadano"].Value);

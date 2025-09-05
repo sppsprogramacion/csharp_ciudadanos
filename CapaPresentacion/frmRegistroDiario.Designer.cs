@@ -42,7 +42,7 @@
             this.cmbOrganismoDestino = new System.Windows.Forms.ComboBox();
             this.lblCartel = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtProfesion = new System.Windows.Forms.TextBox();
+            this.txtNacionalidad = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.cmbTipoAtencion = new System.Windows.Forms.ComboBox();
             this.txtNombreCiudadanoIngreso = new System.Windows.Forms.Label();
@@ -68,6 +68,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtProfesion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).BeginInit();
@@ -128,10 +130,9 @@
             // 
             // cmbTipoAcceso
             // 
-            this.cmbTipoAcceso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAcceso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAcceso.FormattingEnabled = true;
-            this.cmbTipoAcceso.Location = new System.Drawing.Point(91, 725);
+            this.cmbTipoAcceso.Location = new System.Drawing.Point(101, 725);
             this.cmbTipoAcceso.Name = "cmbTipoAcceso";
             this.cmbTipoAcceso.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAcceso.TabIndex = 40;
@@ -156,20 +157,18 @@
             // 
             // cmbSector
             // 
-            this.cmbSector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSector.FormattingEnabled = true;
-            this.cmbSector.Location = new System.Drawing.Point(427, 722);
+            this.cmbSector.Location = new System.Drawing.Point(437, 722);
             this.cmbSector.Name = "cmbSector";
             this.cmbSector.Size = new System.Drawing.Size(280, 21);
             this.cmbSector.TabIndex = 37;
             // 
             // cmbOrganismoDestino
             // 
-            this.cmbOrganismoDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbOrganismoDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOrganismoDestino.FormattingEnabled = true;
-            this.cmbOrganismoDestino.Location = new System.Drawing.Point(426, 690);
+            this.cmbOrganismoDestino.Location = new System.Drawing.Point(436, 690);
             this.cmbOrganismoDestino.Name = "cmbOrganismoDestino";
             this.cmbOrganismoDestino.Size = new System.Drawing.Size(281, 21);
             this.cmbOrganismoDestino.TabIndex = 36;
@@ -182,7 +181,7 @@
             this.lblCartel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblCartel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCartel.ForeColor = System.Drawing.Color.Red;
-            this.lblCartel.Location = new System.Drawing.Point(17, 337);
+            this.lblCartel.Location = new System.Drawing.Point(17, 343);
             this.lblCartel.Name = "lblCartel";
             this.lblCartel.Size = new System.Drawing.Size(524, 33);
             this.lblCartel.TabIndex = 33;
@@ -192,18 +191,18 @@
             // 
             this.label29.AutoSize = true;
             this.label29.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label29.Location = new System.Drawing.Point(218, 322);
+            this.label29.Location = new System.Drawing.Point(218, 301);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(54, 13);
+            this.label29.Size = new System.Drawing.Size(72, 13);
             this.label29.TabIndex = 31;
-            this.label29.Text = "Profesion:";
+            this.label29.Text = "Nacionalidad:";
             // 
-            // txtProfesion
+            // txtNacionalidad
             // 
-            this.txtProfesion.Location = new System.Drawing.Point(346, 315);
-            this.txtProfesion.Name = "txtProfesion";
-            this.txtProfesion.Size = new System.Drawing.Size(226, 20);
-            this.txtProfesion.TabIndex = 30;
+            this.txtNacionalidad.Location = new System.Drawing.Point(346, 294);
+            this.txtNacionalidad.Name = "txtNacionalidad";
+            this.txtNacionalidad.Size = new System.Drawing.Size(226, 20);
+            this.txtNacionalidad.TabIndex = 30;
             // 
             // label28
             // 
@@ -216,10 +215,9 @@
             // 
             // cmbTipoAtencion
             // 
-            this.cmbTipoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbTipoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTipoAtencion.FormattingEnabled = true;
-            this.cmbTipoAtencion.Location = new System.Drawing.Point(91, 685);
+            this.cmbTipoAtencion.Location = new System.Drawing.Point(101, 685);
             this.cmbTipoAtencion.Name = "cmbTipoAtencion";
             this.cmbTipoAtencion.Size = new System.Drawing.Size(251, 21);
             this.cmbTipoAtencion.TabIndex = 28;
@@ -228,7 +226,7 @@
             // 
             this.txtNombreCiudadanoIngreso.AutoSize = true;
             this.txtNombreCiudadanoIngreso.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtNombreCiudadanoIngreso.Location = new System.Drawing.Point(218, 292);
+            this.txtNombreCiudadanoIngreso.Location = new System.Drawing.Point(218, 271);
             this.txtNombreCiudadanoIngreso.Name = "txtNombreCiudadanoIngreso";
             this.txtNombreCiudadanoIngreso.Size = new System.Drawing.Size(101, 13);
             this.txtNombreCiudadanoIngreso.TabIndex = 27;
@@ -238,7 +236,7 @@
             // 
             this.txtDniCiudadanoIngreso.AutoSize = true;
             this.txtDniCiudadanoIngreso.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.txtDniCiudadanoIngreso.Location = new System.Drawing.Point(218, 263);
+            this.txtDniCiudadanoIngreso.Location = new System.Drawing.Point(218, 242);
             this.txtDniCiudadanoIngreso.Name = "txtDniCiudadanoIngreso";
             this.txtDniCiudadanoIngreso.Size = new System.Drawing.Size(127, 13);
             this.txtDniCiudadanoIngreso.TabIndex = 26;
@@ -248,7 +246,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.label27.Location = new System.Drawing.Point(218, 237);
+            this.label27.Location = new System.Drawing.Point(218, 216);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(73, 13);
             this.label27.TabIndex = 25;
@@ -258,7 +256,7 @@
             // 
             this.txtNombreCiudadano.Enabled = false;
             this.txtNombreCiudadano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCiudadano.Location = new System.Drawing.Point(346, 289);
+            this.txtNombreCiudadano.Location = new System.Drawing.Point(346, 268);
             this.txtNombreCiudadano.Name = "txtNombreCiudadano";
             this.txtNombreCiudadano.Size = new System.Drawing.Size(226, 20);
             this.txtNombreCiudadano.TabIndex = 24;
@@ -267,7 +265,7 @@
             // 
             this.txtDocumentoIdentidad.Enabled = false;
             this.txtDocumentoIdentidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocumentoIdentidad.Location = new System.Drawing.Point(346, 263);
+            this.txtDocumentoIdentidad.Location = new System.Drawing.Point(346, 242);
             this.txtDocumentoIdentidad.Name = "txtDocumentoIdentidad";
             this.txtDocumentoIdentidad.Size = new System.Drawing.Size(226, 20);
             this.txtDocumentoIdentidad.TabIndex = 23;
@@ -275,7 +273,7 @@
             // txtIdCiudadanoIngreso
             // 
             this.txtIdCiudadanoIngreso.Enabled = false;
-            this.txtIdCiudadanoIngreso.Location = new System.Drawing.Point(346, 237);
+            this.txtIdCiudadanoIngreso.Location = new System.Drawing.Point(346, 216);
             this.txtIdCiudadanoIngreso.Name = "txtIdCiudadanoIngreso";
             this.txtIdCiudadanoIngreso.Size = new System.Drawing.Size(226, 20);
             this.txtIdCiudadanoIngreso.TabIndex = 22;
@@ -307,10 +305,9 @@
             // 
             // cmbMotivoAtencion
             // 
-            this.cmbMotivoAtencion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbMotivoAtencion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMotivoAtencion.FormattingEnabled = true;
-            this.cmbMotivoAtencion.Location = new System.Drawing.Point(817, 693);
+            this.cmbMotivoAtencion.Location = new System.Drawing.Point(827, 693);
             this.cmbMotivoAtencion.Name = "cmbMotivoAtencion";
             this.cmbMotivoAtencion.Size = new System.Drawing.Size(307, 21);
             this.cmbMotivoAtencion.TabIndex = 52;
@@ -342,7 +339,7 @@
             this.btnCrearRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRegistroDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRegistroDiario.Image")));
             this.btnCrearRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(561, 767);
+            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(499, 771);
             this.btnCrearRegistroDiario.Name = "btnCrearRegistroDiario";
             this.btnCrearRegistroDiario.Size = new System.Drawing.Size(234, 43);
             this.btnCrearRegistroDiario.TabIndex = 51;
@@ -375,9 +372,6 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label4);
@@ -388,7 +382,7 @@
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(127, 418);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(820, 253);
+            this.panel1.Size = new System.Drawing.Size(825, 253);
             this.panel1.TabIndex = 55;
             // 
             // label4
@@ -412,16 +406,14 @@
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtObservaciones.Location = new System.Drawing.Point(817, 725);
+            this.txtObservaciones.Location = new System.Drawing.Point(827, 725);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(313, 20);
             this.txtObservaciones.TabIndex = 58;
             // 
             // dtpFechaRegistroDiario
             // 
-            this.dtpFechaRegistroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dtpFechaRegistroDiario.Location = new System.Drawing.Point(1078, 12);
+            this.dtpFechaRegistroDiario.Location = new System.Drawing.Point(962, 12);
             this.dtpFechaRegistroDiario.Name = "dtpFechaRegistroDiario";
             this.dtpFechaRegistroDiario.Size = new System.Drawing.Size(239, 20);
             this.dtpFechaRegistroDiario.TabIndex = 59;
@@ -430,6 +422,8 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtProfesion);
+            this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.dgvCiudadanosRegistroDiario);
             this.panel2.Controls.Add(this.lblCartel);
@@ -463,11 +457,27 @@
             this.label7.TabIndex = 61;
             this.label7.Text = "Sector:";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(90, 318);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Profesión:";
+            // 
+            // txtProfesion
+            // 
+            this.txtProfesion.Location = new System.Drawing.Point(218, 312);
+            this.txtProfesion.Name = "txtProfesion";
+            this.txtProfesion.Size = new System.Drawing.Size(225, 20);
+            this.txtProfesion.TabIndex = 54;
+            // 
             // frmRegistroDiario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1435, 837);
+            this.ClientSize = new System.Drawing.Size(1221, 837);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpFechaRegistroDiario);
             this.Controls.Add(this.txtObservaciones);
@@ -483,7 +493,7 @@
             this.Controls.Add(this.cmbSector);
             this.Controls.Add(this.cmbOrganismoDestino);
             this.Controls.Add(this.label29);
-            this.Controls.Add(this.txtProfesion);
+            this.Controls.Add(this.txtNacionalidad);
             this.Controls.Add(this.label28);
             this.Controls.Add(this.cmbTipoAtencion);
             this.Controls.Add(this.txtNombreCiudadanoIngreso);
@@ -523,7 +533,7 @@
         private System.Windows.Forms.Label lblCartel;
         private System.Windows.Forms.PictureBox ptbFotoCiudadano;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txtProfesion;
+        private System.Windows.Forms.TextBox txtNacionalidad;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox cmbTipoAtencion;
         private System.Windows.Forms.Label txtNombreCiudadanoIngreso;
@@ -549,5 +559,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtProfesion;
+        private System.Windows.Forms.Label label8;
     }
 }
