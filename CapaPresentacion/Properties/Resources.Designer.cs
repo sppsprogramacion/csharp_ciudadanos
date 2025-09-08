@@ -131,6 +131,36 @@ namespace CapaPresentacion.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///  &lt;head&gt;
+        ///    &lt;title&gt;SERVICIO PENITENCIARIO DE LA PROVINCIA DE SALTA&lt;/title&gt;
+        ///    &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot; /&gt;
+        ///      &lt;style&gt;
+        ///      .izquierda {
+        ///        text-align: left;
+        ///      }
+        ///    &lt;/style&gt;
+        ///     &lt;style&gt;
+        ///        .alinear-derecha {
+        ///          text-align: right;
+        ///        }
+        ///      &lt;/style&gt;
+        ///  &lt;/head&gt;
+        ///  &lt;body&gt;
+        ///      
+        ///      
+        ///&lt;table&gt;
+        ///    &lt;caption class=&quot;title&quot;&gt;&lt;strong &gt;SERVICIO PENITENCIARIO DE LA PROVINCIA DE SALTA&lt;/strong&gt;&lt;/caption&gt;
+        ///    &lt;caption class=&quot;title&quot; [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string plantilla {
+            get {
+                return ResourceManager.GetString("plantilla", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap reportes1 {
