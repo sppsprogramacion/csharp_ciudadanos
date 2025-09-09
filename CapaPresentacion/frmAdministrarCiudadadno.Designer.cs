@@ -179,6 +179,13 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnAbrirFormularioImprimir = new System.Windows.Forms.Button();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnImprimirFormularioEmpadronamiento = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -204,6 +211,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMenores)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosMenores)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -214,6 +222,7 @@
             this.tabControl1.Controls.Add(this.tabAsignarVisitas);
             this.tabControl1.Controls.Add(this.tabEstablecerCategorias);
             this.tabControl1.Controls.Add(this.tabMenores);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Location = new System.Drawing.Point(12, 46);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -222,6 +231,7 @@
             // 
             // tabEditarCiudadano
             // 
+            this.tabEditarCiudadano.Controls.Add(this.btnAbrirFormularioImprimir);
             this.tabEditarCiudadano.Controls.Add(this.lblMenorEdad);
             this.tabEditarCiudadano.Controls.Add(this.lblEsVisitaPrincipal);
             this.tabEditarCiudadano.Controls.Add(this.btnAsignarCategorias);
@@ -318,7 +328,7 @@
             this.btnCancelar.BackColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(598, 3);
+            this.btnCancelar.Location = new System.Drawing.Point(751, 3);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(144, 37);
             this.btnCancelar.TabIndex = 4;
@@ -1857,6 +1867,74 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
+            // btnAbrirFormularioImprimir
+            // 
+            this.btnAbrirFormularioImprimir.BackColor = System.Drawing.Color.White;
+            this.btnAbrirFormularioImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrirFormularioImprimir.Image")));
+            this.btnAbrirFormularioImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbrirFormularioImprimir.Location = new System.Drawing.Point(597, 3);
+            this.btnAbrirFormularioImprimir.Name = "btnAbrirFormularioImprimir";
+            this.btnAbrirFormularioImprimir.Size = new System.Drawing.Size(153, 37);
+            this.btnAbrirFormularioImprimir.TabIndex = 47;
+            this.btnAbrirFormularioImprimir.Text = "Imprimir Formularios";
+            this.btnAbrirFormularioImprimir.UseVisualStyleBackColor = false;
+            this.btnAbrirFormularioImprimir.Click += new System.EventHandler(this.btnAbrirFormularioImprimir_Click);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.btnImprimirFormularioEmpadronamiento);
+            this.tabPage1.Controls.Add(this.textBox4);
+            this.tabPage1.Controls.Add(this.textBox3);
+            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(1216, 591);
+            this.tabPage1.TabIndex = 6;
+            this.tabPage1.Text = "Imprimir Formularios";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(51, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(51, 53);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(146, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(51, 79);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(146, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(51, 105);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(146, 20);
+            this.textBox4.TabIndex = 3;
+            // 
+            // btnImprimirFormularioEmpadronamiento
+            // 
+            this.btnImprimirFormularioEmpadronamiento.BackColor = System.Drawing.Color.White;
+            this.btnImprimirFormularioEmpadronamiento.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirFormularioEmpadronamiento.Image")));
+            this.btnImprimirFormularioEmpadronamiento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirFormularioEmpadronamiento.Location = new System.Drawing.Point(51, 152);
+            this.btnImprimirFormularioEmpadronamiento.Name = "btnImprimirFormularioEmpadronamiento";
+            this.btnImprimirFormularioEmpadronamiento.Size = new System.Drawing.Size(146, 37);
+            this.btnImprimirFormularioEmpadronamiento.TabIndex = 48;
+            this.btnImprimirFormularioEmpadronamiento.Text = "Imprimir";
+            this.btnImprimirFormularioEmpadronamiento.UseVisualStyleBackColor = false;
+            this.btnImprimirFormularioEmpadronamiento.Click += new System.EventHandler(this.btnImprimirFormularioEmpadronamiento_Click);
+            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1902,6 +1980,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosMenores)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2059,6 +2139,13 @@
         private System.Windows.Forms.Label lblMenorEdad;
         private System.Windows.Forms.Button btnQuitarDiscapacidad;
         private System.Windows.Forms.Button btnQuitarVisita;
+        private System.Windows.Forms.Button btnAbrirFormularioImprimir;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button btnImprimirFormularioEmpadronamiento;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

@@ -5,12 +5,16 @@ using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
 using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
 using CapaPresentacion.Validaciones.NuevoCiudadano.ValidacionNuevoCiudadano;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -1634,6 +1638,93 @@ namespace CapaPresentacion
             }
 
         }//fin quitar ciudadano como visita
+
+        private async void btnAbrirFormularioImprimir_Click(object sender, EventArgs e)
+        {
+            if (this.txtIdCiudadano.Text == string.Empty)
+            {
+                MessageBox.Show("debe esperar que cargue los datos del ciudadano");
+            }
+            else
+            {
+
+                this.tabControl1.SelectedIndex = 6;
+
+            }
+        }
+
+        private async void btnImprimirFormularioEmpadronamiento_Click(object sender, EventArgs e)
+        {
+
+            int idCiudadano;
+            //acceder a la instancia de FormTramites abierta.
+            CiudadanoNuevo FCiudadanoNuevoDatos = Application.OpenForms["CiudadanoNuevo"] as CiudadanoNuevo;
+            CiudadanoNuevo ciudadanoNuevos = new CiudadanoNuevo();
+            idCiudadano = Convert.ToInt32(FCiudadanoNuevoDatos.idCiudadanoGlobal);
+
+            NCiudadano nCiudadano = new NCiudadano();
+            (DCiudadano dCiudadano2, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
+
+            this.dCiudadano = dCiudadano2;
+
+            if (this.dCiudadano == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+            DCiudadano dCiudadano = new DCiudadano();
+            //SaveFileDialog solicita al usuario que busqeu un lugar para guardar un archivo
+            SaveFileDialog guardar = new SaveFileDialog();
+            guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";//gaurda el archivo con el nombre de la fecha del dia concatenado con la hora .pdf
+                                                                                //guardar.ShowDialog();//ejecuta un cuadro de dialogo
+
+            string varSexo = Convert.ToString(cmbSexo.Text);
+            MessageBox.Show(varSexo);
+            /*La forma para trabajar u archivo .pdf, o al menos el diseño que va a tener el pdf, en el video lo trabajan 
+            es en que se puedan cambiar y modificar por un largo tiempo. La forma es creando un archivo html, en donde se diseña una tabla
+            con el ancho de las columnas y todo lo necesarrio para crear las tablas, trabajando totalmente el html, y en base a este archivo
+            generar un pdf*/
+
+            string paginahtml_texto = Properties.Resources.plantilla.ToString();
+            //vamos a reemplazar los parametros por los valores de los formularios
+            paginahtml_texto = paginahtml_texto.Replace("@DNI", Convert.ToString(dCiudadano2.dni));
+            paginahtml_texto = paginahtml_texto.Replace("@NOMBRE", (dCiudadano2.apellido) + " " + (dCiudadano2.nombre));
+            paginahtml_texto = paginahtml_texto.Replace("@DOMICILIO", (dCiudadano2.direccion) + " " + (dCiudadano2.numero_dom));
+            paginahtml_texto = paginahtml_texto.Replace("@NACIONALIDAD", (dCiudadano2.nacionalidad.nacionalidad));
+            paginahtml_texto = paginahtml_texto.Replace("@FECHA_ALTA", Convert.ToString(dCiudadano2.fecha_alta));
+            paginahtml_texto = paginahtml_texto.Replace("@ESTADO_CIVIL", Convert.ToString(dCiudadano2.estado_civil.estado_civil));
+            paginahtml_texto = paginahtml_texto.Replace("@NACIMIENTO", Convert.ToString(dCiudadano2.fecha_nac));
+            paginahtml_texto = paginahtml_texto.Replace("@TELEFONO", (dCiudadano2.telefono));
+            paginahtml_texto = paginahtml_texto.Replace("@SEXO", dCiudadano2.sexo.sexo);
+            //paginahtml_texto = paginahtml_texto.Replace("@PARENTEZCO", Convert.ToString(data));
+
+
+
+            //vamos a hacer elguardado del archivo si cumple todos los requisitos
+            if (guardar.ShowDialog() == DialogResult.OK)
+            {
+                //primero vamos a guardar el archivo pdf en un archivo de memoria
+                using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                {
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25); //archivo .pdf tamaño A4 con margenes de 25 para los lados
+                    PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                    pdfDoc.Open();//necesitamos abrir el archivo para agregar los textos
+                                  //pdfDoc.Add(new Phrase("Hola a todos"));
+
+                    using (StringReader sr = new StringReader(paginahtml_texto))
+                    {
+                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                    }
+
+                    pdfDoc.Close();
+                    stream.Close();
+                }
+
+            }
+
+        }
     }
 
 }
