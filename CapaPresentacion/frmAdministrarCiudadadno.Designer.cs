@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrarCiudadadno));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabEditarCiudadano = new System.Windows.Forms.TabPage();
+            this.btnAbrirFormularioImprimir = new System.Windows.Forms.Button();
             this.lblMenorEdad = new System.Windows.Forms.Label();
             this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
             this.btnAsignarCategorias = new System.Windows.Forms.Button();
@@ -162,6 +163,13 @@
             this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.btnActualizarDatos = new System.Windows.Forms.Button();
             this.tabMenores = new System.Windows.Forms.TabPage();
+            this.txtDetalle = new System.Windows.Forms.TextBox();
+            this.txtFechaCarga = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.btnActualizarMenores = new System.Windows.Forms.Button();
             this.dgvMenores = new System.Windows.Forms.DataGridView();
             this.btnVincularTutorConMenor = new System.Windows.Forms.Button();
@@ -178,14 +186,16 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.btnAbrirFormularioImprimir = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.btnImprimirFormularioEmpadronamiento = new System.Windows.Forms.Button();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.btnQuitarMenores = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -212,6 +222,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosMenores)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -248,6 +259,19 @@
             this.tabEditarCiudadano.TabIndex = 0;
             this.tabEditarCiudadano.Text = "Editar Ciudadano";
             this.tabEditarCiudadano.UseVisualStyleBackColor = true;
+            // 
+            // btnAbrirFormularioImprimir
+            // 
+            this.btnAbrirFormularioImprimir.BackColor = System.Drawing.Color.White;
+            this.btnAbrirFormularioImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrirFormularioImprimir.Image")));
+            this.btnAbrirFormularioImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAbrirFormularioImprimir.Location = new System.Drawing.Point(597, 3);
+            this.btnAbrirFormularioImprimir.Name = "btnAbrirFormularioImprimir";
+            this.btnAbrirFormularioImprimir.Size = new System.Drawing.Size(153, 37);
+            this.btnAbrirFormularioImprimir.TabIndex = 47;
+            this.btnAbrirFormularioImprimir.Text = "Imprimir Formularios";
+            this.btnAbrirFormularioImprimir.UseVisualStyleBackColor = false;
+            this.btnAbrirFormularioImprimir.Click += new System.EventHandler(this.btnAbrirFormularioImprimir_Click);
             // 
             // lblMenorEdad
             // 
@@ -1680,6 +1704,7 @@
             // 
             // tabMenores
             // 
+            this.tabMenores.Controls.Add(this.panel3);
             this.tabMenores.Controls.Add(this.btnActualizarMenores);
             this.tabMenores.Controls.Add(this.dgvMenores);
             this.tabMenores.Controls.Add(this.btnVincularTutorConMenor);
@@ -1691,6 +1716,64 @@
             this.tabMenores.TabIndex = 5;
             this.tabMenores.Text = "Menores";
             this.tabMenores.UseVisualStyleBackColor = true;
+            // 
+            // txtDetalle
+            // 
+            this.txtDetalle.Location = new System.Drawing.Point(146, 123);
+            this.txtDetalle.Name = "txtDetalle";
+            this.txtDetalle.Size = new System.Drawing.Size(172, 20);
+            this.txtDetalle.TabIndex = 35;
+            // 
+            // txtFechaCarga
+            // 
+            this.txtFechaCarga.Location = new System.Drawing.Point(146, 89);
+            this.txtFechaCarga.Name = "txtFechaCarga";
+            this.txtFechaCarga.Size = new System.Drawing.Size(172, 20);
+            this.txtFechaCarga.TabIndex = 34;
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(146, 52);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(172, 20);
+            this.txtId.TabIndex = 33;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(62, 126);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(43, 13);
+            this.label48.TabIndex = 32;
+            this.label48.Text = "Detalle:";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(62, 92);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(86, 13);
+            this.label47.TabIndex = 31;
+            this.label47.Text = "Fecha de Carga:";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(62, 55);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(19, 13);
+            this.label46.TabIndex = 30;
+            this.label46.Text = "Id:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(62, 15);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(183, 13);
+            this.label39.TabIndex = 29;
+            this.label39.Text = "Quitar Menores para el interno:";
             // 
             // btnActualizarMenores
             // 
@@ -1806,7 +1889,7 @@
             // dgvCiudadanosMenores
             // 
             this.dgvCiudadanosMenores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCiudadanosMenores.Location = new System.Drawing.Point(13, 54);
+            this.dgvCiudadanosMenores.Location = new System.Drawing.Point(6, 54);
             this.dgvCiudadanosMenores.Name = "dgvCiudadanosMenores";
             this.dgvCiudadanosMenores.Size = new System.Drawing.Size(638, 108);
             this.dgvCiudadanosMenores.TabIndex = 6;
@@ -1856,30 +1939,6 @@
             this.txtBuscarMenor.Size = new System.Drawing.Size(216, 21);
             this.txtBuscarMenor.TabIndex = 4;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(22, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(454, 25);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            // 
-            // btnAbrirFormularioImprimir
-            // 
-            this.btnAbrirFormularioImprimir.BackColor = System.Drawing.Color.White;
-            this.btnAbrirFormularioImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnAbrirFormularioImprimir.Image")));
-            this.btnAbrirFormularioImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAbrirFormularioImprimir.Location = new System.Drawing.Point(597, 3);
-            this.btnAbrirFormularioImprimir.Name = "btnAbrirFormularioImprimir";
-            this.btnAbrirFormularioImprimir.Size = new System.Drawing.Size(153, 37);
-            this.btnAbrirFormularioImprimir.TabIndex = 47;
-            this.btnAbrirFormularioImprimir.Text = "Imprimir Formularios";
-            this.btnAbrirFormularioImprimir.UseVisualStyleBackColor = false;
-            this.btnAbrirFormularioImprimir.Click += new System.EventHandler(this.btnAbrirFormularioImprimir_Click);
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.btnImprimirFormularioEmpadronamiento);
@@ -1894,34 +1953,6 @@
             this.tabPage1.Text = "Imprimir Formularios";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(51, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 0;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(51, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(51, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(51, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 20);
-            this.textBox4.TabIndex = 3;
-            // 
             // btnImprimirFormularioEmpadronamiento
             // 
             this.btnImprimirFormularioEmpadronamiento.BackColor = System.Drawing.Color.White;
@@ -1934,6 +1965,85 @@
             this.btnImprimirFormularioEmpadronamiento.Text = "Imprimir";
             this.btnImprimirFormularioEmpadronamiento.UseVisualStyleBackColor = false;
             this.btnImprimirFormularioEmpadronamiento.Click += new System.EventHandler(this.btnImprimirFormularioEmpadronamiento_Click);
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(51, 105);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(146, 20);
+            this.textBox4.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(51, 79);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(146, 20);
+            this.textBox3.TabIndex = 2;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(51, 53);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(146, 20);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(51, 27);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Maroon;
+            this.label23.Location = new System.Drawing.Point(22, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(454, 25);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
+            // 
+            // btnQuitarMenores
+            // 
+            this.btnQuitarMenores.BackColor = System.Drawing.Color.White;
+            this.btnQuitarMenores.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarMenores.Location = new System.Drawing.Point(47, 172);
+            this.btnQuitarMenores.Name = "btnQuitarMenores";
+            this.btnQuitarMenores.Size = new System.Drawing.Size(140, 35);
+            this.btnQuitarMenores.TabIndex = 36;
+            this.btnQuitarMenores.Text = "Quitar Menores";
+            this.btnQuitarMenores.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.White;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(204, 172);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(157, 35);
+            this.btnLimpiar.TabIndex = 37;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.btnLimpiar);
+            this.panel3.Controls.Add(this.btnQuitarMenores);
+            this.panel3.Controls.Add(this.txtDetalle);
+            this.panel3.Controls.Add(this.txtFechaCarga);
+            this.panel3.Controls.Add(this.txtId);
+            this.panel3.Controls.Add(this.label48);
+            this.panel3.Controls.Add(this.label47);
+            this.panel3.Controls.Add(this.label46);
+            this.panel3.Controls.Add(this.label39);
+            this.panel3.Location = new System.Drawing.Point(744, 61);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(422, 240);
+            this.panel3.TabIndex = 38;
             // 
             // frmAdministrarCiudadadno
             // 
@@ -1982,6 +2092,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosMenores)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2146,6 +2258,16 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDetalle;
+        private System.Windows.Forms.TextBox txtFechaCarga;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnQuitarMenores;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 
