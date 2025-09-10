@@ -20,6 +20,8 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
+
 
 namespace CapaPresentacion
 {
@@ -1717,7 +1719,7 @@ namespace CapaPresentacion
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
                     }
-
+                    
                     pdfDoc.Close();
                     stream.Close();
                 }
