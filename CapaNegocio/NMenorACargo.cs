@@ -39,5 +39,16 @@ namespace CapaNegocio
 
         }
         //FIN VINCULOS ADULTO CON MENOR..................................
+
+        //QUITAR CATEGORIA
+        public async Task<(bool, string error)> QuitarMenoresaCargo(int id, string dataQutar)
+        {
+            IMenorACargo menoraCargo = new MenorACargoDaoImplement();
+
+            (bool ciudadanoMenoraCargoResponse, string error) = await menoraCargo.QuitarMenoresaCargo(id, dataQutar);
+
+            return (ciudadanoMenoraCargoResponse, error);
+        }
+        //FIN QUITAR CATEGORIA..................................
     }
 }

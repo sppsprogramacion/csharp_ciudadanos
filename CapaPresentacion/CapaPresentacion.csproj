@@ -160,6 +160,7 @@
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EstablecerDiscapacidadValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\NuevoCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\QuitarCategoriaDelCiudadano.cs" />
+    <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\QuitarMenoresaCargoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\VincularVisitaInternoValidator.cs" />
     <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarDniValidator.cs" />
     <Compile Include="Validaciones\Login\Datos\LoginDatos.cs" />

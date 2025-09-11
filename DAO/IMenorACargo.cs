@@ -11,5 +11,6 @@ namespace DAO
     {
         Task<(DMenorACargo, string error)> CrearMenorACargo(string menorACargo);
         Task<(List<DMenorACargo>, string error)> RetornarListaVigentesXAdulto(int id);
+        Task<(bool, string error)> QuitarMenoresaCargo(int id, string dataQuitar);
     }
 }

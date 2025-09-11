@@ -1381,6 +1381,7 @@ namespace CapaPresentacion
                 var datosFiltrados = listaMenoresACargo
                 .Select(c => new
                 {
+                    Id_Menor = c.ciudadanoMenor.id_ciudadano,
                     Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
                     Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
                     DniMenor = c.ciudadanoMenor.dni,
@@ -1726,6 +1727,122 @@ namespace CapaPresentacion
 
             }
 
+        }
+
+        private void dgvMenores_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                if (dgvMenores.SelectedRows.Count > 0)
+                {
+                    this.txtIdMenor.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["Id_Menor"].Value);
+                    this.txtNombreMen.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["Menor"].Value);
+                    this.txtEdadMen.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["EdadMenor"].Value);
+                    //this.txtFechaCargaCategoriaQuitar.Text = Convert.ToString(this.dgvCategoriasCiudadano.CurrentRow.Cells["FechaCarga"].Value);
+
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar el menor.");
+                }
+            }
+        }
+
+        private async void btnQuitarMenores_Click(object sender, EventArgs e)
+        {//inicio btn quitar menores a cargo 
+            if (this.txtIdMenor.Text == string.Empty)
+            {
+                MessageBox.Show("Debe seleccionar el menor");
+            }
+
+            else
+            {
+                NMenorACargo nMenoresaCargo = new NMenorACargo();
+                //limpiar errores de provider
+                errorProvider.Clear();
+
+                //validacion de formulario
+                var datosFormulario = new CiudadanoDatos
+                {
+                    txtDetalleMenores = txtDetalleMenores.Text,
+                };
+
+                var validator = new QuitarMenoresaCargoValidator();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
+                //fin validacion...........................
+
+                var data = new
+                {
+                    detalle_anular = txtDetalleMenores.Text,
+                };
+
+                string dataMenores = JsonConvert.SerializeObject(data);
+
+                (bool respuestaEditar, string errorResponse) = await nMenoresaCargo.QuitarMenoresaCargo(Convert.ToInt32(txtIdMenor.Text), dataMenores);
+
+                if (respuestaEditar)
+                {
+
+                    MessageBox.Show("Se quitó correctamente el menor", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    (List<DMenorACargo> listaMenoresACargo, string errorResponseEditar) = await nMenoresaCargo.retornarListaVigentesXAdulto(Convert.ToInt32(this.txtIdCiudadano.Text));
+
+                    if (listaMenoresACargo == null)
+                    {
+                        MessageBox.Show(errorResponseEditar, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+
+                    var datosFiltrados = listaMenoresACargo
+                    .Select(c => new
+                    {
+                        Id_Menor = c.ciudadanoMenor.id_ciudadano,
+                        Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
+                        Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
+                        DniMenor = c.ciudadanoMenor.dni,
+                        Parentesco = c.parentesco_menor.parentesco_menor,
+                        EdadMenor = c.edadMenor
+
+                    })
+                    .ToList();
+
+                    dgvMenores.DataSource = datosFiltrados;
+
+                    this.txtIdMenor.Text = string.Empty;
+                    this.txtNombreMen.Text = string.Empty;
+                    this.txtEdadMen.Text = string.Empty;
+                    this.txtDetalleMenores.Text = string.Empty;
+
+                }
+                else
+                {
+                    MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }//fin btn quitar mennores a cargo
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.txtIdMenor.Text = string.Empty;
+            this.txtNombreMen.Text = string.Empty;
+            this.txtEdadMen.Text = string.Empty;
+            this.txtDetalleMenores.Text = string.Empty;
         }
     }
 

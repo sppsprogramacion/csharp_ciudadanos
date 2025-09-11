@@ -47,5 +47,8 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
         //Quitar categoria
         public string txtDetalleCategoriaQuitar { get; set; }
 
+        //Quitar menores a cargo
+        public string txtDetalleMenores { get; set; }
+
     }
 }

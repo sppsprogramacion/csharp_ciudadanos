@@ -13,8 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-
-
 namespace DAOImplement
 {
     public class NacionalidadDaolmpl: INacionalidadDao
