@@ -165,7 +165,7 @@ namespace DAOImplement
                 {
                     string errorMessage = await httpResponse.Content.ReadAsStringAsync();
                     var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                    return (false, $"Error al quitar la categoria: {mensaje}");
+                    return (false, $"Error al quitar el menor: {mensaje}");
                 }
 
 

@@ -1381,6 +1381,7 @@ namespace CapaPresentacion
                 var datosFiltrados = listaMenoresACargo
                 .Select(c => new
                 {
+                    IdMenoraCargo = c.id_menor_a_cargo,
                     Id_Menor = c.ciudadanoMenor.id_ciudadano,
                     Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
                     Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
@@ -1738,7 +1739,7 @@ namespace CapaPresentacion
 
                 if (dgvMenores.SelectedRows.Count > 0)
                 {
-                    this.txtIdMenor.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["Id_Menor"].Value);
+                    this.txtIdMenor.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["IdMenoraCargo"].Value);
                     this.txtNombreMen.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["Menor"].Value);
                     this.txtEdadMen.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["EdadMenor"].Value);
                     //this.txtFechaCargaCategoriaQuitar.Text = Convert.ToString(this.dgvCategoriasCiudadano.CurrentRow.Cells["FechaCarga"].Value);
