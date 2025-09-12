@@ -149,6 +149,7 @@
             this.Controls.Add(this.txtPasword);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.Text = "frmLogin";
             this.panel1.ResumeLayout(false);

@@ -144,8 +144,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dataListadoCiudadanos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CiudadanoNuevo";
-            this.Text = "Nuevo Ciudadano";
+            this.Text = "Formulario de Administracion de Ciudadanos";
             this.Load += new System.EventHandler(this.CiudadanoNuevo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoCiudadanos)).EndInit();
             this.groupBox1.ResumeLayout(false);

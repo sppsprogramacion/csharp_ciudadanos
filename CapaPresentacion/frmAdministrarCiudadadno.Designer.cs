@@ -2075,6 +2075,7 @@
             this.ClientSize = new System.Drawing.Size(1248, 683);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministrarCiudadadno";
             this.Text = "Formulario Administrar Visitas";
             this.Load += new System.EventHandler(this.frmAdministrarCiudadadno_Load);

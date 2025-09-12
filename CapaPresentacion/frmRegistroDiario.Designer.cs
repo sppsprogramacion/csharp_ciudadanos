@@ -66,10 +66,10 @@
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.dtpFechaRegistroDiario = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtProfesion = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtProfesion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ptbFotoCiudadano)).BeginInit();
@@ -438,6 +438,22 @@
             this.panel2.Size = new System.Drawing.Size(823, 386);
             this.panel2.TabIndex = 60;
             // 
+            // txtProfesion
+            // 
+            this.txtProfesion.Location = new System.Drawing.Point(218, 312);
+            this.txtProfesion.Name = "txtProfesion";
+            this.txtProfesion.Size = new System.Drawing.Size(225, 20);
+            this.txtProfesion.TabIndex = 54;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(90, 318);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.TabIndex = 53;
+            this.label8.Text = "Profesión:";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -456,22 +472,6 @@
             this.label7.Size = new System.Drawing.Size(41, 13);
             this.label7.TabIndex = 61;
             this.label7.Text = "Sector:";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(90, 318);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 13);
-            this.label8.TabIndex = 53;
-            this.label8.Text = "Profesión:";
-            // 
-            // txtProfesion
-            // 
-            this.txtProfesion.Location = new System.Drawing.Point(218, 312);
-            this.txtProfesion.Name = "txtProfesion";
-            this.txtProfesion.Size = new System.Drawing.Size(225, 20);
-            this.txtProfesion.TabIndex = 54;
             // 
             // frmRegistroDiario
             // 
@@ -503,8 +503,9 @@
             this.Controls.Add(this.txtDocumentoIdentidad);
             this.Controls.Add(this.txtIdCiudadanoIngreso);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistroDiario";
-            this.Text = "frmRegistroDiario";
+            this.Text = "Formulario Registro Diario";
             this.Load += new System.EventHandler(this.frmRegistroDiario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAgregarInternos)).EndInit();
