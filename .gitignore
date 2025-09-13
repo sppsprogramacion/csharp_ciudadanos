@@ -1,44 +1,61 @@
+# -------------------------------
 # Archivos de Visual Studio
+# -------------------------------
 .vs/
 *.user
 *.suo
+*.csproj.user
 
+# -------------------------------
 # Build results
+# -------------------------------
 bin/
 obj/
 
-# Paquetes NuGet (solo si no usas `packages.config`)
+# -------------------------------
+# Paquetes NuGet
+# -------------------------------
 packages/
+*.nupkg
 
-# Archivos temporales y de caché
+# -------------------------------
+# Archivos de publicación / deploy
+# -------------------------------
+publish/
+*.Publish.xml
+
+# -------------------------------
+# Archivos de depuración y caché
+# -------------------------------
+*.pdb
+*.mdb
 *.log
 *.cache
 *.tmp
 
-# Configuración del usuario
-*.csproj.user
-
-# Archivos de depuración
-*.pdb
-*.mdb
-
-# Archivos de publicación
-*.Publish.xml
-
-# Configuración de IIS Express
+# -------------------------------
+# Configuración de IDEs y editores
+# -------------------------------
 .vscode/
-*.vspscc
-*.vssscc
-*.dbmdl
-
-# Configuración local de Rider o VSCode (si usás alguno)
 .idea/
 *.sln.iml
 *.code-workspace
+*.vspscc
+*.vssscc
 
+# -------------------------------
 # Archivos del sistema
+# -------------------------------
 Thumbs.db
 Desktop.ini
 
-# Archivos de configuración personal
+# -------------------------------
+# Configuraciones locales / sensibles
+# -------------------------------
 *.local.json
+
+# -------------------------------
+# Logs de actualización de Visual Studio
+# -------------------------------
+UpgradeLog*.htm
+UpgradeLog*.XML
