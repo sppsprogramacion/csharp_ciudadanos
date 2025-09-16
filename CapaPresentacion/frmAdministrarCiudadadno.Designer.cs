@@ -2131,21 +2131,22 @@
             this.groupBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox11.Location = new System.Drawing.Point(13, 9);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(697, 131);
+            this.groupBox11.Size = new System.Drawing.Size(769, 131);
             this.groupBox11.TabIndex = 98;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "Cargar novedad";
             // 
             // btnNuevaNovedad
             // 
-            this.btnNuevaNovedad.BackColor = System.Drawing.Color.Indigo;
+            this.btnNuevaNovedad.BackColor = System.Drawing.Color.White;
             this.btnNuevaNovedad.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnNuevaNovedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevaNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevaNovedad.ForeColor = System.Drawing.Color.White;
-            this.btnNuevaNovedad.Location = new System.Drawing.Point(482, 35);
+            this.btnNuevaNovedad.ForeColor = System.Drawing.Color.Black;
+            this.btnNuevaNovedad.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevaNovedad.Image")));
+            this.btnNuevaNovedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNuevaNovedad.Location = new System.Drawing.Point(474, 33);
             this.btnNuevaNovedad.Name = "btnNuevaNovedad";
-            this.btnNuevaNovedad.Size = new System.Drawing.Size(98, 37);
+            this.btnNuevaNovedad.Size = new System.Drawing.Size(270, 39);
             this.btnNuevaNovedad.TabIndex = 0;
             this.btnNuevaNovedad.Text = "Nueva";
             this.btnNuevaNovedad.UseVisualStyleBackColor = false;
@@ -2153,15 +2154,16 @@
             // 
             // btnCancelarNovedad
             // 
-            this.btnCancelarNovedad.BackColor = System.Drawing.Color.DarkOrange;
+            this.btnCancelarNovedad.BackColor = System.Drawing.Color.White;
             this.btnCancelarNovedad.Enabled = false;
             this.btnCancelarNovedad.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCancelarNovedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelarNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarNovedad.ForeColor = System.Drawing.Color.White;
-            this.btnCancelarNovedad.Location = new System.Drawing.Point(588, 78);
+            this.btnCancelarNovedad.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelarNovedad.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelarNovedad.Image")));
+            this.btnCancelarNovedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarNovedad.Location = new System.Drawing.Point(612, 78);
             this.btnCancelarNovedad.Name = "btnCancelarNovedad";
-            this.btnCancelarNovedad.Size = new System.Drawing.Size(98, 37);
+            this.btnCancelarNovedad.Size = new System.Drawing.Size(132, 37);
             this.btnCancelarNovedad.TabIndex = 3;
             this.btnCancelarNovedad.Text = "Cancelar";
             this.btnCancelarNovedad.UseVisualStyleBackColor = false;
@@ -2169,14 +2171,15 @@
             // 
             // btnGuardarNovedad
             // 
-            this.btnGuardarNovedad.BackColor = System.Drawing.Color.Green;
+            this.btnGuardarNovedad.BackColor = System.Drawing.Color.White;
             this.btnGuardarNovedad.Enabled = false;
-            this.btnGuardarNovedad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarNovedad.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarNovedad.Location = new System.Drawing.Point(482, 78);
+            this.btnGuardarNovedad.ForeColor = System.Drawing.Color.Black;
+            this.btnGuardarNovedad.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardarNovedad.Image")));
+            this.btnGuardarNovedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarNovedad.Location = new System.Drawing.Point(474, 78);
             this.btnGuardarNovedad.Name = "btnGuardarNovedad";
-            this.btnGuardarNovedad.Size = new System.Drawing.Size(98, 37);
+            this.btnGuardarNovedad.Size = new System.Drawing.Size(139, 37);
             this.btnGuardarNovedad.TabIndex = 2;
             this.btnGuardarNovedad.Text = "Guardar";
             this.btnGuardarNovedad.UseVisualStyleBackColor = false;
@@ -2197,10 +2200,10 @@
             this.txtNuevaNovedad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNuevaNovedad.Enabled = false;
             this.txtNuevaNovedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNuevaNovedad.Location = new System.Drawing.Point(8, 40);
+            this.txtNuevaNovedad.Location = new System.Drawing.Point(8, 33);
             this.txtNuevaNovedad.Multiline = true;
             this.txtNuevaNovedad.Name = "txtNuevaNovedad";
-            this.txtNuevaNovedad.Size = new System.Drawing.Size(460, 75);
+            this.txtNuevaNovedad.Size = new System.Drawing.Size(460, 82);
             this.txtNuevaNovedad.TabIndex = 1;
             // 
             // groupBox10
@@ -2354,14 +2357,15 @@
             // 
             // btnVerNovedades
             // 
-            this.btnVerNovedades.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerNovedades.BackColor = System.Drawing.Color.White;
             this.btnVerNovedades.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerNovedades.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerNovedades.ForeColor = System.Drawing.Color.White;
+            this.btnVerNovedades.ForeColor = System.Drawing.Color.Black;
+            this.btnVerNovedades.Image = ((System.Drawing.Image)(resources.GetObject("btnVerNovedades.Image")));
+            this.btnVerNovedades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerNovedades.Location = new System.Drawing.Point(13, 144);
             this.btnVerNovedades.Name = "btnVerNovedades";
-            this.btnVerNovedades.Size = new System.Drawing.Size(140, 37);
+            this.btnVerNovedades.Size = new System.Drawing.Size(177, 37);
             this.btnVerNovedades.TabIndex = 4;
             this.btnVerNovedades.Text = "Ver novedades";
             this.btnVerNovedades.UseVisualStyleBackColor = false;
