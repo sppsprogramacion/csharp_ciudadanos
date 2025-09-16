@@ -9,7 +9,7 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
 {
     public class CiudadanoDatos
     {
-        //public int id_ciudadano { get; set; }
+        public string txtIdCiudadano { get; set; }
         public string txtDni { get; set; }
         public string txtApellido { get; set; }
         public string txtNombre { get; set; }
@@ -49,6 +49,15 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
 
         //Quitar menores a cargo
         public string txtDetalleMenores { get; set; }
+
+        //para novedades
+        public string txtNuevaNovedad { get; set; }
+
+        //EXCEPCION DE INGRESO
+        //para NUEVA excepcion de ingreso
+        public DateTime dtpFechaExcepcion { get; set; }
+        public string txtMotivoExcepcion { get; set; }
+        public string txtDetalleExcepcion { get; set; }
 
     }
 }

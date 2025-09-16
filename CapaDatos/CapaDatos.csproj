@@ -46,12 +46,14 @@
     <Compile Include="DCiudadano.cs" />
     <Compile Include="DCiudadanosCategorias.cs" />
     <Compile Include="Departamento.cs" />
+    <Compile Include="DExcepcionIngresoVisita.cs" />
     <Compile Include="DInterno.cs" />
     <Compile Include="DLoginResponse.cs" />
     <Compile Include="DMenorACargo.cs" />
     <Compile Include="DMotivoAtencion.cs" />
     <Compile Include="DMunicipio.cs" />
     <Compile Include="DNacionalidad.cs" />
+    <Compile Include="DNovedadCiudadano.cs" />
     <Compile Include="DOrganismo.cs" />
     <Compile Include="DOrganismoDestino.cs" />
     <Compile Include="DPais.cs" />

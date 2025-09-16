@@ -51,12 +51,14 @@
     <Compile Include="CiudadanosCategoriasDaoImpl.cs" />
     <Compile Include="DepartamentoDaolmpl.cs" />
     <Compile Include="EstadoCivilDaoImpl.cs" />
+    <Compile Include="ExcepcionIngresoVisitaDaoImpl.cs" />
     <Compile Include="InternoDaolmpl.cs" />
     <Compile Include="InternoDaolmpl1.cs" />
     <Compile Include="MenorACargoDaoImplement.cs" />
     <Compile Include="MotivoAtencionDaoImpl.cs" />
     <Compile Include="MunicipioDaolmpl.cs" />
     <Compile Include="NacionalidadDaolmpl.cs" />
+    <Compile Include="NovedadCiudadanoDaoImpl.cs" />
     <Compile Include="OrganismoDestinoDaoImpl.cs" />
     <Compile Include="PaisDaolmpl.cs" />
     <Compile Include="ParentescoDaoImpl.cs" />

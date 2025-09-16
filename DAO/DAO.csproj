@@ -48,12 +48,14 @@
     <Compile Include="ICiudadanosCategoriasDao.cs" />
     <Compile Include="IDepartamentoDao.cs" />
     <Compile Include="IEstadoCivilDao.cs" />
+    <Compile Include="IExcepcionIngresoVisitaDao.cs" />
     <Compile Include="IInterno.cs" />
     <Compile Include="IInternoDao.cs" />
     <Compile Include="IMenorACargo.cs" />
     <Compile Include="IMotivoAtencionDao.cs" />
     <Compile Include="IMunicipioDao.cs" />
     <Compile Include="INacionalidadDao.cs" />
+    <Compile Include="INovedadCiudadanoDao.cs" />
     <Compile Include="IOrganismoDestino.cs" />
     <Compile Include="IPaisDao.cs" />
     <Compile Include="IParentescoDao.cs" />

@@ -158,6 +158,7 @@
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EditarDDomicilioCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EditarDPersonalesCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\EstablecerDiscapacidadValidator.cs" />
+    <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\NovedadNuevaValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\NuevoCiudadanoValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\QuitarCategoriaDelCiudadano.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\QuitarMenoresaCargoValidator.cs" />

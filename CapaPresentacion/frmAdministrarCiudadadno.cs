@@ -3,8 +3,6 @@ using CapaNegocio;
 using CapaPresentacion.FuncionesGenerales;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.Datos;
 using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
-using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
-using CapaPresentacion.Validaciones.NuevoCiudadano.ValidacionNuevoCiudadano;
 using iTextSharp.text.pdf;
 using iTextSharp.text;
 using iTextSharp.tool.xml;
@@ -21,7 +19,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
-
+using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
 
 namespace CapaPresentacion
 {
@@ -1845,6 +1843,259 @@ namespace CapaPresentacion
             this.txtEdadMen.Text = string.Empty;
             this.txtDetalleMenores.Text = string.Empty;
         }
+
+        private void btnVerNovedades_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridNovedades();
+        }
+
+        private void dtgvNovedades_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                if (dtgvNovedades.SelectedRows.Count > 0)
+                {
+                    int id_novedad;
+                    id_novedad = Convert.ToInt32(dtgvNovedades.CurrentRow.Cells["ID"].Value.ToString());
+
+                    if (id_novedad > 0)
+                    {
+                        txtIdNovedad.Text = id_novedad.ToString();
+                        txtFechaNovedad.Text = Convert.ToDateTime(dtgvNovedades.CurrentRow.Cells["FechaNovedad"].Value).ToString("dd/MM/yyyy");
+                        txtOrganismoNovedad.Text = dtgvNovedades.CurrentRow.Cells["Organismo"].Value.ToString();
+                        txtUsuarioNovedad.Text = dtgvNovedades.CurrentRow.Cells["Usuario"].Value.ToString();
+                        txtNovedad.Text = dtgvNovedades.CurrentRow.Cells["Novedad"].Value.ToString();
+                        txtDetalleNovedad.Text = dtgvNovedades.CurrentRow.Cells["Detalle"].Value.ToString();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una novedad.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        private void btnNuevaNovedad_Click(object sender, EventArgs e)
+        {
+            txtNuevaNovedad.Enabled = true;
+            btnNuevaNovedad.Enabled = false;
+            btnGuardarNovedad.Enabled = true;
+            btnCancelarNovedad.Enabled = true;
+        }
+
+        private async void btnGuardarNovedad_Click(object sender, EventArgs e)
+        {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validacion de formulario
+            var datosFormulario = new CiudadanoDatos
+            {
+                txtIdCiudadano = txtIdCiudadano.Text,
+                txtNuevaNovedad = txtNuevaNovedad.Text,
+            };
+
+            var validator = new NovedadNuevaValidator();
+            var result = validator.Validate(datosFormulario);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Restriccion Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validacion de formulario
+
+            NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
+
+            bool respuestaOk = false;
+            string mensajeRespuesta = "";
+
+
+            var data = new
+            {
+                ciudadano_id = Convert.ToInt32(txtIdCiudadano.Text),
+                novedad_detalle = txtNuevaNovedad.Text,
+            };
+
+            string dataNovedad = JsonConvert.SerializeObject(data);
+
+            tabControl1.Enabled = false;
+            (DNovedadCiudadano respuestaNovedad, string errorResponse) = await nNovedadCiudadano.CrearNovedad(dataNovedad);
+            tabControl1.Enabled = true;
+
+            if (respuestaNovedad != null)
+            {
+                MessageBox.Show("La novedad se guardo correctamente", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                txtNuevaNovedad.Enabled = false;
+                txtNuevaNovedad.Text = "";
+                btnNuevaNovedad.Enabled = true;
+                btnGuardarNovedad.Enabled = false;
+                btnCancelarNovedad.Enabled = false;
+
+                //cargar lista de ciudadanos en datagrid
+                this.CargarDataGridNovedades();
+            }
+            else
+            {
+                MessageBox.Show(errorResponse, "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnCancelarNovedad_Click(object sender, EventArgs e)
+        {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            txtNuevaNovedad.Enabled = false;
+            txtNuevaNovedad.Text = "";
+            btnNuevaNovedad.Enabled = true;
+            btnGuardarNovedad.Enabled = false;
+            btnCancelarNovedad.Enabled = false;
+        }
+
+        private void btnVerExcepciones_Click(object sender, EventArgs e)
+        {
+            this.CargarDataGridExcepciones();
+        }
+
+
+
+        private void dtgvExcepcionesIngreso_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+
+                if (dtgvExcepcionesIngreso.SelectedRows.Count > 0)
+                {
+                    int id_excepcion_ingreso;
+                    id_excepcion_ingreso = Convert.ToInt32(dtgvExcepcionesIngreso.CurrentRow.Cells["ID"].Value.ToString());
+
+                    if (id_excepcion_ingreso > 0)
+                    {
+                        //deshabilitar controles
+                        //this.HabilitarControlesExcepcion(false);
+                        //this.HabilitarControlesCumplimentarAnularExcepcion(false);
+
+                        //cargar datos de datagrid a controles
+                        txtIdExcepcion.Text = id_excepcion_ingreso.ToString();
+                        txtMotivoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["MotivoExcepcion"].Value.ToString();
+                        txtDetalleExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Detalle"].Value.ToString();
+                        txtInternoExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Interno"].Value.ToString();
+                        dtpFechaExcepcion.Value = Convert.ToDateTime(dtgvExcepcionesIngreso.CurrentRow.Cells["FechaExcepcion"].Value.ToString());
+                        txtOrganismoExepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Organismo"].Value.ToString();
+                        txtUsuarioCargaExcepcion.Text = dtgvExcepcionesIngreso.CurrentRow.Cells["Usuario"].Value.ToString();
+                        chkCumplimentadoExcepcion.Checked = Convert.ToBoolean(dtgvExcepcionesIngreso.CurrentRow.Cells["Cumplimentado"].Value.ToString());
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una excepcion.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+        //METODO PARA OBTENER LA LISTA DE NOVEDADES Y CARGARLO EN UN DATA GRID
+        async private void CargarDataGridNovedades()
+        {
+            NNovedadCiudadano nNovedadCiudadano = new NNovedadCiudadano();
+
+            (List<DNovedadCiudadano> listaNovedades, string errorResponse) = await nNovedadCiudadano.RetornarListaNovedadesCiudadano(this.dCiudadano.id_ciudadano);
+
+            if (listaNovedades == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaNovedades
+                .Select(c => new
+                {
+                    Id = c.id_novedad_ciudadano,
+                    Novedad = c.novedad,
+                    Detalle = c.novedad_detalle,
+                    FechaNovedad = c.fecha_novedad,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
+
+                })
+                .ToList();
+
+            dtgvNovedades.DataSource = datosfiltrados;
+
+            if (listaNovedades.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dtgvNovedades.Columns[1].Width = 200;
+                dtgvNovedades.Columns[2].Width = 400;
+            }
+        }//FIN METODO PARA OBTENER LA LISTA DE NOVEDADES EN UN DATA GRID ...........
+
+
+        //METODO PARA OBTENER LA LISTA DE EXCEPCIONES Y CARGARLO EN UN DATA GRID
+        async private void CargarDataGridExcepciones()
+        {
+            NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
+
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngreso(this.dCiudadano.id_ciudadano);
+
+            if (listaExcepcionesIngreso == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaExcepcionesIngreso
+                .Select(c => new
+                {
+                    Id = c.id_excepcion_ingreso_visita,
+                    FechaExcepcion = c.fecha_excepcion,
+                    MotivoExcepcion = c.motivo,
+                    Detalle = c.detalle_excepcion,
+                    Interno = c.interno.apellido + " " + c.interno.nombre,
+                    FechaCarga = c.fecha_carga,
+                    Organismo = c.organismo.organismo,
+                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
+                    Cumplimentado = c.cumplimentado,
+                    Anulado = c.anulado
+
+                })
+                .ToList();
+
+            dtgvExcepcionesIngreso.DataSource = datosfiltrados;
+
+            if (listaExcepcionesIngreso.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dtgvExcepcionesIngreso.Columns[2].Width = 200;
+                dtgvExcepcionesIngreso.Columns[3].Width = 400;
+            }
+        }//FIN METODO PARA OBTENER LA LISTA DE EXCEPCIONES Y CARGARLO EN UN DATA GRID.....................................
+
+        
     }
 
 }
