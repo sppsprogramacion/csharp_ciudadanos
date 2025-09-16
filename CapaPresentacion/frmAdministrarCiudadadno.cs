@@ -1379,12 +1379,11 @@ namespace CapaPresentacion
                 var datosFiltrados = listaMenoresACargo
                 .Select(c => new
                 {
-                    IdMenoraCargo = c.id_menor_a_cargo,
-                    Id_Menor = c.ciudadanoMenor.id_ciudadano,
+                    Id = c.id_menor_a_cargo,
                     Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
+                    Parentesco = c.parentesco_menor.parentesco_menor,
                     Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
                     DniMenor = c.ciudadanoMenor.dni,
-                    Parentesco = c.parentesco_menor.parentesco_menor,
                     EdadMenor = c.edadMenor
 
                 })

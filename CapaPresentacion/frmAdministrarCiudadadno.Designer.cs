@@ -197,7 +197,6 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.tabNovedades = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnNuevaNovedad = new System.Windows.Forms.Button();
@@ -239,6 +238,7 @@
             this.txtMotivoExcepcion = new System.Windows.Forms.TextBox();
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label64 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -2107,17 +2107,6 @@
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 0;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(22, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(454, 25);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            // 
             // tabNovedades
             // 
             this.tabNovedades.Controls.Add(this.groupBox11);
@@ -2589,6 +2578,17 @@
             this.label64.TabIndex = 44;
             this.label64.Text = "FECHA EXEPCION:";
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Maroon;
+            this.label23.Location = new System.Drawing.Point(22, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(454, 25);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
+            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2598,6 +2598,7 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministrarCiudadadno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Administrar Visitas";
             this.Load += new System.EventHandler(this.frmAdministrarCiudadadno_Load);
             this.tabControl1.ResumeLayout(false);

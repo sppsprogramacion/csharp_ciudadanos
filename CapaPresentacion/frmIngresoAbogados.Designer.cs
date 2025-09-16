@@ -240,6 +240,7 @@
             this.Controls.Add(this.txtIdAbogadoIngreso);
             this.Controls.Add(this.dgvListadoInternos);
             this.Name = "frmIngresoAbogados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Ingreso de Abogados";
             this.Load += new System.EventHandler(this.frmIngresoAbogados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListadoInternos)).EndInit();

@@ -146,6 +146,7 @@
             this.Controls.Add(this.dataListadoCiudadanos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CiudadanoNuevo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Administracion de Ciudadanos";
             this.Load += new System.EventHandler(this.CiudadanoNuevo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoCiudadanos)).EndInit();

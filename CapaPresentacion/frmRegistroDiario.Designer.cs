@@ -505,6 +505,7 @@
             this.Controls.Add(this.panel2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmRegistroDiario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Registro Diario";
             this.Load += new System.EventHandler(this.frmRegistroDiario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosRegistroDiario)).EndInit();

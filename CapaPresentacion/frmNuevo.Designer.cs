@@ -494,6 +494,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Name = "frmNuevo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNuevo";
             this.Load += new System.EventHandler(this.frmNuevo_Load);
             this.groupBox1.ResumeLayout(false);
