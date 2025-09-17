@@ -8,9 +8,9 @@ namespace Conexion
 {
     public class MiConexion
     {
-        private static string url = "http://localhost:3000/api";
+        //private static string url = "http://localhost:3000/api";
 
-        //private static string url = "http://programacionspps.online/api";
+        private static string url = "http://programacionspps.online/api";
 
         public static string getConexion()
         {
