@@ -11,18 +11,7 @@ namespace CapaNegocio
 {
     public class NExcepcionIngresoVisita
     {
-        //CREAR EXCEPCION
-        public async Task<(DExcepcionIngresoVisita, string error)> CrearExcepcion(string excepcionIngreso)
-        {
-            IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
-
-            (DExcepcionIngresoVisita excepcionIngresoResponse, string errorResponse) = await excepcionIngresoVisitaDao.CrearExcepcionIngresoVisita(excepcionIngreso);
-
-            return (excepcionIngresoResponse, errorResponse);
-        }
-        //FIN CREAR EXCEPCION..................................
-                        
-
+       
         //CUMPLIMENTAR UNA EXCEPCION
         public async Task<(bool, string error)> CumplimentarExcepcion(int id, string dataCumplimentar)
         {
@@ -34,18 +23,7 @@ namespace CapaNegocio
         }
         //FIN CUMPLIMENTAR UNA EXCEPCION..................................
 
-        //ANULAR UNA EXCEPCION
-        public async Task<(bool, string error)> AnularExcepcion(int id, string dataAnular)
-        {
-            IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
-
-            (bool excepcionIngresoResponse, string error) = await excepcionIngresoVisitaDao.AnularExcepcion(id, dataAnular);
-
-            return (excepcionIngresoResponse, error);
-        }
-        //FIN ANULAR UNA EXCEPCION..................................
-
-
+        
         //LISTA EXCEPCIONES INGRESO POR CIUDADANO
         public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngreso(int idCiudadano)
         {

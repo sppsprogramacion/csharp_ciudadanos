@@ -34,7 +34,7 @@
             this.btnRegistroDiario = new System.Windows.Forms.Button();
             this.btnAdministrar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnListaNovedades = new System.Windows.Forms.Button();
+            this.btnListaExcepciones = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,27 +104,27 @@
             this.btnCerrar.UseVisualStyleBackColor = false;
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
-            // btnListaNovedades
+            // btnListaExcepciones
             // 
-            this.btnListaNovedades.BackColor = System.Drawing.Color.White;
-            this.btnListaNovedades.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnListaNovedades.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnListaNovedades.Image = ((System.Drawing.Image)(resources.GetObject("btnListaNovedades.Image")));
-            this.btnListaNovedades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaNovedades.Location = new System.Drawing.Point(504, 109);
-            this.btnListaNovedades.Name = "btnListaNovedades";
-            this.btnListaNovedades.Size = new System.Drawing.Size(197, 65);
-            this.btnListaNovedades.TabIndex = 13;
-            this.btnListaNovedades.Text = "        Lista de Novedades";
-            this.btnListaNovedades.UseVisualStyleBackColor = false;
-            this.btnListaNovedades.Click += new System.EventHandler(this.button1_Click);
+            this.btnListaExcepciones.BackColor = System.Drawing.Color.White;
+            this.btnListaExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnListaExcepciones.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnListaExcepciones.Image = ((System.Drawing.Image)(resources.GetObject("btnListaExcepciones.Image")));
+            this.btnListaExcepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnListaExcepciones.Location = new System.Drawing.Point(504, 109);
+            this.btnListaExcepciones.Name = "btnListaExcepciones";
+            this.btnListaExcepciones.Size = new System.Drawing.Size(202, 65);
+            this.btnListaExcepciones.TabIndex = 13;
+            this.btnListaExcepciones.Text = "               Excepciones de ingreso";
+            this.btnListaExcepciones.UseVisualStyleBackColor = false;
+            this.btnListaExcepciones.Click += new System.EventHandler(this.btnListaExcepciones_Click);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 542);
-            this.Controls.Add(this.btnListaNovedades);
+            this.Controls.Add(this.btnListaExcepciones);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnRegistroDiario);
             this.Controls.Add(this.btnAdministrar);
@@ -147,6 +147,6 @@
         private System.Windows.Forms.Button btnAdministrar;
         private System.Windows.Forms.Button btnRegistroDiario;
         private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnListaNovedades;
+        private System.Windows.Forms.Button btnListaExcepciones;
     }
 }

@@ -19,60 +19,7 @@ namespace DAOImplement
         private string url_base = MiConexion.getConexion();
         HttpClient httpClient = new HttpClient();
 
-
-        //CREAR
-        public async Task<(DExcepcionIngresoVisita, string error)> CrearExcepcionIngresoVisita(string excepcionIngresoVisita)
-        {
-            DExcepcionIngresoVisita dataExcepcion = new DExcepcionIngresoVisita();
-            string token = SessionManager.Token; // Aquí pones tu token real
-
-            try
-            {
-                // Crear el contenido de la solicitud HTTP
-                StringContent content = new StringContent(excepcionIngresoVisita, Encoding.UTF8, "application/json");
-
-                // Agregar el token en los headers
-                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-                // Enviar la solicitud HTTP POST
-                HttpResponseMessage httpResponse = await this.httpClient.PostAsync(url_base + "/excepciones-ingreso-visita", content);
-
-                if (httpResponse.IsSuccessStatusCode)
-                {
-                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-                    dataExcepcion = JsonConvert.DeserializeObject<DExcepcionIngresoVisita>(contentRespuesta);
-
-                    // Puedes procesar el token o el resultado adicional aquí.
-                    // Establecer el usuario actual
-                    return (dataExcepcion, null);
-                }
-                else
-                {
-                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                    return (null, $"Error al crear: {mensaje}");
-                }
-
-            }
-            catch (HttpRequestException httpRequestException)
-            {
-                // Capturar errores de la solicitud HTTP
-                return (null, $"Error de conexión: {httpRequestException.Message}");
-            }
-            catch (JsonException jsonException)
-            {
-                // Capturar errores en la serialización/deserialización de JSON                
-                return (null, $"Error inesperado");
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores (log, mensaje al usuario, etc.)
-                Console.WriteLine($"Error: {ex.Message}");
-                return (null, $"Error inesperado: {ex.Message}");
-            }
-        }
-        //FIN CREAR...........................................................
-
+        
         //BUSCAR XID
         public Task<(DExcepcionIngresoVisita, string error)> BuscarExcepcionIngresoVisitaXId(int idExcepcionIngresoVisita)
         {
@@ -173,66 +120,7 @@ namespace DAOImplement
             }
         }
         //FIN LISTA EXCEPCIONES POR FECHA
-
-        //ANULAR EXCEPCION
-        public async Task<(bool, string error)> AnularExcepcion(int id, string dataAnular)
-        {
-            string token = SessionManager.Token; // Aquí pones tu token real
-
-            try
-            {
-                // Crear el contenido de la solicitud HTTP
-                StringContent content = new StringContent(dataAnular, Encoding.UTF8, "application/json");
-
-                // Agregar el token en los headers
-                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-
-                // Enviar la solicitud HTTP POST
-                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/excepciones-ingreso-visita/anular?id_excepcion=" + id, content);
-
-
-                if (httpResponse.IsSuccessStatusCode)
-                {
-                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
-
-                    var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
-
-                    if (dataRespuesta.Affected > 0)
-                    {
-                        return (true, null);
-                    }
-                    else
-                    {
-                        return (false, "No se pudo anular la excepción");
-                    }
-                }
-                else
-                {
-                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                    return (false, $"Error al anular: {mensaje}");
-                }
-
-            }
-            catch (HttpRequestException httpRequestException)
-            {
-                // Capturar errores de la solicitud HTTP
-                return (false, $"Error de conexión: {httpRequestException.Message}");
-            }
-            catch (JsonException jsonException)
-            {
-                // Capturar errores en la serialización/deserialización de JSON                
-                return (false, $"Error inesperado");
-            }
-            catch (Exception ex)
-            {
-                // Manejo de errores (log, mensaje al usuario, etc.)
-                Console.WriteLine($"Error: {ex.Message}");
-                return (false, $"Error inesperado: {ex.Message}");
-            }
-        }
-        //FIN ANULAR EXCEPCION................................................................
+                
 
         //CUMPLIMENTAR EXCEPCION
         public async Task<(bool, string error)> CumplimentarExcepcion(int id, string dataCumplimentar)

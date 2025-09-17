@@ -102,6 +102,12 @@
       <DependentUpon>AgregarInternos.cs</DependentUpon>
     </Compile>
     <Compile Include="CrearTicket.cs" />
+    <Compile Include="FormExcepcionesIngreso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExcepcionesIngreso.designer.cs">
+      <DependentUpon>FormExcepcionesIngreso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdministrarCiudadadno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CiudadanoNuevo.resx">
       <DependentUpon>CiudadanoNuevo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExcepcionesIngreso.resx">
+      <DependentUpon>FormExcepcionesIngreso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdministrarCiudadadno.resx">
       <DependentUpon>frmAdministrarCiudadadno.cs</DependentUpon>
