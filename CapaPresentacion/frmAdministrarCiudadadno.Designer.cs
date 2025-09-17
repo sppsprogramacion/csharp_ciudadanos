@@ -2405,7 +2405,7 @@
             this.btnVerExcepciones.Name = "btnVerExcepciones";
             this.btnVerExcepciones.Size = new System.Drawing.Size(150, 37);
             this.btnVerExcepciones.TabIndex = 107;
-            this.btnVerExcepciones.Text = "VER EXCEPCIONES";
+            this.btnVerExcepciones.Text = "Ver excepciones";
             this.btnVerExcepciones.UseVisualStyleBackColor = false;
             this.btnVerExcepciones.Click += new System.EventHandler(this.btnVerExcepciones_Click);
             // 

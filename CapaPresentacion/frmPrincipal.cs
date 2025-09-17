@@ -68,9 +68,12 @@ namespace CapaPresentacion
             Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void btnListaExcepciones_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Este boton es para mostrar las novedades");
+            FormExcepcionesIngreso formExcepcionesIngreso = new FormExcepcionesIngreso();
+
+            formExcepcionesIngreso.ShowDialog();
         }
     }
 }
