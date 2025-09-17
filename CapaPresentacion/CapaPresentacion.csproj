@@ -101,6 +101,7 @@
     <Compile Include="AgregarInternos.Designer.cs">
       <DependentUpon>AgregarInternos.cs</DependentUpon>
     </Compile>
+    <Compile Include="CrearReporte.cs" />
     <Compile Include="CrearTicket.cs" />
     <Compile Include="frmAdministrarCiudadadno.cs">
       <SubType>Form</SubType>

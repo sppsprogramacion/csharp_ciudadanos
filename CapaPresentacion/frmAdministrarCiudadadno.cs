@@ -1701,6 +1701,34 @@ namespace CapaPresentacion
             paginahtml_texto = paginahtml_texto.Replace("@SEXO", dCiudadano2.sexo.sexo);
             //paginahtml_texto = paginahtml_texto.Replace("@PARENTEZCO", Convert.ToString(data));
 
+            //imprimir reporte
+
+            MessageBox.Show("Imprimir ticket");
+
+
+            //MessageBox.Show("Hola Mundo");
+            CrearReporte reporte = new CrearReporte();
+            reporte.espacio1_en_blanco = " ";
+            
+            reporte.encabezado_principal = Convert.ToString("SERVICIO PENITENCIARIO DE LA PROVINCIA DE SALTA\r\n Declaración Jurada de Datos para Incorporación a Sistema de\r\n Acceso de Visitas de la Unidad Carcelaria N° 1");
+            reporte.espacio1_en_blanco = " ";
+            reporte.espacio1_en_blanco = " ";
+            reporte.encabezado_secundario = Convert.ToString(" ____: En la ciudad de Salta, capital de la provincia del mismo nombre, el/la que suscribe la\r\n presente don/doña: LEDESMA SEBASTIAN de sexo masculino, DNI N°: 2145654, Declara que:");
+            reporte.espacio1_en_blanco = " ";
+            reporte.espacio1_en_blanco = " ";
+            reporte.dni = Convert.ToString("2352342");
+            reporte.nombre = Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre);
+            reporte.nacionalidad = "Su nacionaliodad es: " + " " + Convert.ToString(dCiudadano2.nacionalidad.nacionalidad);
+            reporte.fecha_nacimiento = "Fecha de Nacimiento:" + " " + Convert.ToString(dCiudadano2.fecha_nac);
+            reporte.sexo = "Sexo:" + " " + Convert.ToString(dCiudadano2.sexo.sexo);
+            reporte.domicilio = "Domicilio:" + " " + Convert.ToString(dCiudadano2.direccion) + " " + Convert.ToString(dCiudadano2.numero_dom);
+            reporte.telefono = "Teléfono:" + " " + Convert.ToString(dCiudadano2.telefono);
+            reporte.fecha_alta = "Fecha de Alta: " +" "+ Convert.ToString(dCiudadano2.fecha_nac);
+            reporte.dni = Convert.ToString(dCiudadano2.estado_civil.estado_civil);
+            reporte.espacio1_en_blanco = " ";
+            //ticket.logotipo = pictureBox1.Image;
+            reporte.imprimir(reporte);
+
 
 
             //vamos a hacer elguardado del archivo si cumple todos los requisitos
