@@ -41,7 +41,7 @@ namespace DAOImplement
                         dataLoginResponse = JsonConvert.DeserializeObject<DLoginResponse>(contentRespuesta);
                         // Puedes procesar el token o el resultado adicional aquí.
                         // Establecer el usuario actual
-                        CurrentUser.Instance.SetUser(dataUsuario.id_usuario, dataUsuario.nombre, dataUsuario.apellido, dataUsuario.activo, dataUsuario.roles);
+                        CurrentUser.Instance.SetUser(dataUsuario.id_usuario, dataUsuario.apellido, dataUsuario.nombre, dataUsuario.organismo.organismo, dataUsuario.activo, dataUsuario.roles);
                         SessionManager.Token = dataLoginResponse.token;
                         return (true, null);
                     }

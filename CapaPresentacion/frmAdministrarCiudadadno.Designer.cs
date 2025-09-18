@@ -239,6 +239,7 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label64 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1016,6 +1017,7 @@
             // 
             // tabVincularCiudadno
             // 
+            this.tabVincularCiudadno.Controls.Add(this.btnImprimirVinculos);
             this.tabVincularCiudadno.Controls.Add(this.btnActualizarPestañaVinculacion);
             this.tabVincularCiudadno.Controls.Add(this.label25);
             this.tabVincularCiudadno.Controls.Add(this.txtIdVisita);
@@ -2593,6 +2595,19 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
+            // btnImprimirVinculos
+            // 
+            this.btnImprimirVinculos.BackColor = System.Drawing.Color.White;
+            this.btnImprimirVinculos.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirVinculos.Image")));
+            this.btnImprimirVinculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirVinculos.Location = new System.Drawing.Point(564, 12);
+            this.btnImprimirVinculos.Name = "btnImprimirVinculos";
+            this.btnImprimirVinculos.Size = new System.Drawing.Size(146, 37);
+            this.btnImprimirVinculos.TabIndex = 49;
+            this.btnImprimirVinculos.Text = "Imprimir Vinculos";
+            this.btnImprimirVinculos.UseVisualStyleBackColor = false;
+            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
+            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2871,6 +2886,7 @@
         private System.Windows.Forms.TextBox txtMotivoExcepcion;
         private System.Windows.Forms.DateTimePicker dtpFechaExcepcion;
         private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Button btnImprimirVinculos;
     }
 }
 

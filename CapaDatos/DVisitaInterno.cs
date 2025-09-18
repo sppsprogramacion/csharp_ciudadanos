@@ -16,12 +16,16 @@ namespace CapaDatos
         public DInterno interno { get; set; }
         public string parentesco_id { get; set; }
         public DParentesco parentesco { get; set; }
-        public bool prohibido {  get; set; }
+        public bool vigente { get; set; }
         public bool anulado { get; set; }
+        public bool prohibido { get; set; }
         public DateTime fecha_alta { get; set; }
+        public DateTime? fecha_prohibido { get; set; }
+        public DateTime? fecha_inicio { get; set; }
+        public DateTime? fecha_fin { get; set; }
+        public string detalles_prohibicion { get; set; }
         public int usuario_id { get; set; }
         public DUsuario usuario { get; set; }
-
 
     }
 }
