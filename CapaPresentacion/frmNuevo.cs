@@ -285,6 +285,7 @@ namespace CapaPresentacion
             //paginahtml_texto = paginahtml_texto.Replace("@PARENTEZCO", Convert.ToString(data));
 
 
+            
 
             //vamos a hacer elguardado del archivo si cumple todos los requisitos
             if (guardar.ShowDialog() == DialogResult.OK)
