@@ -23,6 +23,7 @@ using CapaPresentacion.Validaciones.AdminVisita.ValidacionProhibicion;
 using CapaPresentacion.Reportes.AdministrarCiudadano;
 using PdfiumViewer;
 using PdfDocument = PdfiumViewer.PdfDocument;
+using System.Net;
 
 namespace CapaPresentacion
 {
@@ -1713,14 +1714,16 @@ namespace CapaPresentacion
             CrearReporte reporte = new CrearReporte();
             reporte.espacio1_en_blanco = " ";
             
-            reporte.encabezado_principal = Convert.ToString("SERVICIO PENITENCIARIO DE LA PROVINCIA DE SALTA\r\n Declaración Jurada de Datos para Incorporación a Sistema de\r\n Acceso de Visitas de la Unidad Carcelaria N° 1");
-            reporte.espacio1_en_blanco = " ";
-            reporte.espacio1_en_blanco = " ";
-            reporte.encabezado_secundario = Convert.ToString(" ____: En la ciudad de Salta, capital de la provincia del mismo nombre, el/la que suscribe la\r\n presente don/doña: LEDESMA SEBASTIAN de sexo masculino, DNI N°: 2145654, Declara que:");
-            reporte.espacio1_en_blanco = " ";
-            reporte.espacio1_en_blanco = " ";
-            reporte.dni = Convert.ToString("2352342");
-            reporte.nombre = Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre);
+            reporte.encabezado_principal1 = Convert.ToString("                     SERVICIO PENITENCIARIO DE LA PROVINCIA DE SALTA");
+            reporte.encabezado_principal2 = Convert.ToString("             Declaración Jurada de Datos para incorporación a Sistema de Acceso ");
+            reporte.encabezado_principal3 = Convert.ToString("                                de Visitas de la Unidad Carcelaria N° 1 ");
+            //reporte.espacio1_en_blanco = " ";
+            //reporte.espacio1_en_blanco = " ";
+            reporte.encabezado_secundario1 = Convert.ToString(" ____: En la ciudad de Salta, capital de la provincia del mismo nombre, el/la que suscribe la");
+            reporte.encabezado_secundario2 = " presente don/doña: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre) + " " + "de sexo: " + " " + Convert.ToString(dCiudadano2.sexo.sexo) + " " + ", DNI N°: " + " " + Convert.ToString(dCiudadano2.dni) + " " + ", Declara que:";
+            //reporte.encabezado_secundario3 = Convert.ToString("-------------------------");
+            //reporte.espacio1_en_blanco = " ";
+            //reporte.espacio1_en_blanco = " ";
             reporte.nacionalidad = "Su nacionaliodad es: " + " " + Convert.ToString(dCiudadano2.nacionalidad.nacionalidad);
             reporte.fecha_nacimiento = "Fecha de Nacimiento:" + " " + Convert.ToString(dCiudadano2.fecha_nac);
             reporte.sexo = "Sexo:" + " " + Convert.ToString(dCiudadano2.sexo.sexo);
@@ -1729,6 +1732,9 @@ namespace CapaPresentacion
             reporte.fecha_alta = "Fecha de Alta: " +" "+ Convert.ToString(dCiudadano2.fecha_nac);
             reporte.dni = Convert.ToString(dCiudadano2.estado_civil.estado_civil);
             reporte.espacio1_en_blanco = " ";
+            reporte.pie_de_pagina1 = Convert.ToString(" Detallando a continuación menores a cargo en caaso de declarar alguno:");
+            reporte.pie_de_pagina2 = Convert.ToString(" Finalmente, se deja constancia que lo declarado queda sujeto a las verificaciones\r\n correspondientes por parte de la Dirección de Unidad, donde se encuentra alojado");
+            reporte.pie_de_pagina4 = Convert.ToString("el interno al que visita, Organismo que emitirá la autoraización correspondiente para\r\n la continuidad de los trámites de su habilitación de ingreso en carácter de visitante.");
             //ticket.logotipo = pictureBox1.Image;
             reporte.imprimir(reporte);
 

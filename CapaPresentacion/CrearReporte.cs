@@ -14,8 +14,15 @@ namespace CapaPresentacion
     {
         public string espacio1_en_blanco { get; set; }
         public string espacio2_en_blanco { get; set; }
-        public string encabezado_principal { get; set; }
-        public string encabezado_secundario { get; set; }
+        public string encabezado_principal1 { get; set; }
+        public string encabezado_principal2 { get; set; }
+        public string encabezado_principal3 { get; set; }
+        public string encabezado_secundario1 { get; set; }
+        public string encabezado_secundario2 { get; set; }
+        public string pie_de_pagina1 { get; set; }
+        public string pie_de_pagina2 { get; set; }
+        public string pie_de_pagina3 { get; set; }
+        public string pie_de_pagina4 { get; set; }
         public string nombre { get; set; }
         public string dni { get; set; }
         public string nacionalidad { get; set; }
@@ -54,7 +61,7 @@ namespace CapaPresentacion
             Font fuente_ciudadano = new Font("consola", 10, FontStyle.Bold);
             Font fuente_interno = new Font("consola", 10, FontStyle.Regular);
             Font fuente_encabezado_principal = new Font("consola", 14, FontStyle.Bold);
-            Font fuente_encabezado_secundario = new Font("consola", 14, FontStyle.Regular);
+            Font fuente_encabezado_secundario = new Font("consola", 12, FontStyle.Regular);
 
             try
             {
@@ -67,13 +74,19 @@ namespace CapaPresentacion
                 PosY += 20;
                 e.Graphics.DrawString(espacio2_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(encabezado_principal, fuente_encabezado_principal, Brushes.Black, PosX, PosY);
+                e.Graphics.DrawString(encabezado_principal1, fuente_encabezado_principal, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(encabezado_principal2, fuente_encabezado_principal, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(encabezado_principal3, fuente_encabezado_principal, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(encabezado_secundario, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                e.Graphics.DrawString(encabezado_secundario1, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(encabezado_secundario2, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
@@ -95,8 +108,30 @@ namespace CapaPresentacion
                 PosY += 20;
                 e.Graphics.DrawString(estado_civil, fuente_ciudadano, Brushes.Black, PosX, PosY);
                 PosY += 25;
-                e.Graphics.DrawString(parentezco_vinculo, fuente_interno, Brushes.Black, PosX, PosY);
-                PosY += 25;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio2_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(pie_de_pagina1, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio2_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio2_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(pie_de_pagina1, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(pie_de_pagina2, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(pie_de_pagina3, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(pie_de_pagina1, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                //e.Graphics.DrawString(parentezco_vinculo, fuente_interno, Brushes.Black, PosX, PosY);
+                //PosY += 25;
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
