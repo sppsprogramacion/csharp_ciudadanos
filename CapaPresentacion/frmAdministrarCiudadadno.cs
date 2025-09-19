@@ -1733,8 +1733,13 @@ namespace CapaPresentacion
             reporte.dni = Convert.ToString(dCiudadano2.estado_civil.estado_civil);
             reporte.espacio1_en_blanco = " ";
             reporte.pie_de_pagina1 = Convert.ToString(" Detallando a continuación menores a cargo en caaso de declarar alguno:");
-            reporte.pie_de_pagina2 = Convert.ToString(" Finalmente, se deja constancia que lo declarado queda sujeto a las verificaciones\r\n correspondientes por parte de la Dirección de Unidad, donde se encuentra alojado");
-            reporte.pie_de_pagina4 = Convert.ToString("el interno al que visita, Organismo que emitirá la autoraización correspondiente para\r\n la continuidad de los trámites de su habilitación de ingreso en carácter de visitante.");
+            reporte.pie_de_pagina2 = Convert.ToString(" Finalmente, se deja constancia que lo declarado queda sujeto a las verificaciones");
+            reporte.pie_de_pagina3 = Convert.ToString(" correspondientes por parte de la Dirección de Unidad, donde se encuentra alojado");
+            reporte.pie_de_pagina4 = Convert.ToString(" el interno al que visita, Organismo que emitirá la autoraización correspondiente para");
+            reporte.pie_de_pagina5 = Convert.ToString(" la continuidad de los trámites de su habilitación de ingreso en carácter de visitante.");
+            reporte.pie_de_pagina6 = Convert.ToString("-------------------------------------                                                                -------------------------------------");
+            reporte.pie_de_pagina7 = Convert.ToString(Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre));
+            reporte.pie_de_pagina8 = Convert.ToString("                                                                          ");
             //ticket.logotipo = pictureBox1.Image;
             reporte.imprimir(reporte);
 
