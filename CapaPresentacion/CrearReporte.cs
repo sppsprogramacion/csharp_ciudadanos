@@ -19,6 +19,7 @@ namespace CapaPresentacion
         public string encabezado_principal3 { get; set; }
         public string encabezado_secundario1 { get; set; }
         public string encabezado_secundario2 { get; set; }
+        public string encabezado_secundario3 { get; set; }
         public string pie_de_pagina1 { get; set; }
         public string pie_de_pagina2 { get; set; }
         public string pie_de_pagina3 { get; set; }
@@ -60,10 +61,10 @@ namespace CapaPresentacion
         {
             //declaramos variables
             int PosX, PosY;
-            Font fuente = new Font("consola", 10, FontStyle.Regular);
-            Font fuente_fecha = new Font("consola", 10, FontStyle.Regular);
-            Font fuente_ciudadano = new Font("consola", 10, FontStyle.Bold);
-            Font fuente_interno = new Font("consola", 10, FontStyle.Regular);
+            Font fuente = new Font("consola", 12, FontStyle.Regular);
+            Font fuente_fecha = new Font("consola", 12, FontStyle.Regular);
+            Font fuente_ciudadano = new Font("consola", 12, FontStyle.Bold);
+            Font fuente_interno = new Font("consola", 12, FontStyle.Regular);
             Font fuente_encabezado_principal = new Font("consola", 14, FontStyle.Bold);
             Font fuente_encabezado_secundario = new Font("consola", 12, FontStyle.Regular);
 
@@ -92,6 +93,8 @@ namespace CapaPresentacion
                 PosY += 20;
                 e.Graphics.DrawString(encabezado_secundario2, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
                 PosY += 20;
+                e.Graphics.DrawString(encabezado_secundario3, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
+                PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
@@ -100,18 +103,32 @@ namespace CapaPresentacion
                 PosY += 20;
                 e.Graphics.DrawString(nacionalidad, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
                 e.Graphics.DrawString(fecha_nacimiento, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(sexo, fuente, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(domicilio, fuente_ciudadano, Brushes.Black, PosX, PosY);
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(domicilio, fuente, Brushes.Black, PosX, PosY);
                 PosY += 25;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
                 e.Graphics.DrawString(telefono, fuente_interno, Brushes.Black, PosX, PosY);
                 PosY += 25;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
                 e.Graphics.DrawString(fecha_alta, fuente, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(estado_civil, fuente_ciudadano, Brushes.Black, PosX, PosY);
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(estado_civil, fuente, Brushes.Black, PosX, PosY);
                 PosY += 25;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(espacio2_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);

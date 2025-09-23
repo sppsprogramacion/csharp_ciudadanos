@@ -45,7 +45,7 @@ namespace CapaPresentacion.Reportes.AdministrarCiudadano
             doc.Add(logo);
             doc.Add(new Paragraph(" "));
 
-            // Crear tabla con 2 columnas
+            // Crear tabla con 1 columnas
             PdfPTable tablaEncabezado = new PdfPTable(1);
             tablaEncabezado.WidthPercentage = 50; // ocupa la mitad de la página
             tablaEncabezado.HorizontalAlignment = Element.ALIGN_LEFT; // tabla a la izquierda
