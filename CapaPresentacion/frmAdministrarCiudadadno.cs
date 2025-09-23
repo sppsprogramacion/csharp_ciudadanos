@@ -1720,11 +1720,12 @@ namespace CapaPresentacion
             //reporte.espacio1_en_blanco = " ";
             //reporte.espacio1_en_blanco = " ";
             reporte.encabezado_secundario1 = Convert.ToString("                     ______: En la ciudad de Salta, capital de la provincia del mismo nombre, el/la que suscribe la");
-            reporte.encabezado_secundario2 = "                     presente don/doña: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre) + " " + "de sexo: " + " " + Convert.ToString(dCiudadano2.sexo.sexo) + " " + ", DNI N°: " + " " + Convert.ToString(dCiudadano2.dni) + " " + ", ";
+            reporte.encabezado_secundario2 = "                     presente don/doña: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre)  + " " + ", ";
             reporte.encabezado_secundario3 = Convert.ToString("                     Declara que: ");
             //reporte.espacio1_en_blanco = " ";
             //reporte.espacio1_en_blanco = " ";
             reporte.nacionalidad = "                    Su nacionaliodad es: " + " " + Convert.ToString(dCiudadano2.nacionalidad.nacionalidad);
+            reporte.dni = "                    Documento de Identidad: " + " " + Convert.ToString(dCiudadano2.dni);
             reporte.fecha_nacimiento = "                    Su Fecha de Nacimiento es:" + " " + Convert.ToString(dCiudadano2.fecha_nac);
             reporte.sexo = "                    Sexo:" + " " + Convert.ToString(dCiudadano2.sexo.sexo);
             reporte.domicilio = "                    Su domicilio actual es :" + " " + Convert.ToString(dCiudadano2.direccion) + " " + Convert.ToString(dCiudadano2.numero_dom);
