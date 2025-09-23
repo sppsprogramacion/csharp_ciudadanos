@@ -334,12 +334,11 @@
             // 
             // btnCrearRegistroDiario
             // 
-            this.btnCrearRegistroDiario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCrearRegistroDiario.BackColor = System.Drawing.Color.White;
             this.btnCrearRegistroDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearRegistroDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearRegistroDiario.Image")));
             this.btnCrearRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(499, 771);
+            this.btnCrearRegistroDiario.Location = new System.Drawing.Point(437, 758);
             this.btnCrearRegistroDiario.Name = "btnCrearRegistroDiario";
             this.btnCrearRegistroDiario.Size = new System.Drawing.Size(234, 43);
             this.btnCrearRegistroDiario.TabIndex = 51;
