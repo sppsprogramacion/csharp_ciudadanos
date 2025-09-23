@@ -87,8 +87,6 @@ namespace CapaPresentacion
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
-                PosY += 20;
                 e.Graphics.DrawString(encabezado_secundario1, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(encabezado_secundario2, fuente_encabezado_secundario, Brushes.Black, PosX, PosY);
@@ -99,9 +97,11 @@ namespace CapaPresentacion
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
-                e.Graphics.DrawString(dni, fuente_fecha, Brushes.Black, PosX, PosY);
-                PosY += 20;
                 e.Graphics.DrawString(nacionalidad, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
+                PosY += 20;
+                e.Graphics.DrawString(dni, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;
                 e.Graphics.DrawString(espacio1_en_blanco, fuente_fecha, Brushes.Black, PosX, PosY);
                 PosY += 20;

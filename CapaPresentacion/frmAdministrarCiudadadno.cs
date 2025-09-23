@@ -1720,11 +1720,11 @@ namespace CapaPresentacion
             //reporte.espacio1_en_blanco = " ";
             //reporte.espacio1_en_blanco = " ";
             reporte.encabezado_secundario1 = Convert.ToString("                     ______: En la ciudad de Salta, capital de la provincia del mismo nombre, el/la que suscribe la");
-            reporte.encabezado_secundario2 = "                     presente don/doña: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre)  + " " + ", ";
-            reporte.encabezado_secundario3 = Convert.ToString("                     Declara que: ");
+            reporte.encabezado_secundario2 = "                     presente don/doña: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre)  + " " + ", Declara que: ";
+            //reporte.encabezado_secundario3 = Convert.ToString("                     );
             //reporte.espacio1_en_blanco = " ";
             //reporte.espacio1_en_blanco = " ";
-            reporte.nacionalidad = "                    Su nacionaliodad es: " + " " + Convert.ToString(dCiudadano2.nacionalidad.nacionalidad);
+            reporte.nacionalidad = "                    Su nacionalidad es: " + " " + Convert.ToString(dCiudadano2.nacionalidad.nacionalidad);
             reporte.dni = "                    Documento de Identidad: " + " " + Convert.ToString(dCiudadano2.dni);
             reporte.fecha_nacimiento = "                    Su Fecha de Nacimiento es:" + " " + Convert.ToString(dCiudadano2.fecha_nac);
             reporte.sexo = "                    Sexo:" + " " + Convert.ToString(dCiudadano2.sexo.sexo);
@@ -1738,7 +1738,7 @@ namespace CapaPresentacion
             reporte.pie_de_pagina3 = Convert.ToString("                   dientes por parte de la Dirección de Unidad, donde se encuentra alojado el interno al que vi-");
             reporte.pie_de_pagina4 = Convert.ToString("                   sita, Organismo que emitirá la autoraización correspondiente para la continuidad de los trámites ");
             reporte.pie_de_pagina5 = Convert.ToString("                   de su habilitación de ingreso en carácter de visitante.");
-            reporte.pie_de_pagina6 = Convert.ToString("            -------------------------------------                                                         -------------------------------------");
+            reporte.pie_de_pagina6 = Convert.ToString("                 -------------------------------------                                                    -------------------------------------");
             reporte.pie_de_pagina7 = "                 " + " " + Convert.ToString(Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre));
             reporte.pie_de_pagina8 = Convert.ToString("                                                                          ");
             //ticket.logotipo = pictureBox1.Image;
