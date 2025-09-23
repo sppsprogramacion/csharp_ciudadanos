@@ -1779,7 +1779,7 @@ namespace CapaPresentacion
 
                 if (dgvMenores.SelectedRows.Count > 0)
                 {
-                    this.txtIdMenor.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["IdMenoraCargo"].Value);
+                    this.txtIdMenor.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["Id"].Value);
                     this.txtNombreMen.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["Menor"].Value);
                     this.txtEdadMen.Text = Convert.ToString(this.dgvMenores.CurrentRow.Cells["EdadMenor"].Value);
                     //this.txtFechaCargaCategoriaQuitar.Text = Convert.ToString(this.dgvCategoriasCiudadano.CurrentRow.Cells["FechaCarga"].Value);
