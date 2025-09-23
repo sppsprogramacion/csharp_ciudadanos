@@ -490,7 +490,7 @@ namespace CapaPresentacion
                 {
                     txtIdVisita = txtIdVisita.Text,
                     txtIdInterno = txtIdInterno.Text,
-                    cmbParentesco = cmbParentesco.SelectedValue.ToString(),
+                    cmbParentesco = cmbParentesco.SelectedValue?.ToString() ?? string.Empty,
                     
                 };
 
