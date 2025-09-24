@@ -29,24 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdministrarCiudadadno));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabCodigoRojo = new System.Windows.Forms.TabControl();
             this.tabEditarCiudadano = new System.Windows.Forms.TabPage();
+            this.btnCancelarSubirImagen = new System.Windows.Forms.Button();
             this.btnAbrirFormularioImprimir = new System.Windows.Forms.Button();
             this.lblMenorEdad = new System.Windows.Forms.Label();
+            this.btnQuitarImagen = new System.Windows.Forms.Button();
             this.lblEsVisitaPrincipal = new System.Windows.Forms.Label();
             this.btnAsignarCategorias = new System.Windows.Forms.Button();
+            this.btnBuscarImagen = new System.Windows.Forms.Button();
             this.btnIngreso = new System.Windows.Forms.Button();
             this.btnVincularVisitas = new System.Windows.Forms.Button();
+            this.btnSubir = new System.Windows.Forms.Button();
             this.btnVincular = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnCancelarSubirImagen = new System.Windows.Forms.Button();
-            this.btnQuitarImagen = new System.Windows.Forms.Button();
-            this.btnBuscarImagen = new System.Windows.Forms.Button();
-            this.btnSubir = new System.Windows.Forms.Button();
             this.pictureImagenCargar = new System.Windows.Forms.PictureBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.pictureFoto = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtDetalleMotivo = new System.Windows.Forms.TextBox();
             this.btnEditar = new System.Windows.Forms.Button();
@@ -91,6 +90,7 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtNumDomicilio = new System.Windows.Forms.TextBox();
+            this.pictureFoto = new System.Windows.Forms.PictureBox();
             this.tabVincularCiudadno = new System.Windows.Forms.TabPage();
             this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
@@ -233,12 +233,16 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label64 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.tabControl1.SuspendLayout();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnEstablecerCodigoRojo = new System.Windows.Forms.Button();
+            this.btnQuitarCodigoRojo = new System.Windows.Forms.Button();
+            this.tabCodigoRojo.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).BeginInit();
             this.tabVincularCiudadno.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasVinculadas)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -266,24 +270,26 @@
             this.tabExcepcionesIngreso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExcepcionesIngreso)).BeginInit();
             this.groupBox12.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabCodigoRojo
             // 
-            this.tabControl1.Controls.Add(this.tabEditarCiudadano);
-            this.tabControl1.Controls.Add(this.tabVincularCiudadno);
-            this.tabControl1.Controls.Add(this.tabHistorialIngresos);
-            this.tabControl1.Controls.Add(this.tabAsignarVisitas);
-            this.tabControl1.Controls.Add(this.tabEstablecerCategorias);
-            this.tabControl1.Controls.Add(this.tabMenores);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabNovedades);
-            this.tabControl1.Controls.Add(this.tabExcepcionesIngreso);
-            this.tabControl1.Location = new System.Drawing.Point(12, 46);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1224, 617);
-            this.tabControl1.TabIndex = 0;
+            this.tabCodigoRojo.Controls.Add(this.tabEditarCiudadano);
+            this.tabCodigoRojo.Controls.Add(this.tabVincularCiudadno);
+            this.tabCodigoRojo.Controls.Add(this.tabHistorialIngresos);
+            this.tabCodigoRojo.Controls.Add(this.tabAsignarVisitas);
+            this.tabCodigoRojo.Controls.Add(this.tabEstablecerCategorias);
+            this.tabCodigoRojo.Controls.Add(this.tabMenores);
+            this.tabCodigoRojo.Controls.Add(this.tabPage1);
+            this.tabCodigoRojo.Controls.Add(this.tabNovedades);
+            this.tabCodigoRojo.Controls.Add(this.tabExcepcionesIngreso);
+            this.tabCodigoRojo.Controls.Add(this.tabPage2);
+            this.tabCodigoRojo.Location = new System.Drawing.Point(12, 46);
+            this.tabCodigoRojo.Name = "tabCodigoRojo";
+            this.tabCodigoRojo.SelectedIndex = 0;
+            this.tabCodigoRojo.Size = new System.Drawing.Size(1224, 617);
+            this.tabCodigoRojo.TabIndex = 0;
             // 
             // tabEditarCiudadano
             // 
@@ -311,6 +317,18 @@
             this.tabEditarCiudadano.Text = "Editar Ciudadano";
             this.tabEditarCiudadano.UseVisualStyleBackColor = true;
             // 
+            // btnCancelarSubirImagen
+            // 
+            this.btnCancelarSubirImagen.BackColor = System.Drawing.Color.White;
+            this.btnCancelarSubirImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarSubirImagen.Location = new System.Drawing.Point(316, 548);
+            this.btnCancelarSubirImagen.Name = "btnCancelarSubirImagen";
+            this.btnCancelarSubirImagen.Size = new System.Drawing.Size(77, 37);
+            this.btnCancelarSubirImagen.TabIndex = 49;
+            this.btnCancelarSubirImagen.Text = "Cancelar imagen";
+            this.btnCancelarSubirImagen.UseVisualStyleBackColor = false;
+            this.btnCancelarSubirImagen.Click += new System.EventHandler(this.btnCancelarSubirImagen_Click);
+            // 
             // btnAbrirFormularioImprimir
             // 
             this.btnAbrirFormularioImprimir.BackColor = System.Drawing.Color.White;
@@ -335,6 +353,19 @@
             this.lblMenorEdad.TabIndex = 46;
             this.lblMenorEdad.Text = "Es menor?";
             // 
+            // btnQuitarImagen
+            // 
+            this.btnQuitarImagen.BackColor = System.Drawing.Color.White;
+            this.btnQuitarImagen.Image = global::CapaPresentacion.Properties.Resources.eliminar_basura;
+            this.btnQuitarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitarImagen.Location = new System.Drawing.Point(178, 429);
+            this.btnQuitarImagen.Name = "btnQuitarImagen";
+            this.btnQuitarImagen.Size = new System.Drawing.Size(134, 37);
+            this.btnQuitarImagen.TabIndex = 48;
+            this.btnQuitarImagen.Text = "     Quitar imagen";
+            this.btnQuitarImagen.UseVisualStyleBackColor = false;
+            this.btnQuitarImagen.Click += new System.EventHandler(this.btnQuitarImagen_Click);
+            // 
             // lblEsVisitaPrincipal
             // 
             this.lblEsVisitaPrincipal.AutoSize = true;
@@ -358,6 +389,18 @@
             this.btnAsignarCategorias.Text = "Asignar Categorias";
             this.btnAsignarCategorias.UseVisualStyleBackColor = false;
             this.btnAsignarCategorias.Click += new System.EventHandler(this.btnAsignarCategorias_Click);
+            // 
+            // btnBuscarImagen
+            // 
+            this.btnBuscarImagen.BackColor = System.Drawing.Color.White;
+            this.btnBuscarImagen.Image = global::CapaPresentacion.Properties.Resources.buscar;
+            this.btnBuscarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarImagen.Location = new System.Drawing.Point(178, 548);
+            this.btnBuscarImagen.Name = "btnBuscarImagen";
+            this.btnBuscarImagen.Size = new System.Drawing.Size(54, 37);
+            this.btnBuscarImagen.TabIndex = 47;
+            this.btnBuscarImagen.UseVisualStyleBackColor = false;
+            this.btnBuscarImagen.Click += new System.EventHandler(this.btnBuscarImagen_Click);
             // 
             // btnIngreso
             // 
@@ -385,6 +428,19 @@
             this.btnVincularVisitas.UseVisualStyleBackColor = false;
             this.btnVincularVisitas.Click += new System.EventHandler(this.btnVincularVisitas_Click);
             // 
+            // btnSubir
+            // 
+            this.btnSubir.BackColor = System.Drawing.Color.White;
+            this.btnSubir.Image = global::CapaPresentacion.Properties.Resources.upload;
+            this.btnSubir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSubir.Location = new System.Drawing.Point(235, 548);
+            this.btnSubir.Name = "btnSubir";
+            this.btnSubir.Size = new System.Drawing.Size(77, 37);
+            this.btnSubir.TabIndex = 46;
+            this.btnSubir.Text = "        Subir";
+            this.btnSubir.UseVisualStyleBackColor = false;
+            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
+            // 
             // btnVincular
             // 
             this.btnVincular.BackColor = System.Drawing.Color.White;
@@ -411,6 +467,15 @@
             this.btnCancelar.Text = "Salir";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // pictureImagenCargar
+            // 
+            this.pictureImagenCargar.Location = new System.Drawing.Point(396, 548);
+            this.pictureImagenCargar.Name = "pictureImagenCargar";
+            this.pictureImagenCargar.Size = new System.Drawing.Size(45, 37);
+            this.pictureImagenCargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureImagenCargar.TabIndex = 37;
+            this.pictureImagenCargar.TabStop = false;
             // 
             // groupBox2
             // 
@@ -446,65 +511,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Personales";
             // 
-            // btnCancelarSubirImagen
-            // 
-            this.btnCancelarSubirImagen.BackColor = System.Drawing.Color.White;
-            this.btnCancelarSubirImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarSubirImagen.Location = new System.Drawing.Point(316, 548);
-            this.btnCancelarSubirImagen.Name = "btnCancelarSubirImagen";
-            this.btnCancelarSubirImagen.Size = new System.Drawing.Size(77, 37);
-            this.btnCancelarSubirImagen.TabIndex = 49;
-            this.btnCancelarSubirImagen.Text = "Cancelar imagen";
-            this.btnCancelarSubirImagen.UseVisualStyleBackColor = false;
-            this.btnCancelarSubirImagen.Click += new System.EventHandler(this.btnCancelarSubirImagen_Click);
-            // 
-            // btnQuitarImagen
-            // 
-            this.btnQuitarImagen.BackColor = System.Drawing.Color.White;
-            this.btnQuitarImagen.Image = global::CapaPresentacion.Properties.Resources.eliminar_basura;
-            this.btnQuitarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitarImagen.Location = new System.Drawing.Point(178, 429);
-            this.btnQuitarImagen.Name = "btnQuitarImagen";
-            this.btnQuitarImagen.Size = new System.Drawing.Size(134, 37);
-            this.btnQuitarImagen.TabIndex = 48;
-            this.btnQuitarImagen.Text = "     Quitar imagen";
-            this.btnQuitarImagen.UseVisualStyleBackColor = false;
-            this.btnQuitarImagen.Click += new System.EventHandler(this.btnQuitarImagen_Click);
-            // 
-            // btnBuscarImagen
-            // 
-            this.btnBuscarImagen.BackColor = System.Drawing.Color.White;
-            this.btnBuscarImagen.Image = global::CapaPresentacion.Properties.Resources.buscar;
-            this.btnBuscarImagen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarImagen.Location = new System.Drawing.Point(178, 548);
-            this.btnBuscarImagen.Name = "btnBuscarImagen";
-            this.btnBuscarImagen.Size = new System.Drawing.Size(54, 37);
-            this.btnBuscarImagen.TabIndex = 47;
-            this.btnBuscarImagen.UseVisualStyleBackColor = false;
-            this.btnBuscarImagen.Click += new System.EventHandler(this.btnBuscarImagen_Click);
-            // 
-            // btnSubir
-            // 
-            this.btnSubir.BackColor = System.Drawing.Color.White;
-            this.btnSubir.Image = global::CapaPresentacion.Properties.Resources.upload;
-            this.btnSubir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubir.Location = new System.Drawing.Point(235, 548);
-            this.btnSubir.Name = "btnSubir";
-            this.btnSubir.Size = new System.Drawing.Size(77, 37);
-            this.btnSubir.TabIndex = 46;
-            this.btnSubir.Text = "        Subir";
-            this.btnSubir.UseVisualStyleBackColor = false;
-            this.btnSubir.Click += new System.EventHandler(this.btnSubir_Click);
-            // 
-            // pictureImagenCargar
-            // 
-            this.pictureImagenCargar.Location = new System.Drawing.Point(396, 548);
-            this.pictureImagenCargar.Name = "pictureImagenCargar";
-            this.pictureImagenCargar.Size = new System.Drawing.Size(45, 37);
-            this.pictureImagenCargar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureImagenCargar.TabIndex = 37;
-            this.pictureImagenCargar.TabStop = false;
-            // 
             // button2
             // 
             this.button2.BackColor = System.Drawing.Color.White;
@@ -518,16 +524,6 @@
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // pictureFoto
-            // 
-            this.pictureFoto.Image = ((System.Drawing.Image)(resources.GetObject("pictureFoto.Image")));
-            this.pictureFoto.Location = new System.Drawing.Point(14, 429);
-            this.pictureFoto.Name = "pictureFoto";
-            this.pictureFoto.Size = new System.Drawing.Size(156, 156);
-            this.pictureFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureFoto.TabIndex = 27;
-            this.pictureFoto.TabStop = false;
             // 
             // label19
             // 
@@ -1006,6 +1002,16 @@
             this.txtNumDomicilio.Name = "txtNumDomicilio";
             this.txtNumDomicilio.Size = new System.Drawing.Size(259, 20);
             this.txtNumDomicilio.TabIndex = 7;
+            // 
+            // pictureFoto
+            // 
+            this.pictureFoto.Image = ((System.Drawing.Image)(resources.GetObject("pictureFoto.Image")));
+            this.pictureFoto.Location = new System.Drawing.Point(14, 429);
+            this.pictureFoto.Name = "pictureFoto";
+            this.pictureFoto.Size = new System.Drawing.Size(156, 156);
+            this.pictureFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureFoto.TabIndex = 27;
+            this.pictureFoto.TabStop = false;
             // 
             // tabVincularCiudadno
             // 
@@ -2340,23 +2346,24 @@
             // dtgvExcepcionesIngreso
             // 
             this.dtgvExcepcionesIngreso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvExcepcionesIngreso.Location = new System.Drawing.Point(35, 53);
+            this.dtgvExcepcionesIngreso.Location = new System.Drawing.Point(35, 63);
             this.dtgvExcepcionesIngreso.Name = "dtgvExcepcionesIngreso";
             this.dtgvExcepcionesIngreso.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgvExcepcionesIngreso.Size = new System.Drawing.Size(938, 305);
+            this.dtgvExcepcionesIngreso.Size = new System.Drawing.Size(938, 295);
             this.dtgvExcepcionesIngreso.TabIndex = 108;
             this.dtgvExcepcionesIngreso.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvExcepcionesIngreso_KeyDown);
             // 
             // btnVerExcepciones
             // 
-            this.btnVerExcepciones.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerExcepciones.BackColor = System.Drawing.Color.White;
             this.btnVerExcepciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerExcepciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerExcepciones.ForeColor = System.Drawing.Color.White;
+            this.btnVerExcepciones.ForeColor = System.Drawing.Color.Black;
+            this.btnVerExcepciones.Image = ((System.Drawing.Image)(resources.GetObject("btnVerExcepciones.Image")));
+            this.btnVerExcepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerExcepciones.Location = new System.Drawing.Point(35, 10);
             this.btnVerExcepciones.Name = "btnVerExcepciones";
-            this.btnVerExcepciones.Size = new System.Drawing.Size(150, 37);
+            this.btnVerExcepciones.Size = new System.Drawing.Size(234, 47);
             this.btnVerExcepciones.TabIndex = 107;
             this.btnVerExcepciones.Text = "Ver excepciones";
             this.btnVerExcepciones.UseVisualStyleBackColor = false;
@@ -2546,27 +2553,73 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.btnQuitarCodigoRojo);
+            this.tabPage2.Controls.Add(this.btnEstablecerCodigoRojo);
+            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1216, 591);
+            this.tabPage2.TabIndex = 9;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(353, 243);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(490, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // btnEstablecerCodigoRojo
+            // 
+            this.btnEstablecerCodigoRojo.BackColor = System.Drawing.Color.White;
+            this.btnEstablecerCodigoRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEstablecerCodigoRojo.Image = ((System.Drawing.Image)(resources.GetObject("btnEstablecerCodigoRojo.Image")));
+            this.btnEstablecerCodigoRojo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEstablecerCodigoRojo.Location = new System.Drawing.Point(353, 288);
+            this.btnEstablecerCodigoRojo.Name = "btnEstablecerCodigoRojo";
+            this.btnEstablecerCodigoRojo.Size = new System.Drawing.Size(251, 51);
+            this.btnEstablecerCodigoRojo.TabIndex = 1;
+            this.btnEstablecerCodigoRojo.Text = "Establecer Código Rojo";
+            this.btnEstablecerCodigoRojo.UseVisualStyleBackColor = false;
+            // 
+            // btnQuitarCodigoRojo
+            // 
+            this.btnQuitarCodigoRojo.BackColor = System.Drawing.Color.White;
+            this.btnQuitarCodigoRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarCodigoRojo.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarCodigoRojo.Image")));
+            this.btnQuitarCodigoRojo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitarCodigoRojo.Location = new System.Drawing.Point(610, 288);
+            this.btnQuitarCodigoRojo.Name = "btnQuitarCodigoRojo";
+            this.btnQuitarCodigoRojo.Size = new System.Drawing.Size(233, 51);
+            this.btnQuitarCodigoRojo.TabIndex = 2;
+            this.btnQuitarCodigoRojo.Text = "Quitar Código Rojo";
+            this.btnQuitarCodigoRojo.UseVisualStyleBackColor = false;
+            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1248, 683);
             this.Controls.Add(this.label23);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabCodigoRojo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministrarCiudadadno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Administrar Visitas";
             this.Load += new System.EventHandler(this.frmAdministrarCiudadadno_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.tabCodigoRojo.ResumeLayout(false);
             this.tabEditarCiudadano.ResumeLayout(false);
             this.tabEditarCiudadano.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureFoto)).EndInit();
             this.tabVincularCiudadno.ResumeLayout(false);
             this.tabVincularCiudadno.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVisitasVinculadas)).EndInit();
@@ -2605,6 +2658,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExcepcionesIngreso)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2612,7 +2667,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabCodigoRojo;
         private System.Windows.Forms.TabPage tabEditarCiudadano;
         private System.Windows.Forms.TabPage tabVincularCiudadno;
         private System.Windows.Forms.TabPage tabHistorialIngresos;
@@ -2816,6 +2871,10 @@
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Button btnImprimirVinculos;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnQuitarCodigoRojo;
+        private System.Windows.Forms.Button btnEstablecerCodigoRojo;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

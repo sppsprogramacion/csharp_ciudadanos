@@ -399,7 +399,7 @@ namespace CapaPresentacion
             else
             {
                 
-                this.tabControl1.SelectedIndex = 1;
+                this.tabCodigoRojo.SelectedIndex = 1;
             }
         }
 
@@ -644,7 +644,7 @@ namespace CapaPresentacion
                 MessageBox.Show("debe esperar que cargue los datos del ciudadano");
             }
             
-            this.tabControl1.SelectedIndex = 3;
+            this.tabCodigoRojo.SelectedIndex = 3;
         }
 
         private async void btnAsignarVisita_Click(object sender, EventArgs e)
@@ -766,7 +766,7 @@ namespace CapaPresentacion
         private void btnIngreso_Click(object sender, EventArgs e)
         {
             
-            this.tabControl1.SelectedIndex = 2;
+            this.tabCodigoRojo.SelectedIndex = 2;
         }
 
 
@@ -788,7 +788,7 @@ namespace CapaPresentacion
                 MessageBox.Show("debe esperar que cargue los datos del ciudadano");
             }
             
-            this.tabControl1.SelectedIndex = 4;
+            this.tabCodigoRojo.SelectedIndex = 4;
 
         }
 
@@ -983,7 +983,7 @@ namespace CapaPresentacion
             this.txtIdCioudadanoCategoria.Text = txtIdCiudadano.Text;
             this.txtDniCiudadanoCategoria.Text = txtDni.Text;
             this.txtNombnreCiudadanoCategoria.Text = txtApellido.Text + " " + txtNombre.Text;
-            this.tabControl1.SelectedIndex = 4;
+            this.tabCodigoRojo.SelectedIndex = 4;
 
         }
 
@@ -1652,7 +1652,7 @@ namespace CapaPresentacion
             else
             {
 
-                this.tabControl1.SelectedIndex = 6;
+                this.tabCodigoRojo.SelectedIndex = 6;
 
             }
         }
@@ -1970,9 +1970,9 @@ namespace CapaPresentacion
 
             string dataNovedad = JsonConvert.SerializeObject(data);
 
-            tabControl1.Enabled = false;
+            tabCodigoRojo.Enabled = false;
             (DNovedadCiudadano respuestaNovedad, string errorResponse) = await nNovedadCiudadano.CrearNovedad(dataNovedad);
-            tabControl1.Enabled = true;
+            tabCodigoRojo.Enabled = true;
 
             if (respuestaNovedad != null)
             {
