@@ -92,6 +92,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtNumDomicilio = new System.Windows.Forms.TextBox();
             this.tabVincularCiudadno = new System.Windows.Forms.TabPage();
+            this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.btnActualizarPestañaVinculacion = new System.Windows.Forms.Button();
             this.label25 = new System.Windows.Forms.Label();
             this.txtIdVisita = new System.Windows.Forms.TextBox();
@@ -192,11 +193,8 @@
             this.label45 = new System.Windows.Forms.Label();
             this.txtBuscarMenor = new System.Windows.Forms.TextBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.btnImprimirFormularioEmpadronamiento = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabNovedades = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.btnNuevaNovedad = new System.Windows.Forms.Button();
@@ -239,7 +237,6 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label64 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.btnImprimirVinculos = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1031,6 +1028,19 @@
             this.tabVincularCiudadno.TabIndex = 1;
             this.tabVincularCiudadno.Text = "Vincular Ciudadano";
             this.tabVincularCiudadno.UseVisualStyleBackColor = true;
+            // 
+            // btnImprimirVinculos
+            // 
+            this.btnImprimirVinculos.BackColor = System.Drawing.Color.White;
+            this.btnImprimirVinculos.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirVinculos.Image")));
+            this.btnImprimirVinculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnImprimirVinculos.Location = new System.Drawing.Point(564, 12);
+            this.btnImprimirVinculos.Name = "btnImprimirVinculos";
+            this.btnImprimirVinculos.Size = new System.Drawing.Size(146, 37);
+            this.btnImprimirVinculos.TabIndex = 49;
+            this.btnImprimirVinculos.Text = "Imprimir Vinculos";
+            this.btnImprimirVinculos.UseVisualStyleBackColor = false;
+            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
             // 
             // btnActualizarPestañaVinculacion
             // 
@@ -2056,11 +2066,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.btnImprimirFormularioEmpadronamiento);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(1216, 591);
@@ -2068,46 +2075,33 @@
             this.tabPage1.Text = "Imprimir Formularios";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(523, 156);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(318, 65);
+            this.button4.TabIndex = 49;
+            this.button4.Text = "Guardar Formulario";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click_1);
+            // 
             // btnImprimirFormularioEmpadronamiento
             // 
             this.btnImprimirFormularioEmpadronamiento.BackColor = System.Drawing.Color.White;
+            this.btnImprimirFormularioEmpadronamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImprimirFormularioEmpadronamiento.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirFormularioEmpadronamiento.Image")));
             this.btnImprimirFormularioEmpadronamiento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirFormularioEmpadronamiento.Location = new System.Drawing.Point(51, 152);
+            this.btnImprimirFormularioEmpadronamiento.Location = new System.Drawing.Point(293, 156);
             this.btnImprimirFormularioEmpadronamiento.Name = "btnImprimirFormularioEmpadronamiento";
-            this.btnImprimirFormularioEmpadronamiento.Size = new System.Drawing.Size(146, 37);
+            this.btnImprimirFormularioEmpadronamiento.Size = new System.Drawing.Size(224, 65);
             this.btnImprimirFormularioEmpadronamiento.TabIndex = 48;
             this.btnImprimirFormularioEmpadronamiento.Text = "Imprimir";
             this.btnImprimirFormularioEmpadronamiento.UseVisualStyleBackColor = false;
             this.btnImprimirFormularioEmpadronamiento.Click += new System.EventHandler(this.btnImprimirFormularioEmpadronamiento_Click);
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(51, 105);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 20);
-            this.textBox4.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(51, 79);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(51, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(51, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 0;
             // 
             // tabNovedades
             // 
@@ -2595,19 +2589,6 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
-            // btnImprimirVinculos
-            // 
-            this.btnImprimirVinculos.BackColor = System.Drawing.Color.White;
-            this.btnImprimirVinculos.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimirVinculos.Image")));
-            this.btnImprimirVinculos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnImprimirVinculos.Location = new System.Drawing.Point(564, 12);
-            this.btnImprimirVinculos.Name = "btnImprimirVinculos";
-            this.btnImprimirVinculos.Size = new System.Drawing.Size(146, 37);
-            this.btnImprimirVinculos.TabIndex = 49;
-            this.btnImprimirVinculos.Text = "Imprimir Vinculos";
-            this.btnImprimirVinculos.UseVisualStyleBackColor = false;
-            this.btnImprimirVinculos.Click += new System.EventHandler(this.btnImprimirVinculos_Click);
-            // 
             // frmAdministrarCiudadadno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2658,7 +2639,6 @@
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCiudadanosMenores)).EndInit();
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabNovedades.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
@@ -2829,10 +2809,6 @@
         private System.Windows.Forms.Button btnAbrirFormularioImprimir;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button btnImprimirFormularioEmpadronamiento;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtEdadMen;
         private System.Windows.Forms.TextBox txtNombreMen;
         private System.Windows.Forms.TextBox txtIdMenor;
@@ -2887,6 +2863,7 @@
         private System.Windows.Forms.DateTimePicker dtpFechaExcepcion;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.Button btnImprimirVinculos;
+        private System.Windows.Forms.Button button4;
     }
 }
 
