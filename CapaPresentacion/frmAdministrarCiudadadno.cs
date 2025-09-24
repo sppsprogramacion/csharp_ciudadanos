@@ -411,67 +411,25 @@ namespace CapaPresentacion
 
         private async void btnBuscarInterno_Click(object sender, EventArgs e)
         {
-            NInterno nInternos = new NInterno();
-            string apellido_ciudadanos = Convert.ToString(this.txtBuscarApellidoInternos.Text);
-            (List<DInterno> listaInternos, string errorResponse) = await nInternos.RetornarListaInternoXapellido(apellido_ciudadanos);
-            if (listaInternos == null)
+
+            using (frmInternosBuscar formInternos = new frmInternosBuscar())
             {
-                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            var datosFiltrados = listaInternos
-                .Select(c => new
+                txtIdInterno.Text = "";
+                txtInternoVincular.Text = "";
+
+                // Aquí se abre el FormularioB
+                if (formInternos.ShowDialog() == DialogResult.OK)
                 {
-                    id_interno = c.id_interno,
-                    Interno = c.apellido + " " + c.nombre,
-                    Prontuario = c.prontuario,
-                    Sexo = c.sexo.sexo
-                })
-                .ToList();
-
-            dtvInternos.DataSource = datosFiltrados;
-
-            if (listaInternos.Count == 0)
-            {
-                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            else
-            {
-
-                dtvInternos.Columns[2].Width = 300;
-            }
-        }
-
-        private async void dtvInternos_KeyDown(object sender, KeyEventArgs e)
-        {
-            
-            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                
-                this.idInternoGlobal = 1;
-                if (dtvInternos.SelectedRows.Count > 0)
-                {
-                    if (this.idInternoGlobal > 0)
-                    {//inicio if
-                                                
-                        this.txtProntuario.Text = Convert.ToString(this.dtvInternos.CurrentRow.Cells["prontuario"].Value);
-                        this.txtIdInterno.Text = Convert.ToString(this.dtvInternos.CurrentRow.Cells["id_interno"].Value);
-                        this.txtInternoVincular.Text = Convert.ToString(this.dtvInternos.CurrentRow.Cells["interno"].Value);
-                        this.tabControl1.SelectedIndex = 1;
-
-
-                    }//fin if
-                    else
-                    {
-                        MessageBox.Show("Debe seleccionar un interno.");
-                    }
+                    // Recién después de cerrar FormularioB, puedo leer el dato
+                    txtIdInterno.Text = formInternos.IdInternoSeleccionado;
+                    txtInternoVincular.Text = formInternos.InternoSeleccionado;
                 }
             }
+
+            
         }
 
+        
         private async void button1_Click(object sender, EventArgs e)
         {//inicio de boton crear parentesco
 
@@ -536,15 +494,35 @@ namespace CapaPresentacion
                     var datosFiltrados = listaVisitasInternosActual
                     .Select(c => new
                     {
-                        VISITA =c.ciudadano.apellido + " " + c.ciudadano.nombre,
-                        INTERNO = c.interno.apellido + " " + c.interno.nombre,
-                        prontuario = c.interno.prontuario,
-                        parentesco = c.parentesco.parentesco
+                        Id = c.id_visita_interno,
+                        Interno = c.interno.apellido + " " + c.interno.nombre,
+                        Prontuario = c.interno.prontuario,
+                        Unidad = c.interno.organismo.organismo,
+                        Parentesco = c.parentesco.parentesco,
+                        Vigente = c.vigente,
+                        Prohibido = c.prohibido,
+                        FechaProhib = c.fecha_prohibido,
+                        FechaInicio = c.fecha_inicio,
+                        FechaFin = c.fecha_fin,
+                        DetalleProhib = c.detalles_prohibicion,
+                        FechaAlta = c.fecha_alta,
+                        Usuario = c.usuario.apellido + " " + c.usuario.nombre
 
                     })
                     .ToList();
 
                     dgvVisitasVinculadas.DataSource = datosFiltrados;
+
+                    if (listaVisitasInternosActual.Count == 0)
+                    {
+                        MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else
+                    {
+
+                        dgvVisitasVinculadas.Columns[1].Width = 200;
+                    }
                 }
                 else
                 {
@@ -936,15 +914,36 @@ namespace CapaPresentacion
                 var datosFiltrados = listaVisitasInternos
                 .Select(c => new
                 {
-                    VISITA = c.ciudadano.apellido + " " + c.ciudadano.nombre,
-                    INTERNO = c.interno.apellido + " " + c.interno.nombre,
-                    prontuario = c.interno.prontuario,
-                    parentesco = c.parentesco.parentesco
+                    Id = c.id_visita_interno,
+                    Interno = c.interno.apellido + " " + c.interno.nombre,
+                    Prontuario = c.interno.prontuario,
+                    Unidad = c.interno.organismo.organismo,
+                    Parentesco = c.parentesco.parentesco,
+                    Vigente = c.vigente,
+                    Prohibido = c.prohibido,
+                    FechaProhib = c.fecha_prohibido,
+                    FechaInicio = c.fecha_inicio,
+                    FechaFin = c.fecha_fin,
+                    DetalleProhib = c.detalles_prohibicion,
+                    FechaAlta = c.fecha_alta,
+                    Usuario = c.usuario.apellido + " " + c.usuario.nombre
+                    
 
                 })
                 .ToList();
 
                 dgvVisitasVinculadas.DataSource = datosFiltrados;
+
+                if (listaVisitasInternos.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+
+                    dgvVisitasVinculadas.Columns[1].Width = 200;
+                }
 
                 //Carga de combo parentesco
                 NParentesco nParentesco = new NParentesco();

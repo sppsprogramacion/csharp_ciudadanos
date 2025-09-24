@@ -73,7 +73,6 @@ namespace CapaPresentacion
             this.txtNombreCiudadano.Text = string.Empty;
             this.txtBuscarInternos.Text = string.Empty;
             this.txtBuscarApellido.Text = string.Empty;
-            this.txtBuscarInternoss.Text = string.Empty;
         }
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -176,46 +175,23 @@ namespace CapaPresentacion
 
         private async void btnBuscarInternos_Click(object sender, EventArgs e)
         {
-            NInterno nInternos = new NInterno();
-            string apellido_ciudadanos = Convert.ToString(this.txtBuscarInternoss.Text);
-            (List<DInterno> listaInternos, string errorResponse) = await nInternos.RetornarListaInternoXapellido(apellido_ciudadanos);
-            if (listaInternos == null)
+
+            using (frmInternosBuscar formInternos = new frmInternosBuscar())
             {
-                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            var datosFiltrados = listaInternos
-                .Select(c => new
+                txtBuscarInternos.Text = "";
+
+                // Aquí se abre el FormularioB
+                if (formInternos.ShowDialog() == DialogResult.OK)
                 {
-                    id_interno = c.id_interno,
-                    Apellido = c.apellido,
-                    Nombre = c.nombre,
-                    Prontuario = c.prontuario,
-                    Sexo = c.sexo.sexo
-                })
-                .ToList();
-            dgvAgregarInternos.DataSource = datosFiltrados;
+                    // Recién después de cerrar FormularioB, puedo leer el dato
+                    txtBuscarInternos.Text = formInternos.InternoSeleccionado;
+                }
+            }
+
+            
         }
 
-        private void dgvAgregarInternos_KeyDown(object sender, KeyEventArgs e)
-        {
-            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-
-                this.idInternoGlobal = 1;
-                if (dgvAgregarInternos.SelectedRows.Count > 0)
-                {
-                    this.txtBuscarInternos.Text = Convert.ToString(this.dgvAgregarInternos.CurrentRow.Cells["apellido"].Value) + " " + Convert.ToString(this.dgvAgregarInternos.CurrentRow.Cells["nombre"].Value);
-                }
-                else
-                {
-                    MessageBox.Show("No hay internos con ese apellido en la base de datos.");
-                }
-                
-            }
-        }
+        
 
         private async void btnCrearRegistroDiario_Click(object sender, EventArgs e)
         {
@@ -372,20 +348,7 @@ namespace CapaPresentacion
                         ingresoAbogados.txtDniAbogado.Text = Convert.ToString(dniCiudadano);
                         ingresoAbogados.txtNombreAbogado.Text = nombreCiudadano;
                         ingresoAbogados.ShowDialog();
-
-
-                        //frmRegistroDiario registroDiario = new frmRegistroDiario();
-                        //AddOwnedForm(registroDiario);
-                        //registroDiario.txtBuscarInternos.Text = Convert.ToString(this.dgvDatosInternos.CurrentRow.Cells["apellido"].Value);
-                        //MessageBox.Show(Convert.ToString(this.dgvDatosInternos.CurrentRow.Cells["apellido"].Value));
-                        //registroDiario.Show();
-                        //this.Close();
-
-
-
-
-
-
+                                                                        
 
                     }
                     else
@@ -395,6 +358,11 @@ namespace CapaPresentacion
                 }
 
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
