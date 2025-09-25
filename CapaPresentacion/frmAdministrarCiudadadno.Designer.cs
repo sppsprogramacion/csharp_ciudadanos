@@ -233,12 +233,32 @@
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label64 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
             this.btnQuitarCodigoRojo = new System.Windows.Forms.Button();
             this.btnEstablecerCodigoRojo = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabVerProhibiciones = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label57 = new System.Windows.Forms.Label();
+            this.txtDetalle = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.txtDisposicion = new System.Windows.Forms.TextBox();
+            this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.txtOrganismo = new System.Windows.Forms.TextBox();
+            this.dtpFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.chkAnulado = new System.Windows.Forms.CheckBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.chkVigente = new System.Windows.Forms.CheckBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.txtIdProhibicion = new System.Windows.Forms.TextBox();
+            this.dtpFechaProhibicion = new System.Windows.Forms.DateTimePicker();
+            this.label71 = new System.Windows.Forms.Label();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.dtgvProhibiciones = new System.Windows.Forms.DataGridView();
+            this.btnVerProhibiciones = new System.Windows.Forms.Button();
             this.tabCodigoRojo.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).BeginInit();
@@ -273,6 +293,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgvExcepcionesIngreso)).BeginInit();
             this.groupBox12.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabVerProhibiciones.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibiciones)).BeginInit();
             this.SuspendLayout();
             // 
             // tabCodigoRojo
@@ -2559,6 +2583,16 @@
             this.tabPage2.Text = "Código Rojo";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bernard MT Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(235, 45);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(745, 57);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Establecer Ciudadanos con Código Rojo";
+            // 
             // btnQuitarCodigoRojo
             // 
             this.btnQuitarCodigoRojo.BackColor = System.Drawing.Color.White;
@@ -2592,6 +2626,19 @@
             this.textBox1.Size = new System.Drawing.Size(490, 20);
             this.textBox1.TabIndex = 0;
             // 
+            // tabVerProhibiciones
+            // 
+            this.tabVerProhibiciones.Controls.Add(this.groupBox6);
+            this.tabVerProhibiciones.Controls.Add(this.groupBox7);
+            this.tabVerProhibiciones.Controls.Add(this.btnVerProhibiciones);
+            this.tabVerProhibiciones.Location = new System.Drawing.Point(4, 22);
+            this.tabVerProhibiciones.Name = "tabVerProhibiciones";
+            this.tabVerProhibiciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVerProhibiciones.Size = new System.Drawing.Size(1216, 591);
+            this.tabVerProhibiciones.TabIndex = 10;
+            this.tabVerProhibiciones.Text = "Ver Prohibiciones";
+            this.tabVerProhibiciones.UseVisualStyleBackColor = true;
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -2603,25 +2650,228 @@
             this.label23.TabIndex = 1;
             this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
-            // label16
+            // groupBox6
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Bernard MT Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(235, 45);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(745, 57);
-            this.label16.TabIndex = 3;
-            this.label16.Text = "Establecer Ciudadanos con Código Rojo";
+            this.groupBox6.Controls.Add(this.label57);
+            this.groupBox6.Controls.Add(this.txtDetalle);
+            this.groupBox6.Controls.Add(this.label65);
+            this.groupBox6.Controls.Add(this.txtDisposicion);
+            this.groupBox6.Controls.Add(this.dtpFechaFin);
+            this.groupBox6.Controls.Add(this.label66);
+            this.groupBox6.Controls.Add(this.label67);
+            this.groupBox6.Controls.Add(this.txtOrganismo);
+            this.groupBox6.Controls.Add(this.dtpFechaInicio);
+            this.groupBox6.Controls.Add(this.chkAnulado);
+            this.groupBox6.Controls.Add(this.label68);
+            this.groupBox6.Controls.Add(this.chkVigente);
+            this.groupBox6.Controls.Add(this.label69);
+            this.groupBox6.Controls.Add(this.txtIdProhibicion);
+            this.groupBox6.Controls.Add(this.dtpFechaProhibicion);
+            this.groupBox6.Controls.Add(this.label71);
+            this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Location = new System.Drawing.Point(5, 302);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(745, 288);
+            this.groupBox6.TabIndex = 95;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Prohibición";
             // 
-            // tabVerProhibiciones
+            // label57
             // 
-            this.tabVerProhibiciones.Location = new System.Drawing.Point(4, 22);
-            this.tabVerProhibiciones.Name = "tabVerProhibiciones";
-            this.tabVerProhibiciones.Padding = new System.Windows.Forms.Padding(3);
-            this.tabVerProhibiciones.Size = new System.Drawing.Size(1216, 591);
-            this.tabVerProhibiciones.TabIndex = 10;
-            this.tabVerProhibiciones.Text = "Ver Prohibiciones";
-            this.tabVerProhibiciones.UseVisualStyleBackColor = true;
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(6, 66);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(87, 15);
+            this.label57.TabIndex = 41;
+            this.label57.Text = "DISPOSICION:";
+            // 
+            // txtDetalle
+            // 
+            this.txtDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDetalle.Location = new System.Drawing.Point(10, 135);
+            this.txtDetalle.Multiline = true;
+            this.txtDetalle.Name = "txtDetalle";
+            this.txtDetalle.ReadOnly = true;
+            this.txtDetalle.Size = new System.Drawing.Size(603, 77);
+            this.txtDetalle.TabIndex = 8;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Location = new System.Drawing.Point(7, 114);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(63, 15);
+            this.label65.TabIndex = 37;
+            this.label65.Text = "DETALLE:";
+            // 
+            // txtDisposicion
+            // 
+            this.txtDisposicion.Enabled = false;
+            this.txtDisposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDisposicion.Location = new System.Drawing.Point(10, 85);
+            this.txtDisposicion.Name = "txtDisposicion";
+            this.txtDisposicion.Size = new System.Drawing.Size(228, 21);
+            this.txtDisposicion.TabIndex = 5;
+            // 
+            // dtpFechaFin
+            // 
+            this.dtpFechaFin.Enabled = false;
+            this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaFin.Location = new System.Drawing.Point(398, 84);
+            this.dtpFechaFin.Name = "dtpFechaFin";
+            this.dtpFechaFin.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaFin.TabIndex = 7;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Location = new System.Drawing.Point(55, 21);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(84, 15);
+            this.label66.TabIndex = 87;
+            this.label66.Text = "ORGANISMO:";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Location = new System.Drawing.Point(395, 67);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(71, 15);
+            this.label67.TabIndex = 42;
+            this.label67.Text = "FECHA FIN:";
+            // 
+            // txtOrganismo
+            // 
+            this.txtOrganismo.Enabled = false;
+            this.txtOrganismo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtOrganismo.Location = new System.Drawing.Point(58, 40);
+            this.txtOrganismo.Name = "txtOrganismo";
+            this.txtOrganismo.Size = new System.Drawing.Size(213, 21);
+            this.txtOrganismo.TabIndex = 86;
+            // 
+            // dtpFechaInicio
+            // 
+            this.dtpFechaInicio.Enabled = false;
+            this.dtpFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaInicio.Location = new System.Drawing.Point(260, 85);
+            this.dtpFechaInicio.Name = "dtpFechaInicio";
+            this.dtpFechaInicio.Size = new System.Drawing.Size(115, 21);
+            this.dtpFechaInicio.TabIndex = 6;
+            // 
+            // chkAnulado
+            // 
+            this.chkAnulado.AutoSize = true;
+            this.chkAnulado.Enabled = false;
+            this.chkAnulado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAnulado.Location = new System.Drawing.Point(516, 40);
+            this.chkAnulado.Name = "chkAnulado";
+            this.chkAnulado.Size = new System.Drawing.Size(83, 19);
+            this.chkAnulado.TabIndex = 85;
+            this.chkAnulado.Text = "ANULADO";
+            this.chkAnulado.UseVisualStyleBackColor = true;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.Location = new System.Drawing.Point(256, 66);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(87, 15);
+            this.label68.TabIndex = 44;
+            this.label68.Text = "FECHA INICIO:";
+            // 
+            // chkVigente
+            // 
+            this.chkVigente.AutoSize = true;
+            this.chkVigente.Enabled = false;
+            this.chkVigente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkVigente.Location = new System.Drawing.Point(418, 40);
+            this.chkVigente.Name = "chkVigente";
+            this.chkVigente.Size = new System.Drawing.Size(77, 19);
+            this.chkVigente.TabIndex = 84;
+            this.chkVigente.Text = "VIGENTE";
+            this.chkVigente.UseVisualStyleBackColor = true;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.Location = new System.Drawing.Point(6, 21);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(22, 15);
+            this.label69.TabIndex = 83;
+            this.label69.Text = "ID:";
+            // 
+            // txtIdProhibicion
+            // 
+            this.txtIdProhibicion.Enabled = false;
+            this.txtIdProhibicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdProhibicion.Location = new System.Drawing.Point(9, 40);
+            this.txtIdProhibicion.Name = "txtIdProhibicion";
+            this.txtIdProhibicion.Size = new System.Drawing.Size(41, 21);
+            this.txtIdProhibicion.TabIndex = 82;
+            // 
+            // dtpFechaProhibicion
+            // 
+            this.dtpFechaProhibicion.Enabled = false;
+            this.dtpFechaProhibicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaProhibicion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaProhibicion.Location = new System.Drawing.Point(290, 40);
+            this.dtpFechaProhibicion.Name = "dtpFechaProhibicion";
+            this.dtpFechaProhibicion.Size = new System.Drawing.Size(106, 21);
+            this.dtpFechaProhibicion.TabIndex = 79;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.Location = new System.Drawing.Point(288, 21);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(98, 15);
+            this.label71.TabIndex = 80;
+            this.label71.Text = "FECHA PROHIB:";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.dtgvProhibiciones);
+            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Location = new System.Drawing.Point(5, 56);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(1051, 237);
+            this.groupBox7.TabIndex = 94;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Prohibiciones";
+            // 
+            // dtgvProhibiciones
+            // 
+            this.dtgvProhibiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvProhibiciones.Location = new System.Drawing.Point(6, 20);
+            this.dtgvProhibiciones.Name = "dtgvProhibiciones";
+            this.dtgvProhibiciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgvProhibiciones.Size = new System.Drawing.Size(1036, 206);
+            this.dtgvProhibiciones.TabIndex = 2;
+            this.dtgvProhibiciones.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dtgvProhibiciones_KeyDown);
+            // 
+            // btnVerProhibiciones
+            // 
+            this.btnVerProhibiciones.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerProhibiciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnVerProhibiciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVerProhibiciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerProhibiciones.ForeColor = System.Drawing.Color.White;
+            this.btnVerProhibiciones.Location = new System.Drawing.Point(11, 6);
+            this.btnVerProhibiciones.Name = "btnVerProhibiciones";
+            this.btnVerProhibiciones.Size = new System.Drawing.Size(160, 45);
+            this.btnVerProhibiciones.TabIndex = 93;
+            this.btnVerProhibiciones.Text = "VER PROHIBICIONES";
+            this.btnVerProhibiciones.UseVisualStyleBackColor = false;
+            this.btnVerProhibiciones.Click += new System.EventHandler(this.btnVerProhibiciones_Click);
             // 
             // frmAdministrarCiudadadno
             // 
@@ -2684,6 +2934,11 @@
             this.groupBox12.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabVerProhibiciones.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgvProhibiciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2901,6 +3156,26 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TabPage tabVerProhibiciones;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox txtDetalle;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox txtDisposicion;
+        private System.Windows.Forms.DateTimePicker dtpFechaFin;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox txtOrganismo;
+        private System.Windows.Forms.DateTimePicker dtpFechaInicio;
+        private System.Windows.Forms.CheckBox chkAnulado;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.CheckBox chkVigente;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.TextBox txtIdProhibicion;
+        private System.Windows.Forms.DateTimePicker dtpFechaProhibicion;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.DataGridView dtgvProhibiciones;
+        private System.Windows.Forms.Button btnVerProhibiciones;
     }
 }
 

@@ -59,6 +59,7 @@
     <Compile Include="IOrganismoDestino.cs" />
     <Compile Include="IPaisDao.cs" />
     <Compile Include="IParentescoDao.cs" />
+    <Compile Include="IProhibicionVisitaDao.cs" />
     <Compile Include="IProvinciaDao.cs" />
     <Compile Include="IRegistroDiarioDao.cs" />
     <Compile Include="ISectoresDestino.cs" />

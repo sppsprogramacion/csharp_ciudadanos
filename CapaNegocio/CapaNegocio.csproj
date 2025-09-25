@@ -58,6 +58,7 @@
     <Compile Include="NOrganismoDestino.cs" />
     <Compile Include="NPais.cs" />
     <Compile Include="NParentesco.cs" />
+    <Compile Include="NProhibicionVisita.cs" />
     <Compile Include="NProvincia.cs" />
     <Compile Include="NRegistroDiario.cs" />
     <Compile Include="NSectoresDestino.cs" />

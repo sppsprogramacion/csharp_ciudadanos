@@ -2265,8 +2265,98 @@ namespace CapaPresentacion
             }
 
 
+        }
+
+        private async void btnVerProhibiciones_Click(object sender, EventArgs e)
+        {
+            NProhibicionVisita nProhibicionVisita = new NProhibicionVisita();
+            (List<DProhibicionVisita> listaProhibicionesVisita, string errorResponse) = await nProhibicionVisita.RetornarListaProhibicionesVisita(this.dCiudadano.id_ciudadano);
+
+            if (listaProhibicionesVisita == null)
+            {
+                MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var datosfiltrados = listaProhibicionesVisita
+                .Select(c => new
+                {
+                    Id = c.id_prohibicion_visita,
+                    Disposicion = c.disposicion,
+                    Detalle = c.detalle,
+                    FechaInicio = c.fecha_inicio,
+                    FechaFin = c.fecha_fin,
+                    FechaProhibicion = c.fecha_prohibicion,
+                    Organismo = c.organismo.organismo,
+                    Prohibida = c.vigente,
+                    TipoLevantamiento = c.tipo_levantamiento,
+                    Anulado = c.anulado
+
+                })
+                .ToList();
+
+            dtgvProhibiciones.DataSource = datosfiltrados;
+
+            if (listaProhibicionesVisita.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dtgvProhibiciones.Columns[2].Width = 300;
+            }
+
+            foreach (DataGridViewRow row in dtgvProhibiciones.Rows)
+            {
+                if (row.Cells["Prohibida"].Value != null && Convert.ToBoolean(row.Cells["Prohibida"].Value) == true)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Orange; // Cambiar color de fondo
+                    row.DefaultCellStyle.ForeColor = Color.Black;    // Cambiar color del texto
+                }
+
+                if (row.Cells["Anulado"].Value != null && Convert.ToBoolean(row.Cells["Anulado"].Value) == true)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Black; // Cambiar color de fondo
+                    row.DefaultCellStyle.ForeColor = Color.White;    // Cambiar color del texto
+                }
+            }
+        }
+
+        private void dtgvProhibiciones_KeyDown(object sender, KeyEventArgs e)
+        {
+            //AL PRESIONAR ENTER MOSTRAR EL TRAMITE
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                                
+
+                if (dtgvProhibiciones.SelectedRows.Count > 0)
+                {
+                    int idProhibicion;
+                    idProhibicion = Convert.ToInt32(dtgvProhibiciones.CurrentRow.Cells["ID"].Value.ToString());
+
+                    if (idProhibicion > 0)
+                    {
+                        txtIdProhibicion.Text = idProhibicion.ToString();
+                        txtDisposicion.Text = dtgvProhibiciones.CurrentRow.Cells["Disposicion"].Value.ToString();
+                        txtDetalle.Text = dtgvProhibiciones.CurrentRow.Cells["Detalle"].Value.ToString();
+                        dtpFechaInicio.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaInicio"].Value.ToString());
+                        dtpFechaFin.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaFin"].Value.ToString());
+                        txtOrganismo.Text = dtgvProhibiciones.CurrentRow.Cells["Organismo"].Value.ToString();
+                        dtpFechaProhibicion.Value = Convert.ToDateTime(dtgvProhibiciones.CurrentRow.Cells["FechaProhibicion"].Value.ToString());
+                        chkVigente.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Prohibida"].Value.ToString());
+                        chkAnulado.Checked = Convert.ToBoolean(dtgvProhibiciones.CurrentRow.Cells["Anulado"].Value.ToString());
 
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe seleccionar una prohibición.", "Restricción Visitas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
         }
     }
 
