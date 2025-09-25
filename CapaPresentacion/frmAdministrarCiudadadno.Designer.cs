@@ -232,11 +232,13 @@
             this.txtMotivoExcepcion = new System.Windows.Forms.TextBox();
             this.dtpFechaExcepcion = new System.Windows.Forms.DateTimePicker();
             this.label64 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnEstablecerCodigoRojo = new System.Windows.Forms.Button();
             this.btnQuitarCodigoRojo = new System.Windows.Forms.Button();
+            this.btnEstablecerCodigoRojo = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.tabVerProhibiciones = new System.Windows.Forms.TabPage();
             this.tabCodigoRojo.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).BeginInit();
@@ -285,6 +287,7 @@
             this.tabCodigoRojo.Controls.Add(this.tabNovedades);
             this.tabCodigoRojo.Controls.Add(this.tabExcepcionesIngreso);
             this.tabCodigoRojo.Controls.Add(this.tabPage2);
+            this.tabCodigoRojo.Controls.Add(this.tabVerProhibiciones);
             this.tabCodigoRojo.Location = new System.Drawing.Point(12, 46);
             this.tabCodigoRojo.Name = "tabCodigoRojo";
             this.tabCodigoRojo.SelectedIndex = 0;
@@ -2542,19 +2545,9 @@
             this.label64.TabIndex = 44;
             this.label64.Text = "FECHA EXEPCION:";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(22, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(454, 25);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.btnQuitarCodigoRojo);
             this.tabPage2.Controls.Add(this.btnEstablecerCodigoRojo);
             this.tabPage2.Controls.Add(this.textBox1);
@@ -2563,15 +2556,21 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1216, 591);
             this.tabPage2.TabIndex = 9;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Código Rojo";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnQuitarCodigoRojo
             // 
-            this.textBox1.Location = new System.Drawing.Point(353, 243);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(490, 20);
-            this.textBox1.TabIndex = 0;
+            this.btnQuitarCodigoRojo.BackColor = System.Drawing.Color.White;
+            this.btnQuitarCodigoRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarCodigoRojo.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarCodigoRojo.Image")));
+            this.btnQuitarCodigoRojo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnQuitarCodigoRojo.Location = new System.Drawing.Point(610, 288);
+            this.btnQuitarCodigoRojo.Name = "btnQuitarCodigoRojo";
+            this.btnQuitarCodigoRojo.Size = new System.Drawing.Size(233, 51);
+            this.btnQuitarCodigoRojo.TabIndex = 2;
+            this.btnQuitarCodigoRojo.Text = "Quitar Código Rojo";
+            this.btnQuitarCodigoRojo.UseVisualStyleBackColor = false;
             // 
             // btnEstablecerCodigoRojo
             // 
@@ -2586,18 +2585,43 @@
             this.btnEstablecerCodigoRojo.Text = "Establecer Código Rojo";
             this.btnEstablecerCodigoRojo.UseVisualStyleBackColor = false;
             // 
-            // btnQuitarCodigoRojo
+            // textBox1
             // 
-            this.btnQuitarCodigoRojo.BackColor = System.Drawing.Color.White;
-            this.btnQuitarCodigoRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarCodigoRojo.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarCodigoRojo.Image")));
-            this.btnQuitarCodigoRojo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitarCodigoRojo.Location = new System.Drawing.Point(610, 288);
-            this.btnQuitarCodigoRojo.Name = "btnQuitarCodigoRojo";
-            this.btnQuitarCodigoRojo.Size = new System.Drawing.Size(233, 51);
-            this.btnQuitarCodigoRojo.TabIndex = 2;
-            this.btnQuitarCodigoRojo.Text = "Quitar Código Rojo";
-            this.btnQuitarCodigoRojo.UseVisualStyleBackColor = false;
+            this.textBox1.Location = new System.Drawing.Point(353, 212);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(490, 20);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Maroon;
+            this.label23.Location = new System.Drawing.Point(22, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(454, 25);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Bernard MT Condensed", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(235, 45);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(745, 57);
+            this.label16.TabIndex = 3;
+            this.label16.Text = "Establecer Ciudadanos con Código Rojo";
+            // 
+            // tabVerProhibiciones
+            // 
+            this.tabVerProhibiciones.Location = new System.Drawing.Point(4, 22);
+            this.tabVerProhibiciones.Name = "tabVerProhibiciones";
+            this.tabVerProhibiciones.Padding = new System.Windows.Forms.Padding(3);
+            this.tabVerProhibiciones.Size = new System.Drawing.Size(1216, 591);
+            this.tabVerProhibiciones.TabIndex = 10;
+            this.tabVerProhibiciones.Text = "Ver Prohibiciones";
+            this.tabVerProhibiciones.UseVisualStyleBackColor = true;
             // 
             // frmAdministrarCiudadadno
             // 
@@ -2875,6 +2899,8 @@
         private System.Windows.Forms.Button btnQuitarCodigoRojo;
         private System.Windows.Forms.Button btnEstablecerCodigoRojo;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TabPage tabVerProhibiciones;
     }
 }
 
