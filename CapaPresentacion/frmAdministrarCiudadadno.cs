@@ -24,6 +24,7 @@ using CapaPresentacion.Reportes.AdministrarCiudadano;
 using PdfiumViewer;
 using PdfDocument = PdfiumViewer.PdfDocument;
 using System.Net;
+using CommonCache;
 
 namespace CapaPresentacion
 {
@@ -1679,13 +1680,14 @@ namespace CapaPresentacion
 
 
             DCiudadano dCiudadano = new DCiudadano();
+            DOrganismo dOrganismo = new DOrganismo();
             //SaveFileDialog solicita al usuario que busqeu un lugar para guardar un archivo
             SaveFileDialog guardar = new SaveFileDialog();
             guardar.FileName = DateTime.Now.ToString("ddMMyyyyHHmmss") + ".pdf";//gaurda el archivo con el nombre de la fecha del dia concatenado con la hora .pdf
                                                                                 //guardar.ShowDialog();//ejecuta un cuadro de dialogo
 
             string varSexo = Convert.ToString(cmbSexo.Text);
-            
+
             /*La forma para trabajar u archivo .pdf, o al menos el diseño que va a tener el pdf, en el video lo trabajan 
             es en que se puedan cambiar y modificar por un largo tiempo. La forma es creando un archivo html, en donde se diseña una tabla
             con el ancho de las columnas y todo lo necesarrio para crear las tablas, trabajando totalmente el html, y en base a este archivo
@@ -1708,40 +1710,41 @@ namespace CapaPresentacion
 
             //MessageBox.Show("Imprimir ticket");
 
-
             //MessageBox.Show("Hola Mundo");
             CrearReporte reporte = new CrearReporte();
+            string organismo = CurrentUser.Instance.organismo.ToUpper();
             reporte.espacio1_en_blanco = " ";
             
             reporte.encabezado_principal1 = Convert.ToString("                             SERVICIO PENITENCIARIO DE LA PROVINCIA DE SALTA");
             reporte.encabezado_principal2 = Convert.ToString("                     Declaración Jurada de Datos para incorporación a Sistema de Acceso ");
-            reporte.encabezado_principal3 = Convert.ToString("                                        de Visitas de la Unidad Carcelaria N° 1 ");
+            reporte.encabezado_principal3 = Convert.ToString("                                               " + organismo);
             //reporte.espacio1_en_blanco = " ";
             //reporte.espacio1_en_blanco = " ";
             reporte.encabezado_secundario1 = Convert.ToString("                     ______: En la ciudad de Salta, capital de la provincia del mismo nombre, el/la que suscribe la");
-            reporte.encabezado_secundario2 = "                     presente don/doña: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre)  + " " + ", Declara que: ";
+            reporte.encabezado_secundario2 = "                     presente Sr./Sra.: " + Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre)  + " " + ", Declara que: ";
             //reporte.encabezado_secundario3 = Convert.ToString("                     );
             //reporte.espacio1_en_blanco = " ";
             //reporte.espacio1_en_blanco = " ";
             reporte.nacionalidad = "                    Su nacionalidad es: " + " " + Convert.ToString(dCiudadano2.nacionalidad.nacionalidad);
             reporte.dni = "                    Documento de Identidad: " + " " + Convert.ToString(dCiudadano2.dni);
-            reporte.fecha_nacimiento = "                    Su Fecha de Nacimiento es:" + " " + Convert.ToString(dCiudadano2.fecha_nac);
+            reporte.fecha_nacimiento = "                    Su Fecha de Nacimiento es:" + " " + dCiudadano2.fecha_nac.ToShortDateString();
             reporte.sexo = "                    Sexo:" + " " + Convert.ToString(dCiudadano2.sexo.sexo);
-            reporte.domicilio = "                    Su domicilio actual es :" + " " + Convert.ToString(dCiudadano2.direccion) + " " + Convert.ToString(dCiudadano2.numero_dom);
+            reporte.domicilio = "                    Su domicilio actual es :" + " " + Convert.ToString(dCiudadano2.barrio) + ", " + Convert.ToString(dCiudadano2.direccion) + " " + Convert.ToString(dCiudadano2.numero_dom);
             reporte.telefono = "                    Su Teléfono actual es :" + " " + Convert.ToString(dCiudadano2.telefono);
-            reporte.fecha_alta = "                     Fecha de Alta: " +" "+ Convert.ToString(dCiudadano2.fecha_nac);
+            reporte.fecha_alta = "                     Fecha de Alta: " +" "+ dCiudadano2.fecha_alta.ToShortDateString();
             reporte.estado_civil = "                     Su Estado Civil es: " + " " + Convert.ToString(dCiudadano2.estado_civil.estado_civil);
             reporte.espacio1_en_blanco = " ";
             reporte.pie_de_pagina1 = Convert.ToString("                   Detallando a continuación menores a cargo en caaso de declarar alguno:");
             reporte.pie_de_pagina2 = Convert.ToString("                   Finalmente, se deja constancia que lo declarado queda sujeto a las verificaciones correspon-");
-            reporte.pie_de_pagina3 = Convert.ToString("                   dientes por parte de la Dirección de Unidad, donde se encuentra alojado el interno al que vi-");
-            reporte.pie_de_pagina4 = Convert.ToString("                   sita, Organismo que emitirá la autoraización correspondiente para la continuidad de los trámites ");
-            reporte.pie_de_pagina5 = Convert.ToString("                   de su habilitación de ingreso en carácter de visitante.");
-            reporte.pie_de_pagina6 = Convert.ToString("                 -------------------------------------                                                    -------------------------------------");
+            reporte.pie_de_pagina3 = Convert.ToString("                   dientes por parte de la Dirección de Unidad, donde se encuentra alojado/a el/la interno/a al que");
+            reporte.pie_de_pagina4 = Convert.ToString("                   visita. Dicho Organismo que emitirá la pertinente autorización correspondiente para la continui-");
+            reporte.pie_de_pagina5 = Convert.ToString("                   dad de los trámites de su habilitación de ingreso en carácter de visitante.");
+            reporte.pie_de_pagina6 = Convert.ToString("                 -----------------------------------------                                               -----------------------------------------");
             reporte.pie_de_pagina7 = "                 " + " " + Convert.ToString(Convert.ToString(dCiudadano2.apellido) + " " + (dCiudadano2.nombre));
             reporte.pie_de_pagina8 = Convert.ToString("                                                                          ");
             //ticket.logotipo = pictureBox1.Image;
             reporte.imprimir(reporte);
+            
 
 
             /*
