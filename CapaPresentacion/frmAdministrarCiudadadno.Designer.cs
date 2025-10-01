@@ -238,7 +238,6 @@
             this.btnEstablecerCodigoRojo = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabVerProhibiciones = new System.Windows.Forms.TabPage();
-            this.label23 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.label57 = new System.Windows.Forms.Label();
             this.txtDetalle = new System.Windows.Forms.TextBox();
@@ -259,6 +258,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.dtgvProhibiciones = new System.Windows.Forms.DataGridView();
             this.btnVerProhibiciones = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
             this.tabCodigoRojo.SuspendLayout();
             this.tabEditarCiudadano.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureImagenCargar)).BeginInit();
@@ -1835,6 +1835,7 @@
             // 
             this.txtEdadMen.Location = new System.Drawing.Point(146, 123);
             this.txtEdadMen.Name = "txtEdadMen";
+            this.txtEdadMen.ReadOnly = true;
             this.txtEdadMen.Size = new System.Drawing.Size(172, 20);
             this.txtEdadMen.TabIndex = 35;
             // 
@@ -1842,13 +1843,15 @@
             // 
             this.txtNombreMen.Location = new System.Drawing.Point(146, 89);
             this.txtNombreMen.Name = "txtNombreMen";
-            this.txtNombreMen.Size = new System.Drawing.Size(172, 20);
+            this.txtNombreMen.ReadOnly = true;
+            this.txtNombreMen.Size = new System.Drawing.Size(256, 20);
             this.txtNombreMen.TabIndex = 34;
             // 
             // txtIdMenor
             // 
             this.txtIdMenor.Location = new System.Drawing.Point(146, 52);
             this.txtIdMenor.Name = "txtIdMenor";
+            this.txtIdMenor.ReadOnly = true;
             this.txtIdMenor.Size = new System.Drawing.Size(172, 20);
             this.txtIdMenor.TabIndex = 33;
             // 
@@ -1885,9 +1888,9 @@
             this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.Location = new System.Drawing.Point(62, 15);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(183, 13);
+            this.label39.Size = new System.Drawing.Size(189, 13);
             this.label39.TabIndex = 29;
-            this.label39.Text = "Quitar Menores para el interno:";
+            this.label39.Text = "Quitar Menores para ciudadano:";
             // 
             // btnActualizarMenores
             // 
@@ -2639,17 +2642,6 @@
             this.tabVerProhibiciones.Text = "Ver Prohibiciones";
             this.tabVerProhibiciones.UseVisualStyleBackColor = true;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(22, 9);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(454, 25);
-            this.label23.TabIndex = 1;
-            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
-            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.label57);
@@ -2872,6 +2864,17 @@
             this.btnVerProhibiciones.Text = "VER PROHIBICIONES";
             this.btnVerProhibiciones.UseVisualStyleBackColor = false;
             this.btnVerProhibiciones.Click += new System.EventHandler(this.btnVerProhibiciones_Click);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Maroon;
+            this.label23.Location = new System.Drawing.Point(22, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(454, 25);
+            this.label23.TabIndex = 1;
+            this.label23.Text = "Formulario Administrar datos Ciudadanos:";
             // 
             // frmAdministrarCiudadadno
             // 

@@ -47,6 +47,12 @@ namespace CapaPresentacion.Validaciones.AdministrarCiudadano.Datos
         //Quitar categoria
         public string txtDetalleCategoriaQuitar { get; set; }
 
+        //MENORES A CARGO
+
+        //vincular con menor
+        public string cmbParentescosMenor { get; set; }
+        public string txtIdCiudadanoMenor { get; set; }
+
         //Quitar menores a cargo
         public string txtDetalleMenores { get; set; }
 

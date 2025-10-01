@@ -444,6 +444,9 @@ namespace CapaPresentacion
 
                 List<DVisitaInterno> listaVisitaInterno = new List<DVisitaInterno>();
 
+                //limpiar errores de provider
+                errorProvider.Clear();
+
                 //validacion de formulario
                 var datosFormulario = new CiudadanoDatos
                 {
@@ -1509,28 +1512,32 @@ namespace CapaPresentacion
                 NMenorACargo nMenorACargo = new NMenorACargo();
 
 
+
                 //validacion de formulario
-                //var datosFormulario = new CiudadanoDatos
-                //{
-                //    txtIdVisita = txtIdVisita.Text,
-                //    txtIdInterno = txtIdInterno.Text,
-                //    cmbParentesco = cmbParentesco.SelectedValue.ToString(),
+                //limpiar errores de provider
+                errorProvider.Clear();
 
-                //};
+                var datosFormulario = new CiudadanoDatos
+                {
+                    txtIdCiudadano = txtIdCiudadano.Text,
+                    txtIdCiudadanoMenor = txtIdCiudadanoMenor.Text,
+                    cmbParentescosMenor = cmbParentescosMenor.SelectedValue?.ToString() ?? string.Empty,
 
-                //var validator = new EditarDPersonalesCiudadanoValidator();
-                //var result = validator.Validate(datosFormulario);
+                };
 
-                //if (!result.IsValid)
-                //{
-                //    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //    foreach (var failure in result.Errors)
-                //    {
-                //        Control control = Controls.Find(failure.PropertyName, true)[0];
-                //        errorProvider.SetError(control, failure.ErrorMessage);
-                //    }
-                //    return;
-                //}
+                var validator = new VincularVisitaMenorValidator();
+                var result = validator.Validate(datosFormulario);
+
+                if (!result.IsValid)
+                {
+                    MessageBox.Show("Complete correctamente los campos del formulario", "Atencion al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    foreach (var failure in result.Errors)
+                    {
+                        Control control = Controls.Find(failure.PropertyName, true)[0];
+                        errorProvider.SetError(control, failure.ErrorMessage);
+                    }
+                    return;
+                }
                 //FIN VALIDAR
 
                 var data = new
