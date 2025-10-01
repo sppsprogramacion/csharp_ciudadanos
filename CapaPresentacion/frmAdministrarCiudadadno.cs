@@ -1729,7 +1729,7 @@ namespace CapaPresentacion
             reporte.dni = "                    Documento de Identidad: " + " " + Convert.ToString(dCiudadano2.dni);
             reporte.fecha_nacimiento = "                    Su Fecha de Nacimiento es:" + " " + dCiudadano2.fecha_nac.ToShortDateString();
             reporte.sexo = "                    Sexo:" + " " + Convert.ToString(dCiudadano2.sexo.sexo);
-            reporte.domicilio = "                    Su domicilio actual es :" + " " + Convert.ToString(dCiudadano2.barrio) + ", " + Convert.ToString(dCiudadano2.direccion) + " " + Convert.ToString(dCiudadano2.numero_dom);
+            reporte.domicilio = "                    Su domicilio actual es :" + " Barrio " + Convert.ToString(dCiudadano2.barrio) + ", " + Convert.ToString(dCiudadano2.direccion) + " " + Convert.ToString(dCiudadano2.numero_dom);
             reporte.telefono = "                    Su Teléfono actual es :" + " " + Convert.ToString(dCiudadano2.telefono);
             reporte.fecha_alta = "                     Fecha de Alta: " +" "+ dCiudadano2.fecha_alta.ToShortDateString();
             reporte.estado_civil = "                     Su Estado Civil es: " + " " + Convert.ToString(dCiudadano2.estado_civil.estado_civil);
