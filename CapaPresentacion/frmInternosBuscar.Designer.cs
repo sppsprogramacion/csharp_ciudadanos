@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInternosBuscar));
             this.btnBuscarApellido = new System.Windows.Forms.Button();
             this.dtvInternos = new System.Windows.Forms.DataGridView();
             this.txtBuscarApellidoInternos = new System.Windows.Forms.TextBox();
@@ -37,14 +38,15 @@
             // 
             // btnBuscarApellido
             // 
-            this.btnBuscarApellido.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnBuscarApellido.BackColor = System.Drawing.Color.White;
             this.btnBuscarApellido.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnBuscarApellido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarApellido.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarApellido.Location = new System.Drawing.Point(317, 39);
+            this.btnBuscarApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarApellido.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarApellido.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarApellido.Image")));
+            this.btnBuscarApellido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarApellido.Location = new System.Drawing.Point(332, 45);
             this.btnBuscarApellido.Name = "btnBuscarApellido";
-            this.btnBuscarApellido.Size = new System.Drawing.Size(80, 45);
+            this.btnBuscarApellido.Size = new System.Drawing.Size(165, 32);
             this.btnBuscarApellido.TabIndex = 77;
             this.btnBuscarApellido.Text = "BUSCAR";
             this.btnBuscarApellido.UseVisualStyleBackColor = false;
