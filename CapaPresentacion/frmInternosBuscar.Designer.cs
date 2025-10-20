@@ -32,7 +32,7 @@
             this.btnBuscarApellido = new System.Windows.Forms.Button();
             this.dtvInternos = new System.Windows.Forms.DataGridView();
             this.txtBuscarApellidoInternos = new System.Windows.Forms.TextBox();
-            this.label28 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,27 +69,26 @@
             this.txtBuscarApellidoInternos.Size = new System.Drawing.Size(216, 20);
             this.txtBuscarApellidoInternos.TabIndex = 76;
             // 
-            // label28
+            // label23
             // 
-            this.label28.BackColor = System.Drawing.Color.Blue;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.ForeColor = System.Drawing.Color.White;
-            this.label28.Location = new System.Drawing.Point(1, 1);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(700, 29);
-            this.label28.TabIndex = 79;
-            this.label28.Text = "BUSCAR INTERNO";
-            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.Maroon;
+            this.label23.Location = new System.Drawing.Point(86, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(177, 25);
+            this.label23.TabIndex = 107;
+            this.label23.Text = "Buscar Internos";
             // 
             // frmInternosBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.btnBuscarApellido);
             this.Controls.Add(this.dtvInternos);
             this.Controls.Add(this.txtBuscarApellidoInternos);
-            this.Controls.Add(this.label28);
             this.Name = "frmInternosBuscar";
             this.Text = "frmInternosBuscar";
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).EndInit();
@@ -103,6 +102,6 @@
         private System.Windows.Forms.Button btnBuscarApellido;
         private System.Windows.Forms.DataGridView dtvInternos;
         private System.Windows.Forms.TextBox txtBuscarApellidoInternos;
-        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label23;
     }
 }

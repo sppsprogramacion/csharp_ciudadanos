@@ -188,6 +188,7 @@
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\VincularVisitaMenorValidator.cs" />
     <Compile Include="Validaciones\AdministrarCiudadano\ValidacionCiudadano\VincularVisitaInternoValidator.cs" />
     <Compile Include="Validaciones\BuscarInternos\Datos\BuscarInternosDatos.cs" />
+    <Compile Include="Validaciones\BuscarInternos\ValidacionBuscarInternos\BuscarApellidoInternosValidator.cs" />
     <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarDniValidator.cs" />
     <Compile Include="Validaciones\Login\Datos\LoginDatos.cs" />
     <Compile Include="Validaciones\Login\ValidacionLogin\LoginValidator.cs" />
@@ -316,9 +317,7 @@
     <Content Include="logo_spps2.ico" />
     <None Include="Resources\logo_spps2.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Validaciones\BuscarInternos\ValidacionBuscarInternos\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

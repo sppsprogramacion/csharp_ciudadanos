@@ -1,5 +1,9 @@
 ﻿using CapaDatos;
 using CapaNegocio;
+using CapaPresentacion.Validaciones.BuscarInternos.Datos;
+using CapaPresentacion.Validaciones.BuscarInternos.ValidacionBuscarInternos;
+using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
+using CapaPresentacion.Validaciones.NuevoCiudadano.ValidacionNuevoCiudadano;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +18,8 @@ namespace CapaPresentacion
 {
     public partial class frmInternosBuscar : Form
     {
+        //VARIABLES GLOBALES
+        private ErrorProvider errorProvider = new ErrorProvider();
         public string IdInternoSeleccionado { get; private set; }
         public string InternoSeleccionado { get; private set; }
 
@@ -25,6 +31,33 @@ namespace CapaPresentacion
 
         private async void btnBuscarApellido_Click(object sender, EventArgs e)
         {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validar
+            var data = new BuscarInternosDatos
+            {
+                txtBuscarApellidoInternos = txtBuscarApellidoInternos.Text
+            };
+
+            var validator = new BuscarApellidoInternosValidator();
+            var result = validator.Validate(data);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validar
+
+
+
             NInterno nInternos = new NInterno();
             string apellido_ciudadanos = Convert.ToString(this.txtBuscarApellidoInternos.Text);
             (List<DInterno> listaInternos, string errorResponse) = await nInternos.RetornarListaInternoXapellido(apellido_ciudadanos);

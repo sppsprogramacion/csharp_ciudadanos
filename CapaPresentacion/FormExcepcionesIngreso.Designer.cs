@@ -285,14 +285,15 @@
             // 
             // btnVerExcepciones
             // 
-            this.btnVerExcepciones.BackColor = System.Drawing.Color.RoyalBlue;
+            this.btnVerExcepciones.BackColor = System.Drawing.Color.White;
             this.btnVerExcepciones.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnVerExcepciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVerExcepciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerExcepciones.ForeColor = System.Drawing.Color.White;
+            this.btnVerExcepciones.ForeColor = System.Drawing.Color.Black;
+            this.btnVerExcepciones.Image = ((System.Drawing.Image)(resources.GetObject("btnVerExcepciones.Image")));
+            this.btnVerExcepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVerExcepciones.Location = new System.Drawing.Point(175, 38);
             this.btnVerExcepciones.Name = "btnVerExcepciones";
-            this.btnVerExcepciones.Size = new System.Drawing.Size(150, 45);
+            this.btnVerExcepciones.Size = new System.Drawing.Size(269, 45);
             this.btnVerExcepciones.TabIndex = 1;
             this.btnVerExcepciones.Text = "VER EXCEPCIONES";
             this.btnVerExcepciones.UseVisualStyleBackColor = false;
