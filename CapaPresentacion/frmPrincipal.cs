@@ -75,5 +75,11 @@ namespace CapaPresentacion
 
             formExcepcionesIngreso.ShowDialog();
         }
+
+        private void btn_Consultas_Click(object sender, EventArgs e)
+        {
+            FormularioConsultas consultas = new FormularioConsultas();
+            consultas.Show();
+        }
     }
 }

@@ -117,5 +117,53 @@ namespace DAOImplement
 
         }
         //FIN RETORNAR LISTA X CIUDADANO...................................
+        
+        //RETORNAR LISTA POR FECHA
+        public async Task<(List<DRegistroDiario>, string error)> retornarListaRegistroDiario(string fecha_ingreso, string hora_inicio, string hora_fin)
+        {
+            //throw new NotImplementedException();
+            List<DRegistroDiario> listaRegistroDiario = new List<DRegistroDiario>();
+            string token = SessionManager.Token; // Aquí pones tu token real
+
+            try
+            {
+                // Agregar el token en los headers
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/api/registro-diario/lista-fecha-hora?fecha_ingreso=" + fecha_ingreso + "&hora_inicio=" +  hora_inicio + "&hora_fin=" + hora_fin);
+                                                                                                                                  
+
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaRegistroDiario = JsonConvert.DeserializeObject<List<DRegistroDiario>>(content);
+                    return (listaRegistroDiario, null);
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (null, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (null, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (null, $"Error inesperado: {ex.Message}");
+            }
+        }
+        //FIN RETORNAR LISTA POR FECHA
     }
 }

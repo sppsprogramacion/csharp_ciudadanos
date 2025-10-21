@@ -35,6 +35,7 @@
             this.btnAdministrar = new System.Windows.Forms.Button();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnListaExcepciones = new System.Windows.Forms.Button();
+            this.btn_Consultas = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,7 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cooper Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(201, 26);
+            this.label1.Location = new System.Drawing.Point(283, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(339, 21);
             this.label1.TabIndex = 0;
@@ -64,7 +65,7 @@
             this.btnRegistroDiario.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistroDiario.Image = global::CapaPresentacion.Properties.Resources.reportes1;
             this.btnRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistroDiario.Location = new System.Drawing.Point(320, 109);
+            this.btnRegistroDiario.Location = new System.Drawing.Point(254, 109);
             this.btnRegistroDiario.Name = "btnRegistroDiario";
             this.btnRegistroDiario.Size = new System.Drawing.Size(178, 65);
             this.btnRegistroDiario.TabIndex = 5;
@@ -79,7 +80,7 @@
             this.btnAdministrar.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdministrar.Image = global::CapaPresentacion.Properties.Resources.mantenimiento;
             this.btnAdministrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdministrar.Location = new System.Drawing.Point(133, 109);
+            this.btnAdministrar.Location = new System.Drawing.Point(70, 109);
             this.btnAdministrar.Name = "btnAdministrar";
             this.btnAdministrar.Size = new System.Drawing.Size(178, 65);
             this.btnAdministrar.TabIndex = 2;
@@ -111,7 +112,7 @@
             this.btnListaExcepciones.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaExcepciones.Image = ((System.Drawing.Image)(resources.GetObject("btnListaExcepciones.Image")));
             this.btnListaExcepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaExcepciones.Location = new System.Drawing.Point(504, 109);
+            this.btnListaExcepciones.Location = new System.Drawing.Point(438, 109);
             this.btnListaExcepciones.Name = "btnListaExcepciones";
             this.btnListaExcepciones.Size = new System.Drawing.Size(202, 65);
             this.btnListaExcepciones.TabIndex = 13;
@@ -119,11 +120,27 @@
             this.btnListaExcepciones.UseVisualStyleBackColor = false;
             this.btnListaExcepciones.Click += new System.EventHandler(this.btnListaExcepciones_Click);
             // 
+            // btn_Consultas
+            // 
+            this.btn_Consultas.BackColor = System.Drawing.Color.White;
+            this.btn_Consultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Consultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Consultas.Image = ((System.Drawing.Image)(resources.GetObject("btn_Consultas.Image")));
+            this.btn_Consultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Consultas.Location = new System.Drawing.Point(646, 109);
+            this.btn_Consultas.Name = "btn_Consultas";
+            this.btn_Consultas.Size = new System.Drawing.Size(202, 65);
+            this.btn_Consultas.TabIndex = 14;
+            this.btn_Consultas.Text = "Consultas";
+            this.btn_Consultas.UseVisualStyleBackColor = false;
+            this.btn_Consultas.Click += new System.EventHandler(this.btn_Consultas_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 542);
+            this.Controls.Add(this.btn_Consultas);
             this.Controls.Add(this.btnListaExcepciones);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnRegistroDiario);
@@ -148,5 +165,6 @@
         private System.Windows.Forms.Button btnRegistroDiario;
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnListaExcepciones;
+        private System.Windows.Forms.Button btn_Consultas;
     }
 }
