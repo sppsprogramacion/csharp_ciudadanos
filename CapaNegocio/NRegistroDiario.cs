@@ -34,6 +34,18 @@ namespace CapaNegocio
 
             return (listaRegsitroDiario, errorResponse);
         }
-        //FIN RETORNAR LISTA POR CIUDADANO..................................
+        //FIN RETORNAR LISTA POR CIUDADANO
+
+        //RETORNAR LISTA REGISTRO DIARIO POR FECHA
+        public async Task<(List<DRegistroDiario>, string error)> retornarListaRegistroDiario(string fecha_ingreso, string hora_inicio, string hora_fin)
+        {
+            IRegistroDiarioDao registroDiarioDao = new RegistroDiarioDaoImpl();
+
+            (List<DRegistroDiario> listaRegsitroDiario, string errorResponse) = await registroDiarioDao.retornarListaRegistroDiario(fecha_ingreso, hora_inicio, hora_fin);
+
+
+            return (listaRegsitroDiario, errorResponse);
+        }
+        //FIN RETORNAR LISTA REGISTRO DIARIO POR FECHA..................................
     }
 }
