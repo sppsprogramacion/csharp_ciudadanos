@@ -130,7 +130,7 @@ namespace DAOImplement
                 // Agregar el token en los headers
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/api/registro-diario/lista-fecha-hora?fecha_ingreso=" + fecha_ingreso + "&hora_inicio=" +  hora_inicio + "&hora_fin=" + hora_fin);
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/registro-diario/lista-fecha-hora?fecha_ingreso=" + fecha_ingreso + "&hora_inicio=" +  hora_inicio + "&hora_fin=" + hora_fin);
                                                                                                                                   
 
                 if (httpResponse.IsSuccessStatusCode)

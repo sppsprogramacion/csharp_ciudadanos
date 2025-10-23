@@ -55,7 +55,6 @@ namespace CapaPresentacion
             }
 
             // Generar PDF en memoria
-            //MemoryStream msOriginal = ReportesAdminVisitaPDF.RepPdfInternosVinculados(this.dCiudadano, listaParentescos);
             MemoryStream msOriginal = ReportesRegistroDiarioxFechaHoraPDF.RepPdfRegistroDiario(this.dCiudadano, this.dInterno, listaRegistroDiario);
 
             // Clonar el stream para que PdfiumViewer pueda cerrarlo sin afectar el original
