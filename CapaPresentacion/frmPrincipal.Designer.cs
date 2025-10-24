@@ -36,6 +36,7 @@
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnListaExcepciones = new System.Windows.Forms.Button();
             this.btn_Consultas = new System.Windows.Forms.Button();
+            this.btnEgresoCiudadano = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -135,11 +136,26 @@
             this.btn_Consultas.UseVisualStyleBackColor = false;
             this.btn_Consultas.Click += new System.EventHandler(this.btn_Consultas_Click);
             // 
+            // btnEgresoCiudadano
+            // 
+            this.btnEgresoCiudadano.BackColor = System.Drawing.Color.White;
+            this.btnEgresoCiudadano.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnEgresoCiudadano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEgresoCiudadano.Image = ((System.Drawing.Image)(resources.GetObject("btnEgresoCiudadano.Image")));
+            this.btnEgresoCiudadano.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEgresoCiudadano.Location = new System.Drawing.Point(70, 192);
+            this.btnEgresoCiudadano.Name = "btnEgresoCiudadano";
+            this.btnEgresoCiudadano.Size = new System.Drawing.Size(178, 65);
+            this.btnEgresoCiudadano.TabIndex = 15;
+            this.btnEgresoCiudadano.Text = "Reg. Salida";
+            this.btnEgresoCiudadano.UseVisualStyleBackColor = false;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(907, 542);
+            this.Controls.Add(this.btnEgresoCiudadano);
             this.Controls.Add(this.btn_Consultas);
             this.Controls.Add(this.btnListaExcepciones);
             this.Controls.Add(this.btnCerrar);
@@ -166,5 +182,6 @@
         private System.Windows.Forms.Button btnCerrar;
         private System.Windows.Forms.Button btnListaExcepciones;
         private System.Windows.Forms.Button btn_Consultas;
+        private System.Windows.Forms.Button btnEgresoCiudadano;
     }
 }

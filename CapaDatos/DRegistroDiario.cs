@@ -20,8 +20,7 @@ namespace CapaDatos
         public DSectoresDestino sector_destino { get; set; }
         public int motivo_atencion_id { get; set; }
         public DMotivoAtencion motivo_atencion { get; set; }
-        public int interno_id { get; set; }
-        public DInterno interno { get; set; }
+        public string interno { get; set; }
         public DateTime fecha_ingreso { get; set; }
         public string hora_ingreso { get; set; }
         public string hora_egreso { get; set; }

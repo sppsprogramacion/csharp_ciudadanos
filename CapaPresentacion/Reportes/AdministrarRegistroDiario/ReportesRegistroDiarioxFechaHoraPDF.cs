@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaNegocio;
 
 namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
 {
@@ -30,6 +31,7 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
             var fuenteOrganismo = FontFactory.GetFont(FontFactory.TIMES, 10, BaseColor.BLACK);
             var fuenteTitulo = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
             var fuenteNormal = FontFactory.GetFont(FontFactory.HELVETICA, 6, BaseColor.BLACK);
+            var fuenteEncabezado = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 8, BaseColor.BLACK);
 
             //logo encabezado
             //string rutaImagen = Path.Combine(Application.StartupPath, "Resources/Img-reportes/", "logo_spps2.png");
@@ -70,14 +72,14 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
             // "d 'de' MMMM 'de' yyyy" → ejemplo: "9 de septiembre de 2025"
             string fechaCompleta = "Salta, " + fechaHoy.ToString("d 'de' MMMM 'de' yyyy", cultura);
 
-            doc.Add(new Paragraph(" "));
+            //doc.Add(new Paragraph(" "));
             doc.Add(new Paragraph(fechaCompleta, fuenteLogo)
             {
                 Alignment = Element.ALIGN_RIGHT
             });
             //fin fecha.............................
 
-            doc.Add(new Paragraph(" "));
+            //doc.Add(new Paragraph(" "));
 
             //datos ciudadano
             //doc.Add(new Paragraph(" Apellido y nombre: " + ciudadanox.apellido + " " + ciudadanox.nombre, fuenteNormal));
@@ -101,19 +103,21 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
             doc.Add(new Paragraph(" "));
 
             
-            PdfPTable tablaRegistrodiario = new PdfPTable(10);
-            tablaRegistrodiario.WidthPercentage = 100;
-            tablaRegistrodiario.SetWidths(new float[] { 0.4f, 0.8f, 1.0f, 0.6f, 0.6f, 1.2f, 1.0f, 0.4f, 0.4f, 1.0f });
-            tablaRegistrodiario.AddCell("Ingreso");
-            tablaRegistrodiario.AddCell("Egreso");
-            tablaRegistrodiario.AddCell("Destino");
-            tablaRegistrodiario.AddCell("División");
-            tablaRegistrodiario.AddCell("TAcceso");
-            tablaRegistrodiario.AddCell("Motivo");
-            tablaRegistrodiario.AddCell("Nombre");
-            tablaRegistrodiario.AddCell("Sexo");
-            tablaRegistrodiario.AddCell("dni");
-            tablaRegistrodiario.AddCell("int");
+            PdfPTable tablaRegistrodiario = new PdfPTable(12);
+            tablaRegistrodiario.WidthPercentage = 110;
+            tablaRegistrodiario.SetWidths(new float[] { 0.5f, 0.5f, 1.0f, 0.6f, 0.6f, 1.6f, 1.6f, 0.4f, 0.5f, 1.2f, 1.4f, 1.0f });
+            tablaRegistrodiario.AddCell(new Paragraph("Ingreso", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Egreso", fuenteEncabezado)); 
+            tablaRegistrodiario.AddCell(new Paragraph("Destino", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("División", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("TAcceso", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Motivo", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Nombre", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Sexo", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Dni", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Interno", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Observación", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Operador", fuenteEncabezado));
 
             // Filas dinámicas
             foreach (var registroDiario in listaRegistroDiario)
@@ -127,7 +131,9 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.apellido + " " + registroDiario.ciudadano.nombre, fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.sexo.sexo.ToString(), fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.dni.ToString(), fuenteNormal));
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.interno.apellido + " " + registroDiario.interno.nombre, fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.interno, fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.observaciones, fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.usuario.apellido + " " + registroDiario.usuario.nombre, fuenteNormal));
             }
 
             doc.Add(tablaRegistrodiario);

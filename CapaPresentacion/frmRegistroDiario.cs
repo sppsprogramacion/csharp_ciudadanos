@@ -245,7 +245,7 @@ namespace CapaPresentacion
                 interno = txtBuscarInternos.Text,
                 motivo_atencion_id = Convert.ToInt32(cmbMotivoAtencion.SelectedValue.ToString()),
                 observaciones = Convert.ToString(txtObservaciones.Text)
-                
+                               
             };
 
             string dataRegistroDiario = JsonConvert.SerializeObject(data);
