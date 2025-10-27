@@ -44,8 +44,28 @@ namespace CapaPresentacion
             //NVisitaInterno nVisitaInterno = new NVisitaInterno();
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
             DRegistroDiario dRegistroDiario = new DRegistroDiario();
-           
+
             //(List<DVisitaInterno> listaParentescos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(this.dCiudadano.id_ciudadano);
+            //DateTime miHora = new DateTime();
+            //DateTime miHora = this.dtpHoraFin.Value;
+            DateTime miHora = DateTime.MinValue;
+            if (miHora == DateTime.MinValue)
+            {
+                // La hora es "vacía" (es el valor por defecto de DateTime)
+                Console.WriteLine("La hora es el valor mínimo por defecto.");
+                MessageBox.Show("La hora es el valor mínimo por defecto." + " " + miHora);
+            }
+            else
+            {
+                // La hora no es el valor por defecto
+                Console.WriteLine("La hora tiene un valor asignado.");
+                MessageBox.Show("La hora tiene un valor asignado." + " " + DateTime.MinValue);
+            }
+
+
+
+
+            //if (this.dtpHoraFin.Value.ToString) <> "";
             (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
 
             if (listaRegistroDiario == null)
