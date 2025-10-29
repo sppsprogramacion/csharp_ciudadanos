@@ -45,7 +45,7 @@ namespace CapaPresentacion
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
             DRegistroDiario dRegistroDiario = new DRegistroDiario();
 
-            string hora_fin;
+            /*string hora_fin;
             String horaSalida = dRegistroDiario.hora_egreso;
             if (string.IsNullOrEmpty(horaSalida))
             {
@@ -58,10 +58,12 @@ namespace CapaPresentacion
                 //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
                 MessageBox.Show("Cadena con valores ingresados" + " " + horaSalida);
             }
+            */
 
-
-            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"));
-
+            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
+            MessageBox.Show("la fecha que ingreso es: " + " " + this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"));
+            MessageBox.Show("la de ingreso es: " + " " + this.dtpHoraInicio.Value.ToString("HH:MM:ss"));
+            MessageBox.Show("la hora de salida es: " + " " + this.dtpHoraFin.Value.ToString("HH:MM:ss"));
             if (listaRegistroDiario == null)
             {
                 MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
