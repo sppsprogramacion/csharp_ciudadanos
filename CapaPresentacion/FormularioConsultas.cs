@@ -188,5 +188,59 @@ namespace CapaPresentacion
             }
 
         }
+
+        private async void btnVerRegistroDiario_Click(object sender, EventArgs e)
+        {
+            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
+            NRegistroDiario nRegistroDiario = new NRegistroDiario();
+            //(List<DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
+            
+
+            if (listaRegistroDiario == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var datosFiltrados = listaRegistroDiario
+            .Select(c => new
+            {
+                Ingreso = c.hora_ingreso,
+                Egreso = c.hora_egreso,
+                Destino = c.organismo.organismo,
+                División = c.sector_destino.sector_destino,
+                TipoAcceso = c.tipo_atencion.tipo_atencion,
+                Motivo = c.motivo_atencion.motivo_atencion,
+                Nombre = c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                Sexo = c.ciudadano.sexo.sexo,
+                Dni = c.ciudadano.dni,
+                Interno = c.interno,
+                Obs = c.observaciones,
+                Operador = c.usuario.apellido + " " + c.usuario.nombre
+                
+
+
+            })
+            .ToList();
+
+            dgvRegistroDiario.DataSource = datosFiltrados;
+
+            if (listaRegistroDiario.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dgvRegistroDiario.Columns[1].Width = 200;
+            }
+        }
+
+        private void FormularioConsultas_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

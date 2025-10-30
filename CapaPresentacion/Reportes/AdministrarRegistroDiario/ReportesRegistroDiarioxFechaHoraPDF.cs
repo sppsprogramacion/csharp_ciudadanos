@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CapaNegocio;
+using System.Windows.Forms;
 
 namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
 {
@@ -122,6 +123,20 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
             // Filas dinámicas
             foreach (var registroDiario in listaRegistroDiario)
             {
+
+                String horaSalida = registroDiario.hora_egreso;
+                if (string.IsNullOrEmpty(horaSalida))
+                {
+                    //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
+                    MessageBox.Show("Cadena nula o vacia" + " " + horaSalida);
+                }
+                else
+                {
+                    //hora_fin = horaSalida;
+                    //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
+                    MessageBox.Show("Cadena con valores ingresados" + " " + horaSalida);
+                }
+       
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_ingreso.ToString(), fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_ingreso.ToString(), fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.organismo.organismo.ToString(), fuenteNormal));

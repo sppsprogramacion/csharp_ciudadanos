@@ -940,7 +940,7 @@ namespace CapaPresentacion
 
                 if (listaVisitasInternos.Count == 0)
                 {
-                    MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else
