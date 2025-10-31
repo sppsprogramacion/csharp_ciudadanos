@@ -47,5 +47,17 @@ namespace CapaNegocio
             return (listaRegsitroDiario, errorResponse);
         }
         //FIN RETORNAR LISTA REGISTRO DIARIO POR FECHA..................................
+
+        //RETORNAR LISTA PENDIENTE DE SALIDA
+        public async Task<(List<DRegistroDiario>, string error)> retornarListaPendienteSalida()
+        {
+            IRegistroDiarioDao registroDiarioDao = new RegistroDiarioDaoImpl();
+
+            (List<DRegistroDiario> listaRegsitroDiario, string errorResponse) = await registroDiarioDao.retornarListaPendienteSalida();
+
+
+            return (listaRegsitroDiario, errorResponse);
+        }
+        //FIN RETORNAR LISTA PENDIENTE DE SALIDA..................................
     }
 }
