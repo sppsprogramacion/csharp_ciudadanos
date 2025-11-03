@@ -106,46 +106,43 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
             
             PdfPTable tablaRegistrodiario = new PdfPTable(12);
             tablaRegistrodiario.WidthPercentage = 110;
-            tablaRegistrodiario.SetWidths(new float[] { 0.5f, 0.5f, 1.0f, 0.6f, 0.6f, 1.6f, 1.6f, 0.4f, 0.5f, 1.2f, 1.4f, 1.0f });
+            tablaRegistrodiario.SetWidths(new float[] { 1.2f, 0.5f, 0.5f, 0.6f, 0.6f, 1.1f, 1.1f, 0.8f, 1.8f, 1.1f, 1.6f, 1.1f });
+            tablaRegistrodiario.AddCell(new Paragraph("Nombre", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Dni", fuenteEncabezado));
+            tablaRegistrodiario.AddCell(new Paragraph("Sexo", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("Ingreso", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("Egreso", fuenteEncabezado)); 
             tablaRegistrodiario.AddCell(new Paragraph("Destino", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("División", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("TAcceso", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("Motivo", fuenteEncabezado));
-            tablaRegistrodiario.AddCell(new Paragraph("Nombre", fuenteEncabezado));
-            tablaRegistrodiario.AddCell(new Paragraph("Sexo", fuenteEncabezado));
-            tablaRegistrodiario.AddCell(new Paragraph("Dni", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("Interno", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("Observación", fuenteEncabezado));
             tablaRegistrodiario.AddCell(new Paragraph("Operador", fuenteEncabezado));
 
             // Filas dinámicas
             foreach (var registroDiario in listaRegistroDiario)
-            {
-
-                String horaSalida = registroDiario.hora_egreso;
-                if (string.IsNullOrEmpty(horaSalida))
+            {                              
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.apellido + " " + registroDiario.ciudadano.nombre, fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.dni.ToString(), fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.sexo.sexo.ToString(), fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_ingreso.ToString(), fuenteNormal));
+                DateTime? fechaNula = Convert.ToDateTime(registroDiario.hora_egreso);
+                DateTime fecha_Null = new DateTime(01, 01, 0001, 00, 00, 00);
+                if (fechaNula == fecha_Null)
                 {
-                    //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
-                    MessageBox.Show("Cadena nula o vacia" + " " + horaSalida);
+                    MessageBox.Show("La fecha es nula." + " " + fechaNula);
+                    tablaRegistrodiario.AddCell(new Paragraph("no egresó", fuenteNormal));
                 }
                 else
                 {
-                    //hora_fin = horaSalida;
-                    //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
-                    MessageBox.Show("Cadena con valores ingresados" + " " + horaSalida);
+                    MessageBox.Show("La fecha no es nula. Valor: " + fechaNula.Value);
+                    tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_egreso.ToString(), fuenteNormal));
                 }
-       
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_ingreso.ToString(), fuenteNormal));
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_ingreso.ToString(), fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.organismo.organismo.ToString(), fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.sector_destino.sector_destino.ToString(), fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.tipo_atencion.tipo_atencion.ToString(), fuenteNormal));
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.motivo_atencion.motivo_atencion.ToString(), fuenteNormal));
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.apellido + " " + registroDiario.ciudadano.nombre, fuenteNormal));
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.sexo.sexo.ToString(), fuenteNormal));
-                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.ciudadano.dni.ToString(), fuenteNormal));
+                tablaRegistrodiario.AddCell(new Paragraph(registroDiario.motivo_atencion.motivo_atencion.ToString(), fuenteNormal));                              
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.interno, fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.observaciones, fuenteNormal));
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.usuario.apellido + " " + registroDiario.usuario.nombre, fuenteNormal));
