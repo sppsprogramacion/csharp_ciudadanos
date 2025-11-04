@@ -149,6 +149,7 @@
             this.btnEgresoCiudadano.TabIndex = 15;
             this.btnEgresoCiudadano.Text = "Reg. Salida";
             this.btnEgresoCiudadano.UseVisualStyleBackColor = false;
+            this.btnEgresoCiudadano.Click += new System.EventHandler(this.btnEgresoCiudadano_Click);
             // 
             // frmPrincipal
             // 

@@ -81,5 +81,11 @@ namespace CapaPresentacion
             FormularioConsultas consultas = new FormularioConsultas();
             consultas.Show();
         }
+
+        private void btnEgresoCiudadano_Click(object sender, EventArgs e)
+        {
+            frmSalidaCiudadano salidaCiudadano = new frmSalidaCiudadano();
+            salidaCiudadano.Show();
+        }
     }
 }

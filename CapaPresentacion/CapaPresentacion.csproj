@@ -178,6 +178,12 @@
     <Compile Include="frmRegistroDiario.Designer.cs">
       <DependentUpon>frmRegistroDiario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSalidaCiudadano.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalidaCiudadano.Designer.cs">
+      <DependentUpon>frmSalidaCiudadano.cs</DependentUpon>
+    </Compile>
     <Compile Include="FuncionesGenerales\FormularioAyudas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -238,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistroDiario.resx">
       <DependentUpon>frmRegistroDiario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalidaCiudadano.resx">
+      <DependentUpon>frmSalidaCiudadano.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
