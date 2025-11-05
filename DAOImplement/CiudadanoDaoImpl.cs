@@ -15,6 +15,7 @@ using CommonCache;
 using System.Net.Http.Headers;
 using System.IO;
 using System.Security.Cryptography;
+using Microsoft.Win32;
 
 namespace DAOImplement
 {
@@ -152,7 +153,7 @@ namespace DAOImplement
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(ciudadano, Encoding.UTF8, "application/json");
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/ciudadanos/update-domicilio?id_ciudadano=" + id, content);
-
+                
 
                 return httpResponse;
 

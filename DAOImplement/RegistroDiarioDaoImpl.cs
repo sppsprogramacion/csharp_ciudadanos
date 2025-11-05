@@ -220,5 +220,48 @@ namespace DAOImplement
 
             //FIN LISTA PENDIENTE DE SALIDA
         }
+        
+        //INICIO EGRESO DE REGISTRO DIARIO
+        public async Task<(HttpResponseMessage, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso)
+        //public async Task<HttpResponseMessage> editarCiudadanoDomicilio(int id, string ciudadano)
+        {
+            throw new NotImplementedException();
+            //variable token
+            string token = SessionManager.Token;
+
+            try
+            {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                // Crear el contenido de la solicitud HTTP
+                StringContent content = new StringContent(hora_egreso, Encoding.UTF8, "application/json");
+                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/registro-diario/egreso?id_registro=" + id_ciudadano, content);
+
+
+
+
+                //return httpResponse;
+
+            }
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                throw new Exception($"Error al realizar la solicitud: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON
+                throw new Exception($"Error al serializar/deserializar JSON: {jsonException.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Capturar cualquier otro tipo de excepción
+                Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
+                throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
+            }
+        }
+
+        //FIN EGRESO DE REGISTRO DIARIO
     }
 }
