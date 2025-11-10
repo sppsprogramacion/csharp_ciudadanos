@@ -16,8 +16,7 @@ namespace DAO
         Task<(List<DRegistroDiario>, string error)> ListaXCiudadano(int idCiudadano);
         Task<(List<DRegistroDiario>, string error)> retornarListaRegistroDiario(string fecha_ingreso, string hora_inicio, string hora_fin);
         Task<(List<DRegistroDiario>, string error)> retornarListaPendienteSalida();
-        Task<(HttpResponseMessage, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso);
-
-
+        Task<(bool, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso);
+        
     }
 }

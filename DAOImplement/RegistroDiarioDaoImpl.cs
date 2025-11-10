@@ -222,10 +222,8 @@ namespace DAOImplement
         }
         
         //INICIO EGRESO DE REGISTRO DIARIO
-        public async Task<(HttpResponseMessage, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso)
-        //public async Task<HttpResponseMessage> editarCiudadanoDomicilio(int id, string ciudadano)
+        public async Task<(bool, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso)
         {
-            throw new NotImplementedException();
             //variable token
             string token = SessionManager.Token;
 
@@ -236,10 +234,29 @@ namespace DAOImplement
 
                 // Crear el contenido de la solicitud HTTP
                 StringContent content = new StringContent(hora_egreso, Encoding.UTF8, "application/json");
+                // Enviar la solicitud HTTP POST
                 HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/registro-diario/egreso?id_registro=" + id_ciudadano, content);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
 
+                    var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
 
-
+                    if (dataRespuesta.Affected > 0)
+                    {
+                        return (true, null);
+                    }
+                    else
+                    {
+                        return (false, "No se pudo establecer hora de salida");
+                    }
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (false, $"Error al registrar horario de salida: {mensaje}");
+                }
 
                 //return httpResponse;
 

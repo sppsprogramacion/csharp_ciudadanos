@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSalidaCiudadano));
             this.label1 = new System.Windows.Forms.Label();
             this.txtIdCiudadano = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtBuscarApellido = new System.Windows.Forms.TextBox();
             this.txtBuscarDocumento = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,6 +38,8 @@
             this.btnBuscarApellido = new System.Windows.Forms.Button();
             this.btnBuscarDocumento = new System.Windows.Forms.Button();
             this.dgvListaCiudadanos = new System.Windows.Forms.DataGridView();
+            this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
+            this.btnRegistrarSalida = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaCiudadanos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,19 +56,10 @@
             // 
             // txtIdCiudadano
             // 
-            this.txtIdCiudadano.Location = new System.Drawing.Point(120, 313);
+            this.txtIdCiudadano.Location = new System.Drawing.Point(44, 308);
             this.txtIdCiudadano.Name = "txtIdCiudadano";
-            this.txtIdCiudadano.Size = new System.Drawing.Size(100, 20);
+            this.txtIdCiudadano.Size = new System.Drawing.Size(50, 20);
             this.txtIdCiudadano.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 316);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Id Ciudadano:";
             // 
             // txtBuscarApellido
             // 
@@ -131,11 +123,37 @@
             this.dgvListaCiudadanos.TabIndex = 9;
             this.dgvListaCiudadanos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListaCiudadanos_KeyDown);
             // 
+            // dtpHoraSalida
+            // 
+            this.dtpHoraSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpHoraSalida.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraSalida.Location = new System.Drawing.Point(684, 39);
+            this.dtpHoraSalida.Name = "dtpHoraSalida";
+            this.dtpHoraSalida.Size = new System.Drawing.Size(79, 20);
+            this.dtpHoraSalida.TabIndex = 10;
+            // 
+            // btnRegistrarSalida
+            // 
+            this.btnRegistrarSalida.BackColor = System.Drawing.Color.White;
+            this.btnRegistrarSalida.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnRegistrarSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrarSalida.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarSalida.Image")));
+            this.btnRegistrarSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistrarSalida.Location = new System.Drawing.Point(253, 337);
+            this.btnRegistrarSalida.Name = "btnRegistrarSalida";
+            this.btnRegistrarSalida.Size = new System.Drawing.Size(265, 47);
+            this.btnRegistrarSalida.TabIndex = 11;
+            this.btnRegistrarSalida.Text = "Registrar Horario Salida ";
+            this.btnRegistrarSalida.UseVisualStyleBackColor = false;
+            this.btnRegistrarSalida.Click += new System.EventHandler(this.btnRegistrarSalida_Click);
+            // 
             // frmSalidaCiudadano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRegistrarSalida);
+            this.Controls.Add(this.dtpHoraSalida);
             this.Controls.Add(this.dgvListaCiudadanos);
             this.Controls.Add(this.btnBuscarDocumento);
             this.Controls.Add(this.btnBuscarApellido);
@@ -143,7 +161,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtBuscarDocumento);
             this.Controls.Add(this.txtBuscarApellido);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtIdCiudadano);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -159,7 +176,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIdCiudadano;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBuscarApellido;
         private System.Windows.Forms.TextBox txtBuscarDocumento;
         private System.Windows.Forms.Label label3;
@@ -167,5 +183,7 @@
         private System.Windows.Forms.Button btnBuscarApellido;
         private System.Windows.Forms.Button btnBuscarDocumento;
         private System.Windows.Forms.DataGridView dgvListaCiudadanos;
+        private System.Windows.Forms.DateTimePicker dtpHoraSalida;
+        private System.Windows.Forms.Button btnRegistrarSalida;
     }
 }

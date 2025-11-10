@@ -59,5 +59,17 @@ namespace CapaNegocio
             return (listaRegsitroDiario, errorResponse);
         }
         //FIN RETORNAR LISTA PENDIENTE DE SALIDA..................................
+
+        //DAR SALIDA A CIDADANOS 
+        public async Task<(bool, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso)
+
+        {
+            IRegistroDiarioDao registroDiarioDao = new RegistroDiarioDaoImpl();
+
+            (bool registroDiarioResponse, string error) = await registroDiarioDao.crearEgresoRegistroDiario(id_ciudadano, hora_egreso);
+
+            return (registroDiarioResponse, error);
+        }
+        //FIN DAR SALIDA A CIUDADANOS
     }
 }
