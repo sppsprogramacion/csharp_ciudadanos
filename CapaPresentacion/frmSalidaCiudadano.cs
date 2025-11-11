@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,61 +32,51 @@ namespace CapaPresentacion
             //limpiar errores de provider
             errorProvider.Clear();
 
-            //validar
-            var data = new CiudadanoNuevoDatos
-            {
-                txtBuscarApellido = txtBuscarApellido.Text
-            };
+            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
+            NRegistroDiario nRegistroDiario = new NRegistroDiario();
+            //(List<DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
+            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFecha.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
 
-            var validator = new BuscarApellidoValidator();
-            var result = validator.Validate(data);
 
-            if (!result.IsValid)
-            {
-                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                foreach (var failure in result.Errors)
-                {
-
-                    Control control = Controls.Find(failure.PropertyName, true)[0];
-                    errorProvider.SetError(control, failure.ErrorMessage);
-                }
-                return;
-            }
-            //fin validar
-
-            NCiudadano nCiudadanos = new NCiudadano();
-
-            string apellido_ciudadanos = Convert.ToString(this.txtBuscarApellido.Text);
-            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosXapellido(apellido_ciudadanos);
-            if (listaCiudadanos == null)
+            if (listaRegistroDiario == null)
             {
                 MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            var datosFiltrados = listaCiudadanos
-                .Select(c => new
-                {
-                    id_ciudadano = c.id_ciudadano,
-                    Apellido = c.apellido,
-                    Nombre = c.nombre,
-                    DNI = c.dni,
-                    Sexo = c.sexo.sexo
-                })
-                .ToList();
 
-
-            dgvListaCiudadanos.DataSource = datosFiltrados;
-
-            if (listaCiudadanos.Count == 0)
+            var datosFiltrados = listaRegistroDiario
+            .Select(c => new
             {
-                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                IdRegistroDiario = c.id_resgistro_diario,
+                Nombre = c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                Ingreso = c.hora_ingreso,
+                Egreso = c.hora_egreso,
+                Destino = c.organismo.organismo,
+                División = c.sector_destino.sector_destino,
+                TipoAcceso = c.tipo_atencion.tipo_atencion,
+                Motivo = c.motivo_atencion.motivo_atencion,
+                Sexo = c.ciudadano.sexo.sexo,
+                Dni = c.ciudadano.dni,
+                Interno = c.interno,
+                Obs = c.observaciones,
+                Operador = c.usuario.apellido + " " + c.usuario.nombre
+
+
+
+            })
+            .ToList();
+                        
+            dgvListaRegistroDiario.DataSource = datosFiltrados;
+
+            if (listaRegistroDiario.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
             {
 
-                dgvListaCiudadanos.Columns[1].Width = 200;
-                dgvListaCiudadanos.Columns[1].Width = 200;
+                dgvListaRegistroDiario.Columns[1].Width = 200;
             }
 
 
@@ -97,13 +88,13 @@ namespace CapaPresentacion
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-
+                NRegistroDiario nRegistroDiario = new NRegistroDiario();
                 //this.idInternoGlobal = 1;
-                if (dgvListaCiudadanos.SelectedRows.Count > 0)
+                if (dgvListaRegistroDiario.SelectedRows.Count > 0)
                 {
                     int idCiudadano;
 
-                    idCiudadano = Convert.ToInt32(this.dgvListaCiudadanos.CurrentRow.Cells["id_ciudadano"].Value);
+                    idCiudadano = Convert.ToInt32(this.dgvListaRegistroDiario.CurrentRow.Cells["idRegistroDiario"].Value);
 
                     NCiudadano nCiudadano = new NCiudadano();
                     (DCiudadano dCiudadanoResponse, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
@@ -116,8 +107,10 @@ namespace CapaPresentacion
                         return;
                     }
 
+                    //int idRegistroDiario = nRegistroDiario.RetornarListaXCiudadano(Convert.ToInt32(idCiudadano.ToString()));
 
-                    this.txtIdCiudadano.Text = idCiudadano.ToString();
+                    this.txtIdRegistroDiario.Text = idCiudadano.ToString();
+                    
                     //this.txtDocumentoIdentidad.Text = dCiudadanoResponse.dni.ToString();
                     //this.txtNombreCiudadano.Text = dCiudadanoResponse.apellido + " " + dCiudadanoResponse.nombre;
                     //this.ptbFotoCiudadano.Load(dCiudadanoResponse.foto);
@@ -135,7 +128,7 @@ namespace CapaPresentacion
                 }//fin if
                 else
                 {
-                    MessageBox.Show("Debe seleccionar un ciudadano.");
+                    MessageBox.Show("Debe seleccionar el registro en la grilla.");
                 }
 
             }
@@ -143,9 +136,9 @@ namespace CapaPresentacion
 
         private async void btnRegistrarSalida_Click(object sender, EventArgs e)
         {
-            if (this.txtIdCiudadano.Text == string.Empty)
+            if (this.txtIdRegistroDiario.Text == string.Empty)
             {
-                MessageBox.Show("Debe seleccionar el Ciudadano");
+                MessageBox.Show("Debe un registro de la grilla");
             }
 
             else
@@ -181,28 +174,39 @@ namespace CapaPresentacion
                     horario_salida = this.dtpHoraSalida.Value.ToString("HH:MM:ss"),
                 };
 
-                string dataCategoria = JsonConvert.SerializeObject(data);
+                string dataRegistroDiario = JsonConvert.SerializeObject(data);
 
-                (bool respuestaEditar, string errorResponse) = await nRegistroDiario.crearEgresoRegistroDiario(Convert.ToInt32(txtIdCiudadano.Text), dataCategoria);
+                MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:MM:ss"));
 
-                if (respuestaEditar)
+                try
                 {
+                    HttpResponseMessage httpResponse = await nRegistroDiario.crearEgresoRegistroDiario(Convert.ToInt32(txtIdRegistroDiario.Text), dataRegistroDiario);
 
-                    MessageBox.Show("Se quitó correctamente la categoria", "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (httpResponse.IsSuccessStatusCode)
+                    {
+                        var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
+                        MessageBox.Show("Se estableció la hora correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    /*this.CargarCategoriasDelCiudadano();
 
-                    this.txtIdCategoriaQuitar.Text = string.Empty;
-                    this.txtCategoriaQuitar.Text = string.Empty;
-                    this.txtFechaCargaCategoriaQuitar.Text = string.Empty;
-                    this.txtDetalleCategoriaQuitar.Text = string.Empty;*/
+                        //buscar y actualizar el ciudadano this.dCiudadano
+                        //this.ActualizarCiudadano();
+
+                        //this.HabilitarControlesDatosPersonales(false);
+                    }
+                    else
+                    {
+                        string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                        MessageBox.Show("No se pudo editar el registro.");
+                        MessageBox.Show($"Error de la API: {errorMessage}", $"Error {httpResponse.StatusCode}", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show(errorResponse, "Atencion ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    // Manejo de otros tipos de errores MySQL
+                    MessageBox.Show("Error: " + ex.Message);
                 }
+
             }
         }
     }

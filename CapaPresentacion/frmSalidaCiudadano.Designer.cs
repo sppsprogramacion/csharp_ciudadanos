@@ -30,17 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSalidaCiudadano));
             this.label1 = new System.Windows.Forms.Label();
-            this.txtIdCiudadano = new System.Windows.Forms.TextBox();
-            this.txtBuscarApellido = new System.Windows.Forms.TextBox();
-            this.txtBuscarDocumento = new System.Windows.Forms.TextBox();
+            this.txtIdRegistroDiario = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.btnBuscarApellido = new System.Windows.Forms.Button();
-            this.btnBuscarDocumento = new System.Windows.Forms.Button();
-            this.dgvListaCiudadanos = new System.Windows.Forms.DataGridView();
+            this.dgvListaRegistroDiario = new System.Windows.Forms.DataGridView();
             this.dtpHoraSalida = new System.Windows.Forms.DateTimePicker();
             this.btnRegistrarSalida = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCiudadanos)).BeginInit();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraInicio = new System.Windows.Forms.DateTimePicker();
+            this.dtpHoraFin = new System.Windows.Forms.DateTimePicker();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaRegistroDiario)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,74 +55,41 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Formuario para dar salida a ciudadanos:";
             // 
-            // txtIdCiudadano
+            // txtIdRegistroDiario
             // 
-            this.txtIdCiudadano.Location = new System.Drawing.Point(44, 308);
-            this.txtIdCiudadano.Name = "txtIdCiudadano";
-            this.txtIdCiudadano.Size = new System.Drawing.Size(50, 20);
-            this.txtIdCiudadano.TabIndex = 1;
-            // 
-            // txtBuscarApellido
-            // 
-            this.txtBuscarApellido.Location = new System.Drawing.Point(146, 92);
-            this.txtBuscarApellido.Name = "txtBuscarApellido";
-            this.txtBuscarApellido.Size = new System.Drawing.Size(163, 20);
-            this.txtBuscarApellido.TabIndex = 3;
-            // 
-            // txtBuscarDocumento
-            // 
-            this.txtBuscarDocumento.Location = new System.Drawing.Point(524, 95);
-            this.txtBuscarDocumento.Name = "txtBuscarDocumento";
-            this.txtBuscarDocumento.Size = new System.Drawing.Size(185, 20);
-            this.txtBuscarDocumento.TabIndex = 4;
+            this.txtIdRegistroDiario.Location = new System.Drawing.Point(44, 308);
+            this.txtIdRegistroDiario.Name = "txtIdRegistroDiario";
+            this.txtIdRegistroDiario.Size = new System.Drawing.Size(50, 20);
+            this.txtIdRegistroDiario.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 95);
+            this.label3.Location = new System.Drawing.Point(41, 78);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 13);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Buscar por Apellido:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(399, 99);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Buscar por Documento:";
+            this.label3.Text = "Buscar por Fecha:";
             // 
             // btnBuscarApellido
             // 
             this.btnBuscarApellido.BackColor = System.Drawing.Color.White;
             this.btnBuscarApellido.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarApellido.Image")));
-            this.btnBuscarApellido.Location = new System.Drawing.Point(315, 88);
+            this.btnBuscarApellido.Location = new System.Drawing.Point(309, 94);
             this.btnBuscarApellido.Name = "btnBuscarApellido";
             this.btnBuscarApellido.Size = new System.Drawing.Size(35, 33);
             this.btnBuscarApellido.TabIndex = 7;
             this.btnBuscarApellido.UseVisualStyleBackColor = false;
             this.btnBuscarApellido.Click += new System.EventHandler(this.btnBuscarApellido_Click);
             // 
-            // btnBuscarDocumento
+            // dgvListaRegistroDiario
             // 
-            this.btnBuscarDocumento.BackColor = System.Drawing.Color.White;
-            this.btnBuscarDocumento.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarDocumento.Image")));
-            this.btnBuscarDocumento.Location = new System.Drawing.Point(728, 89);
-            this.btnBuscarDocumento.Name = "btnBuscarDocumento";
-            this.btnBuscarDocumento.Size = new System.Drawing.Size(35, 33);
-            this.btnBuscarDocumento.TabIndex = 8;
-            this.btnBuscarDocumento.UseVisualStyleBackColor = false;
-            // 
-            // dgvListaCiudadanos
-            // 
-            this.dgvListaCiudadanos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaCiudadanos.Location = new System.Drawing.Point(44, 130);
-            this.dgvListaCiudadanos.Name = "dgvListaCiudadanos";
-            this.dgvListaCiudadanos.Size = new System.Drawing.Size(719, 162);
-            this.dgvListaCiudadanos.TabIndex = 9;
-            this.dgvListaCiudadanos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListaCiudadanos_KeyDown);
+            this.dgvListaRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaRegistroDiario.Location = new System.Drawing.Point(44, 156);
+            this.dgvListaRegistroDiario.Name = "dgvListaRegistroDiario";
+            this.dgvListaRegistroDiario.Size = new System.Drawing.Size(719, 136);
+            this.dgvListaRegistroDiario.TabIndex = 9;
+            this.dgvListaRegistroDiario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListaCiudadanos_KeyDown);
             // 
             // dtpHoraSalida
             // 
@@ -147,26 +115,69 @@
             this.btnRegistrarSalida.UseVisualStyleBackColor = false;
             this.btnRegistrarSalida.Click += new System.EventHandler(this.btnRegistrarSalida_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(41, 104);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Hora Inicio:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(41, 130);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(50, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Hora Fin:";
+            // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(141, 72);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(106, 20);
+            this.dtpFecha.TabIndex = 15;
+            // 
+            // dtpHoraInicio
+            // 
+            this.dtpHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraInicio.Location = new System.Drawing.Point(141, 102);
+            this.dtpHoraInicio.Name = "dtpHoraInicio";
+            this.dtpHoraInicio.Size = new System.Drawing.Size(106, 20);
+            this.dtpHoraInicio.TabIndex = 16;
+            // 
+            // dtpHoraFin
+            // 
+            this.dtpHoraFin.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtpHoraFin.Location = new System.Drawing.Point(141, 130);
+            this.dtpHoraFin.Name = "dtpHoraFin";
+            this.dtpHoraFin.Size = new System.Drawing.Size(106, 20);
+            this.dtpHoraFin.TabIndex = 17;
+            // 
             // frmSalidaCiudadano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dtpHoraFin);
+            this.Controls.Add(this.dtpHoraInicio);
+            this.Controls.Add(this.dtpFecha);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnRegistrarSalida);
             this.Controls.Add(this.dtpHoraSalida);
-            this.Controls.Add(this.dgvListaCiudadanos);
-            this.Controls.Add(this.btnBuscarDocumento);
+            this.Controls.Add(this.dgvListaRegistroDiario);
             this.Controls.Add(this.btnBuscarApellido);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtBuscarDocumento);
-            this.Controls.Add(this.txtBuscarApellido);
-            this.Controls.Add(this.txtIdCiudadano);
+            this.Controls.Add(this.txtIdRegistroDiario);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSalidaCiudadano";
             this.Text = "Formulario de Salidas de Ciudadano";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaCiudadanos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaRegistroDiario)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,15 +186,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtIdCiudadano;
-        private System.Windows.Forms.TextBox txtBuscarApellido;
-        private System.Windows.Forms.TextBox txtBuscarDocumento;
+        private System.Windows.Forms.TextBox txtIdRegistroDiario;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscarApellido;
-        private System.Windows.Forms.Button btnBuscarDocumento;
-        private System.Windows.Forms.DataGridView dgvListaCiudadanos;
+        private System.Windows.Forms.DataGridView dgvListaRegistroDiario;
         private System.Windows.Forms.DateTimePicker dtpHoraSalida;
         private System.Windows.Forms.Button btnRegistrarSalida;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
+        private System.Windows.Forms.DateTimePicker dtpHoraInicio;
+        private System.Windows.Forms.DateTimePicker dtpHoraFin;
     }
 }

@@ -222,7 +222,7 @@ namespace DAOImplement
         }
         
         //INICIO EGRESO DE REGISTRO DIARIO
-        public async Task<(bool, string error)> crearEgresoRegistroDiario(int id_ciudadano, string hora_egreso)
+       public async Task<HttpResponseMessage> crearEgresoRegistroDiario(int idRegistroDiario, string dataRegistroDiario)
         {
             //variable token
             string token = SessionManager.Token;
@@ -233,34 +233,15 @@ namespace DAOImplement
                 this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 // Crear el contenido de la solicitud HTTP
-                StringContent content = new StringContent(hora_egreso, Encoding.UTF8, "application/json");
+                StringContent content = new StringContent(dataRegistroDiario, Encoding.UTF8, "application/json");
                 // Enviar la solicitud HTTP POST
-                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/registro-diario/egreso?id_registro=" + id_ciudadano, content);
-                if (httpResponse.IsSuccessStatusCode)
-                {
-                    var contentRespuesta = await httpResponse.Content.ReadAsStringAsync();
+                HttpResponseMessage httpResponse = await this.httpClient.PutAsync(url_base + "/registro-diario/egreso?id_registro=" + idRegistroDiario, content);
 
-                    var dataRespuesta = JsonConvert.DeserializeObject<DResponseEditar>(contentRespuesta);
-
-                    if (dataRespuesta.Affected > 0)
-                    {
-                        return (true, null);
-                    }
-                    else
-                    {
-                        return (false, "No se pudo establecer hora de salida");
-                    }
-                }
-                else
-                {
-                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
-                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
-                    return (false, $"Error al registrar horario de salida: {mensaje}");
-                }
-
-                //return httpResponse;
+                return httpResponse;
 
             }
+
+            
             catch (HttpRequestException httpRequestException)
             {
                 // Capturar errores de la solicitud HTTP
@@ -277,6 +258,7 @@ namespace DAOImplement
                 Console.WriteLine($"Ocurrió un error inesperado: {ex.Message}");
                 throw new Exception($"Ocurrió un error inesperado: {ex.Message}");
             }
+
         }
 
         //FIN EGRESO DE REGISTRO DIARIO
