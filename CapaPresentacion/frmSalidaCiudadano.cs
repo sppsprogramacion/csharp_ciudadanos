@@ -32,9 +32,7 @@ namespace CapaPresentacion
             //limpiar errores de provider
             errorProvider.Clear();
 
-            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
-            //(List<DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
             (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFecha.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
 
 
@@ -96,33 +94,11 @@ namespace CapaPresentacion
 
                     idCiudadano = Convert.ToInt32(this.dgvListaRegistroDiario.CurrentRow.Cells["idRegistroDiario"].Value);
 
-                    NCiudadano nCiudadano = new NCiudadano();
-                    (DCiudadano dCiudadanoResponse, string errorResponse) = await nCiudadano.BuscarCiudadanoXID(idCiudadano);
-
-
-
-                    if (dCiudadanoResponse == null)
-                    {
-                        MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    //int idRegistroDiario = nRegistroDiario.RetornarListaXCiudadano(Convert.ToInt32(idCiudadano.ToString()));
+                   
 
                     this.txtIdRegistroDiario.Text = idCiudadano.ToString();
                     
-                    //this.txtDocumentoIdentidad.Text = dCiudadanoResponse.dni.ToString();
-                    //this.txtNombreCiudadano.Text = dCiudadanoResponse.apellido + " " + dCiudadanoResponse.nombre;
-                    //this.ptbFotoCiudadano.Load(dCiudadanoResponse.foto);
-                    //this.txtNacionalidad.Text = dCiudadanoResponse.nacionalidad.nacionalidad.ToString();
-                    //this.txtNacionalidad.Text = dCiudadanoResponse.categoria_ciudadano.ToString();
-
-
-                    //this.txtIdCiudadanoIngreso.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["id_ciudadano"].Value);
-                    //this.txtDocumentoIdentidad.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["dni"].Value);
-                    //this.txtNombreCiudadano.Text = Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["apellido"].Value) + " " + Convert.ToString(this.dgvCiudadanosRegistroDiario.CurrentRow.Cells["nombre"].Value);
-
-
+                   
 
 
                 }//fin if
@@ -171,12 +147,13 @@ namespace CapaPresentacion
 
                 var data = new
                 {
-                    horario_salida = this.dtpHoraSalida.Value.ToString("HH:MM:ss"),
+                    hora_egreso = this.dtpHoraSalida.Value.ToString("HH:mm:ss"),
+                    //horario_salida
                 };
 
                 string dataRegistroDiario = JsonConvert.SerializeObject(data);
 
-                MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:MM:ss"));
+                MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss"));
 
                 try
                 {

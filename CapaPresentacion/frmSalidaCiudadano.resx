@@ -121,7 +121,7 @@
   <data name="btnBuscarApellido.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAAAxpJREFUSEuNlUsovGEUxgelaBRhym1hJUmywEzkslKilFIIueS2wMhGyXIkCWVh
+        vwAADr8BOAVTJAAAAxpJREFUSEuNlUsovGEUxgelaBRhym1hJUmywEzkslKilFIIueS2wMhGyXIkCWVh
         p8jCQqGEKHJZWCgr7BApZulOPHrO/53vP5f3m5lfnea9nmfe857vvBYEYXt7G42NjUhKSoLFYkFsbCxa
         WlqwtbWlVoRGK/Dz84Pe3l5xSouLi0NqaiqSk5ONsdbWVrU6OFqBtbU1REREiKOMjAzc3t7i7u4Oz8/P
         hgBtc3NT7TBHKzAyMmI4iYyMRG5uLtLS0lBQUOAj0NHRoXaYEyDw/f2N+vp6wwlDY7fb0dzcjNLSUp8w
@@ -137,9 +137,6 @@
         QMHXi0/o+/s7Xl9fZWxmZgZRUVHY2dmRfnCAPyAwfZ5ARvJyAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="dtpHoraSalida.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="btnRegistrarSalida.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEBLAEsAAD/4QAiRXhpZgAATU0AKgAAAAgAAQESAAMAAAABAAEAAAAAAAD/2wBD
