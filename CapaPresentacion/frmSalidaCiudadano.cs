@@ -97,7 +97,7 @@ namespace CapaPresentacion
                    
 
                     this.txtIdRegistroDiario.Text = idCiudadano.ToString();
-                    
+                    MessageBox.Show("Registro seleccionado correctamente"); 
                    
 
 
@@ -146,14 +146,16 @@ namespace CapaPresentacion
                 //fin validacion...........................*/
 
                 var data = new
-                {
+                {                    
                     hora_egreso = this.dtpHoraSalida.Value.ToString("HH:mm:ss"),
                     //horario_salida
                 };
 
                 string dataRegistroDiario = JsonConvert.SerializeObject(data);
+                DateTime ahora = DateTime.Now;
+                string horaFormateada = ahora.ToString("HH:mm:ss");
 
-                MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss"));
+                MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss") + " " + horaFormateada);
 
                 try
                 {

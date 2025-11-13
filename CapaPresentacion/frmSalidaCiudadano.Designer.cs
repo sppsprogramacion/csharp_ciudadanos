@@ -61,6 +61,7 @@
             this.txtIdRegistroDiario.Name = "txtIdRegistroDiario";
             this.txtIdRegistroDiario.Size = new System.Drawing.Size(50, 20);
             this.txtIdRegistroDiario.TabIndex = 1;
+            this.txtIdRegistroDiario.Visible = false;
             // 
             // label3
             // 

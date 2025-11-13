@@ -60,10 +60,10 @@ namespace CapaPresentacion
             }
             */
 
-            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
+            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:mm:ss"), this.dtpHoraFin.Value.ToString("HH:mm:ss"));
             MessageBox.Show("la fecha que ingreso es: " + " " + this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"));
-            MessageBox.Show("la de ingreso es: " + " " + this.dtpHoraInicio.Value.ToString("HH:MM:ss"));
-            MessageBox.Show("la hora de salida es: " + " " + this.dtpHoraFin.Value.ToString("HH:MM:ss"));
+            MessageBox.Show("la de ingreso es: " + " " + this.dtpHoraInicio.Value.ToString("HH:mm:ss"));
+            MessageBox.Show("la hora de salida es: " + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss"));
             if (listaRegistroDiario == null)
             {
                 MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -194,7 +194,7 @@ namespace CapaPresentacion
             //NVisitaInterno nVisitaInterno = new NVisitaInterno();
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
             //(List<DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
-            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
+            (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:mm:ss"), this.dtpHoraFin.Value.ToString("HH:mm:ss"));
             
 
             if (listaRegistroDiario == null)
@@ -223,8 +223,9 @@ namespace CapaPresentacion
 
             })
             .ToList();
-            
-            dgvListadoPendienteSalida.Visible = false;
+            DateTime ahora = DateTime.Now;
+            string horaFormateada = ahora.ToString("HH:mm:ss");
+            MessageBox.Show("los horairos ingresados son: " + " " + this.dtpHoraInicio.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss") + " " + horaFormateada);
             dgvRegistroDiario.Visible = true;
             dgvRegistroDiario.DataSource = datosFiltrados;
 
