@@ -1307,6 +1307,7 @@
             this.btnQuitarDiscapacidad.TabIndex = 44;
             this.btnQuitarDiscapacidad.Text = "Quitar Discapacidad";
             this.btnQuitarDiscapacidad.UseVisualStyleBackColor = true;
+            this.btnQuitarDiscapacidad.Click += new System.EventHandler(this.btnQuitarDiscapacidad_Click);
             // 
             // lblDetalleTieneDiscapacidad
             // 

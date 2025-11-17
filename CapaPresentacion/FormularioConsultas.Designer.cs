@@ -192,16 +192,16 @@
             this.dgvListadoPendienteSalida.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListadoPendienteSalida.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvListadoPendienteSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListadoPendienteSalida.Location = new System.Drawing.Point(39, 347);
+            this.dgvListadoPendienteSalida.Location = new System.Drawing.Point(170, 504);
             this.dgvListadoPendienteSalida.Name = "dgvListadoPendienteSalida";
-            this.dgvListadoPendienteSalida.Size = new System.Drawing.Size(1334, 335);
+            this.dgvListadoPendienteSalida.Size = new System.Drawing.Size(840, 166);
             this.dgvListadoPendienteSalida.TabIndex = 3;
             // 
             // FormularioConsultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1385, 694);
+            this.ClientSize = new System.Drawing.Size(1284, 694);
             this.Controls.Add(this.dgvListadoPendienteSalida);
             this.Controls.Add(this.dgvRegistroDiario);
             this.Controls.Add(this.panel1);

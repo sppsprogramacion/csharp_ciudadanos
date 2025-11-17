@@ -35,7 +35,7 @@ namespace CapaPresentacion
             //vamos a crear un metodo y se la vamos a asignar al doc. PrintPage 
             doc.PrintPage += new PrintPageEventHandler(imprimeticket);
             vista.Document = doc;//para que nos muestre la vista
-            vista.Show();
+            vista.ShowDialog();
         }
 
         public void imprimeticket(object sender, PrintPageEventArgs e)

@@ -57,7 +57,7 @@
             // 
             // txtIdRegistroDiario
             // 
-            this.txtIdRegistroDiario.Location = new System.Drawing.Point(44, 308);
+            this.txtIdRegistroDiario.Location = new System.Drawing.Point(44, 530);
             this.txtIdRegistroDiario.Name = "txtIdRegistroDiario";
             this.txtIdRegistroDiario.Size = new System.Drawing.Size(50, 20);
             this.txtIdRegistroDiario.TabIndex = 1;
@@ -88,7 +88,7 @@
             this.dgvListaRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaRegistroDiario.Location = new System.Drawing.Point(44, 156);
             this.dgvListaRegistroDiario.Name = "dgvListaRegistroDiario";
-            this.dgvListaRegistroDiario.Size = new System.Drawing.Size(719, 136);
+            this.dgvListaRegistroDiario.Size = new System.Drawing.Size(719, 368);
             this.dgvListaRegistroDiario.TabIndex = 9;
             this.dgvListaRegistroDiario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvListaCiudadanos_KeyDown);
             // 
@@ -108,7 +108,7 @@
             this.btnRegistrarSalida.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistrarSalida.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrarSalida.Image")));
             this.btnRegistrarSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrarSalida.Location = new System.Drawing.Point(253, 337);
+            this.btnRegistrarSalida.Location = new System.Drawing.Point(253, 542);
             this.btnRegistrarSalida.Name = "btnRegistrarSalida";
             this.btnRegistrarSalida.Size = new System.Drawing.Size(265, 47);
             this.btnRegistrarSalida.TabIndex = 11;
@@ -162,7 +162,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 609);
             this.Controls.Add(this.dtpHoraFin);
             this.Controls.Add(this.dtpHoraInicio);
             this.Controls.Add(this.dtpFecha);

@@ -200,7 +200,7 @@ namespace CapaPresentacion
             if (listaRegistroDiario == null)
             {
                 MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                
             }
 
             var datosFiltrados = listaRegistroDiario
@@ -281,9 +281,10 @@ namespace CapaPresentacion
             })
             .ToList();
 
-            dgvRegistroDiario.Visible = false;
-            dgvListadoPendienteSalida.Visible = true;
-            dgvListadoPendienteSalida.DataSource = datosFiltrados;
+            //dgvRegistroDiario.Visible = false;
+            //dgvListadoPendienteSalida.Visible = true;
+            //dgvListadoPendienteSalida.DataSource = datosFiltrados;
+            dgvRegistroDiario.DataSource = datosFiltrados;
 
             if (listaRegistroDiario.Count == 0)
             {

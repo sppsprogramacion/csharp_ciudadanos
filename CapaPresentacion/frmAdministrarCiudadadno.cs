@@ -941,7 +941,7 @@ namespace CapaPresentacion
                 if (listaVisitasInternos.Count == 0)
                 {
                     MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
+                    
                 }
                 else
                 {
@@ -955,6 +955,13 @@ namespace CapaPresentacion
                 cmbParentesco.ValueMember = "id_parentesco";
                 cmbParentesco.DisplayMember = "parentesco";
                 (List<DParentesco> listaParentesco, string errorResponseParentescos) = await nParentesco.retornarListaParentesco();
+                
+                if (listaParentesco.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron registros para cargar la lista de parentescos", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                }
+
                 cmbParentesco.DataSource = listaParentesco;
 
                 
@@ -1561,11 +1568,12 @@ namespace CapaPresentacion
 
                     var datosFiltrados = listaMenorACargo
                     .Select(c => new
-                    {
+                    {                        
+                        Id = c.id_menor_a_cargo,
                         Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
+                        Parentesco = c.parentesco_menor.parentesco_menor,
                         Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
                         DniMenor = c.ciudadanoMenor.dni,
-                        Parentesco = c.parentesco_menor.parentesco_menor,
                         EdadMenor = c.edadMenor
                     })
                     .ToList();
@@ -1861,11 +1869,11 @@ namespace CapaPresentacion
                     var datosFiltrados = listaMenoresACargo
                     .Select(c => new
                     {
-                        Id_Menor = c.ciudadanoMenor.id_ciudadano,
+                        Id = c.id_menor_a_cargo,
                         Adulto = c.ciudadanoTutor.apellido + " " + c.ciudadanoTutor.nombre,
+                        Parentesco = c.parentesco_menor.parentesco_menor,
                         Menor = c.ciudadanoMenor.apellido + " " + c.ciudadanoMenor.nombre,
                         DniMenor = c.ciudadanoMenor.dni,
-                        Parentesco = c.parentesco_menor.parentesco_menor,
                         EdadMenor = c.edadMenor
 
                     })
@@ -2367,6 +2375,11 @@ namespace CapaPresentacion
                     }
                 }
             }
+        }
+
+        private void btnQuitarDiscapacidad_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

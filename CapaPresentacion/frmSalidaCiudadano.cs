@@ -167,8 +167,49 @@ namespace CapaPresentacion
                         MessageBox.Show("Se estableció la hora correctamente", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-                        //buscar y actualizar el ciudadano this.dCiudadano
-                        //this.ActualizarCiudadano();
+                        (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFecha.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:MM:ss"), this.dtpHoraFin.Value.ToString("HH:MM:ss"));
+
+
+                        if (listaRegistroDiario == null)
+                        {
+                            MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            return;
+                        }
+
+                        var datosFiltrados = listaRegistroDiario
+                        .Select(c => new
+                        {
+                            IdRegistroDiario = c.id_resgistro_diario,
+                            Nombre = c.ciudadano.apellido + " " + c.ciudadano.nombre,
+                            Ingreso = c.hora_ingreso,
+                            Egreso = c.hora_egreso,
+                            Destino = c.organismo.organismo,
+                            División = c.sector_destino.sector_destino,
+                            TipoAcceso = c.tipo_atencion.tipo_atencion,
+                            Motivo = c.motivo_atencion.motivo_atencion,
+                            Sexo = c.ciudadano.sexo.sexo,
+                            Dni = c.ciudadano.dni,
+                            Interno = c.interno,
+                            Obs = c.observaciones,
+                            Operador = c.usuario.apellido + " " + c.usuario.nombre
+
+
+
+                        })
+                        .ToList();
+
+                        dgvListaRegistroDiario.DataSource = datosFiltrados;
+
+                        if (listaRegistroDiario.Count == 0)
+                        {
+                            MessageBox.Show("No se encontraron registros", "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                        else
+                        {
+
+                            dgvListaRegistroDiario.Columns[1].Width = 200;
+                        }
 
                         //this.HabilitarControlesDatosPersonales(false);
                     }
