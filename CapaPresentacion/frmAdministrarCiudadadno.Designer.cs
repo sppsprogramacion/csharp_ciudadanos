@@ -137,6 +137,7 @@
             this.txtDniVisita = new System.Windows.Forms.TextBox();
             this.txtNombreVisita = new System.Windows.Forms.TextBox();
             this.tabEstablecerCategorias = new System.Windows.Forms.TabPage();
+            this.btnHistorialCategorias = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnLimpiarQuitarCategoria = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
@@ -1523,6 +1524,7 @@
             // 
             // tabEstablecerCategorias
             // 
+            this.tabEstablecerCategorias.Controls.Add(this.btnHistorialCategorias);
             this.tabEstablecerCategorias.Controls.Add(this.groupBox4);
             this.tabEstablecerCategorias.Controls.Add(this.dgvCategoriasCiudadano);
             this.tabEstablecerCategorias.Controls.Add(this.btnCrearCiudadanosCategorias);
@@ -1543,6 +1545,20 @@
             this.tabEstablecerCategorias.Text = "Asignar Categorias";
             this.tabEstablecerCategorias.UseVisualStyleBackColor = true;
             // 
+            // btnHistorialCategorias
+            // 
+            this.btnHistorialCategorias.BackColor = System.Drawing.Color.White;
+            this.btnHistorialCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorialCategorias.Image = ((System.Drawing.Image)(resources.GetObject("btnHistorialCategorias.Image")));
+            this.btnHistorialCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHistorialCategorias.Location = new System.Drawing.Point(410, 219);
+            this.btnHistorialCategorias.Name = "btnHistorialCategorias";
+            this.btnHistorialCategorias.Size = new System.Drawing.Size(229, 47);
+            this.btnHistorialCategorias.TabIndex = 27;
+            this.btnHistorialCategorias.Text = "Historial de Categorias";
+            this.btnHistorialCategorias.UseVisualStyleBackColor = false;
+            this.btnHistorialCategorias.Click += new System.EventHandler(this.btnHistorialCategorias_Click);
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnLimpiarQuitarCategoria);
@@ -1556,7 +1572,7 @@
             this.groupBox4.Controls.Add(this.label32);
             this.groupBox4.Controls.Add(this.label33);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(784, 281);
+            this.groupBox4.Location = new System.Drawing.Point(814, 281);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(387, 288);
             this.groupBox4.TabIndex = 26;
@@ -1657,21 +1673,24 @@
             // dgvCategoriasCiudadano
             // 
             this.dgvCategoriasCiudadano.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategoriasCiudadano.Location = new System.Drawing.Point(31, 289);
+            this.dgvCategoriasCiudadano.Location = new System.Drawing.Point(4, 289);
             this.dgvCategoriasCiudadano.Name = "dgvCategoriasCiudadano";
-            this.dgvCategoriasCiudadano.Size = new System.Drawing.Size(745, 280);
+            this.dgvCategoriasCiudadano.Size = new System.Drawing.Size(804, 280);
             this.dgvCategoriasCiudadano.TabIndex = 6;
             this.dgvCategoriasCiudadano.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvCategoriasCiudadano_KeyDown);
             // 
             // btnCrearCiudadanosCategorias
             // 
+            this.btnCrearCiudadanosCategorias.BackColor = System.Drawing.Color.White;
             this.btnCrearCiudadanosCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearCiudadanosCategorias.Location = new System.Drawing.Point(36, 229);
+            this.btnCrearCiudadanosCategorias.Image = ((System.Drawing.Image)(resources.GetObject("btnCrearCiudadanosCategorias.Image")));
+            this.btnCrearCiudadanosCategorias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearCiudadanosCategorias.Location = new System.Drawing.Point(175, 219);
             this.btnCrearCiudadanosCategorias.Name = "btnCrearCiudadanosCategorias";
-            this.btnCrearCiudadanosCategorias.Size = new System.Drawing.Size(167, 37);
+            this.btnCrearCiudadanosCategorias.Size = new System.Drawing.Size(229, 47);
             this.btnCrearCiudadanosCategorias.TabIndex = 5;
             this.btnCrearCiudadanosCategorias.Text = "Asignar Categoria";
-            this.btnCrearCiudadanosCategorias.UseVisualStyleBackColor = true;
+            this.btnCrearCiudadanosCategorias.UseVisualStyleBackColor = false;
             this.btnCrearCiudadanosCategorias.Click += new System.EventHandler(this.btnCrearCiudadanosCategorias_Click);
             // 
             // label38
@@ -1715,7 +1734,7 @@
             this.txtNombnreCiudadanoCategoria.Location = new System.Drawing.Point(106, 129);
             this.txtNombnreCiudadanoCategoria.Name = "txtNombnreCiudadanoCategoria";
             this.txtNombnreCiudadanoCategoria.ReadOnly = true;
-            this.txtNombnreCiudadanoCategoria.Size = new System.Drawing.Size(268, 20);
+            this.txtNombnreCiudadanoCategoria.Size = new System.Drawing.Size(298, 20);
             this.txtNombnreCiudadanoCategoria.TabIndex = 3;
             // 
             // txtDniCiudadanoCategoria
@@ -1723,7 +1742,7 @@
             this.txtDniCiudadanoCategoria.Location = new System.Drawing.Point(106, 103);
             this.txtDniCiudadanoCategoria.Name = "txtDniCiudadanoCategoria";
             this.txtDniCiudadanoCategoria.ReadOnly = true;
-            this.txtDniCiudadanoCategoria.Size = new System.Drawing.Size(268, 20);
+            this.txtDniCiudadanoCategoria.Size = new System.Drawing.Size(298, 20);
             this.txtDniCiudadanoCategoria.TabIndex = 2;
             // 
             // txtIdCioudadanoCategoria
@@ -1731,7 +1750,7 @@
             this.txtIdCioudadanoCategoria.Location = new System.Drawing.Point(106, 77);
             this.txtIdCioudadanoCategoria.Name = "txtIdCioudadanoCategoria";
             this.txtIdCioudadanoCategoria.ReadOnly = true;
-            this.txtIdCioudadanoCategoria.Size = new System.Drawing.Size(268, 20);
+            this.txtIdCioudadanoCategoria.Size = new System.Drawing.Size(298, 20);
             this.txtIdCioudadanoCategoria.TabIndex = 1;
             // 
             // cmbCategorias
@@ -2886,6 +2905,7 @@
             this.Controls.Add(this.tabCodigoRojo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdministrarCiudadadno";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Administrar Visitas";
             this.Load += new System.EventHandler(this.frmAdministrarCiudadadno_Load);
@@ -3180,6 +3200,7 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.DataGridView dtgvProhibiciones;
         private System.Windows.Forms.Button btnVerProhibiciones;
+        private System.Windows.Forms.Button btnHistorialCategorias;
     }
 }
 

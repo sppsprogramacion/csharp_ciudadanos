@@ -177,6 +177,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSalidaCiudadano";
+            this.ShowInTaskbar = false;
             this.Text = "Formulario de Salidas de Ciudadano";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaRegistroDiario)).EndInit();
             this.ResumeLayout(false);

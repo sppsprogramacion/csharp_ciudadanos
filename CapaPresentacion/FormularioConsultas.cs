@@ -41,29 +41,14 @@ namespace CapaPresentacion
 
         private async void btnImprimirReporte_Click(object sender, EventArgs e)
         {
-            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
             DRegistroDiario dRegistroDiario = new DRegistroDiario();
 
-            /*string hora_fin;
-            String horaSalida = dRegistroDiario.hora_egreso;
-            if (string.IsNullOrEmpty(horaSalida))
-            {
-                //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
-                MessageBox.Show("Cadena nula o vacia" + " " + dRegistroDiario.hora_egreso);
-            }
-            else
-            {
-                //hora_fin = horaSalida;
-                //hora_fin = this.dtpHoraInicio.Value.ToString("HH:MM:ss");
-                MessageBox.Show("Cadena con valores ingresados" + " " + horaSalida);
-            }
-            */
-
+           
             (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:mm:ss"), this.dtpHoraFin.Value.ToString("HH:mm:ss"));
-            MessageBox.Show("la fecha que ingreso es: " + " " + this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"));
-            MessageBox.Show("la de ingreso es: " + " " + this.dtpHoraInicio.Value.ToString("HH:mm:ss"));
-            MessageBox.Show("la hora de salida es: " + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss"));
+            //MessageBox.Show("la fecha que ingreso es: " + " " + this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"));
+            //MessageBox.Show("la de ingreso es: " + " " + this.dtpHoraInicio.Value.ToString("HH:mm:ss"));
+            //MessageBox.Show("la hora de salida es: " + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss"));
             if (listaRegistroDiario == null)
             {
                 MessageBox.Show(errorResponse, "Restrición Visitas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -191,9 +176,7 @@ namespace CapaPresentacion
 
         private async void btnVerRegistroDiario_Click(object sender, EventArgs e)
         {
-            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
-            //(List<DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
             (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaRegistroDiario(this.dtpFechaInicio.Value.ToString("yyyy-MM-dd"), this.dtpHoraInicio.Value.ToString("HH:mm:ss"), this.dtpHoraFin.Value.ToString("HH:mm:ss"));
             
 
@@ -225,7 +208,7 @@ namespace CapaPresentacion
             .ToList();
             DateTime ahora = DateTime.Now;
             string horaFormateada = ahora.ToString("HH:mm:ss");
-            MessageBox.Show("los horairos ingresados son: " + " " + this.dtpHoraInicio.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss") + " " + horaFormateada);
+            //MessageBox.Show("los horairos ingresados son: " + " " + this.dtpHoraInicio.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss") + " " + horaFormateada);
             dgvRegistroDiario.Visible = true;
             dgvRegistroDiario.DataSource = datosFiltrados;
 
@@ -248,9 +231,7 @@ namespace CapaPresentacion
 
         private async void btnVerListadoPendiente_Click(object sender, EventArgs e)
         {
-            //NVisitaInterno nVisitaInterno = new NVisitaInterno();
             NRegistroDiario nRegistroDiario = new NRegistroDiario();
-            //(List<DVisitaInterno> listaVisitasInternos, string errorResponse) = await nVisitaInterno.retornarListaVisitaInternoXCiudadano(Convert.ToInt32(this.txtIdCiudadano.Text));
             (List<DRegistroDiario> listaRegistroDiario, string errorResponse) = await nRegistroDiario.retornarListaPendienteSalida();
 
 
@@ -281,9 +262,6 @@ namespace CapaPresentacion
             })
             .ToList();
 
-            //dgvRegistroDiario.Visible = false;
-            //dgvListadoPendienteSalida.Visible = true;
-            //dgvListadoPendienteSalida.DataSource = datosFiltrados;
             dgvRegistroDiario.DataSource = datosFiltrados;
 
             if (listaRegistroDiario.Count == 0)

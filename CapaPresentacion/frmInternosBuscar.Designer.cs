@@ -90,6 +90,7 @@
             this.Controls.Add(this.dtvInternos);
             this.Controls.Add(this.txtBuscarApellidoInternos);
             this.Name = "frmInternosBuscar";
+            this.ShowInTaskbar = false;
             this.Text = "frmInternosBuscar";
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).EndInit();
             this.ResumeLayout(false);

@@ -12,6 +12,7 @@ using System.Net;
 using Newtonsoft.Json.Linq;
 using CommonCache;
 using System.Net.Http.Headers;
+using System.Collections;
 
 namespace DAOImplement
 {
@@ -77,8 +78,8 @@ namespace DAOImplement
 
         
 
-        //LISTA DE CATEGORIAS DEL CIUDADANO
-        public async Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasXCiudadano(int id_ciudadano)
+        //LISTA DE CATEGORIAS VIGENTES DEL CIUDADANO
+        public async Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasVigentesXCiudadano(int id_ciudadano)
         {
             
             //variable token
@@ -127,7 +128,7 @@ namespace DAOImplement
 
 
         }
-        //FIN LISTA DE CATEGORIAS DEL CIUDADANO........................................................
+        //FIN LISTA DE CATEGORIAS VIGENTES DEL CIUDADANO........................................................
 
 
         //QUITAR CATEGORIA
@@ -189,5 +190,54 @@ namespace DAOImplement
             }
         }
         //FIN QUITAR CATEGORIA......................................................
+
+        //INICIO LISTA DE CATEGORIAS POR CIUDADANO
+        public async Task<(List<DCiudadanosCategorias>, string error)> retornarListaCategoriasHistoricasXCiudadano(int id_ciudadano)
+        {
+            //throw new NotImplementedException();
+            //variable token
+            string token = SessionManager.Token;
+            List<DCiudadanosCategorias> listaCiudadanosCategorias = new List<DCiudadanosCategorias>();
+
+            try
+            {
+                //agregar tpken a la cabecera
+                this.httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+                HttpResponseMessage httpResponse = await this.httpClient.GetAsync(url_base + "/ciudadanos-categorias/lista-xciudadano?id_ciudadano=" + id_ciudadano);
+                if (httpResponse.IsSuccessStatusCode)
+                {
+                    var content = await httpResponse.Content.ReadAsStringAsync();
+                    listaCiudadanosCategorias = JsonConvert.DeserializeObject<List<DCiudadanosCategorias>>(content);
+
+                    return (listaCiudadanosCategorias, null);
+
+                }
+                else
+                {
+                    string errorMessage = await httpResponse.Content.ReadAsStringAsync();
+                    var mensaje = JObject.Parse(errorMessage)["message"]?.ToString();
+                    return (null, $"Error en la busqueda: {mensaje}");
+                }
+            }
+
+            catch (HttpRequestException httpRequestException)
+            {
+                // Capturar errores de la solicitud HTTP
+                return (null, $"Error de conexión: {httpRequestException.Message}");
+            }
+            catch (JsonException jsonException)
+            {
+                // Capturar errores en la serialización/deserialización de JSON                
+                return (null, $"Error inesperado");
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores (log, mensaje al usuario, etc.)
+                Console.WriteLine($"Error: {ex.Message}");
+                return (null, $"Error inesperado: {ex.Message}");
+            }
+        }
+        //FIN LISTA DE CATEGORIAS POR CIUDADNO
     }
 }

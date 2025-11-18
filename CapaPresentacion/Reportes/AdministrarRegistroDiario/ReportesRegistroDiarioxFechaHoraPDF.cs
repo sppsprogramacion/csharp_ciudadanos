@@ -131,12 +131,12 @@ namespace CapaPresentacion.Reportes.AdministrarRegistroDiario
                 DateTime fecha_Null = new DateTime(01, 01, 0001, 00, 00, 00);
                 if (fechaNula == fecha_Null)
                 {
-                    MessageBox.Show("La fecha es nula." + " " + fechaNula);
+                    //MessageBox.Show("La fecha es nula." + " " + fechaNula);
                     tablaRegistrodiario.AddCell(new Paragraph("no egresó", fuenteNormal));
                 }
                 else
                 {
-                    MessageBox.Show("La fecha no es nula. Valor: " + fechaNula.Value);
+                    //MessageBox.Show("La fecha no es nula. Valor: " + fechaNula.Value);
                     tablaRegistrodiario.AddCell(new Paragraph(registroDiario.hora_egreso.ToString(), fuenteNormal));
                 }
                 tablaRegistrodiario.AddCell(new Paragraph(registroDiario.organismo.organismo.ToString(), fuenteNormal));

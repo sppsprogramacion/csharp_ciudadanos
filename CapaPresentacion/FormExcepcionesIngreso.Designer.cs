@@ -342,6 +342,7 @@
             this.Controls.Add(this.groupBox12);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormExcepcionesIngreso";
+            this.ShowInTaskbar = false;
             this.Text = resources.GetString("$this.Text");
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();

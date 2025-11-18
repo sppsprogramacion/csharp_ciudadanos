@@ -28,18 +28,18 @@ namespace CapaNegocio
         //FIN CREAR CATEGORIAS..................................
 
 
-        //RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID
-        public async Task<(List<DCiudadanosCategorias>, string errprResponse)> retornarCiudadanosCategoriasXCiudadano(int id_ciudadano)
+        //RETORNAR LISTA CATEGORIAS VIGENTES DEL CIUDADANO XID
+        public async Task<(List<DCiudadanosCategorias>, string errprResponse)> retornarCiudadanosCategoriasVigentesXCiudadano(int id_ciudadano)
         {
             ICiudadanosCategoriasDao ciudadanosCategoriasDao = new CiudadanosCategoriasDaoImpl();
 
-            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await ciudadanosCategoriasDao.retornarListaCategoriasXCiudadano(id_ciudadano);
+            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await ciudadanosCategoriasDao.retornarListaCategoriasVigentesXCiudadano(id_ciudadano);
            
 
             return (listaCiudadanosCategorias, errorResponse);
 
         }
-        //FIN RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID..................................
+        //FIN RETORNAR LISTA CATEGORIAS VIGENTES DEL CIUDADANO XID..................................
 
 
         //QUITAR CATEGORIA
@@ -53,6 +53,18 @@ namespace CapaNegocio
         }
         //FIN QUITAR CATEGORIA..................................
 
+        //RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID
+        public async Task<(List<DCiudadanosCategorias>, string errprResponse)> retornarCiudadanosCategoriasHistoricasXCiudadano(int id_ciudadano)
+        {
+            ICiudadanosCategoriasDao ciudadanosCategoriasDao = new CiudadanosCategoriasDaoImpl();
+
+            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await ciudadanosCategoriasDao.retornarListaCategoriasHistoricasXCiudadano(id_ciudadano);
+
+
+            return (listaCiudadanosCategorias, errorResponse);
+
+        }
+        //FIN RETORNAR LISTA CATEGORIAS DEL CIUDADANO XID..................................
 
     }
 }

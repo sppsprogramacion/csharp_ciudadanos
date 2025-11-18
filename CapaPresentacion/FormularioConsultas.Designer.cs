@@ -41,10 +41,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvRegistroDiario = new System.Windows.Forms.DataGridView();
-            this.dgvListadoPendienteSalida = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListadoPendienteSalida)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpFechaInicio
@@ -187,31 +185,20 @@
             this.dgvRegistroDiario.Size = new System.Drawing.Size(1338, 326);
             this.dgvRegistroDiario.TabIndex = 2;
             // 
-            // dgvListadoPendienteSalida
-            // 
-            this.dgvListadoPendienteSalida.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvListadoPendienteSalida.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dgvListadoPendienteSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListadoPendienteSalida.Location = new System.Drawing.Point(170, 504);
-            this.dgvListadoPendienteSalida.Name = "dgvListadoPendienteSalida";
-            this.dgvListadoPendienteSalida.Size = new System.Drawing.Size(840, 166);
-            this.dgvListadoPendienteSalida.TabIndex = 3;
-            // 
             // FormularioConsultas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 694);
-            this.Controls.Add(this.dgvListadoPendienteSalida);
             this.Controls.Add(this.dgvRegistroDiario);
             this.Controls.Add(this.panel1);
             this.Name = "FormularioConsultas";
+            this.ShowInTaskbar = false;
             this.Text = "FormularioConsultas";
             this.Load += new System.EventHandler(this.FormularioConsultas_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRegistroDiario)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListadoPendienteSalida)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -230,6 +217,5 @@
         private System.Windows.Forms.Button btnVerRegistroDiario;
         private System.Windows.Forms.DataGridView dgvRegistroDiario;
         private System.Windows.Forms.Button btnVerListadoPendiente;
-        public System.Windows.Forms.DataGridView dgvListadoPendienteSalida;
     }
 }

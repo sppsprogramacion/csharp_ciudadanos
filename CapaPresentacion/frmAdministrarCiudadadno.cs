@@ -837,7 +837,7 @@ namespace CapaPresentacion
                 }
                 catch (Exception ex)
                 {
-                    // Manejo de otros tipos de errores MySQL
+                     // Manejo de otros tipos de errores MySQL
                     MessageBox.Show("Error: " + ex.Message);
                 }
 
@@ -1111,13 +1111,13 @@ namespace CapaPresentacion
         }
         //FIN CONTROL EDAD
 
-        //CARGAR LISTA CATEGORIAS DEL CIUDADANO
+        //CARGAR LISTA CATEGORIAS VIGENTES DEL CIUDADANO
         private async void CargarCategoriasDelCiudadano()
         {
 
             NCiuddanosCategorias nCiudadanosCategorias = new NCiuddanosCategorias();
 
-            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await nCiudadanosCategorias.retornarCiudadanosCategoriasXCiudadano(Convert.ToInt32(txtIdCiudadano.Text));
+            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await nCiudadanosCategorias.retornarCiudadanosCategoriasVigentesXCiudadano(Convert.ToInt32(txtIdCiudadano.Text));
             if (listaCiudadanosCategorias == null)
             {
                 MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1151,7 +1151,50 @@ namespace CapaPresentacion
                 dgvCategoriasCiudadano.Columns[4].Width = 150;
             }
         
-        }//FIN CARGAR LISTA CATEGORIAS DEL CIUDADANO..................
+        }//FIN CARGAR LISTA VIGENTES CATEGORIAS DEL CIUDADANO..................
+
+        //CARGAR LISTA CATEGORIAS HISTORICA DEL CIUDADANO
+        private async void CargarCategoriasHistoricaDelCiudadano()
+        {
+
+            NCiuddanosCategorias nCiudadanosCategorias = new NCiuddanosCategorias();
+
+            (List<DCiudadanosCategorias> listaCiudadanosCategorias, string errorResponse) = await nCiudadanosCategorias.retornarCiudadanosCategoriasHistoricasXCiudadano(Convert.ToInt32(txtIdCiudadano.Text));
+            if (listaCiudadanosCategorias == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var datosFiltrados = listaCiudadanosCategorias
+                .Select(c => new
+                {
+                    IdCategoriaCiudadano = c.id_ciudadano_categoria,
+                    Categoria = c.categoria_ciudadano.categoria_ciudadano,
+                    FechaCarga = c.fecha_carga,
+                    OrganismoCarga = c.organismo.organismo,
+                    UsuarioCarga = c.usuario.apellido + " " + c.usuario.nombre,
+                    Vigente = c.vigente
+
+                })
+                .ToList();
+
+            dgvCategoriasCiudadano.DataSource = datosFiltrados;
+
+            if (listaCiudadanosCategorias.Count == 0)
+            {
+                MessageBox.Show("No se encontraron registros", "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else
+            {
+
+                dgvCategoriasCiudadano.Columns[1].Width = 150;
+                dgvCategoriasCiudadano.Columns[3].Width = 150;
+                dgvCategoriasCiudadano.Columns[4].Width = 150;
+            }
+
+        }//FIN CARGAR LISTA HISTORICA CATEGORIAS DEL CIUDADANO..................
 
 
         private async void btnActualizarIngresos_Click(object sender, EventArgs e)
@@ -2380,6 +2423,11 @@ namespace CapaPresentacion
         private void btnQuitarDiscapacidad_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnHistorialCategorias_Click(object sender, EventArgs e)
+        {
+            this.CargarCategoriasHistoricaDelCiudadano();
         }
     }
 
