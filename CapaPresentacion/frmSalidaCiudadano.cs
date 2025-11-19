@@ -114,7 +114,7 @@ namespace CapaPresentacion
         {
             if (this.txtIdRegistroDiario.Text == string.Empty)
             {
-                MessageBox.Show("Debe un registro de la grilla");
+                MessageBox.Show("Debe seleccionar un ciudadano de la lista");
             }
 
             else
@@ -155,7 +155,7 @@ namespace CapaPresentacion
                 DateTime ahora = DateTime.Now;
                 string horaFormateada = ahora.ToString("HH:mm:ss");
 
-                MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss") + " " + horaFormateada);
+                //MessageBox.Show("la hora de egreso es: " + " " + this.dtpHoraSalida.Value.ToString("HH:mm:ss") + " " + this.dtpHoraFin.Value.ToString("HH:mm:ss") + " " + horaFormateada);
 
                 try
                 {

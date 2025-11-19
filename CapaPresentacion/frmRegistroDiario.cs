@@ -19,6 +19,8 @@ using CapaPresentacion.Validaciones.AdministrarCiudadano.ValidacionCiudadano;
 using CapaPresentacion.Validaciones.RegistroDirario.Datos;
 using CapaPresentacion.Validaciones.RegistroDirario.ValidacionRegistroDiario;//para validacion
 using CapaPresentacion.FuncionesGenerales;
+using CapaPresentacion.Validaciones.NuevoCiudadano.Datos;
+using CapaPresentacion.Validaciones.NuevoCiudadano.ValidacionNuevoCiudadano;
 
 namespace CapaPresentacion
 {
@@ -363,6 +365,58 @@ namespace CapaPresentacion
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private async void btnBuscarDni_Click(object sender, EventArgs e)
+        {
+            //limpiar errores de provider
+            errorProvider.Clear();
+
+            //validar
+            var data = new RegistroDiarioDatos
+            {
+                txtBuscarDocumento = txtBuscarDocumento.Text
+            };
+
+            var validator = new BuscarDniRegistroDiarioValidator();
+            var result = validator.Validate(data);
+
+            if (!result.IsValid)
+            {
+                MessageBox.Show("Complete correctamente los campos del formulario", "Atencion Ciudadanos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                foreach (var failure in result.Errors)
+                {
+
+                    Control control = Controls.Find(failure.PropertyName, true)[0];
+                    errorProvider.SetError(control, failure.ErrorMessage);
+                }
+                return;
+            }
+            //fin validar
+
+
+            NCiudadano nCiudadanos = new NCiudadano();
+
+            int dni_ciudadanos = Convert.ToInt32(this.txtBuscarDocumento.Text);
+            (List<DCiudadano> listaCiudadanos, string errorResponse) = await nCiudadanos.RetornarListaCiudadanosXdni(dni_ciudadanos);
+            if (listaCiudadanos == null)
+            {
+                MessageBox.Show(errorResponse, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            var datosFiltrados = listaCiudadanos
+                .Select(c => new
+                {
+                    id_ciudadano = c.id_ciudadano,
+                    Apellido = c.apellido,
+                    Nombre = c.nombre,
+                    DNI = c.dni,
+                    Sexo = c.sexo.sexo
+                })
+                .ToList();
+
+
+            dgvCiudadanosRegistroDiario.DataSource = datosFiltrados;
         }
     }
 }

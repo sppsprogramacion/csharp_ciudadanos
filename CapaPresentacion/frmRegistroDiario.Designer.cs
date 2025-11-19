@@ -32,7 +32,7 @@
             this.txtBuscarApellido = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtBuscarDocumento = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.cmbTipoAcceso = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
@@ -63,6 +63,7 @@
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.dtpFechaRegistroDiario = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnBuscarDni = new System.Windows.Forms.Button();
             this.txtProfesion = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -100,13 +101,13 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Ingresar DNI:";
             // 
-            // textBox2
+            // txtBuscarDocumento
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(563, 43);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtBuscarDocumento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBuscarDocumento.Location = new System.Drawing.Point(563, 43);
+            this.txtBuscarDocumento.Name = "txtBuscarDocumento";
+            this.txtBuscarDocumento.Size = new System.Drawing.Size(159, 20);
+            this.txtBuscarDocumento.TabIndex = 2;
             // 
             // label33
             // 
@@ -314,6 +315,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(407, 38);
             this.button1.Name = "button1";
@@ -391,6 +393,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btnBuscarDni);
             this.panel2.Controls.Add(this.txtProfesion);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
@@ -400,12 +403,24 @@
             this.panel2.Controls.Add(this.txtBuscarApellido);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.textBox2);
+            this.panel2.Controls.Add(this.txtBuscarDocumento);
             this.panel2.Controls.Add(this.ptbFotoCiudadano);
             this.panel2.Location = new System.Drawing.Point(127, 12);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(823, 386);
             this.panel2.TabIndex = 60;
+            // 
+            // btnBuscarDni
+            // 
+            this.btnBuscarDni.BackColor = System.Drawing.Color.White;
+            this.btnBuscarDni.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBuscarDni.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarDni.Image")));
+            this.btnBuscarDni.Location = new System.Drawing.Point(747, 38);
+            this.btnBuscarDni.Name = "btnBuscarDni";
+            this.btnBuscarDni.Size = new System.Drawing.Size(39, 32);
+            this.btnBuscarDni.TabIndex = 55;
+            this.btnBuscarDni.UseVisualStyleBackColor = false;
+            this.btnBuscarDni.Click += new System.EventHandler(this.btnBuscarDni_Click);
             // 
             // txtProfesion
             // 
@@ -495,7 +510,7 @@
         private System.Windows.Forms.TextBox txtBuscarApellido;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtBuscarDocumento;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ComboBox cmbTipoAcceso;
         private System.Windows.Forms.Label label30;
@@ -530,5 +545,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox txtBuscarInternos;
+        private System.Windows.Forms.Button btnBuscarDni;
     }
 }

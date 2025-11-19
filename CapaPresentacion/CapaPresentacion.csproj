@@ -208,6 +208,7 @@
     <Compile Include="Validaciones\CiudadanoNuevo\Datos\CiudadanoNuevoDatos.cs" />
     <Compile Include="Validaciones\CiudadanoNuevo\ValidacionNuevoCiudadano\BuscarApellidoValidator.cs" />
     <Compile Include="Validaciones\RegistroDirario\Datos\RegistroDiarioDatos.cs" />
+    <Compile Include="Validaciones\RegistroDirario\ValidacionRegistroDiario\BuscarDniRegistroDiarioValidator.cs" />
     <Compile Include="Validaciones\RegistroDirario\ValidacionRegistroDiario\RegistroDiarioNuevoValidator.cs" />
     <EmbeddedResource Include="AgregarInternos.resx">
       <DependentUpon>AgregarInternos.cs</DependentUpon>

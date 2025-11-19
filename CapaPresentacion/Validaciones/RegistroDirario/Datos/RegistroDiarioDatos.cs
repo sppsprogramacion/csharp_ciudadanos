@@ -18,6 +18,7 @@ namespace CapaPresentacion.Validaciones.RegistroDirario.Datos
         public string txtBuscarInternos { get; set; }
         public string motivo_atencion_id { get; set; }
         public string txtObservaciones { get; set; }
+        public string txtBuscarDocumento { get; set; }
         
     }
 }
