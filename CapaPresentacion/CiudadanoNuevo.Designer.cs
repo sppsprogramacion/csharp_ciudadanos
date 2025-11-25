@@ -38,6 +38,7 @@
             this.txtBuscarDni = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnVerAnticipadas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataListadoCiudadanos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -136,16 +137,30 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Buscar ciudadano";
             // 
+            // btnVerAnticipadas
+            // 
+            this.btnVerAnticipadas.BackColor = System.Drawing.Color.White;
+            this.btnVerAnticipadas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVerAnticipadas.Location = new System.Drawing.Point(186, 117);
+            this.btnVerAnticipadas.Name = "btnVerAnticipadas";
+            this.btnVerAnticipadas.Size = new System.Drawing.Size(146, 37);
+            this.btnVerAnticipadas.TabIndex = 45;
+            this.btnVerAnticipadas.Text = "Ver anticipadas";
+            this.btnVerAnticipadas.UseVisualStyleBackColor = false;
+            this.btnVerAnticipadas.Click += new System.EventHandler(this.btnVerAnticipadas_Click);
+            // 
             // CiudadanoNuevo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(944, 559);
+            this.Controls.Add(this.btnVerAnticipadas);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dataListadoCiudadanos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CiudadanoNuevo";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Administracion de Ciudadanos";
             this.Load += new System.EventHandler(this.CiudadanoNuevo_Load);
@@ -166,5 +181,6 @@
         private System.Windows.Forms.Button button1;
         public System.Windows.Forms.DataGridView dataListadoCiudadanos;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnVerAnticipadas;
     }
 }

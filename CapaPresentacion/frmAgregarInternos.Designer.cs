@@ -166,6 +166,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "frmAgregarInternos";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario Buscar Internos";
             this.Load += new System.EventHandler(this.frmAgregarInternos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatosInternos)).EndInit();

@@ -182,7 +182,7 @@
             this.dgvRegistroDiario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRegistroDiario.Location = new System.Drawing.Point(39, 356);
             this.dgvRegistroDiario.Name = "dgvRegistroDiario";
-            this.dgvRegistroDiario.Size = new System.Drawing.Size(1338, 326);
+            this.dgvRegistroDiario.Size = new System.Drawing.Size(1233, 326);
             this.dgvRegistroDiario.TabIndex = 2;
             // 
             // FormularioConsultas
@@ -194,6 +194,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormularioConsultas";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormularioConsultas";
             this.Load += new System.EventHandler(this.FormularioConsultas_Load);
             this.panel1.ResumeLayout(false);
@@ -215,7 +216,7 @@
         private System.Windows.Forms.DateTimePicker dtpHoraInicio;
         private System.Windows.Forms.Button btnImprimirReporte;
         private System.Windows.Forms.Button btnVerRegistroDiario;
-        private System.Windows.Forms.DataGridView dgvRegistroDiario;
         private System.Windows.Forms.Button btnVerListadoPendiente;
+        private System.Windows.Forms.DataGridView dgvRegistroDiario;
     }
 }

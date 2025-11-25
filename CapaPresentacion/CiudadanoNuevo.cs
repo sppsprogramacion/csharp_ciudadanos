@@ -233,5 +233,12 @@ namespace CapaPresentacion
             }
 
         }
+
+        private void btnVerAnticipadas_Click(object sender, EventArgs e)
+        {
+            FormProhibicionesAnticipadas formProhibicionesAnticipadas = new FormProhibicionesAnticipadas();
+
+            formProhibicionesAnticipadas.ShowDialog();
+        }
     }
 }

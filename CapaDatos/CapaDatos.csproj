@@ -59,6 +59,7 @@
     <Compile Include="DPais.cs" />
     <Compile Include="DParentesco.cs" />
     <Compile Include="DParentescoMenor.cs" />
+    <Compile Include="DProhibicionAnticipada.cs" />
     <Compile Include="DProhibicionVisita.cs" />
     <Compile Include="DProvincia.cs" />
     <Compile Include="DRegistroDiario.cs" />

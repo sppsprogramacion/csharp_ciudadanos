@@ -74,7 +74,7 @@ namespace CapaPresentacion
         async private void CargarDataGridExcepciones()
         {
             NExcepcionIngresoVisita nExcepcionIngresoVisita = new NExcepcionIngresoVisita();
-            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngresoXFecha(dtpFechaExcepcionBuscar.Value.ToString("yyyy-MM-dd"));
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await nExcepcionIngresoVisita.ListaExcepcionesIngresoXFecha(dtpFechaInicioExcepcion.Value.ToString("yyyy-MM-dd"), dtpFechaFinExcepcion.Value.ToString("yyyy-MM-dd"));
 
             if (listaExcepcionesIngreso == null)
             {
@@ -93,10 +93,10 @@ namespace CapaPresentacion
                     FechaExcepcion = c.fecha_excepcion,
                     Cumplimentado = c.cumplimentado,
                     Detalle = c.detalle_excepcion,
+                    Controlado = c.controlado,
                     FechaCarga = c.fecha_carga,
                     Organismo = c.organismo.organismo,
-                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
-                    Anulado = c.anulado
+                    Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre                    
 
                 })
                 .ToList();

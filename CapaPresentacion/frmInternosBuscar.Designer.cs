@@ -91,6 +91,7 @@
             this.Controls.Add(this.txtBuscarApellidoInternos);
             this.Name = "frmInternosBuscar";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmInternosBuscar";
             ((System.ComponentModel.ISupportInitialize)(this.dtvInternos)).EndInit();
             this.ResumeLayout(false);

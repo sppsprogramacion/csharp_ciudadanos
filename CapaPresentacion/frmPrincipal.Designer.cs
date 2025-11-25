@@ -66,7 +66,7 @@
             this.btnRegistroDiario.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegistroDiario.Image = global::CapaPresentacion.Properties.Resources.reportes1;
             this.btnRegistroDiario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistroDiario.Location = new System.Drawing.Point(254, 109);
+            this.btnRegistroDiario.Location = new System.Drawing.Point(300, 109);
             this.btnRegistroDiario.Name = "btnRegistroDiario";
             this.btnRegistroDiario.Size = new System.Drawing.Size(178, 65);
             this.btnRegistroDiario.TabIndex = 5;
@@ -83,9 +83,9 @@
             this.btnAdministrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAdministrar.Location = new System.Drawing.Point(70, 109);
             this.btnAdministrar.Name = "btnAdministrar";
-            this.btnAdministrar.Size = new System.Drawing.Size(178, 65);
+            this.btnAdministrar.Size = new System.Drawing.Size(215, 65);
             this.btnAdministrar.TabIndex = 2;
-            this.btnAdministrar.Text = "       Administrar";
+            this.btnAdministrar.Text = "     Administrar";
             this.btnAdministrar.UseVisualStyleBackColor = false;
             this.btnAdministrar.Click += new System.EventHandler(this.btnAdministrar_Click);
             // 
@@ -113,9 +113,9 @@
             this.btnListaExcepciones.Font = new System.Drawing.Font("Britannic Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnListaExcepciones.Image = ((System.Drawing.Image)(resources.GetObject("btnListaExcepciones.Image")));
             this.btnListaExcepciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnListaExcepciones.Location = new System.Drawing.Point(438, 109);
+            this.btnListaExcepciones.Location = new System.Drawing.Point(70, 190);
             this.btnListaExcepciones.Name = "btnListaExcepciones";
-            this.btnListaExcepciones.Size = new System.Drawing.Size(202, 65);
+            this.btnListaExcepciones.Size = new System.Drawing.Size(215, 65);
             this.btnListaExcepciones.TabIndex = 13;
             this.btnListaExcepciones.Text = "               Excepciones de ingreso";
             this.btnListaExcepciones.UseVisualStyleBackColor = false;
@@ -128,7 +128,7 @@
             this.btn_Consultas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Consultas.Image = ((System.Drawing.Image)(resources.GetObject("btn_Consultas.Image")));
             this.btn_Consultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Consultas.Location = new System.Drawing.Point(646, 109);
+            this.btn_Consultas.Location = new System.Drawing.Point(677, 109);
             this.btn_Consultas.Name = "btn_Consultas";
             this.btn_Consultas.Size = new System.Drawing.Size(202, 65);
             this.btn_Consultas.TabIndex = 14;
@@ -143,7 +143,7 @@
             this.btnEgresoCiudadano.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEgresoCiudadano.Image = ((System.Drawing.Image)(resources.GetObject("btnEgresoCiudadano.Image")));
             this.btnEgresoCiudadano.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEgresoCiudadano.Location = new System.Drawing.Point(70, 192);
+            this.btnEgresoCiudadano.Location = new System.Drawing.Point(490, 109);
             this.btnEgresoCiudadano.Name = "btnEgresoCiudadano";
             this.btnEgresoCiudadano.Size = new System.Drawing.Size(178, 65);
             this.btnEgresoCiudadano.TabIndex = 15;

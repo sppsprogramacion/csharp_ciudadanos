@@ -178,6 +178,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmSalidaCiudadano";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de Salidas de Ciudadano";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaRegistroDiario)).EndInit();
             this.ResumeLayout(false);

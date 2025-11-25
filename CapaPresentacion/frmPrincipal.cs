@@ -42,7 +42,7 @@ namespace CapaPresentacion
         {
 
             CiudadanoNuevo FCiudadanos = new CiudadanoNuevo();
-            FCiudadanos.Show();
+            FCiudadanos.ShowDialog();
             //CiudadanoNuevo FrmCiudadano = new CiudadanoNuevo();
             //FrmCiudadano.Close();
             //frmNuevo FNuevo = new frmNuevo();
@@ -60,7 +60,7 @@ namespace CapaPresentacion
         private void btnRegistroDiario_Click(object sender, EventArgs e)
         {
             frmRegistroDiario registroDiario = new frmRegistroDiario();
-            registroDiario.Show();
+            registroDiario.ShowDialog();
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -79,13 +79,13 @@ namespace CapaPresentacion
         private void btn_Consultas_Click(object sender, EventArgs e)
         {
             FormularioConsultas consultas = new FormularioConsultas();
-            consultas.Show();
+            consultas.ShowDialog();
         }
 
         private void btnEgresoCiudadano_Click(object sender, EventArgs e)
         {
             frmSalidaCiudadano salidaCiudadano = new frmSalidaCiudadano();
-            salidaCiudadano.Show();
+            salidaCiudadano.ShowDialog();
         }
     }
 }

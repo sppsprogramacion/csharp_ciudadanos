@@ -2177,6 +2177,7 @@ namespace CapaPresentacion
                     Organismo = c.organismo.organismo,
                     Usuario = c.usuario_carga.apellido + " " + c.usuario_carga.nombre,
                     Cumplimentado = c.cumplimentado,
+                    Controlado = c.controlado,
                     Anulado = c.anulado
 
                 })

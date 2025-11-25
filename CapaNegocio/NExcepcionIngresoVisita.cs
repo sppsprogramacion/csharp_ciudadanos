@@ -37,11 +37,11 @@ namespace CapaNegocio
         //FIN LISTA EXCEPCIONES INGRESO POR CIUDADANO..................................
 
         //LISTA EXCEPCIONES INGRESO POR fecha
-        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaExcepcion)
+        public async Task<(List<DExcepcionIngresoVisita>, string error)> ListaExcepcionesIngresoXFecha(string fechaInicio, string fechaFin)
         {
             IExcepcionIngresoVisitaDao excepcionIngresoVisitaDao = new ExcepcionIngresoVisitaDaoImpl();
 
-            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await excepcionIngresoVisitaDao.ListaExcepcionesIngresoXFecha(fechaExcepcion);
+            (List<DExcepcionIngresoVisita> listaExcepcionesIngreso, string errorResponse) = await excepcionIngresoVisitaDao.ListaExcepcionesIngresoXFecha(fechaInicio, fechaFin);
 
 
             return (listaExcepcionesIngreso, errorResponse);
