@@ -924,7 +924,6 @@
             // 
             // cmbDepartamento
             // 
-            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartamento.Enabled = false;
             this.cmbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbDepartamento.FormattingEnabled = true;
@@ -946,7 +945,6 @@
             // 
             // cmbMunicipio
             // 
-            this.cmbMunicipio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMunicipio.Enabled = false;
             this.cmbMunicipio.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbMunicipio.FormattingEnabled = true;

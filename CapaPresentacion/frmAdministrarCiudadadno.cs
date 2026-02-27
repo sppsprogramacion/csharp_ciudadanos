@@ -339,7 +339,6 @@ namespace CapaPresentacion
                 this.btnCancelar.Enabled = true;
                 HabilitarControlesDatosPersonales(true);
                //Habilitar_Controles(true);
-
         }
 
         async void cmbPais_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -412,7 +411,6 @@ namespace CapaPresentacion
 
         private async void btnBuscarInterno_Click(object sender, EventArgs e)
         {
-
             using (frmInternosBuscar formInternos = new frmInternosBuscar())
             {
                 txtIdInterno.Text = "";
@@ -426,11 +424,8 @@ namespace CapaPresentacion
                     txtInternoVincular.Text = formInternos.InternoSeleccionado;
                 }
             }
-
-            
         }
-
-        
+                
         private async void button1_Click(object sender, EventArgs e)
         {//inicio de boton crear parentesco
 
@@ -533,7 +528,6 @@ namespace CapaPresentacion
                     MessageBox.Show(errorResponseVisitaInterno, "Atención al Ciudadano", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-
         }//fin boton crear parentesco
 
         private async void btnGuardarDomicilio_Click(object sender, EventArgs e)
@@ -628,7 +622,7 @@ namespace CapaPresentacion
             cmbDepartamento.DataSource = listaDepartamento;
             cmbDepartamento.Text = this.dCiudadano.departamento.departamento;
 
-            //Carga de combo departamento
+            //Carga de combo municipio
             NMunicipio nMunicipio = new NMunicipio();
             int departamento_identificador = Convert.ToInt32(this.cmbDepartamento.SelectedValue);
             cmbMunicipio.ValueMember = "id_municipio";
@@ -657,7 +651,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Debe seleccionar el ciudadano");
             }
-
             else
             {
                 NCiudadano nCiudadano = new NCiudadano();
@@ -710,8 +703,6 @@ namespace CapaPresentacion
                           
                 }
             }
-
-
         }//fin del boton asignar visitas
 
         private async void btnEstablecerDiscapacidad_Click(object sender, EventArgs e)
